@@ -1,22 +1,34 @@
-/* Privacy Masters · Restyle 1 "Command Center" — design tokens */
+/* Privacy Masters · Restyle 1 "Command Center" — design tokens
+   Palette: solo i colori di data/palettes.json (verde del logo + petrolio del sito + neutri del sito). */
 :root {
-  /* Superfici: scale di petrolio quasi nero, derivate dall'ink #0A2B33 del brand */
-  --c-void: #05161B;        /* sfondo pagina */
-  --c-surface: #0B242B;     /* card, pannelli */
-  --c-surface-2: #10303A;   /* hover, righe evidenziate */
-  --c-line: #1F404A;        /* bordi e griglia */
-  --c-line-soft: rgba(143, 191, 186, 0.10); /* griglia di sfondo */
+  /* Superfici: petrolio #0A2B33 (colore scuro del sito) come fondo unico;
+     pannelli e righe sono velature di bianco sul petrolio, non nuovi colori */
+  --c-void: #0A2B33;                      /* sfondo pagina (petrolio del sito) */
+  --c-void-a85: rgba(10, 43, 51, 0.85);   /* header traslucido */
+  --c-void-a55: rgba(10, 43, 51, 0.55);   /* velo sull'immagine dell'hero */
+  --c-void-a35: rgba(10, 43, 51, 0.35);
+  --c-void-a20: rgba(10, 43, 51, 0.2);
+  --c-surface: rgba(255, 255, 255, 0.045); /* card, pannelli */
+  --c-surface-2: rgba(255, 255, 255, 0.08); /* hover, barre */
+  --c-line: rgba(255, 255, 255, 0.14);    /* bordi */
+  --c-line-strong: rgba(255, 255, 255, 0.24); /* bordi in evidenza, burger */
+  --c-line-soft: rgba(255, 255, 255, 0.05); /* griglia di sfondo */
 
-  /* Testo */
-  --c-text: #E8F3F1;        /* testo principale · 16.29:1 su void */
-  --c-muted: #93AAB0;       /* testo secondario · 7.58:1 su void */
+  /* Testo: bianco e bianco 72% (neutri del sito per fondi scuri) */
+  --c-text: #FFFFFF;                      /* testo principale · 14.93:1 su petrolio */
+  --c-text-soft: rgba(255, 255, 255, 0.86); /* sottotitoli */
+  --c-muted: rgba(255, 255, 255, 0.72);   /* testo secondario */
 
-  /* Segnale: il verde del brand usato come luce, non come fondo di testo bianco */
-  --c-signal: #00C483;      /* CTA, cifre, accenti · 8.11:1 su void */
-  --c-on-signal: #03140F;   /* testo sulla CTA verde · 8.30:1 (prima: bianco 2.28:1) */
-  --c-signal-glow: rgba(0, 196, 131, 0.18);
-  --c-alert: #FFB547;       /* tag di allerta · 10.51:1 su void */
-  --c-paper: #FFFFFF;       /* piastra chiara per il logo originale */
+  /* Segnale: verde del logo. Su petrolio il testo verde usa la variante chiara #13A445 (4.57:1) */
+  --c-brand: #129740;                     /* verde del logo: forme, linee, icone grandi */
+  --c-signal: #13A445;                    /* variante chiara: testo verde, CTA, cifre su petrolio */
+  --c-on-signal: #0A2B33;                 /* testo petrolio sulla CTA verde · 4.57:1 (prima: bianco sul vecchio verde menta 2.28:1) */
+  --c-signal-glow: rgba(19, 164, 69, 0.22); /* alone CTA e punto di stato */
+  --c-signal-tint: rgba(18, 151, 64, 0.14); /* velatura verde dei riquadri in evidenza */
+  --c-paper: #FFFFFF;                     /* piastra chiara per il logo originale */
+
+  /* Ombre: solo nero neutro con trasparenza */
+  --shadow-term: 0 24px 60px rgba(0, 0, 0, 0.28);
 
   /* Tipografia: 2 famiglie Google Fonts (OFL) */
   --font-display: "Space Grotesk", system-ui, sans-serif;  /* titoli e testo */

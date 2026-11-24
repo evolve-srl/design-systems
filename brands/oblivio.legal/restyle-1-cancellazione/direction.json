@@ -2,37 +2,62 @@
   "n": 1,
   "slug": "cancellazione",
   "name": "Cancellazione",
-  "concept": "L'oblio raccontato con la tipografia: allo scroll le parole che fanno male si barrano, vengono oscurate come in un documento redatto e svaniscono, lasciando spazio alla frase che conta. Pagina chiara e silenziosa, con molto bianco: per chi vuole sentire che qualcosa di pesante può davvero sparire, senza toni drammatici.",
+  "concept": "L'oblio raccontato con la tipografia: allo scroll le parole che fanno male si barrano, vengono oscurate come in un documento redatto e restano solo come traccia sbiadita, mentre compare la frase che conta. Pagina bianca e silenziosa, testo in inchiostro e un solo colore forte, il blu del logo; il verde del sito compare solo quando qualcosa è stato rimosso. Per chi vuole sentire che qualcosa di pesante può davvero sparire, senza toni drammatici.",
   "palette": [
     {
-      "name": "Carta",
-      "hex": "#FBFBFA",
-      "role": "sfondo pagina"
+      "name": "Bianco",
+      "hex": "#FFFFFF",
+      "role": "sfondo pagina, documento d'esempio"
     },
     {
       "name": "Inchiostro",
-      "hex": "#0F172A",
-      "role": "testo principale e barra di oscuramento"
+      "hex": "#031222",
+      "role": "testo principale, barra di oscuramento, hover CTA, barra concept (18.86:1 su bianco)"
+    },
+    {
+      "name": "Grigio nota",
+      "hex": "#596571",
+      "role": "testo secondario (5.96:1 su bianco, 5.27:1 su Superficie)"
+    },
+    {
+      "name": "Filetto",
+      "hex": "#DEE5EC",
+      "role": "filetti e bordi"
+    },
+    {
+      "name": "Superficie",
+      "hex": "#EBF2F8",
+      "role": "riquadro normativo, footer, hover righe servizi"
     },
     {
       "name": "Blu Oblivio",
       "hex": "#1D4ED8",
-      "role": "CTA, link, parola chiave (blu del logo)"
+      "role": "colore del logo: CTA, link, parola chiave dell'H1, numeri dei passi (6.70:1)"
     },
     {
-      "name": "Grigio nota",
-      "hex": "#556070",
-      "role": "testo secondario (6.16:1)"
+      "name": "Azzurro",
+      "hex": "#0B94C1",
+      "role": "barra 'In corso' e fine del gradiente (solo grafica)"
     },
     {
-      "name": "Tinta scudo",
-      "hex": "#E8EDFB",
-      "role": "badge e superfici leggere"
+      "name": "Azzurro testo",
+      "hex": "#097EA4",
+      "role": "etichetta 'In corso' su bianco (4.63:1)"
     },
     {
-      "name": "Superficie",
-      "hex": "#F2F4F7",
-      "role": "riquadri normativi, footer"
+      "name": "Verde",
+      "hex": "#00AA6F",
+      "role": "solo stato rimosso/completato: barre 'Completata', fondo badge 'Caso risolto' al 12%"
+    },
+    {
+      "name": "Verde testo",
+      "hex": "#008658",
+      "role": "'Completata' e 'Rimozione completata' su bianco (4.61:1)"
+    },
+    {
+      "name": "Gradiente Oblivio",
+      "hex": "#1D4ED8 → #0B94C1",
+      "role": "135°: frase finale del manifesto (testo grande, min 3.49:1) e filetto della chiusura"
     }
   ],
   "fonts": [
@@ -50,7 +75,8 @@
   "motion": [
     "H1 composto per parola con SplitText (mask sulle parole)",
     "URL d'esempio nell'hero che si barra e poi viene oscurato da una barra nera (scaleX)",
-    "Sezione 'Che cosa togliamo' pinnata per uno schermo: con scrub ogni frase si barra, si oscura e svanisce, poi compare 'Riprendi il controllo della tua identità digitale.'",
+    "Sezione 'Che cosa togliamo' pinnata per uno schermo: con scrub ogni frase si barra, si oscura e resta come traccia barrata al 14%, poi compare 'Riprendi il controllo della tua identità digitale.'",
+    "Fine del manifesto: etichetta verde 'Rimozione completata' e frase finale in gradiente blu→azzurro",
     "Titoli di sezione per righe da maschera (SplitText lines + mask)",
     "Testimonianza principale: le parole emergono con lo scroll (opposto della cancellazione)",
     "Filetti dei 3 passi che si tracciano, contatore 0→100 su '100%' (numero reale)",
@@ -62,17 +88,19 @@
     "striscia garanzie a 4 celle con filetti",
     "manifesto di redazione pinnato",
     "passi numerati 01-03 con filetto",
-    "indice servizi a righe con hover",
+    "indice servizi a righe con hover su Superficie #EBF2F8",
     "numeri + riquadro normativo in mono",
     "testimonianza grande + due secondarie con iniziali",
     "CTA finale tipografica con telefono ed email",
     "footer completo con dati societari"
   ],
   "fixes": [
-    "Due blu diversi (logo #1D4ED8, CTA #0068CB) → un solo blu, #1D4ED8 del brand kit, per logo, CTA e link: testo bianco sulla CTA 5.47 → 6.70:1",
-    "Badge 'Caso risolto' (testo quasi bianco su verde chiaro, circa 1.1:1) → inchiostro #0F172A su tinta #E8EDFB, 15.25:1",
-    "Pulsante flottante verde menta 'Ti richiamiamo' (#62D0A4, fuori palette) eliminato: il telefono è un link in palette nell'header/menu e nella chiusura",
-    "Scudo del logo visualizzato a circa 27px (PNG originale a 56px, senza modifiche): nell'header attuale è di circa 18px, sotto il minimo di 24px indicato dal brand kit",
+    "Due blu diversi (logo #1D4ED8 e un secondo blu sulle CTA, ora vietato) → un solo blu, quello del logo, per CTA e link: testo bianco sulla CTA 5.47 → 6.70:1",
+    "Badge 'Caso risolto' (testo quasi bianco su verde chiaro, circa 1.1:1) → inchiostro #031222 su verde al 12% (≈#E0F5EE), 16.58:1",
+    "Il verde del sito torna con un solo significato: 'Completata' in #008658 (4.61:1 su bianco) e barre #00AA6F; 'In corso' in azzurro #097EA4 (4.63:1)",
+    "Hover CTA prima su un blu fuori palette → inchiostro #031222, bianco sopra 18.86:1",
+    "Pulsante flottante verde menta 'Ti richiamiamo' (#62D0A4, fuori palette) eliminato: il telefono è un link in palette nel menu e nella chiusura",
+    "Scudo del logo visualizzato a circa 27px (PNG originale a 56px, senza modifiche): nell'header attuale è di circa 18px",
     "Tempi di risposta incoerenti nel sito attuale (stat '<24h' e 'entro 48 ore'): si usa solo 'entro 48 ore', da confermare col cliente"
   ],
   "references": [

@@ -4,17 +4,58 @@
   "name": "Rivista d'Altopiano",
   "concept": "La homepage diventa il numero del giorno di una rivista di montagna: copertina con titolo grande, sommario, rubriche e servizi fotografici con didascalie in corsivo. È pensata per chi pianifica una gita e vuole leggere prima di partire. Funziona perché TUTTOALTOPIANO è una guida che si aggiorna ogni giorno, e il formato rivista lo dice senza bisogno di spiegarlo.",
   "palette": [
-    {"name": "Carta", "hex": "#F4F1E8", "role": "fondo pagina"},
-    {"name": "Carta scura", "hex": "#EAE5D6", "role": "fondo del bollettino meteo"},
-    {"name": "Inchiostro", "hex": "#141D16", "role": "testo principale e fondo della rubrica Nando"},
-    {"name": "Muschio", "hex": "#586156", "role": "testo secondario"},
-    {"name": "Verde bosco", "hex": "#1F4D32", "role": "CTA primaria, link, corsivi del titolo"},
-    {"name": "Ocra", "hex": "#CD8643", "role": "CTA su fondo scuro, con testo inchiostro"},
-    {"name": "Ocra scura", "hex": "#8A4F1A", "role": "occhielli e numerali su carta"}
+    {
+      "name": "Crema",
+      "hex": "#FAF9F1",
+      "role": "fondo pagina e testata"
+    },
+    {
+      "name": "Crema scura",
+      "hex": "#EDEBDC",
+      "role": "riquadro del bollettino meteo, fondo foto in caricamento"
+    },
+    {
+      "name": "Bianco",
+      "hex": "#FFFFFF",
+      "role": "hover delle rubriche"
+    },
+    {
+      "name": "Inchiostro",
+      "hex": "#141D16",
+      "role": "testo principale e fondo della rubrica Nando"
+    },
+    {
+      "name": "Testo secondario",
+      "hex": "#586156",
+      "role": "didascalie, sommari, dati"
+    },
+    {
+      "name": "Verde bosco (logo)",
+      "hex": "#1F4D32",
+      "role": "CTA primaria, link, corsivi del titolo, quote dei comuni"
+    },
+    {
+      "name": "Ocra",
+      "hex": "#CD8643",
+      "role": "puntini della banda, CTA su fondo inchiostro con testo inchiostro"
+    },
+    {
+      "name": "Ocra testo su crema",
+      "hex": "#9F632A",
+      "role": "occhielli, numerali, date dell'agenda"
+    }
   ],
   "fonts": [
-    {"family": "Newsreader", "role": "titoli, didascalie grandi in corsivo, quote", "source": "Google Fonts (OFL)"},
-    {"family": "Inter Tight", "role": "testo, interfaccia, occhielli", "source": "Google Fonts (OFL)"}
+    {
+      "family": "Newsreader",
+      "role": "titoli, didascalie grandi in corsivo, quote",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "Inter Tight",
+      "role": "testo, interfaccia, occhielli",
+      "source": "Google Fonts (OFL)"
+    }
   ],
   "motion": [
     "SplitText: i titoli salgono riga per riga dentro una maschera",
@@ -37,16 +78,30 @@
     "griglia itinerari con filetti"
   ],
   "fixes": [
-    "CTA ocra: testo inchiostro #141D16 su ocra #CD8643, contrasto 2.88 → 5.82",
-    "CTA primaria verde bosco con testo carta: 8.58:1",
-    "Occhielli ocra su carta scuriti a #8A4F1A: 5.79:1",
+    "Palette riportata all'originale del sito: crema #FAF9F1 al posto della carta #F4F1E8, ocra testo #9F632A al posto di #8A4F1A; nessun colore fuori da data/palettes.json (palette-audit: OK)",
+    "CTA ocra: testo inchiostro #141D16 su ocra #CD8643, contrasto 2.88 (testo #FEFCF4 su ocra, sito attuale) → 5.82",
+    "CTA primaria verde bosco con testo crema: 9.18:1",
+    "Occhielli ocra #9F632A su crema: 4.63:1; nel bollettino su crema scura l'occhiello passa al verde bosco (8.09:1) perché l'ocra testo lì scende a 4.08",
+    "Testo secondario su inchiostro: crema al 72% (8.94:1) al posto del grigio #B9B5A6",
     "Nessun badge 'Edit with Lovable'",
     "Un solo H1, focus visibile, skip link, menu mobile con aria-expanded"
   ],
   "references": [
-    {"label": "AFAR, rivista di viaggio: impaginazione editoriale guidata dalle foto", "url": "https://www.afar.com/"},
-    {"label": "Condé Nast Traveler: titoli serif grandi e didascalie", "url": "https://www.cntraveler.com/"},
-    {"label": "Patagonia Stories: racconti outdoor con foto a tutta larghezza", "url": "https://www.patagonia.com/stories/"},
-    {"label": "High Mountains (Awwwards, nominee): le Alpi italiane raccontate per immagini", "url": "https://www.awwwards.com/sites/high-mountains"}
+    {
+      "label": "AFAR, rivista di viaggio: impaginazione editoriale guidata dalle foto",
+      "url": "https://www.afar.com/"
+    },
+    {
+      "label": "Condé Nast Traveler: titoli serif grandi e didascalie",
+      "url": "https://www.cntraveler.com/"
+    },
+    {
+      "label": "Patagonia Stories: racconti outdoor con foto a tutta larghezza",
+      "url": "https://www.patagonia.com/stories/"
+    },
+    {
+      "label": "High Mountains (Awwwards, nominee): le Alpi italiane raccontate per immagini",
+      "url": "https://www.awwwards.com/sites/high-mountains"
+    }
   ]
 }

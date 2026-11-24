@@ -1,31 +1,39 @@
-/* Evolve — Restyle 3 "Partner del territorio": design tokens */
+/* Evolve — Restyle 3 "Partner del territorio": design tokens
+   Palette: solo colori di data/palettes.json per bevolve.it. Il logo è un wordmark monocromatico,
+   quindi il colore di brand è la famiglia navy del sito. Il calore viene da serif, testi e impaginazione,
+   non dal colore: superfici bianche e grigio chiaro, navy come colore forte, gradiente usato una volta sola. */
 :root {
-  /* Colori — superfici calde: carta, crema, sabbia */
-  --c-cream: #F6F1E8;        /* fondo pagina */
-  --c-paper: #FFFDF8;        /* card */
-  --c-sand: #EADFCC;         /* card alternate, footer */
-  --c-sky: #DCE4F5;          /* tinta fredda di contrappunto, dal navy */
+  /* Colori — superfici (neutri del sito) */
+  --c-page: #FFFFFF;          /* fondo pagina, card */
+  --c-white: #FFFFFF;
+  --c-soft: #F5F5F5;          /* fasce alternate, statistiche, fasi */
+  --c-soft-2: #F2F2F2;        /* footer */
 
-  /* Colori — testo */
-  --c-ink: #1B1A17;          /* 15.5:1 su crema */
-  --c-muted: #5E574C;        /* 6.3:1 su crema, 5.4:1 su sabbia */
+  /* Colori — testo (neutri del sito): ink 19.68:1 su bianco, muted 7.46:1 su bianco e 6.84:1 su #F5F5F5 */
+  --c-ink: #0B0B0B;
+  --c-muted: #555555;
 
-  /* Colori — brand: il navy storico diventa il colore pieno delle azioni */
-  --c-navy: #11338A;         /* crema su navy 10.0:1 */
-  --c-navy-deep: #0B2466;    /* hover */
-  --c-on-navy: #F6F1E8;
-  --c-on-navy-muted: #C8D4F5; /* 7.6:1 su navy */
+  /* Colori — brand: navy del sito (bottoni e link del sito attuale), il colore forte delle azioni */
+  --c-navy: #11338A;          /* bianco su navy 11.26:1 */
+  --c-navy-hover: #0F1F4D;    /* night, dal gradiente del sito: hover (bianco 15.87:1) */
+  --c-on-navy: #FFFFFF;
+  --c-on-navy-muted: rgba(255, 255, 255, 0.85);  /* on-dark-muted del sito: 8.56:1 su navy */
+  --c-navy-tint: rgba(17, 51, 138, 0.06);        /* velatura navy per card di contrappunto */
 
-  /* Colori — accento caldo (terracotta), per corsivi, numeri e segni */
-  --c-terra: #B8462A;        /* 4.73:1 su crema, 5.2:1 su carta */
-  --c-terra-deep: #9A3820;   /* testo piccolo su sabbia (5.4:1) e cielo (5.6:1) */
-  --c-terra-light: #F2B9A6;  /* segni e etichette su navy */
-  --c-muted-deep: #4F493F;   /* testo secondario su sabbia (footer) */
-  --c-bar-text: #D9D2C5;     /* barra restyle su ink */
+  /* Colori — blue del gradiente del sito: corsivi, numeri ed etichette su chiaro (5.96:1 su bianco, 5.46:1 su #F5F5F5) */
+  --c-blue: #3B5BC9;
+  /* Colori — blue-light (variante AA della palette): solo segni decorativi su navy */
+  --c-blue-light: #6D85D7;
 
-  /* Colori — bordi */
-  --c-line: rgba(27, 26, 23, 0.12);
-  --c-line-on-navy: rgba(246, 241, 232, 0.22);
+  /* Colori — gradiente firma del sito, usato una sola volta: il riquadro "Rovigo" della hero */
+  --g-signature: linear-gradient(135deg, #3B5BC9 0%, #1E3A8A 50%, #0F1F4D 100%);
+
+  /* Colori — bordi (ink e bianco in trasparenza) */
+  --c-line: rgba(11, 11, 11, 0.12);
+  --c-line-strong: rgba(11, 11, 11, 0.28);
+  --c-line-on-navy: rgba(255, 255, 255, 0.22);
+  --c-on-navy-fill: rgba(255, 255, 255, 0.1);  /* fondi di icone, tag e box su navy */
+  --c-ink-fill: rgba(11, 11, 11, 0.06);        /* fondo dei tag su chiaro */
 
   /* Tipografia — famiglie: Fraunces per i titoli (tono umano), Inter per il testo (continuità col sito attuale) */
   --f-serif: "Fraunces", Georgia, "Times New Roman", serif;
@@ -33,6 +41,7 @@
 
   /* Tipografia — scala */
   --t-hero: clamp(2.25rem, 1.3rem + 3.4vw, 4.5rem);
+  --t-place: clamp(3.5rem, 2rem + 6vw, 7.5rem);
   --t-xxl: clamp(2rem, 1.3rem + 2.8vw, 3.75rem);
   --t-xl: clamp(1.5rem, 1.2rem + 1.1vw, 2.125rem);
   --t-l: clamp(1.125rem, 1rem + 0.45vw, 1.3125rem);
@@ -71,15 +80,16 @@
   --r-l: 28px;
   --r-pill: 999px;
 
-  /* Ombre — calde e basse */
-  --sh-card: 0 1px 0 rgba(27, 26, 23, 0.04), 0 12px 30px -18px rgba(60, 40, 20, 0.35);
+  /* Ombre — solo nero neutro, basse */
+  --sh-card: 0 1px 0 rgba(0, 0, 0, 0.04), 0 14px 32px -18px rgba(0, 0, 0, 0.28);
 
   /* Movimento */
   --e-out: cubic-bezier(0.22, 1, 0.36, 1);
   --d-fast: 160ms;
   --d-base: 420ms;
 
-  /* Focus */
-  --focus: 0 0 0 3px #F6F1E8, 0 0 0 5px #11338A;
+  /* Focus — outline navy staccato dall'elemento (bianco su superfici navy) */
+  --focus-color: #11338A;
+  --focus-color-on-navy: #FFFFFF;
 }
 @media (min-width: 768px) { :root { --gutter: 32px; } }

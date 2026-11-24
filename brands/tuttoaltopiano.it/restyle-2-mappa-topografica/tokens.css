@@ -1,19 +1,32 @@
 /* TUTTOALTOPIANO · Restyle 2 "Carta dei sentieri" · design tokens */
 :root {
-  /* Colori: carta topografica, inchiostro, curve di livello, bosco, segnavia rosso-bianco-rosso */
-  --c-paper: #EFE8D6;        /* fondo carta */
-  --c-paper-2: #E6DCC3;      /* riquadri, cartiglio, legenda */
-  --c-ink: #1E1A14;          /* testo principale (14.2:1 su carta) */
-  --c-muted: #5E574A;        /* testo secondario (5.9:1 su carta) */
-  --c-earth: #7A5230;        /* etichette e quote in testo (5.6:1 su carta) */
-  --c-contour: #9A6B3F;      /* curve di livello: solo grafica, mai testo */
-  --c-forest: #1F4D32;       /* bosco: fondi scuri e simboli */
-  --c-forest-text: #EFE8D6;  /* testo su bosco (7.9:1) */
-  --c-forest-muted: #C9BFA6; /* testo secondario su bosco (5.3:1) */
-  --c-red: #B3261E;          /* segnavia: CTA primaria (bianco su rosso 6.5:1), tracciati */
-  --c-white: #FFFFFF;        /* banda bianca del segnavia */
-  --c-night: #1E1A14;        /* footer */
-  --c-night-muted: #B8AE97;  /* testo secondario su footer (7.9:1) */
+  /* Colori: palette originale di tuttoaltopiano.it (data/palettes.json). La carta e' crema, la cartografia
+     e' disegnata solo con verde bosco e ocra, pieni o in trasparenza. Nessun marrone, nessun rosso. */
+  /* Brand, dal logo e dal sito */
+  --c-forest: #1F4D32;       /* verde bosco del logo: CTA, simboli, fondi scuri (crema su bosco 9.18:1) */
+  --c-ochre: #CD8643;        /* ocra del sito: il sentiero, i waypoint, le barre del calendario (solo grafica o con testo inchiostro 5.82:1) */
+  /* Varianti AA dell'ocra, solo per testo */
+  --c-ochre-text: #9F632A;   /* etichette e quote su crema #FAF9F1 (4.63:1) */
+  --c-ochre-text-white: #A4662C; /* quote sul foglio bianco del profilo (4.65:1) */
+  /* Neutri del sito */
+  --c-paper: #FAF9F1;        /* crema: fondo carta */
+  --c-paper-2: #EDEBDC;      /* crema scura: fascia "tre idee" */
+  --c-white: #FFFFFF;        /* bianco: foglio del profilo altimetrico, banda del segnavia */
+  --c-ink: #141D16;          /* testo principale (16.3:1 su crema) */
+  --c-muted: #586156;        /* testo secondario (6.10:1 su crema) */
+  /* Cartografia: trasparenze dei colori brand */
+  --c-contour: rgba(31, 77, 50, 0.30);      /* curve di livello: bosco al 30% */
+  --c-contour-idx: rgba(31, 77, 50, 0.55);  /* curve direttrici: bosco al 55% */
+  --c-hatch: rgba(31, 77, 50, 0.28);        /* tratteggio dell'area sotto il profilo */
+  --c-grid: rgba(20, 29, 22, 0.16);         /* reticolo: inchiostro al 16% */
+  /* Su fondo scuro */
+  --c-forest-text: #FAF9F1;  /* testo su bosco (9.18:1) */
+  --c-forest-muted: rgba(250, 249, 241, 0.78); /* testo secondario su bosco: crema al 78% (6.3:1) */
+  --c-night: #141D16;        /* footer: inchiostro */
+  --c-night-muted: rgba(250, 249, 241, 0.7);   /* testo secondario su inchiostro (8.5:1) */
+  --c-night-rule: rgba(250, 249, 241, 0.25);  /* filetti su inchiostro */
+  /* Ombre: solo nero in trasparenza */
+  --shadow-hard: 4px 4px 0 rgba(0, 0, 0, 0.85);
 
   /* Tipografia: Archivo (asse di larghezza: condensato per i titoli), IBM Plex Mono per dati e quote */
   --f-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
@@ -38,7 +51,7 @@
   /* Forme: tratti da carta, bordi netti, cornici doppie */
   --radius: 2px;
   --line: 1px solid var(--c-ink);
-  --line-soft: 1px solid rgba(30, 26, 20, 0.2);
+  --line-soft: 1px solid rgba(20, 29, 22, 0.2);
   --dash: 6 6;               /* tratteggio dei sentieri */
 
   /* Movimento */

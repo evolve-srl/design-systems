@@ -2,42 +2,67 @@
   "n": 3,
   "slug": "percorso-guidato",
   "name": "Percorso guidato",
-  "concept": "Rassicurante ed empatica: si parte dalla domanda che la persona ha in testa e la si accompagna un passo alla volta. Il processo in tre passi è una sezione che si ferma per uno schermo e mostra cosa succede a ogni passo; subito dopo ci sono le domande frequenti. Toni morbidi, angoli arrotondati, linguaggio umano: per chi arriva preoccupato e ha bisogno di capire prima di decidere.",
+  "concept": "Rassicurante ed empatica: si parte dalla domanda che la persona ha in testa e la si accompagna un passo alla volta. Il processo in tre passi si ferma per uno schermo e segna l'avanzamento con i colori del sito: azzurro per il passo in corso, verde quando è completato. Pagina morbida sull'azzurro chiaro del sito con card bianche, angoli arrotondati e linguaggio umano; il gradiente blu→azzurro del sito è l'unico grande campo colore, nella chiusura. Per chi arriva preoccupato e ha bisogno di capire prima di decidere.",
   "palette": [
     {
-      "name": "Sabbia",
-      "hex": "#F7F5F0",
-      "role": "sfondo pagina"
+      "name": "Soft",
+      "hex": "#EBF2F8",
+      "role": "sfondo pagina, superfici dentro le card"
     },
     {
       "name": "Bianco",
       "hex": "#FFFFFF",
-      "role": "card e pannelli"
+      "role": "card, pannelli, sezione FAQ, footer, testo sul gradiente"
     },
     {
-      "name": "Nebbia",
-      "hex": "#EEF3FA",
-      "role": "sezioni alternate, footer"
+      "name": "Tint",
+      "hex": "#DBF1FF",
+      "role": "chip, cerchi icone, passo corrente nel riquadro hero, binario della barra di avanzamento"
     },
     {
-      "name": "Cielo",
-      "hex": "#DCE7FB",
-      "role": "chip, icone, passo attivo (tinta dello scudo)"
+      "name": "Filetto",
+      "hex": "#DEE5EC",
+      "role": "bordi sottili"
     },
     {
       "name": "Inchiostro",
-      "hex": "#14213D",
-      "role": "testo principale (14.7:1)"
+      "hex": "#031222",
+      "role": "testo principale (16.69:1 su Soft), hover CTA, barra concept"
+    },
+    {
+      "name": "Grigio nota",
+      "hex": "#596571",
+      "role": "testo secondario (5.27:1 su Soft, 5.96:1 su bianco, 5.12:1 su Tint)"
     },
     {
       "name": "Blu Oblivio",
       "hex": "#1D4ED8",
-      "role": "CTA, numeri dei passi, link"
+      "role": "colore del logo: CTA, numeri dei passi, link, passo attivo"
     },
     {
-      "name": "Grigio caldo",
-      "hex": "#4A5568",
-      "role": "testo secondario (6.91:1)"
+      "name": "Azzurro",
+      "hex": "#0B94C1",
+      "role": "barra di avanzamento, anello del passo attivo, barra 'In corso'"
+    },
+    {
+      "name": "Azzurro testo",
+      "hex": "#097EA4",
+      "role": "etichetta 'In corso' su bianco (4.63:1)"
+    },
+    {
+      "name": "Verde",
+      "hex": "#00AA6F",
+      "role": "solo passi completati e contenuti rimossi: barre 'Completata', fondo al 14% del passo fatto e del badge 'Caso risolto'"
+    },
+    {
+      "name": "Verde testo",
+      "hex": "#008658",
+      "role": "'Completata' e spunta dei passi fatti (4.61:1 su bianco)"
+    },
+    {
+      "name": "Gradiente Oblivio",
+      "hex": "#1D4ED8 → #0B94C1",
+      "role": "135°: pannello di chiusura; testo bianco tenuto nella metà blu (minimo misurato 4.62:1 sul paragrafo, 5.01:1 sul titolo, da 360 a 1440px)"
     }
   ],
   "fonts": [
@@ -54,8 +79,8 @@
   ],
   "motion": [
     "H1 che entra per parola (SplitText words) e i tre passi del riquadro hero che arrivano uno alla volta",
-    "Sezione 'Come funziona' pinnata per uno schermo su desktop: barra di avanzamento verticale (scaleY), passo attivo evidenziato e pannello illustrativo che cambia (autoAlpha + y)",
-    "Su mobile nessun pin: passi e pannelli in colonna con reveal morbido",
+    "Sezione 'Come funziona' pinnata per uno schermo su desktop: barra di avanzamento azzurra (scaleY), passo attivo blu con anello azzurro ed etichetta 'In corso', passi superati con spunta verde ed etichetta 'Completata', pannello illustrativo che cambia (autoAlpha + y)",
+    "Su mobile nessun pin: passi e pannelli in colonna con reveal morbido, e gli stessi stati (in corso → completata) segnati mentre si scorre",
     "Card servizi e testimonianze in ingresso a cascata (ScrollTrigger.batch)",
     "Icona + che ruota a × nelle FAQ, CTA che si solleva di 1px"
   ],
@@ -64,18 +89,20 @@
     "hero con domanda in corsivo, H1 'Riprendi il controllo della tua identità digitale.' e chip di rassicurazione",
     "riquadro 'Il tuo percorso, in tre passi' (nascosto sotto 560px)",
     "garanzie in 4 card con icone",
-    "percorso pinnato con pannelli: chat/form, avvocati + informatici, caso d'esempio",
+    "percorso pinnato con stati in corso/completata e pannelli: chat/form, avvocati + informatici, caso d'esempio",
     "FAQ in evidenza con details/summary nativi e contatto diretto",
     "4 card servizi",
     "3 testimonianze in corsivo con iniziali",
     "riquadro tutele con numeri e normative",
-    "CTA finale su pannello blu"
+    "CTA finale su pannello in gradiente blu→azzurro con le azioni in una card bianca"
   ],
   "fixes": [
-    "Due blu diversi (logo #1D4ED8, CTA #0068CB) → un solo blu, #1D4ED8 del brand kit, per logo, CTA e link: testo bianco sulla CTA 5.47 → 6.70:1",
-    "Badge 'Caso risolto' (circa 1.1:1) → inchiostro #14213D su cielo #DCE7FB, 12.83:1",
+    "Due blu diversi (logo #1D4ED8 e un secondo blu sulle CTA, ora vietato) → un solo blu, quello del logo, per CTA e link: testo bianco sulla CTA 5.47 → 6.70:1",
+    "Badge 'Caso risolto' (circa 1.1:1) → inchiostro #031222 su verde al 14% (≈#DBF3EB), 16.34:1, icona in verde testo #008658",
+    "Il verde del sito torna con un solo significato, 'fatto': 'Completata' in #008658 (4.61:1 su bianco); 'In corso' in azzurro #097EA4 (4.63:1)",
+    "Hover CTA su inchiostro #031222, bianco sopra 18.86:1",
     "Pulsante flottante verde menta 'Ti richiamiamo' (#62D0A4, fuori palette) eliminato: il telefono è un link in palette nell'header/menu e nella chiusura",
-    "Scudo del logo visualizzato a circa 27px (PNG originale a 56px, senza modifiche): nell'header attuale è di circa 18px, sotto il minimo di 24px indicato dal brand kit",
+    "Scudo del logo visualizzato a circa 27px (PNG originale a 56px, senza modifiche): nell'header attuale è di circa 18px",
     "Le risposte delle FAQ sono composte solo con frasi e dati già presenti nella homepage attuale",
     "Tempi di risposta incoerenti nel sito attuale (stat '<24h' e 'entro 48 ore'): si usa solo 'entro 48 ore', da confermare col cliente"
   ],

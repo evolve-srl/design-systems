@@ -2,24 +2,80 @@
   "n": 1,
   "slug": "calore-di-casa",
   "name": "Calore di casa",
-  "concept": "La casa e le persone al centro, non la tecnologia. Toni carta e sabbia, titoli in un serif umanista e grandi frasi che si accendono piano: parla alle famiglie con la calma di una lettera, e lascia al radar il ruolo discreto che ha davvero. La finestra ad arco è il motivo che richiama la stanza di casa.",
+  "concept": "La casa e le persone al centro, non la tecnologia. Il blu petrolio del sito diventa una voce calma e familiare su superfici chiare e morbide, con titoli in un serif umanista e grandi frasi che si accendono piano: parla alle famiglie con la calma di una lettera. Il calore arriva dalla foto della stanza, dalle forme arrotondate e dal tono dei testi; il ciano del logo resta la luce discreta del sensore e il magenta solo il piccolo cuore. La finestra ad arco richiama la stanza di casa.",
   "palette": [
-    {"name": "Latte", "hex": "#FBF6EE", "role": "sfondo pagina"},
-    {"name": "Sabbia", "hex": "#F3E9DA", "role": "superfici, card, sezioni alternate"},
-    {"name": "Notte calda", "hex": "#1E2B33", "role": "testo principale e sezioni scure (13.47:1 su Latte)"},
-    {"name": "Legno", "hex": "#5A4A3F", "role": "testo secondario (7.85:1 su Latte)"},
-    {"name": "Terracotta", "hex": "#9C3D1C", "role": "CTA primaria, accento dei titoli (bianco su Terracotta 6.78:1)"},
-    {"name": "Albicocca", "hex": "#E8A87C", "role": "luce calda decorativa, mai testo su chiaro"},
-    {"name": "Salvia", "hex": "#4F6B58", "role": "occhielli e icone (5.46:1 su Latte)"}
+    {
+      "name": "Page",
+      "hex": "#ECF5F8",
+      "role": "sfondo pagina (neutro del sito)"
+    },
+    {
+      "name": "Bianco",
+      "hex": "#FFFFFF",
+      "role": "pannelli arrotondati, card, campi form, testo su petrolio"
+    },
+    {
+      "name": "Line",
+      "hex": "#D7E4E9",
+      "role": "bordi e separatori"
+    },
+    {
+      "name": "Ink",
+      "hex": "#0D2131",
+      "role": "testo principale e titoli (16.42:1 su bianco, 14.84:1 su Page)"
+    },
+    {
+      "name": "Muted",
+      "hex": "#4C5D6A",
+      "role": "testo secondario (6.82:1 su bianco, 6.16:1 su Page)"
+    },
+    {
+      "name": "Petrolio",
+      "hex": "#00558B",
+      "role": "colore principale: CTA, link, corsivi dei titoli (bianco su Petrolio 7.86:1)"
+    },
+    {
+      "name": "Notte",
+      "hex": "#002946",
+      "role": "sezione soluzione, contatti, footer, hover delle CTA"
+    },
+    {
+      "name": "Teal",
+      "hex": "#007373",
+      "role": "secondario: occhielli e icone (5.68:1 su bianco)"
+    },
+    {
+      "name": "On-dark",
+      "hex": "#EEF7FA",
+      "role": "testo su Notte (pieno e all'80% per il secondario)"
+    },
+    {
+      "name": "Ciano logo",
+      "hex": "#01AEEF",
+      "role": "luce del sensore: alone dietro la finestra e nella sezione notte (in trasparenza), occhielli e corsivi su Notte (5.91:1)"
+    },
+    {
+      "name": "Magenta logo",
+      "hex": "#ED0F63",
+      "role": "solo l'icona del cuore nella nota dell'hero"
+    }
   ],
   "fonts": [
-    {"family": "Fraunces", "role": "titoli, citazioni grandi, numeri", "source": "Google Fonts (OFL)"},
-    {"family": "Figtree", "role": "testo, interfaccia, form", "source": "Google Fonts (OFL)"}
+    {
+      "family": "Fraunces",
+      "role": "titoli, citazioni grandi, numeri",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "Figtree",
+      "role": "testo, interfaccia, form",
+      "source": "Google Fonts (OFL)"
+    }
   ],
   "motion": [
     "H1 che si compone parola per parola con SplitText a maschera, lento (1.4s, stagger 0.07)",
     "citazioni grandi che si accendono parola per parola (da opacità 0.15 a 1) quando entrano nello schermo",
-    "luce calda dietro la finestra ad arco che respira (opacità e scala, ciclo di 4s)",
+    "alone ciano (la luce del sensore) dietro la finestra ad arco che respira piano (opacità e scala, ciclo di 4s)",
     "sezioni e card che salgono morbide con ScrollTrigger.batch",
     "linee tra i tre passi che si disegnano con scaleX",
     "parallax leggero sulla foto del sensore",
@@ -27,25 +83,36 @@
   ],
   "components": [
     "header con logo originale ritagliato sull'area utile, senza nome duplicato",
-    "hero a due colonne con finestra ad arco e nota 'nessuna telecamera · nulla da indossare · giorno e notte'",
+    "hero a due colonne su fondo chiaro morbido con finestra ad arco e nota 'nessuna telecamera · nulla da indossare · giorno e notte'",
+    "pannelli bianchi a grandi raggi su fondo #ECF5F8 al posto delle sezioni squadrate",
     "disclaimer 'un ausilio, non un sostituto' in evidenza sotto le CTA",
     "citazioni grandi in serif come separatori di capitolo",
     "dati del contesto in righe editoriali con fonte linkata sotto ogni numero",
-    "sezione notturna per la soluzione, sensore su disco sabbia",
+    "sezione notte per la soluzione, sensore in un cerchio con la luce ciano del radar alle spalle",
     "tre passi numerati, card 'per chi', calcolatore dei costi funzionante",
     "FAQ con details nativi (risposte ricavate solo dai testi esistenti)",
     "contatti su fondo scuro con form e dati aziendali"
   ],
   "fixes": [
     "il nome non è più ripetuto: nel header c'è solo il logo originale (che contiene già 'MediCleo'), senza la scritta 'Medicleo' accanto",
-    "CTA primaria: bianco su Terracotta 6.78:1 (attuale bianco su #00558B 7.86:1, mantenuto il livello AA/AAA)",
-    "testo secondario a 7.85:1 invece del grigio #4C5D6A su #ECF5F8 (6.16:1)",
-    "il disclaimer sanitario non è più testo piccolo sopra la foto: sta in un riquadro leggibile",
+    "CTA primaria nel petrolio del sito: bianco su #00558B 7.86:1, hover su Notte #002946 14.94:1",
+    "testo secondario #4C5D6A: 6.16:1 sullo sfondo #ECF5F8, 6.82:1 sui pannelli bianchi; su Notte testo #EEF7FA all'80% 9.23:1",
+    "il ciano del logo non è mai usato come testo su chiaro: occhielli e corsivi in ciano solo su Notte (5.91:1), su chiaro gli occhielli sono teal (5.13:1 su #ECF5F8)",
+    "il disclaimer sanitario non è più testo piccolo sopra la foto: sta in un riquadro bianco leggibile (#4C5D6A su bianco 6.82:1)",
     "le fonti diventano link brevi sotto ogni numero, non righe ripetute due volte"
   ],
   "references": [
-    {"label": "Birdie, home care: tono caldo e centrato sulle persone", "url": "https://www.birdie.care/"},
-    {"label": "Nobi, tecnologia per anziani 'supported, not watched'", "url": "https://www.nobi.life/"},
-    {"label": "Awwwards, categoria Health", "url": "https://www.awwwards.com/websites/health/"}
+    {
+      "label": "Birdie, home care: tono caldo e centrato sulle persone",
+      "url": "https://www.birdie.care/"
+    },
+    {
+      "label": "Nobi, tecnologia per anziani 'supported, not watched'",
+      "url": "https://www.nobi.life/"
+    },
+    {
+      "label": "Awwwards, categoria Health",
+      "url": "https://www.awwwards.com/websites/health/"
+    }
   ]
 }

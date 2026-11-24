@@ -1,27 +1,37 @@
 /* Medicleo · Restyle 1 · Calore di casa
-   Design system: SOLO variabili. Chiaro e caldo, serif umanista per i titoli. */
+   Design system: SOLO variabili. Palette originale del sito (blu petrolio, notte, teal e neutri),
+   accenti del logo (ciano e magenta) usati con parsimonia. Il calore arriva da foto, forme morbide,
+   serif umanista e superfici chiare, non da colori caldi. */
 :root {
-  /* Colori · superfici calde (carta, sabbia) */
-  --c-latte: #FBF6EE;        /* sfondo pagina */
-  --c-sabbia: #F3E9DA;       /* superfici, card, sezioni alternate */
-  --c-pane: #EADBC4;         /* bordi caldi, separatori */
-  --c-bianco: #FFFFFF;       /* campi form, card in rilievo */
+  /* Colori · superfici (neutri del sito medicleo.com) */
+  --c-page: #ECF5F8;         /* sito: sfondo pagina, chiaro e morbido */
+  --c-surface: #FFFFFF;      /* sito: pannelli in rilievo, card, campi form */
+  --c-line: #D7E4E9;         /* sito: bordi e separatori */
+  --c-white: #FFFFFF;        /* sito: testo su colore pieno */
 
-  /* Colori · testo */
-  --c-ink: #1E2B33;          /* testo principale e titoli: 13.47:1 su latte */
-  --c-legno: #5A4A3F;        /* testo secondario: 7.85:1 su latte, 7.03:1 su sabbia */
+  /* Colori · testo (neutri del sito) */
+  --c-ink: #0D2131;          /* sito: testo principale e titoli (16.42:1 su bianco, 14.84:1 su page) */
+  --c-muted: #4C5D6A;        /* sito: testo secondario (6.82:1 su bianco, 6.16:1 su page) */
 
-  /* Colori · azione e accenti */
-  --c-terracotta: #9C3D1C;   /* CTA primaria: bianco su terracotta 6.78:1 */
-  --c-terracotta-scura: #85331A; /* hover CTA e link: 7.85:1 su latte */
-  --c-albicocca: #E8A87C;    /* luce calda decorativa (mai testo su chiaro) */
-  --c-salvia: #4F6B58;       /* icone e dettagli: 5.46:1 su latte */
+  /* Colori · brand e azione (sito) */
+  --c-petrol: #00558B;       /* sito: CTA, link, accento dei titoli (7.86:1 su bianco, 7.10:1 su page) */
+  --c-night: #002946;        /* sito: sezioni scure, hover delle CTA */
+  --c-teal: #007373;         /* sito: occhielli e icone (5.68:1 su bianco, 5.13:1 su page) */
 
-  /* Colori · sezione notturna */
-  --c-notte: #1E2B33;        /* sfondo sezioni scure */
-  --c-notte-testo: #FBF6EE;  /* testo su notte 13.47:1 */
-  --c-notte-muted: #D9CBB8;  /* testo secondario su notte 9.10:1 */
-  --c-notte-accento: #F2C3A0;/* accento su notte 9.04:1 */
+  /* Colori · accenti del logo, a piccole dosi */
+  --c-cyan: #01AEEF;         /* logo: luce del sensore, accenti su notte (testo solo su notte: 5.91:1) */
+  --c-magenta: #ED0F63;      /* logo: il cuore, solo come piccolo segno grafico (icona) */
+
+  /* Colori · su fondo notte */
+  --c-on-dark: #EEF7FA;                      /* sito: testo su notte (13.74:1) */
+  --c-on-dark-muted: rgba(238,247,250,.8);   /* on-dark all'80%: testo secondario su notte (9.23:1) */
+  --c-on-dark-line: rgba(238,247,250,.16);   /* on-dark al 16%: separatori su notte */
+
+  /* Colori · trasparenze di colori ammessi */
+  --c-header: rgba(236,245,248,.92);         /* page al 92% per l'header sfocato */
+  --c-glow: rgba(1,174,239,.22);             /* ciano del logo: alone dietro la finestra */
+  --c-glow-night: rgba(1,174,239,.16);     /* ciano al 16%: luce del sensore nella sezione notte */
+  --c-glow-0: rgba(1,174,239,0);
 
   /* Tipografia · famiglie */
   --f-titoli: "Fraunces", Georgia, "Times New Roman", serif;
@@ -44,13 +54,13 @@
   --sezione: clamp(72px, 10vw, 140px);
   --gap: clamp(20px, 3vw, 40px);
 
-  /* Forme */
+  /* Forme: tutto arrotondato, come oggetti di casa */
   --r-card: 28px;
   --r-pill: 999px;
   --r-arco: 999px 999px 32px 32px; /* finestra ad arco: motivo "casa" */
 
-  /* Ombre morbide */
-  --ombra: 0 18px 40px -24px rgba(60, 40, 20, .35);
+  /* Ombre morbide: solo nero con trasparenza */
+  --ombra: 0 22px 48px -28px rgba(0, 0, 0, .28);
 
   /* Movimento: lento e morbido */
   --m-durata: 1.3s;

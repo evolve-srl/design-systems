@@ -1,0 +1,84 @@
+{
+  "_rules": [
+    "Each site uses ONLY the colours listed here: the original palette of the live site, anchored on the logo.",
+    "'base' colours are the brand. 'variants' are the same hue made darker or lighter only to pass WCAG AA; use them where the base colour would not be readable, never as new brand colours.",
+    "Neutrals (backgrounds, text, lines) also come from the live site. Pure white and the listed tints are the only light backgrounds.",
+    "'forbidden' lists colours that earlier concepts introduced and that must not come back.",
+    "Contrast values are WCAG 2.1 ratios measured on 24/11/2026."
+  ],
+  "privacymasters.it": {
+    "logo": ["#129740"],
+    "base": {
+      "green": {"hex": "#129740", "from": "logo", "use": "brand colour: fills, icons, large text (>=24px) on white (3.80), shapes on petrol (3.93)"},
+      "petrol": {"hex": "#0A2B33", "from": "site", "use": "dark backgrounds, headings, main text (14.93 on white)"}
+    },
+    "variants": {
+      "green-strong": {"hex": "#0F8036", "use": "buttons with white text and green links on white (5.05)"},
+      "green-light": {"hex": "#13A445", "use": "green text on petrol backgrounds (4.57)"}
+    },
+    "neutrals": {"white": "#FFFFFF", "soft": "#F5F9FA", "text-muted": "#55666F", "line": "#D8DFE3", "on-dark-muted": "rgba(255,255,255,.72)"},
+    "forbidden": ["#00C483 (site mint: replaced by the logo green)", "#FFB547 amber", "any other warning/alert hue"]
+  },
+  "bevolve.it": {
+    "logo": ["monochrome (black/white wordmark)"],
+    "base": {
+      "navy": {"hex": "#11338A", "from": "site", "use": "brand colour: buttons, links, accents (11.26 on white)"},
+      "blue": {"hex": "#3B5BC9", "from": "site gradient", "use": "secondary accent, text allowed on white (5.96)"},
+      "deep": {"hex": "#1E3A8A", "from": "site gradient", "use": "dark accent"},
+      "night": {"hex": "#0F1F4D", "from": "site gradient", "use": "dark backgrounds"},
+      "slate": {"hex": "#0F172A", "from": "site theme-color", "use": "darkest background"}
+    },
+    "gradient": "linear-gradient(135deg, #3B5BC9 0%, #1E3A8A 50%, #0F1F4D 100%)",
+    "variants": {
+      "blue-light": {"hex": "#6D85D7", "use": "blue text on night #0F1F4D (4.52) and on slate #0F172A"}
+    },
+    "neutrals": {"white": "#FFFFFF", "soft": "#F5F5F5", "soft-2": "#F2F2F2", "ink": "#0B0B0B", "text-muted": "#555555", "line": "#DEDEDE", "on-dark-muted": "rgba(255,255,255,.85)"},
+    "forbidden": ["#1640D9 electric blue", "#6E9BFF", "#B8462A terracotta", "cream/sand backgrounds (#F6F1E8, #EADFCC)"]
+  },
+  "tuttoaltopiano.it": {
+    "logo": ["#1F4D32"],
+    "base": {
+      "forest": {"hex": "#1F4D32", "from": "logo + site", "use": "brand colour: headers, buttons, dark sections (9.70 on white)"},
+      "ochre": {"hex": "#CD8643", "from": "site", "use": "accent: fills, badges, icons, text on forest only if large (3.27)"}
+    },
+    "variants": {
+      "ochre-text": {"hex": "#A4662C", "use": "ochre text on white (4.65)"},
+      "ochre-text-cream": {"hex": "#9F632A", "use": "ochre text on cream #FAF9F1 (4.63)"}
+    },
+    "neutrals": {"white": "#FFFFFF", "cream": "#FAF9F1", "cream-tint": "#EDEBDC", "ink": "#141D16", "text-muted": "#586156", "line": "#DEDFD4", "on-dark": "#FAF9F1"},
+    "forbidden": ["#B3261E red", "#7A5230 / #9A6B3F browns", "#F2B544 sun yellow", "seasonal tints (#E4EDCC, #F4DDBD, #DDE8F2)", "#EFE8D6 parchment"]
+  },
+  "oblivio.legal": {
+    "logo": ["#1D4ED8"],
+    "base": {
+      "blue": {"hex": "#1D4ED8", "from": "logo", "use": "brand colour: buttons, links, headings accents (6.70 on white)"},
+      "sky": {"hex": "#0B94C1", "from": "site", "use": "secondary accent: fills, gradients, icons"},
+      "green": {"hex": "#00AA6F", "from": "site", "use": "success / 'removed' states only: fills, icons"}
+    },
+    "gradient": "linear-gradient(135deg, #1D4ED8 0%, #0B94C1 100%)",
+    "variants": {
+      "sky-text": {"hex": "#097EA4", "use": "sky text on white (4.63)"},
+      "green-text": {"hex": "#008658", "use": "green text on white (4.61)"},
+      "blue-light": {"hex": "#4E76E7", "use": "blue text on ink #031222 (4.55)"}
+    },
+    "neutrals": {"white": "#FFFFFF", "soft": "#EBF2F8", "tint": "#DBF1FF", "ink": "#031222", "text-muted": "#596571", "line": "#DEE5EC"},
+    "forbidden": ["#0068CB (old site blue: replaced by the logo blue)", "beige/paper backgrounds (#F4F0E8, #EAE4D8, #F7F5F0, #FBFBFA)"]
+  },
+  "medicleo.com": {
+    "logo": ["#ED0F63", "#01AEEF"],
+    "base": {
+      "petrol": {"hex": "#00558B", "from": "site", "use": "brand colour: buttons, links, headings accents (7.86 on white)"},
+      "night": {"hex": "#002946", "from": "site", "use": "dark backgrounds, hero"},
+      "teal": {"hex": "#007373", "from": "site", "use": "secondary accent (5.68 on white)"},
+      "cyan": {"hex": "#01AEEF", "from": "logo", "use": "technology accent: radar, lines, icons; text only on night (5.91)"},
+      "magenta": {"hex": "#ED0F63", "from": "logo", "use": "sparing accent: alerts, the one key CTA, small highlights"}
+    },
+    "variants": {
+      "cyan-text": {"hex": "#017DAC", "use": "cyan text on white (4.64)"},
+      "magenta-button": {"hex": "#DF0E5D", "use": "magenta button with white text (4.82)"},
+      "magenta-light": {"hex": "#F4508E", "use": "magenta text on night (4.54)"}
+    },
+    "neutrals": {"white": "#FFFFFF", "soft": "#ECF5F8", "soft-2": "#E5F5FA", "ink": "#0D2131", "text-muted": "#4C5D6A", "line": "#D7E4E9", "on-dark": "#EEF7FA"},
+    "forbidden": ["terracotta #9C3D1C", "apricot #E8A87C", "sage #4F6B58", "wood #5A4A3F", "warm creams (#FBF6EE, #F3E9DA)", "pink #FFE8F0", "magenta as dominant background"]
+  }
+}

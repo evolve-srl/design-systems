@@ -2,42 +2,47 @@
   "n": 2,
   "slug": "istituzionale",
   "name": "Istituzionale",
-  "concept": "Un documento autorevole più che un sito tech: carta calda, serif editoriale e griglia svizzera a 12 colonne con sezioni numerate come un atto. Pensata per DPO, uffici legali, PA e finance che scelgono un partner per affidabilità e rigore. Mette in risalto la parte giuridica e normativa che distingue Privacy Masters dai soli fornitori IT.",
+  "concept": "Un documento autorevole più che un sito tech: carta bianca, serif editoriale e griglia svizzera a 12 colonne con sezioni numerate come un atto. Pensata per DPO, uffici legali, PA e finance che scelgono un partner per affidabilità e rigore. È la direzione chiara e sobria: il verde del logo vive nei corsivi a grande corpo, nelle cifre e nei filetti, il petrolio chiude la pagina.",
   "palette": [
     {
-      "name": "Paper",
-      "hex": "#F6F5F0",
+      "name": "Bianco",
+      "hex": "#FFFFFF",
       "role": "sfondo pagina"
     },
     {
-      "name": "Sheet",
-      "hex": "#FFFFFF",
-      "role": "piastra logo"
+      "name": "Tenue",
+      "hex": "#F5F9FA",
+      "role": "topline, cornice del logo"
     },
     {
-      "name": "Ink",
+      "name": "Petrolio",
       "hex": "#0A2B33",
-      "role": "testo principale (13.68:1), fascia CTA finale"
+      "role": "testo principale (14.93:1), filetti di sezione, fascia CTA finale"
     },
     {
-      "name": "Muted",
-      "hex": "#4D5E66",
-      "role": "testo secondario (6.19:1)"
+      "name": "Grigio testo",
+      "hex": "#55666F",
+      "role": "testo secondario (5.97:1 su bianco, 5.63:1 su tenue)"
     },
     {
-      "name": "Rule",
-      "hex": "#CDD3D0",
+      "name": "Linea",
+      "hex": "#D8DFE3",
       "role": "filetti della griglia"
     },
     {
-      "name": "Green",
-      "hex": "#006B4A",
-      "role": "CTA (bianco 6.56:1), numeri e corsivi (6.01:1)"
+      "name": "Verde logo",
+      "hex": "#129740",
+      "role": "corsivi e cifre a grande corpo (3.80:1, testo ≥24px), filetti delle aree, icone"
     },
     {
-      "name": "Signal",
-      "hex": "#00C483",
-      "role": "verde brand: solo punti decorativi e CTA su fondo Ink (6.56:1)"
+      "name": "Verde scuro",
+      "hex": "#0F8036",
+      "role": "CTA con testo bianco (5.05:1), link e numeri piccoli su bianco"
+    },
+    {
+      "name": "Verde chiaro",
+      "hex": "#13A445",
+      "role": "corsivo e CTA sulla fascia petrolio (4.57:1)"
     }
   ],
   "fonts": [
@@ -76,9 +81,10 @@
     "fascia CTA finale scura"
   ],
   "fixes": [
-    "contrasto CTA principale 2.28 → 6.56 (bianco su #006B4A); CTA finale 6.56 (#0A2B33 su #00C483)",
-    "verde brand non più usato come colore di testo su chiaro: sostituito da #006B4A (6.01:1)",
-    "logo: Logo: file PNG originale non modificato; nell'header solo il lucchetto (ritaglio CSS, proporzioni intatte) accanto al nome in testo, logo completo a 280px di altezza in hero (240px su mobile) dove la scritta 'SECURITY EXPERTS' è leggibile"
+    "contrasto CTA principale 2.28 → 5.05 (bianco su #0F8036), hover petrolio 14.93:1; CTA finale 4.57 (petrolio su #13A445)",
+    "palette riportata a quella del sito: carta calda, verde scuro inventato e verde menta delle versioni precedenti sostituiti da bianco/#F5F9FA e dai verdi del logo",
+    "verde del logo #129740 usato come testo solo a grande corpo (≥24px, 3.80:1); il testo verde piccolo usa #0F8036 (5.05:1)",
+    "logo: file PNG originale non modificato; nell'header solo il lucchetto (ritaglio CSS, proporzioni intatte) accanto al nome in testo, logo completo a 280px di altezza in hero (240px su mobile) dove la scritta 'SECURITY EXPERTS' è leggibile"
   ],
   "references": [
     {

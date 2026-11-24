@@ -13,7 +13,7 @@ Design system attuali e direzioni di restyle per cinque siti:
 Per ogni sito ci sono:
 
 1. **Il design system attuale** (`brands/<sito>/attuale/`): colori per ruolo, tipografia, componenti, forme, screenshot desktop e mobile, e una diagnosi in linguaggio semplice di cosa tenere e cosa correggere.
-2. **Tre direzioni di restyle** (`brands/<sito>/restyle-*/`): homepage concept animate con GSAP, costruite con i testi e il logo reali. Ognuna ha il suo `tokens.css`.
+2. **Tre direzioni di restyle** (`brands/<sito>/restyle-*/`): homepage concept animate con GSAP, costruite con i testi e il logo reali e con la palette originale del sito (`data/palettes.json`). Ognuna ha il suo `tokens.css`.
 
 Il sito si apre da `index.html`.
 
@@ -23,7 +23,9 @@ Il sito si apre da `index.html`.
 index.html                  home
 assets/site.css             stile delle pagine di documentazione
 data/brands.json            descrizione e diagnosi di ogni brand
+data/palettes.json          palette approvate per sito (originali, ancorate al logo): unica fonte dei colori
 docs/restyle-brief.md       regole comuni per i restyle
+docs/developer-brief.md     brief per lo sviluppatore dei nuovi siti (in inglese)
 brands/<sito>/
   index.html                pagina del brand (attuale + 3 direzioni)
   content.md                testi reali della homepage (fonte dei restyle)

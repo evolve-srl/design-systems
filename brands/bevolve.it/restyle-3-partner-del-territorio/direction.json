@@ -2,47 +2,57 @@
   "n": 3,
   "slug": "partner-del-territorio",
   "name": "Partner del territorio",
-  "concept": "Il system integrator di casa: chiaro, caldo e umano, con un serif morbido e la sede di Rovigo in primo piano. Parla a PMI e Comuni del Veneto che cercano una persona di riferimento più che una tecnologia; il navy del brand resta il colore delle azioni, la terracotta porta calore.",
+  "concept": "Il system integrator di casa, a Rovigo. Il calore non viene più dal colore ma da un serif morbido, da testi in prima persona ('Siamo a Rovigo...') e da un'impaginazione a schede: superfici bianche e grigio chiaro, il navy del sito come colore forte delle azioni e il gradiente del sito usato una sola volta, come firma, nel riquadro 'Rovigo' della hero. Parla a PMI e Comuni del Veneto che cercano una persona di riferimento più che una tecnologia.",
   "palette": [
     {
-      "name": "Cream",
-      "hex": "#F6F1E8",
-      "role": "fondo pagina"
+      "name": "White",
+      "hex": "#FFFFFF",
+      "role": "fondo pagina, card, testo su navy"
     },
     {
-      "name": "Paper",
-      "hex": "#FFFDF8",
-      "role": "card"
+      "name": "Soft",
+      "hex": "#F5F5F5",
+      "role": "fasce servizi e prodotti, statistiche, fasi del metodo"
     },
     {
-      "name": "Sand",
-      "hex": "#EADFCC",
-      "role": "card alternate, footer"
-    },
-    {
-      "name": "Sky",
-      "hex": "#DCE4F5",
-      "role": "tinta fredda di contrappunto"
+      "name": "Soft 2",
+      "hex": "#F2F2F2",
+      "role": "footer"
     },
     {
       "name": "Ink",
-      "hex": "#1B1A17",
-      "role": "testo principale (15.5:1)"
+      "hex": "#0B0B0B",
+      "role": "testo principale (19.68:1), barra restyle"
     },
     {
       "name": "Muted",
-      "hex": "#5E574C",
-      "role": "testo secondario (6.3:1)"
+      "hex": "#555555",
+      "role": "testo secondario (7.46:1 su bianco, 6.84:1 su #F5F5F5, 6.66:1 su #F2F2F2)"
     },
     {
       "name": "Navy",
       "hex": "#11338A",
-      "role": "CTA e superfici forti (crema su navy 10.0:1)"
+      "role": "CTA, marquee, tessera Software & AI, card SISP, box contatti, velatura alpha 6% di contrappunto (bianco su navy 11.26:1)"
     },
     {
-      "name": "Terracotta",
-      "hex": "#B8462A",
-      "role": "corsivi, numeri, segni (4.73:1 su crema)"
+      "name": "Night",
+      "hex": "#0F1F4D",
+      "role": "hover delle CTA navy, fine del gradiente"
+    },
+    {
+      "name": "Blue",
+      "hex": "#3B5BC9",
+      "role": "corsivi dei titoli, numeri delle fasi, etichette delle card (5.96:1 su bianco, 5.46:1 su #F5F5F5)"
+    },
+    {
+      "name": "Blue light",
+      "hex": "#6D85D7",
+      "role": "solo punti decorativi della marquee su navy"
+    },
+    {
+      "name": "Gradiente del sito",
+      "hex": "linear-gradient(135deg, #3B5BC9, #1E3A8A, #0F1F4D)",
+      "role": "una sola volta: riquadro 'Rovigo' della hero"
     }
   ],
   "fonts": [
@@ -63,22 +73,26 @@
     "paragrafo 'chi siamo' che si accende parola per parola mentre si legge (scrub)",
     "contatori sui soli numeri reali (4, 7, 24 h)",
     "bento di servizi e prodotti a cascata",
-    "filo del metodo che si riempie in scrub; hover morbidi sulle card"
+    "filo del metodo che si riempie in scrub; hover morbidi sulle card",
+    "tessere e card a cascata con stato finale pulito (fromTo + clearProps)"
   ],
   "components": [
     "hero con chip di sede, H1 serif con corsivo navy, promesse (un solo interlocutore, risposta entro 24 ore)",
-    "riquadro con il video originale in multiply su tinta cielo e biglietto sovrapposto",
-    "marquee navy delle 4 aree",
-    "bento dei servizi (6 tessere, una con link)",
-    "bento dei 7 prodotti propri con dominio reale",
+    "riquadro firma sul gradiente del sito: 'Rovigo' in serif corsivo, indirizzo, video originale reso monocromatico, biglietto bianco sovrapposto",
+    "marquee navy delle 4 aree e marquee chiara delle 4 fasi",
+    "racconto in prima persona 'Siamo a Rovigo...' che si accende parola per parola, con 3 statistiche reali",
+    "bento dei servizi su fascia grigio chiaro (navy, bianco, velatura navy, link a contorno navy)",
+    "bento dei 7 prodotti propri con dominio reale e nota di orientamento",
     "CTA navy con box 'Dove siamo' (indirizzo, telefono, email)",
-    "footer sabbia con logo originale"
+    "footer grigio chiaro con logo originale"
   ],
   "fixes": [
-    "Colore di brand quasi assente (pagina grigia): qui il blu diventa protagonista",
+    "Palette riportata a quella del sito: i toni caldi della versione precedente sono eliminati; il calore passa a tipografia, testi e impaginazione",
+    "Contrasto CTA principale: 5.96:1 (gradiente attuale) → 11.26:1 (bianco su #11338A); hover 15.87:1 (bianco su #0F1F4D)",
+    "Etichette e corsivi in #3B5BC9: 5.96:1 su bianco, 5.46:1 su #F5F5F5; testo secondario su navy rgba(255,255,255,.85) 8.56:1",
+    "Il gradiente del sito, oggi ripetuto su ogni bottone, diventa una firma usata una volta sola",
+    "Bento e card prodotti: corretta l'animazione d'ingresso che lasciava le card spostate di 40px sopra la nota di orientamento",
     "Logo: file originale mai sotto i 168px di larghezza (sul sito attuale le linee sottili si perdono sotto i 140px)",
-    "Contrasto CTA principale 5.96:1 (gradiente attuale) → 10.0:1 (crema su #11338A)",
-    "Etichette piccole in terracotta scurita (#9A3820) sulle card colorate per restare sopra 4.5:1",
     "Tono più umano: la sede di Rovigo e 'un solo interlocutore' diventano il messaggio, non una nota a piè di pagina"
   ],
   "references": [

@@ -1,23 +1,38 @@
-/* Oblivio — direzione 1 "Cancellazione": design system (solo variabili) */
+/* Oblivio — direzione 1 "Cancellazione": design system (solo variabili)
+   Palette: solo i colori di data/palettes.json (oblivio.legal). Pagina bianca e silenziosa,
+   inchiostro per il testo e la barra di oscuramento, blu del logo come unico accento,
+   verde solo per lo stato "rimosso / completato", azzurro solo come dettaglio. */
 :root {
-  /* Colori di base: pagina chiara e calma, inchiostro del brand kit */
-  --c-bg: #FBFBFA;          /* sfondo pagina */
-  --c-surface: #F2F4F7;     /* superfici secondarie, righe alternate */
-  --c-tint: #E8EDFB;        /* tinta dello scudo del logo, badge e hover */
-  --c-ink: #0F172A;         /* testo principale (Foreground del brand kit) */
-  --c-ink-2: #334155;       /* testo secondario forte */
-  --c-muted: #556070;       /* testo di supporto, 6.16:1 su --c-bg */
-  --c-line: #E2E5EB;        /* filetti e bordi */
+  /* Neutri del sito attuale: bianco, superficie azzurrina, inchiostro, grigio nota, filetti */
+  --c-bg: #FFFFFF;          /* sfondo pagina (sito) */
+  --c-surface: #EBF2F8;     /* riquadro normativo, footer, hover righe servizi (sito "soft") */
+  --c-tint: #DBF1FF;        /* tinta chiara per badge informativi (sito "tint") */
+  --c-ink: #031222;         /* testo principale, barra di oscuramento (sito "ink"), 18.86:1 su bianco */
+  --c-muted: #596571;       /* testo di supporto (sito "text-muted"), 5.96:1 su bianco, 5.27:1 su --c-surface */
+  --c-line: #DEE5EC;        /* filetti e bordi (sito "line") */
+  --c-on-ink: #FFFFFF;      /* testo su inchiostro */
+  --c-on-ink-muted: rgba(255, 255, 255, .78); /* testo secondario su inchiostro (bianco con alpha) */
 
-  /* Colore di marca: un solo blu, quello del logo (#1D4ED8, brand kit) */
-  --c-brand: #1D4ED8;       /* CTA, link, parola chiave; bianco sopra = 6.70:1 */
-  --c-brand-hover: #1E40AF; /* hover CTA; bianco sopra = 8.72:1 */
+  /* Colore di marca: il blu del logo, unico colore "forte" della pagina */
+  --c-brand: #1D4ED8;       /* CTA, link, parola chiave (logo); bianco sopra 6.70:1 */
+  --c-brand-hover: #031222; /* hover CTA: il blu passa all'inchiostro, bianco sopra 18.86:1 */
   --c-on-brand: #FFFFFF;
 
-  /* Redazione: la barra che oscura il testo */
-  --c-redact: #0F172A;      /* barra di oscuramento */
-  --c-strike: #0F172A;      /* linea di barratura */
-  --redact-ghost: 0.07;     /* opacità finale del testo "dimenticato" */
+  /* Accenti secondari del sito, usati con parsimonia */
+  --c-sky: #0B94C1;         /* azzurro del sito: barre di stato "in corso", fine del gradiente */
+  --c-sky-text: #097EA4;    /* azzurro per testo su bianco, 4.63:1 */
+  --c-green: #00AA6F;       /* verde del sito: SOLO stato "rimosso / completato" (barre, icone) */
+  --c-green-text: #008658;  /* verde per testo su bianco, 4.61:1 */
+  --c-green-soft: rgba(0, 170, 111, .12); /* fondo badge "Caso risolto" (verde con alpha) */
+  --gradient-brand: linear-gradient(135deg, #1D4ED8 0%, #0B94C1 100%); /* gradiente del sito: solo la frase finale del manifesto e il filetto della chiusura */
+
+  /* Redazione: la barra che oscura il testo è l'inchiostro */
+  --c-redact: #031222;      /* barra di oscuramento */
+  --c-strike: #031222;      /* linea di barratura */
+  --redact-ghost: 0.14;     /* opacità finale del testo "dimenticato" (barrato, quasi invisibile) */
+
+  /* Ombre: solo nero neutro con alpha */
+  --shadow-doc: 0 1px 0 rgba(0, 0, 0, .04), 0 30px 60px -40px rgba(0, 0, 0, .28);
 
   /* Tipografia: Inter Tight per titoli e testo, IBM Plex Mono per i dettagli da documento */
   --f-sans: "Inter Tight", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;

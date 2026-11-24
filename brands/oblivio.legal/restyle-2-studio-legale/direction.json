@@ -2,42 +2,52 @@
   "n": 2,
   "slug": "studio-legale",
   "name": "Studio legale",
-  "concept": "Inchiostro profondo e carta: la homepage si legge come un atto riservato, con paragrafi numerati (§), articoli per i passi, un fascicolo d'esempio con timbro 'Caso risolto' e una tabella normativa. Parla a chi cerca prima di tutto autorevolezza e discrezione, e mette in primo piano che dietro il servizio ci sono avvocati iscritti all'Albo.",
+  "concept": "Bianco, inchiostro e filetti: la homepage si legge come un atto riservato, con paragrafi numerati (§), articoli per i passi, un fascicolo d'esempio con timbro blu 'Caso risolto' e una sezione normativa in inchiostro pieno. L'autorevolezza non viene da carte colorate ma dalla serif, dalla numerazione e dal molto bianco; il blu del logo è il colore istituzionale. Parla a chi cerca prima di tutto discrezione e mette in primo piano che dietro il servizio ci sono avvocati iscritti all'Albo.",
   "palette": [
     {
-      "name": "Carta",
-      "hex": "#F4F0E8",
-      "role": "sfondo pagina"
+      "name": "Bianco",
+      "hex": "#FFFFFF",
+      "role": "sfondo pagina e foglio del fascicolo"
     },
     {
-      "name": "Carta fascicolo",
-      "hex": "#EAE4D8",
-      "role": "fascicolo, chiusura, footer"
+      "name": "Soft",
+      "hex": "#EBF2F8",
+      "role": "intestazione del fascicolo, riquadro di chiusura, footer"
+    },
+    {
+      "name": "Filetto",
+      "hex": "#DEE5EC",
+      "role": "filetti sottili"
     },
     {
       "name": "Inchiostro",
-      "hex": "#0E1626",
-      "role": "testo principale (15.9:1)"
+      "hex": "#031222",
+      "role": "testo (18.86:1), filetti forti, barra di servizio, sezione § 3, hover CTA"
     },
     {
-      "name": "Notte",
-      "hex": "#0B1424",
-      "role": "barra servizio e sezione quadro normativo"
+      "name": "Grigio nota",
+      "hex": "#596571",
+      "role": "didascalie e testo secondario (5.96:1 su bianco, 5.27:1 su Soft)"
     },
     {
       "name": "Blu Oblivio",
       "hex": "#1D4ED8",
-      "role": "CTA, timbro, corsivi in evidenza"
+      "role": "colore del logo e istituzionale: CTA, timbro, corsivo dell'H1, numerazione I-IV, Art., a)-d)"
     },
     {
-      "name": "Nota",
-      "hex": "#5A6170",
-      "role": "didascalie (5.47:1 su carta)"
+      "name": "Blu chiaro",
+      "hex": "#4E76E7",
+      "role": "'§ 3' e sottolineatura link sulla sezione in inchiostro (4.55:1)"
     },
     {
-      "name": "Blu notte",
-      "hex": "#8FA7E8",
-      "role": "link su fondo scuro (7.77:1)"
+      "name": "Verde testo",
+      "hex": "#008658",
+      "role": "solo l'esito 'Completata' nel fascicolo (4.61:1 su bianco)"
+    },
+    {
+      "name": "Bianco su inchiostro",
+      "hex": "#FFFFFF",
+      "role": "testo su § 3 al 100% (18.86:1) e al 72% per il secondario (9.94:1); filetti al 18%"
     }
   ],
   "fonts": [
@@ -61,23 +71,24 @@
   ],
   "components": [
     "barra di servizio scura con 'Dati cifrati e riservati', telefono e area cliente",
-    "header su carta con lockup in serif",
+    "header bianco con lockup in serif",
     "intestazione corrente in maiuscoletto sopra l'hero",
-    "fascicolo d'esempio con tabella Atto/Esito e timbro SVG (dicitura illustrativa mantenuta)",
+    "fascicolo d'esempio (foglio bianco con filetto doppio e intestazione Soft) con tabella Atto/Esito e timbro SVG (dicitura illustrativa mantenuta)",
     "garanzie numerate I-IV",
     "sezioni § 1-4 con colonna a margine sticky",
     "passi come 'Art. 1-3'",
     "servizi a), b), c), d) in griglia a filetti",
-    "sezione notte con tabella normativa e numeri",
+    "sezione § 3 in inchiostro pieno con tabella normativa e numeri",
     "citazione grande in corsivo",
-    "chiusura a doppia cornice da certificato"
+    "chiusura a doppia cornice da certificato su Soft #EBF2F8"
   ],
   "fixes": [
-    "Due blu diversi (logo #1D4ED8, CTA #0068CB) → un solo blu, #1D4ED8 del brand kit, per logo, CTA e link: testo bianco sulla CTA 5.47 → 6.70:1",
-    "Badge 'Caso risolto' (circa 1.1:1) → timbro blu #1D4ED8 su carta, 5.29:1 o più",
-    "Pulsante flottante verde menta 'Ti richiamiamo' (#62D0A4, fuori palette) eliminato: il telefono è un link in palette nell'header/menu e nella chiusura",
-    "Scudo del logo visualizzato a circa 27px (PNG originale a 56px, senza modifiche): nell'header attuale è di circa 18px, sotto il minimo di 24px indicato dal brand kit",
-    "Il logo resta solo su fondi chiari: il blu dello scudo su notte avrebbe 2.8:1 (il brand kit vieta i fondi a basso contrasto)",
+    "Due blu diversi (logo #1D4ED8 e un secondo blu sulle CTA, ora vietato) → un solo blu, quello del logo, per CTA e link: testo bianco sulla CTA 5.47 → 6.70:1",
+    "Badge 'Caso risolto' (circa 1.1:1) → timbro blu #1D4ED8 su foglio bianco, 6.70:1; esito 'Completata' in verde testo #008658, 4.61:1",
+    "Scala tipografica con salti netti: misurata a 390/1440px: H1 44/87px, H2 36/60px, H3 24/28.8px, lead 18px, corpo 16px (H2/H3 1.5–2.08, H3/lead 1.33–1.6)",
+    "Pulsante flottante verde menta 'Ti richiamiamo' (#62D0A4, fuori palette) eliminato: il telefono è nella barra di servizio e nella chiusura",
+    "Scudo del logo visualizzato a circa 27px (PNG originale a 56px, senza modifiche): nell'header attuale è di circa 18px",
+    "Il logo resta solo su fondi chiari: lo scudo blu su inchiostro avrebbe contrasto troppo basso",
     "Tempi di risposta incoerenti nel sito attuale (stat '<24h' e 'entro 48 ore'): si usa solo 'entro 48 ore', da confermare col cliente"
   ],
   "references": [

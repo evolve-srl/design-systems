@@ -28,7 +28,7 @@ h1,h2,h3,p,figure,blockquote{margin:0}
 .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
 .ic{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .label{font:500 var(--fs-label)/1.4 var(--f-sans);letter-spacing:var(--tracking-label);text-transform:uppercase}
-.skip{position:absolute;left:16px;top:-60px;background:var(--c-ink);color:var(--c-paper);padding:10px 14px;z-index:100}
+.skip{position:absolute;left:16px;top:-60px;background:var(--c-ink);color:var(--c-on-night);padding:10px 14px;z-index:100}
 .skip:focus{top:12px}
 :focus-visible{outline:none;box-shadow:var(--focus)}
 .anim [data-hero]{visibility:hidden}
@@ -48,7 +48,7 @@ h1,h2,h3,p,figure,blockquote{margin:0}
 .brand img{width:56px;height:56px;margin-left:-14px}
 .brand .io{color:var(--c-brand)}
 .nav{display:flex;gap:26px;margin-left:auto}
-.nav a{text-decoration:none;font-size:.92rem;color:var(--c-ink-2);padding-block:6px;border-bottom:1px solid transparent}
+.nav a{text-decoration:none;font-size:.92rem;color:var(--c-ink);padding-block:6px;border-bottom:1px solid transparent}
 .nav a:hover{border-bottom-color:var(--c-ink)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:var(--r-cta);font:500 .98rem/1 var(--f-sans);letter-spacing:.01em;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
 .btn .ic{transition:transform .5s var(--ease)}
@@ -56,7 +56,7 @@ h1,h2,h3,p,figure,blockquote{margin:0}
 .btn-primary{background:var(--c-brand);color:var(--c-on-brand)}
 .btn-primary:hover{background:var(--c-brand-hover)}
 .btn-line{border-color:var(--c-ink);color:var(--c-ink)}
-.btn-line:hover{background:var(--c-ink);color:var(--c-paper)}
+.btn-line:hover{background:var(--c-ink);color:var(--c-on-night)}
 .btn-sm{min-height:42px;padding:0 18px;font-size:.92rem}
 .menu-btn{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--c-ink);border-radius:var(--r-cta);background:transparent;color:var(--c-ink);align-items:center;justify-content:center;cursor:pointer}
 .menu-btn .ic{width:22px;height:22px}
@@ -75,22 +75,22 @@ h1,h2,h3,p,figure,blockquote{margin:0}
 .hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,96px);align-items:start}
 h1{font:400 var(--fs-display)/var(--lh-display) var(--f-serif);letter-spacing:-.02em;text-wrap:balance}
 h1 em{font-style:italic;color:var(--c-brand)}
-.lead{margin-top:32px;font-size:var(--fs-lead);color:var(--c-ink-2);max-width:44ch}
+.lead{margin-top:32px;font-size:var(--fs-lead);color:var(--c-muted);max-width:44ch}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
 .assure{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--c-muted);font-size:var(--fs-small)}
 .assure li{display:flex;align-items:center;gap:8px}
 
 /* fascicolo */
-.file{position:relative;background:var(--c-paper-2);border-radius:var(--r-panel);padding:32px 28px 28px;margin-bottom:40px;border-top:3px double var(--c-ink)}
-.file-head{display:flex;justify-content:space-between;gap:12px;color:var(--c-muted);padding-bottom:14px;border-bottom:var(--hair)}
+.file{position:relative;background:var(--c-paper);border:var(--hair);border-top:3px double var(--c-ink);border-radius:var(--r-panel);padding:0 28px 28px;margin-bottom:40px;box-shadow:0 24px 48px -32px rgba(0,0,0,.22)}
+.file-head{display:flex;justify-content:space-between;gap:12px;color:var(--c-muted);margin:0 -28px;padding:14px 28px;background:var(--c-paper-2);border-bottom:var(--hair)}
 .file .file-t{font:400 1.6rem/1.2 var(--f-serif);margin-top:20px}
-.file .url{display:block;margin-top:6px;font-size:.9rem;color:var(--c-ink-2);text-decoration:line-through;text-decoration-thickness:1.5px;word-break:break-word}
+.file .url{display:block;margin-top:6px;font-size:.9rem;color:var(--c-muted);text-decoration:line-through;text-decoration-thickness:1.5px;word-break:break-word}
 .file table{width:100%;border-collapse:collapse;margin-top:24px;font-size:.95rem}
 .file th{font:500 var(--fs-label)/1.4 var(--f-sans);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--c-muted);text-align:left;padding:0 0 8px;border-bottom:1px solid var(--c-ink)}
 .file th:last-child,.file td:last-child{text-align:right}
 .file td{padding:13px 0;border-bottom:var(--hair)}
-.file td.ok{font-family:var(--f-serif);font-style:italic;color:var(--c-brand);font-size:1.08rem}
-.file td.run{font-family:var(--f-serif);font-style:italic;color:var(--c-ink-2);font-size:1.08rem}
+.file td.ok{font-family:var(--f-serif);font-style:italic;color:var(--c-done-text);font-size:1.08rem}
+.file td.run{font-family:var(--f-serif);font-style:italic;color:var(--c-muted);font-size:1.08rem}
 .file .note{margin-top:16px;font-size:.8rem;color:var(--c-muted);max-width:calc(100% - 150px)}
 .seal{position:absolute;right:20px;bottom:-58px;width:124px;height:124px;transform:rotate(-8deg)}
 .seal svg{width:100%;height:100%;display:block;overflow:visible}
@@ -119,7 +119,7 @@ h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:ba
 .art:last-child{border-bottom:var(--hair)}
 .art .label{color:var(--c-brand);padding-top:.5em}
 .art h3{font:400 var(--fs-h3)/1.2 var(--f-serif)}
-.art p{grid-column:2;color:var(--c-ink-2);max-width:56ch}
+.art p{grid-column:2;color:var(--c-muted);max-width:56ch}
 
 /* servizi */
 .svc{display:grid;grid-template-columns:1fr 1fr;margin-top:56px;border-top:1px solid var(--c-ink)}
@@ -127,7 +127,7 @@ h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:ba
 .svc article:nth-child(even){padding:32px 0 36px 32px;border-left:var(--hair)}
 .svc .letter{font:italic 400 1.2rem/1 var(--f-serif);color:var(--c-brand)}
 .svc h3{font:400 var(--fs-h3)/1.2 var(--f-serif);margin:14px 0 10px}
-.svc p{color:var(--c-ink-2)}
+.svc p{color:var(--c-muted)}
 .svc a{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.92rem;font-weight:500;color:var(--c-ink);text-decoration:none;border-bottom:1px solid var(--c-ink);padding-bottom:2px}
 .svc a:hover{color:var(--c-brand);border-color:var(--c-brand)}
 .more{display:inline-flex;align-items:center;gap:8px;margin-top:36px;font-weight:500;color:var(--c-brand)}
@@ -136,10 +136,11 @@ h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:ba
 .night{background:var(--c-night);color:var(--c-on-night)}
 .night .para-num .n{color:var(--c-on-night)}
 .night .para-num .label,.night .sub{color:var(--c-on-night-muted)}
-.night .rule{background:var(--c-on-night-muted)}
+.night .rule{background:var(--c-night-rule)}
+.night .para-num .n{color:var(--c-night-accent)}
 .laws{width:100%;border-collapse:collapse;margin-top:48px}
 .laws caption{text-align:left}
-.laws th,.laws td{padding:20px 0;border-bottom:1px solid rgba(169,177,194,.3);text-align:left;vertical-align:baseline}
+.laws th,.laws td{padding:20px 0;border-bottom:1px solid var(--c-night-rule);text-align:left;vertical-align:baseline}
 .laws thead th{font:500 var(--fs-label)/1.4 var(--f-sans);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--c-on-night-muted);border-bottom:1px solid var(--c-on-night-muted);padding-top:0}
 .laws tbody th{font:400 1.5rem/1.2 var(--f-serif);width:45%}
 .laws td{color:var(--c-on-night-muted)}
@@ -148,7 +149,8 @@ h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:ba
 .facts b{display:block;font:400 clamp(2.2rem,1.6rem + 1.6vw,3.3rem)/1 var(--f-serif);white-space:nowrap;color:var(--c-on-night)}
 .facts span{display:block;margin-top:10px;color:var(--c-on-night-muted);font-size:var(--fs-small)}
 .night .tr{margin-top:40px;font-size:var(--fs-small);color:var(--c-on-night-muted)}
-.night .tr a{color:var(--c-night-accent)}
+.night .tr a{color:var(--c-on-night);text-decoration-color:var(--c-night-accent);text-underline-offset:3px}
+.night .tr a:hover{color:var(--c-night-accent)}
 
 /* testimonianze */
 .q-main{font:italic 400 var(--fs-quote)/1.25 var(--f-serif);max-width:30ch;margin-top:48px;text-wrap:pretty}
@@ -157,7 +159,7 @@ h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:ba
 .cite{display:block;margin-top:24px;font-size:var(--fs-small);color:var(--c-muted)}
 .cite b{color:var(--c-ink);font-weight:600;margin-right:8px}
 .q-more{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:64px;padding-top:32px;border-top:var(--hair)}
-.q-more p{font:400 1.25rem/1.45 var(--f-serif);color:var(--c-ink-2)}
+.q-more p{font:400 1.25rem/1.45 var(--f-serif);color:var(--c-ink)}
 
 /* chiusura */
 .close{padding-bottom:var(--space-section)}
@@ -167,7 +169,7 @@ h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:ba
 .cert .sub{margin-inline:auto}
 .cert .ctas{justify-content:center}
 .cert .contacts{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;font-size:var(--fs-small)}
-.cert .contacts a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:var(--c-ink-2)}
+.cert .contacts a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:var(--c-ink)}
 .cert .contacts a:hover{color:var(--c-brand)}
 
 /* footer */
@@ -176,9 +178,9 @@ h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:ba
 .ftr p{color:var(--c-muted);max-width:36ch;margin-top:14px}
 .ftr h3{margin:0 0 14px;font:500 var(--fs-label)/1.4 var(--f-sans);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--c-ink)}
 .ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
-.ftr ul a{text-decoration:none;color:var(--c-ink-2)}
+.ftr ul a{text-decoration:none;color:var(--c-ink)}
 .ftr ul a:hover{text-decoration:underline}
-.ftr .addr li{display:flex;gap:8px;align-items:flex-start;color:var(--c-ink-2)}
+.ftr .addr li{display:flex;gap:8px;align-items:flex-start;color:var(--c-ink)}
 .ftr .addr .ic{width:15px;height:15px;margin-top:4px;color:var(--c-muted)}
 .legal{margin-top:48px;padding-top:20px;border-top:var(--hair);color:var(--c-muted);font-size:.78rem;display:grid;gap:6px}
 .legal p{max-width:none;margin:0}
@@ -212,7 +214,8 @@ h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:ba
   .facts{grid-template-columns:1fr}
   .laws tbody th{font-size:1.25rem;width:auto}
   .ctas .btn{width:100%}
-  .file{padding:28px 18px 20px}
+  .file{padding:0 18px 20px}
+  .file-head{margin:0 -18px;padding:12px 18px}
   .ftr-grid{grid-template-columns:1fr}
   .util .wrap{font-size:.75rem}
 }
@@ -295,11 +298,11 @@ h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:ba
           <div class="seal" data-seal aria-hidden="true">
             <svg viewBox="0 0 160 160">
               <defs><path id="sealpath" d="M80,80 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"/></defs>
-              <circle cx="80" cy="80" r="76" fill="none" stroke="#1D4ED8" stroke-width="1.5"/>
-              <circle cx="80" cy="80" r="48" fill="none" stroke="#1D4ED8" stroke-width="1"/>
-              <g data-seal-ring><text font-family="Inter, sans-serif" font-size="10.5" font-weight="500" letter-spacing="2.4" fill="#1D4ED8"><textPath href="#sealpath" textLength="384" lengthAdjust="spacing">OBLIVIO · AVVOCATI E INFORMATICI · RISERVATO ·</textPath></text></g>
-              <text x="80" y="77" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="19" fill="#1D4ED8">Caso</text>
-              <text x="80" y="97" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="19" fill="#1D4ED8">risolto</text>
+              <circle cx="80" cy="80" r="76" fill="none" style="stroke:var(--c-brand)" stroke-width="1.5"/>
+              <circle cx="80" cy="80" r="48" fill="none" style="stroke:var(--c-brand)" stroke-width="1"/>
+              <g data-seal-ring><text font-family="Inter, sans-serif" font-size="10.5" font-weight="500" letter-spacing="2.4" style="fill:var(--c-brand)"><textPath href="#sealpath" textLength="384" lengthAdjust="spacing">OBLIVIO · AVVOCATI E INFORMATICI · RISERVATO ·</textPath></text></g>
+              <text x="80" y="77" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="19" style="fill:var(--c-brand)">Caso</text>
+              <text x="80" y="97" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="19" style="fill:var(--c-brand)">risolto</text>
             </svg>
           </div>
           <div class="file-head label"><span>Esempio illustrativo</span><span>3 mesi fa</span></div>

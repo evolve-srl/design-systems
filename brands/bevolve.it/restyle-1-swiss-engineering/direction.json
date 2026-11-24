@@ -2,37 +2,52 @@
   "n": 1,
   "slug": "swiss-engineering",
   "name": "Swiss Engineering",
-  "concept": "Una pagina che sembra un disegno tecnico: griglia a 12 colonne visibile, sezioni numerate, tipografia enorme e un solo colore, un blu elettrico usato a campiture piene. Parla a uffici tecnici, IT manager e PA che cercano rigore e precisione; funziona per Evolve perché trasforma 'ingegneria a 360°' in un linguaggio visivo ordinato e misurabile.",
+  "concept": "Una pagina che sembra un disegno tecnico: griglia a 12 colonne visibile, sezioni numerate, tipografia enorme e un solo colore, il navy del sito, usato a campiture piene e senza gradiente. Parla a uffici tecnici, IT manager e PA che cercano rigore e precisione; funziona per Evolve perché trasforma 'ingegneria a 360°' in un linguaggio visivo ordinato e misurabile.",
   "palette": [
     {
       "name": "Paper",
       "hex": "#FFFFFF",
-      "role": "fondo"
+      "role": "fondo pagina, testo e bottoni su navy"
+    },
+    {
+      "name": "Soft",
+      "hex": "#F5F5F5",
+      "role": "hover del bottone bianco su navy"
     },
     {
       "name": "Ink",
-      "hex": "#0A0A0A",
-      "role": "testo, linee forti, footer"
+      "hex": "#0B0B0B",
+      "role": "testo, linee forti, barra restyle (19.68:1 su bianco)"
     },
     {
       "name": "Muted",
-      "hex": "#5C5C5C",
-      "role": "testo secondario (6.69:1)"
-    },
-    {
-      "name": "Electric Blue",
-      "hex": "#1640D9",
-      "role": "CTA, campiture di sezione, accenti (bianco su blu 7.58:1)"
-    },
-    {
-      "name": "Blue Soft",
-      "hex": "#DCE3FF",
-      "role": "testo secondario su blu (5.95:1)"
+      "hex": "#555555",
+      "role": "testo secondario (7.46:1 su bianco)"
     },
     {
       "name": "Navy",
       "hex": "#11338A",
-      "role": "navy storico, hover delle CTA"
+      "role": "unico colore di brand: CTA, campiture servizi e contatti, numerazione, velatura hover delle righe in alpha 7% (bianco su navy 11.26:1)"
+    },
+    {
+      "name": "Night",
+      "hex": "#0F1F4D",
+      "role": "hover/pressed delle CTA navy (bianco 15.87:1)"
+    },
+    {
+      "name": "Slate",
+      "hex": "#0F172A",
+      "role": "footer (theme-color del sito)"
+    },
+    {
+      "name": "Blue",
+      "hex": "#3B5BC9",
+      "role": "anello di focus su chiaro"
+    },
+    {
+      "name": "On-dark muted",
+      "hex": "rgba(255,255,255,.85)",
+      "role": "testo secondario su navy (8.56:1)"
     }
   ],
   "fonts": [
@@ -51,25 +66,27 @@
     "linee della griglia che si tracciano dall'alto al caricamento (scaleY, stagger)",
     "SplitText a righe con maschera: i titoli salgono dentro la riga",
     "contatori sui soli numeri reali (4 aree, 7 prodotti, 4 fasi, 24 ore)",
-    "barra blu del metodo che avanza in scrub con lo scroll",
-    "indice prodotti: righe in sequenza e hover con campitura blu che sale dal basso"
+    "barra navy del metodo che avanza in scrub con lo scroll",
+    "indice prodotti: righe in sequenza e hover con velatura navy che sale dal basso e nome in navy"
   ],
   "components": [
-    "header con logo a 172px, mono-label 'System integrator · Rovigo' e CTA rettangolare blu",
+    "header con logo a 172px, mono-label 'System integrator · Rovigo' e CTA rettangolare navy",
     "hero con H1 a tutta larghezza e riga meta in monospace",
     "specchietto dati (sede, clienti, territorio, modello) in tabella",
-    "sezione servizi a campitura blu con griglia 2×2 e tag mono",
+    "sezione servizi a campitura navy con griglia 2×2 e tag mono",
     "metodo in 4 colonne con numeri mono giganti",
     "indice dei 7 prodotti propri come tabella linkata",
-    "CTA a tutta pagina blu con contatti diretti",
-    "footer nero con logo schiarito via filtro CSS invert(1)"
+    "CTA a tutta pagina navy con contatti diretti",
+    "footer slate con logo schiarito via filtro CSS invert(1)"
   ],
   "fixes": [
-    "Colore di brand quasi assente (pagina grigia): qui il blu diventa protagonista",
-    "Logo: file originale mai sotto i 168px di larghezza (sul sito attuale le linee sottili si perdono sotto i 140px)",
-    "Contrasto CTA principale 5.96:1 (gradiente attuale) → 7.58:1 (bianco su #1640D9)",
-    "Gerarchia: sezioni numerate 01-05 al posto di badge grigi tutti uguali",
-    "Logo su fondo scuro: file originale con filtro CSS invert(1), non ridisegnato"
+    "Palette riportata a quella del sito: il blu elettrico e il suo azzurro chiaro delle versioni precedenti sono sostituiti dal navy #11338A e da trasparenze del bianco",
+    "Colore di brand quasi assente sul sito attuale (pagina grigia): qui il navy diventa protagonista a campiture piene",
+    "Contrasto CTA principale: 5.96:1 (bianco sull'inizio del gradiente del sito) → 11.26:1 (bianco su #11338A)",
+    "Testo secondario su navy: rgba(255,255,255,.85), 8.56:1",
+    "Logo: file originale mai sotto i 168px di larghezza (sul sito attuale le linee sottili si perdono sotto i 140px); su fondo scuro solo filtro CSS invert(1)",
+    "Hover delle righe prodotto: testo sempre ink/navy su velatura chiara (17.37:1), invece di testo bianco su campitura animata",
+    "Gerarchia: sezioni numerate 01-05 al posto di badge grigi tutti uguali"
   ],
   "references": [
     {

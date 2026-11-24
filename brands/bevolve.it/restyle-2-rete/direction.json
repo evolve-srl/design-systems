@@ -2,42 +2,47 @@
   "n": 2,
   "slug": "rete",
   "name": "La rete",
-  "concept": "Evolve è un system integrator: il suo valore sta nei collegamenti. Qui i servizi sono nodi di una rete SVG che si disegna davanti all'utente, e le quattro aree convergono visivamente in un unico interlocutore. Fondo notturno derivato dal navy del brand, per un pubblico IT e PA che vuole capire al volo 'cosa integrate e come'.",
+  "concept": "Evolve è un system integrator: il suo valore sta nei collegamenti. Qui i servizi sono nodi di una rete SVG che si disegna davanti all'utente, e le quattro aree convergono visivamente in un unico interlocutore. Pagina scura sui fondi slate e night del sito, con il blu del brand come segnale e il gradiente del sito solo sulle azioni, per un pubblico IT e PA che vuole capire al volo 'cosa integrate e come'.",
   "palette": [
     {
+      "name": "Slate",
+      "hex": "#0F172A",
+      "role": "fondo pagina (theme-color del sito)"
+    },
+    {
       "name": "Night",
-      "hex": "#050A18",
-      "role": "fondo pagina"
-    },
-    {
-      "name": "Night 2",
-      "hex": "#0A1430",
-      "role": "fasce alternate"
-    },
-    {
-      "name": "Surface",
-      "hex": "#0E1A3D",
-      "role": "card e nodi"
+      "hex": "#0F1F4D",
+      "role": "fasce alternate, card dei servizi, nodo centrale"
     },
     {
       "name": "Navy",
       "hex": "#11338A",
-      "role": "navy storico, nodo 'un solo interlocutore', CTA box"
+      "role": "nodo 'Un solo interlocutore responsabile', alone della hero in alpha, testo dei bottoni bianchi"
     },
     {
-      "name": "Signal",
-      "hex": "#6E9BFF",
-      "role": "connessioni, CTA (testo night su signal 7.33:1)"
+      "name": "Deep",
+      "hex": "#1E3A8A",
+      "role": "colore medio del gradiente, fondo di riserva dei bottoni (bianco 10.36:1)"
     },
     {
-      "name": "Text",
-      "hex": "#EAF0FF",
-      "role": "testo principale (17.3:1)"
+      "name": "Blue",
+      "hex": "#3B5BC9",
+      "role": "forme della rete: nodi pieni, punti, inizio del gradiente"
     },
     {
-      "name": "Muted",
-      "hex": "#A9B6D6",
-      "role": "testo secondario (9.7:1)"
+      "name": "Blue light",
+      "hex": "#6D85D7",
+      "role": "testo segnale, etichette, fili della rete e focus (5.09:1 su slate, 4.52:1 su night)"
+    },
+    {
+      "name": "Gradiente del sito",
+      "hex": "linear-gradient(135deg, #3B5BC9, #1E3A8A, #0F1F4D)",
+      "role": "CTA principali e box contatti"
+    },
+    {
+      "name": "White",
+      "hex": "#FFFFFF",
+      "role": "testo principale (17.85:1 su slate); in alpha .78 testo secondario (11.1:1), .64 etichette (7.19:1 su night)"
     }
   ],
   "fonts": [
@@ -58,23 +63,26 @@
     "titoli che compaiono parola per parola con SplitText (sfocatura iniziale nella hero)",
     "le 4 aree convergono nel nodo 'Un solo interlocutore responsabile' (DrawSVG in scrub)",
     "bus dei prodotti e pipeline del metodo che si tracciano con lo scroll",
-    "video originale hero-home.mp4 da URL assoluto, invertito via CSS e messo in pausa con reduced motion"
+    "video originale hero-home.mp4 da URL assoluto, reso monocromatico (grayscale + invert + screen) e messo in pausa con reduced motion",
+    "card prodotti a cascata con stato finale pulito (fromTo + clearProps, la transition CSS dell'hover non blocca più la posizione)"
   ],
   "components": [
     "hero a due colonne: testo + schema di rete SVG accessibile (role=img con aria-label)",
     "4 card-nodo dei servizi con tag delle competenze",
     "diagramma di convergenza SVG (desktop) / filo verticale (mobile)",
     "fascia fatti: sede, clienti, territorio",
-    "7 prodotti come nodi agganciati a un bus",
+    "7 prodotti come nodi agganciati a un bus, con la nota di orientamento come ottava cella della griglia",
     "pipeline orizzontale in 4 fasi",
-    "box CTA con mini-rete in parallasse",
+    "box CTA sul gradiente del sito con mini-rete bianca in parallasse",
     "footer con logo schiarito via filtro CSS"
   ],
   "fixes": [
-    "Colore di brand quasi assente (pagina grigia): qui il blu diventa protagonista",
-    "Logo: file originale mai sotto i 168px di larghezza (sul sito attuale le linee sottili si perdono sotto i 140px)",
-    "Contrasto CTA principale 5.96:1 (gradiente attuale) → 7.33:1 (#050A18 su #6E9BFF)",
-    "Il concetto 'integrazione' diventa visibile invece di restare uno slogan",
+    "Palette riportata a quella del sito: i fondi notturni inventati diventano slate #0F172A e night #0F1F4D; il blu segnale inventato diventa #6D85D7 (testo) e #3B5BC9 (forme); il testo azzurrato diventa bianco e bianco in trasparenza",
+    "Contrasto CTA principale: 5.96:1 (gradiente attuale, testo bianco sull'inizio chiaro) → stesso gradiente del sito con fondo di riserva #1E3A8A, testo bianco ≥5.96:1 sul punto più chiaro",
+    "Testo blu su scuro solo in #6D85D7: 5.09:1 su slate, 4.52:1 su night, 4.94:1 sulle card prodotto",
+    "Video della hero non più invertito di tinta (produceva colori fuori palette): ora monocromatico",
+    "Etichetta '4 AREE · 1 TEAM' a 11px e nodo centrale allargato (r 58 → 70) perché testo e cerchio non si sovrappongano",
+    "Griglia prodotti senza card orfana in fondo: evolve.expert e la nota occupano l'ultima riga",
     "Logo su fondo scuro: file originale con filtro CSS invert(1) brightness(1.05), non ridisegnato"
   ],
   "references": [

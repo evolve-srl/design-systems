@@ -43,10 +43,10 @@ p{margin:0}
 .btn .icon{transition:transform var(--dur) var(--ease-out)}
 .btn:hover .icon{transform:translateX(4px)}
 .btn--primary{background:var(--c-forest);color:var(--c-paper)}
-.btn--primary:hover{background:#173B26}
+.btn--primary:hover{background:var(--c-ink)}
 .btn--ghost{border-color:var(--c-ink);color:var(--c-ink)}
 .btn--ochre{background:var(--c-ochre);color:var(--c-ink)}
-.btn--ochre:hover{background:#D9965A}
+.btn--ochre:hover{background:var(--c-paper)}
 .menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--c-rule);border-radius:999px;width:44px;height:44px;align-items:center;justify-content:center;color:var(--c-ink);cursor:pointer}
 .menu-btn .icon{width:22px;height:22px}
 .menu-btn .i-close{display:none}
@@ -82,7 +82,7 @@ figcaption b{font-weight:600;color:var(--c-ink)}
 .rubriche{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--c-ink);border-bottom:1px solid var(--c-rule)}
 .rubrica{padding:28px 28px 32px;border-left:1px solid var(--c-rule);text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:background-color var(--dur) ease}
 .rubrica:first-child{border-left:0;padding-left:0}
-.rubrica:hover{background:var(--c-paper-2)}
+.rubrica:hover{background:var(--c-white)}
 .rubrica .kicker{margin:0}
 .rubrica h3{font-size:clamp(1.6rem,2.4vw,2.2rem);font-weight:400}
 .rubrica p{color:var(--c-muted)}
@@ -137,6 +137,7 @@ figcaption b{font-weight:600;color:var(--c-ink)}
 /* ---------- Bollettino meteo ---------- */
 .bollettino{background:var(--c-paper-2);padding:clamp(28px,4vw,56px)}
 .bollettino__head{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:end;border-bottom:1px solid var(--c-ink);padding-bottom:22px}
+.bollettino .kicker{color:var(--c-forest)}
 .bollettino__head p{color:var(--c-muted);font-size:var(--fs-small)}
 .dati{display:grid;grid-template-columns:repeat(4,1fr);margin:0}
 .dato{padding:26px 22px 8px 0;border-right:1px solid var(--c-rule)}
@@ -153,8 +154,8 @@ figcaption b{font-weight:600;color:var(--c-ink)}
 .nando__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
 .nando__intro{grid-column:1 / span 5;display:flex;flex-direction:column;gap:24px;align-items:flex-start}
 .nando__intro p:not(.kicker){color:var(--c-night-muted);font-size:1.12rem}
-.domande{grid-column:7 / span 6;list-style:none;margin:0;padding:0;border-top:1px solid rgba(244,241,232,.4)}
-.domande a{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:22px 0;border-bottom:1px solid rgba(244,241,232,.2);text-decoration:none;font:300 italic clamp(1.5rem,2.6vw,2.3rem)/1.2 var(--f-display);transition:color var(--dur-fast),padding var(--dur) var(--ease-out)}
+.domande{grid-column:7 / span 6;list-style:none;margin:0;padding:0;border-top:1px solid var(--c-night-rule)}
+.domande a{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:22px 0;border-bottom:1px solid var(--c-night-rule-soft);text-decoration:none;font:300 italic clamp(1.5rem,2.6vw,2.3rem)/1.2 var(--f-display);transition:color var(--dur-fast),padding var(--dur) var(--ease-out)}
 .domande a:hover{color:var(--c-ochre);padding-left:10px}
 .domande .icon{width:28px;height:28px;stroke-width:1.5}
 

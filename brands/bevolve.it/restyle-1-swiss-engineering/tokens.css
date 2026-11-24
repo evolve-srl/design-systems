@@ -1,29 +1,33 @@
-/* Evolve — Restyle 1 "Swiss Engineering": design tokens */
+/* Evolve — Restyle 1 "Swiss Engineering": design tokens
+   Palette: solo colori di data/palettes.json per bevolve.it. Il logo è un wordmark monocromatico,
+   quindi il colore di brand è la famiglia navy del sito attuale. Qui è usata piatta, senza gradiente. */
 :root {
-  /* Colori — superfici: carta bianca e un grigio caldo appena accennato */
+  /* Colori — superfici (neutri del sito: bianco e grigio chiaro) */
   --c-paper: #FFFFFF;
-  --c-paper-2: #F4F4F1;
+  --c-paper-2: #F5F5F5;
+  --c-white: #FFFFFF;
 
-  /* Colori — testo: nero quasi puro e grigio leggibile (6.69:1 su bianco) */
-  --c-ink: #0A0A0A;
-  --c-muted: #5C5C5C;
+  /* Colori — testo (neutri del sito): ink 19.68:1 su bianco, muted 7.46:1 su bianco */
+  --c-ink: #0B0B0B;
+  --c-muted: #555555;
 
-  /* Colori — blu elettrico di direzione (derivato dal navy #11338A), usato a campiture piene */
-  --c-blue: #1640D9;          /* bianco su blu 7.58:1 */
-  --c-blue-ink: #FFFFFF;      /* testo su blu */
-  --c-blue-soft: #DCE3FF;     /* testo secondario su blu 5.95:1 */
-  --c-navy: #11338A;          /* navy storico del brand, per hover/pressed */
+  /* Colori — brand: navy del sito (bottoni e link del sito attuale), l'unico colore della pagina, a campiture piene */
+  --c-brand: #11338A;              /* bianco su navy 11.26:1 */
+  --c-brand-hover: #0F1F4D;        /* night, dal gradiente del sito: hover/pressed (bianco 15.87:1) */
+  --c-on-brand: #FFFFFF;
+  --c-on-brand-muted: rgba(255, 255, 255, 0.85);  /* on-dark-muted del sito: 8.56:1 su navy */
+  --c-brand-tint: rgba(17, 51, 138, 0.07); /* velatura navy per hover delle righe */
 
-  /* Colori — linee di griglia e divisori */
-  --c-line: rgba(10, 10, 10, 0.12);
-  --c-line-strong: #0A0A0A;
-  --c-line-on-blue: rgba(255, 255, 255, 0.28);
+  /* Colori — linee di griglia e divisori (ink e bianco in trasparenza) */
+  --c-line: rgba(11, 11, 11, 0.12);
+  --c-line-strong: #0B0B0B;
+  --c-line-on-brand: rgba(255, 255, 255, 0.28);
 
-  /* Colori — footer scuro */
-  --c-footer: #0A0A0A;
-  --c-footer-muted: #B8B8B8;   /* 9.9:1 su footer */
-  --c-footer-line: #2A2A2A;
-  --c-footer-bar: #000000;
+  /* Colori — footer: slate, il theme-color del sito */
+  --c-footer: #0F172A;
+  --c-footer-muted: rgba(255, 255, 255, 0.72);  /* 9.6:1 su slate */
+  --c-footer-line: rgba(255, 255, 255, 0.14);
+  --c-footer-bar: #0B0B0B;
 
   /* Tipografia — famiglie: Inter Tight per tutto il testo, JetBrains Mono per numerazione e dati */
   --f-sans: "Inter Tight", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -76,8 +80,9 @@
   --d-fast: 180ms;
   --d-base: 420ms;
 
-  /* Focus — anello visibile ad alto contrasto */
-  --focus: 0 0 0 3px #FFFFFF, 0 0 0 5px #1640D9;
+  /* Focus — anello visibile: outline blue (dal gradiente del sito), staccato dall'elemento */
+  --focus-color: #3B5BC9;
+  --focus-color-on-brand: #FFFFFF;
 }
 
 @media (min-width: 768px) {

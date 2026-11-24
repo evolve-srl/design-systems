@@ -2,53 +2,114 @@
   "n": 2,
   "slug": "mappa-topografica",
   "name": "Carta dei sentieri",
-  "concept": "La homepage si legge come una carta topografica: curve di livello, cartiglio con il titolo, quote in carattere mono, segnavia rosso-bianco-rosso e un tracciato che si disegna. È per chi va a camminare e vuole capire in fretta quote, difficoltà e tempi. Funziona perché sentieri e quote sono il cuore pratico della guida, e il linguaggio delle carte escursionistiche è già familiare a chi frequenta l'Altopiano.",
+  "concept": "La homepage si legge come una carta topografica: curve di livello, cartiglio con il titolo, quote in carattere mono e un tracciato che si disegna. La cartografia usa solo i colori del marchio: curve in verde bosco trasparente su carta crema, sentiero e waypoint in ocra e verde bosco. È per chi va a camminare e vuole capire in fretta quote, difficoltà e tempi; funziona perché sentieri e quote sono il cuore pratico della guida.",
   "palette": [
-    {"name": "Carta", "hex": "#EFE8D6", "role": "fondo pagina"},
-    {"name": "Carta scura", "hex": "#E6DCC3", "role": "riquadri, profilo altimetrico, sezione del giorno"},
-    {"name": "Inchiostro", "hex": "#1E1A14", "role": "testo, cornici, footer"},
-    {"name": "Terra", "hex": "#7A5230", "role": "etichette e quote in testo"},
-    {"name": "Curve di livello", "hex": "#9A6B3F", "role": "solo grafica (curve, tratteggi)"},
-    {"name": "Bosco", "hex": "#1F4D32", "role": "fondo rubrica Nando e stazione meteo, simboli"},
-    {"name": "Segnavia rosso", "hex": "#B3261E", "role": "CTA primaria con testo bianco, tracciati, marcatori"}
+    {
+      "name": "Crema",
+      "hex": "#FAF9F1",
+      "role": "fondo carta, cartiglio, schede"
+    },
+    {
+      "name": "Crema scura",
+      "hex": "#EDEBDC",
+      "role": "fascia 'Tre idee per la giornata'"
+    },
+    {
+      "name": "Bianco",
+      "hex": "#FFFFFF",
+      "role": "foglio del profilo altimetrico, banda del segnavia, hover della legenda"
+    },
+    {
+      "name": "Inchiostro",
+      "hex": "#141D16",
+      "role": "testo, cornici, footer"
+    },
+    {
+      "name": "Testo secondario",
+      "hex": "#586156",
+      "role": "descrizioni e dati"
+    },
+    {
+      "name": "Verde bosco (logo)",
+      "hex": "#1F4D32",
+      "role": "CTA, simboli, waypoint, curve di livello in trasparenza (30% e 55%), stazione meteo e blocco Nando"
+    },
+    {
+      "name": "Ocra",
+      "hex": "#CD8643",
+      "role": "il sentiero tratteggiato, punti del profilo, segnaposti delle tre idee, barre del calendario"
+    },
+    {
+      "name": "Ocra testo su crema",
+      "hex": "#9F632A",
+      "role": "etichette, quote, numeri"
+    },
+    {
+      "name": "Ocra testo su bianco",
+      "hex": "#A4662C",
+      "role": "quote sul profilo altimetrico"
+    }
   ],
   "fonts": [
-    {"family": "Archivo", "role": "titoli condensati in maiuscolo (asse wdth 68%) e testo", "source": "Google Fonts (OFL)"},
-    {"family": "IBM Plex Mono", "role": "quote, etichette, dati meteo, nav", "source": "Google Fonts (OFL)"}
+    {
+      "family": "Archivo",
+      "role": "titoli condensati in maiuscolo (asse wdth 68%) e testo",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "IBM Plex Mono",
+      "role": "quote, etichette, dati meteo, nav",
+      "source": "Google Fonts (OFL)"
+    }
   ],
   "motion": [
     "Curve di livello che si disegnano all'apertura (stagger casuale) e scorrono in parallax",
     "Titolo del cartiglio che sale lettera per lettera dentro la maschera di riga (SplitText)",
-    "Tracciato rosso tratteggiato che si traccia tra le quote, con i punti che compaiono uno a uno",
+    "Sentiero ocra tratteggiato che si traccia tra le quote, con i waypoint che compaiono uno a uno",
     "Profilo altimetrico disegnato all'ingresso in viewport",
-    "Foglio di percorso: il tratteggio rosso avanza con lo scroll (scrub, scaleY)",
+    "Foglio di percorso: il tratteggio ocra avanza con lo scroll (scrub, scaleY)",
     "Quote che contano fino al valore reale, barre del calendario che si allungano (scaleX)",
-    "Hover a ombra netta 'stampata' su CTA e schede"
+    "Hover a ombra netta 'stampata' (nero in trasparenza) su CTA e schede"
   ],
   "components": [
-    "header con nav in mono e CTA rossa",
-    "hero carta: curve di livello SVG, cornice con riferimenti di griglia, cartiglio con H1, schema delle quote non in scala",
+    "header con nav in mono e CTA verde bosco",
+    "hero carta: curve di livello SVG in verde bosco trasparente, cornice con riferimenti di griglia, cartiglio con H1, schema delle quote non in scala",
     "legenda con simboli per le tre schede rapide",
-    "profilo altimetrico SVG con le quote reali dei centri",
-    "foglio di percorso dei sentieri con segnavia, difficoltà a tacche e tempo",
-    "waypoint numerati per le tre idee del giorno",
+    "profilo altimetrico SVG su foglio bianco con le quote reali dei centri",
+    "foglio di percorso dei sentieri con segnavia stilizzato verde-bianco-verde, difficoltà a tacche e tempo",
+    "segnaposti ocra numerati per le tre idee del giorno",
     "tavole fotografiche incorniciate",
     "stazione meteo a strumenti",
     "blocco Nando su verde bosco con le domande come schede",
-    "calendario a barre per gli appuntamenti (dicembre-giugno)",
+    "calendario a barre ocra per gli appuntamenti (dicembre-giugno)",
     "schede itinerario con indicatore dei giorni"
   ],
   "fixes": [
-    "CTA primaria: bianco su rosso segnavia #B3261E 6.54:1 (era testo chiaro su ocra 2.88)",
-    "CTA su verde bosco: verde #1F4D32 su carta #EFE8D6 7.93:1",
-    "Le curve di livello #9A6B3F (3.78:1) sono usate solo come grafica, mai per testo; le etichette usano Terra #7A5230 (5.58:1)",
+    "Palette riportata all'originale del sito: tolti il rosso segnavia, i due marroni delle curve e la carta pergamena; tutti i colori in data/palettes.json (palette-audit: OK)",
+    "CTA primaria: crema su verde bosco 9.18:1 (sul sito attuale testo #FEFCF4 su ocra 2.88)",
+    "Etichette e quote in ocra testo #9F632A su crema 4.63:1, #A4662C sul profilo bianco 4.65:1; sulla fascia crema scura l'occhiello passa al verde bosco (8.09:1)",
+    "Numeri dei segnaposti: inchiostro su ocra 5.82:1",
+    "Testo secondario su bosco crema al 78% (6.31:1), su inchiostro crema al 70% (8.51:1)",
+    "Etichette SVG a 390px tutte ≥ 11px reali (smalltext); 'Piana della Marcesina' spostata dentro la cornice su mobile, Gallio sotto la linea per non sovrapporsi ad Asiago",
     "Nessun badge 'Edit with Lovable'",
     "Schema delle quote dichiarato 'non in scala' per non spacciare un disegno per una mappa vera"
   ],
   "references": [
-    {"label": "swisstopo, curve di livello: il linguaggio grafico delle carte svizzere", "url": "https://www.swisstopo.admin.ch/en/contour-lines"},
-    {"label": "map.geo.admin.ch: carta escursionistica interattiva", "url": "https://map.geo.admin.ch/"},
-    {"label": "San Rita, portfolio a tema topografico con GSAP (Abduzeedo)", "url": "https://abduzeedo.com/node/89189"},
-    {"label": "Mammut Local Adventure (Awwwards Site of the Day)", "url": "https://www.awwwards.com/sites/mammut-local-adventure"}
+    {
+      "label": "swisstopo, curve di livello: il linguaggio grafico delle carte svizzere",
+      "url": "https://www.swisstopo.admin.ch/en/contour-lines"
+    },
+    {
+      "label": "map.geo.admin.ch: carta escursionistica interattiva",
+      "url": "https://map.geo.admin.ch/"
+    },
+    {
+      "label": "San Rita, portfolio a tema topografico con GSAP (Abduzeedo)",
+      "url": "https://abduzeedo.com/node/89189"
+    },
+    {
+      "label": "Mammut Local Adventure (Awwwards Site of the Day)",
+      "url": "https://www.awwwards.com/sites/mammut-local-adventure"
+    }
   ]
 }

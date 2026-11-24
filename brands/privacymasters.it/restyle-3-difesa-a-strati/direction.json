@@ -2,42 +2,47 @@
   "n": 3,
   "slug": "difesa-a-strati",
   "name": "Difesa a strati",
-  "concept": "Le quattro aree diventano quattro strati colorati che proteggono il nucleo, il marchio. Colori pieni, bento grid e una sezione orizzontale pinnata raccontano l'offerta integrata in modo immediato, anche a chi non è tecnico. Funziona per PMI e imprenditori: la promessa '360°' si vede prima ancora di leggerla.",
+  "concept": "Le quattro aree diventano quattro strati che proteggono il nucleo, il marchio. Con due soli colori gli strati si distinguono per intensità: contorno verde, velatura verde, verde pieno, petrolio pieno, sempre con il numero 01-04. Lo stesso codice torna nel bento, nei pannelli dei servizi e nel metodo, così la promessa '360°' si legge prima ancora del testo.",
   "palette": [
     {
-      "name": "Background",
-      "hex": "#F2F5F3",
-      "role": "sfondo pagina"
+      "name": "Tenue",
+      "hex": "#F5F9FA",
+      "role": "sfondo pagina, strato 01"
     },
     {
-      "name": "Ink",
-      "hex": "#0A2B33",
-      "role": "testo (13.60:1), strato 04 Sicurezza fisica, footer"
-    },
-    {
-      "name": "Muted",
-      "hex": "#55666F",
-      "role": "testo secondario (5.44:1 su sfondo)"
-    },
-    {
-      "name": "Cyber",
-      "hex": "#00C483",
-      "role": "strato 01 e CTA (testo ink 6.56:1)"
-    },
-    {
-      "name": "Privacy",
-      "hex": "#D7F7E9",
-      "role": "strato 02 (ink 13.06:1)"
-    },
-    {
-      "name": "Intel",
-      "hex": "#FFB547",
-      "role": "strato 03 (ink 8.50:1)"
-    },
-    {
-      "name": "White",
+      "name": "Bianco",
       "hex": "#FFFFFF",
-      "role": "card, nucleo del logo"
+      "role": "card, sezione servizi, nucleo del logo; base della velatura verde (strato 02)"
+    },
+    {
+      "name": "Petrolio",
+      "hex": "#0A2B33",
+      "role": "testo (14.93:1), strato 04 Sicurezza fisica, team, footer"
+    },
+    {
+      "name": "Grigio testo",
+      "hex": "#55666F",
+      "role": "testo secondario (5.63:1 su tenue, 5.17:1 su velatura)"
+    },
+    {
+      "name": "Linea",
+      "hex": "#D8DFE3",
+      "role": "bordi"
+    },
+    {
+      "name": "Verde logo",
+      "hex": "#129740",
+      "role": "contorno strato 01, velatura strato 02 (12% su bianco), sottolineatura del titolo, avanzamento"
+    },
+    {
+      "name": "Verde scuro",
+      "hex": "#0F8036",
+      "role": "strato 03 e CTA con testo bianco (5.05:1), cifre verdi su chiaro"
+    },
+    {
+      "name": "Verde chiaro",
+      "hex": "#13A445",
+      "role": "testo verde su petrolio (4.57:1)"
     }
   ],
   "fonts": [
@@ -53,12 +58,12 @@
     }
   ],
   "motion": [
-    "strati dell'hero che si compongono dall'esterno verso il nucleo (back.out)",
+    "strati dell'hero che si compongono dall'esterno verso il nucleo (decelerazione morbida, power3.out)",
     "parallax degli strati allo scroll: si aprono e ruotano leggermente (scrub, solo transform)",
     "titoli per parola con maschera e rotazione (SplitText words)",
     "sezione 4 aree orizzontale pinnata con ScrollTrigger (desktop ≥1024px, durata pari a una sola altezza schermo) con barra di avanzamento",
     "card del metodo impilate con position sticky nativo e leggero rimpicciolimento (scrub)",
-    "celle bento e FAQ con ingresso a rimbalzo",
+    "celle bento e FAQ con ingresso morbido, senza rimbalzi",
     "CTA finale che si espande allo scroll"
   ],
   "components": [
@@ -66,17 +71,19 @@
     "hero con diagramma a 4 strati e lucchetto grande al centro accanto al nome PrivacyMasters",
     "4 card fatti",
     "bento grid dei numeri con citazione",
-    "sezione orizzontale pinnata con 4 pannelli colorati",
+    "sezione orizzontale pinnata con legenda e 4 pannelli nel codice degli strati",
     "stack sticky del metodo",
     "griglia settori",
-    "duo team (scuro) + standard (menta)",
+    "duo team (petrolio) + standard (velatura verde)",
     "FAQ a pillole",
-    "blocco CTA verde con forme",
+    "blocco CTA verde scuro con forme petrolio e contorno",
     "footer scuro con logo completo su piastra"
   ],
   "fixes": [
-    "contrasto CTA principale 2.28 → 6.56 (testo #0A2B33 su #00C483, mantiene verde e pillola del brand)",
-    "logo: Logo: file PNG originale non modificato; nell'header solo il lucchetto (ritaglio CSS, proporzioni intatte) accanto al nome in testo, logo completo a 230px di altezza in footer (piastra bianca) dove la scritta 'SECURITY EXPERTS' è leggibile; nell'hero il lucchetto grande è al centro degli strati",
+    "contrasto CTA principale 2.28 → 5.05 (bianco su #0F8036, pillola del brand), hover petrolio 14.93:1",
+    "palette riportata a quella del sito: verde menta, verde pallido e ambra delle versioni precedenti rimossi; i 4 strati ora sono contorno / velatura / pieno verde / pieno petrolio con numeri 01-04 e legenda",
+    "etichette degli strati 12.5px (12px sotto 480px), numero in riquadro: petrolio su chiaro 12.93-14.09:1, bianco su verde 5.05:1 e su petrolio 14.93:1",
+    "logo: file PNG originale non modificato; nell'header solo il lucchetto (ritaglio CSS, proporzioni intatte) accanto al nome in testo, logo completo a 230px di altezza in footer (piastra bianca) dove la scritta 'SECURITY EXPERTS' è leggibile; nell'hero il lucchetto grande è al centro degli strati",
     "sezione pinnata limitata a una sola altezza di scroll e disattivata su mobile e con reduced-motion (lì i pannelli sono una griglia normale)"
   ],
   "references": [

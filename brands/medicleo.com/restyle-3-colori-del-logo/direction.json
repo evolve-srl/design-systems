@@ -1,53 +1,138 @@
 {
   "n": 3,
   "slug": "colori-del-logo",
-  "name": "I colori del logo",
-  "concept": "Il sito finalmente parla con i colori del marchio: il magenta e il ciano del logo, scuriti quanto basta per essere leggibili, diventano CTA, card piene e adesivi. Forme tonde come il lettering del logo, tono amichevole e deciso: per famiglie che cercano una presenza vicina, non un prodotto medicale freddo.",
+  "name": "Il segno del logo",
+  "concept": "La coppia del marchio diventa una firma, non una campitura: su una base bianca e blu petrolio, il ciano della mano e il magenta del cuore tornano come segno sottile e riconoscibile, nei due punti degli occhielli, nelle sottolineature del titolo, negli anelli del radar con il suo arco magenta. Il magenta resta riservato all'unica azione chiave, richiedere una demo, e alle allerte; il ciano evidenzia i dati. Forme arrotondate come il lettering del logo, tono vicino ma composto, per famiglie e operatori.",
   "palette": [
-    {"name": "Magenta", "hex": "#C8004F", "role": "CTA primaria e accenti testuali (bianco su Magenta 5.88:1)"},
-    {"name": "Magenta logo", "hex": "#EE0E65", "role": "forme e sottolineature decorative, mai testo piccolo"},
-    {"name": "Magenta scuro", "hex": "#8E0039", "role": "card piene (bianco 9.51:1)"},
-    {"name": "Rosa", "hex": "#FFE8F0", "role": "superfici tenui, sezioni"},
-    {"name": "Ciano logo", "hex": "#00AEF0", "role": "blob, evidenziatore, card con testo Ink (6.28:1)"},
-    {"name": "Ciano", "hex": "#00648C", "role": "link e CTA secondaria (6.56:1 su bianco)"},
-    {"name": "Ciano scuro", "hex": "#005A7E", "role": "card piene (bianco 7.60:1)"},
-    {"name": "Azzurro", "hex": "#E0F4FC", "role": "superfici tenui, sezioni"},
-    {"name": "Ink", "hex": "#1B2233", "role": "testo e sezione contatti (15.87:1)"},
-    {"name": "Grigio", "hex": "#4A5068", "role": "testo secondario (7.96:1 su bianco)"}
+    {
+      "name": "Bianco",
+      "hex": "#FFFFFF",
+      "role": "sfondo pagina e card"
+    },
+    {
+      "name": "Soft",
+      "hex": "#ECF5F8",
+      "role": "sezioni alternate, superfici tenui"
+    },
+    {
+      "name": "Soft 2",
+      "hex": "#E5F5FA",
+      "role": "esito del calcolatore"
+    },
+    {
+      "name": "Line",
+      "hex": "#D7E4E9",
+      "role": "bordi di card, campi, FAQ"
+    },
+    {
+      "name": "Ink",
+      "hex": "#0D2131",
+      "role": "testo principale (16.42:1 su bianco)"
+    },
+    {
+      "name": "Muted",
+      "hex": "#4C5D6A",
+      "role": "testo secondario (6.82:1 su bianco, 6.16:1 su Soft)"
+    },
+    {
+      "name": "Petrolio",
+      "hex": "#00558B",
+      "role": "colore principale: corsivo del titolo, numeri, link, CTA secondaria, card piena (bianco 7.86:1)"
+    },
+    {
+      "name": "Notte",
+      "hex": "#002946",
+      "role": "fascia scorrevole, card piena, video, contatti, footer"
+    },
+    {
+      "name": "Teal",
+      "hex": "#007373",
+      "role": "testata della card enti, numero 1.015 (bianco su Teal 5.68:1)"
+    },
+    {
+      "name": "On-dark",
+      "hex": "#EEF7FA",
+      "role": "testo su Notte (13.74:1; al 78% 8.8:1)"
+    },
+    {
+      "name": "Ciano logo",
+      "hex": "#01AEEF",
+      "role": "firma: anelli radar, punto degli occhielli, sottolineatura, filetti dei dati, bordi dei passi; testo solo su Notte (5.91:1)"
+    },
+    {
+      "name": "Ciano testo",
+      "hex": "#017DAC",
+      "role": "icone e spunte ciano su chiaro (4.64:1 su bianco)"
+    },
+    {
+      "name": "Magenta logo",
+      "hex": "#ED0F63",
+      "role": "firma: punto degli occhielli, sottolineatura del titolo, arco del radar, anello del passo 'allerta'"
+    },
+    {
+      "name": "Magenta CTA",
+      "hex": "#DF0E5D",
+      "role": "l'unica CTA chiave 'Richiedi una demo' / 'Invia richiesta' (bianco 4.82:1) e icona delle allerte"
+    },
+    {
+      "name": "Magenta chiaro",
+      "hex": "#F4508E",
+      "role": "'più serenità' nel titolo di chiusura su Notte (4.54:1)"
+    }
   ],
   "fonts": [
-    {"family": "Nunito", "role": "titoli 800-900, numeri, bottoni", "source": "Google Fonts (OFL)"},
-    {"family": "Nunito Sans", "role": "testo, form", "source": "Google Fonts (OFL)"}
+    {
+      "family": "Nunito",
+      "role": "titoli 800, numeri, bottoni (arrotondato come il lettering del logo)",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "Nunito Sans",
+      "role": "testo, form",
+      "source": "Google Fonts (OFL)"
+    }
   ],
   "motion": [
-    "H1 con parole che saltano su una alla volta (SplitText words, back.out)",
-    "blob ciano che ruota lentamente dietro il sensore, cerchio magenta che fluttua",
-    "adesivi 'nessuna telecamera · giorno e notte · nulla da indossare' che entrano con un pop e ondeggiano",
-    "fascia magenta inclinata con testo che scorre in orizzontale",
-    "card colorate che entrano con scala, leggera rotazione e rimbalzo (ScrollTrigger.batch)",
-    "numeri dei tre passi che ruotano in posizione",
-    "micro-interazione sulle CTA (scala con rimbalzo) e sulle card (sollevamento con rotazione di 1 grado)",
+    "H1 con parole che salgono da una maschera, una alla volta (SplitText words, power3.out)",
+    "anelli ciano del radar che si aprono in sequenza; l'arco magenta con il suo punto ruota piano sull'anello (24s per giro)",
+    "etichette 'nessuna telecamera · giorno e notte · nulla da indossare' che entrano in dissolvenza",
+    "fascia notte con testo che scorre in orizzontale, separatori ciano e magenta",
+    "card e numeri del contesto che salgono in sequenza (ScrollTrigger.batch), senza rimbalzi né rotazioni",
+    "linea tratteggiata ciano tra i tre passi che si disegna con scaleX",
     "prefers-reduced-motion: nessuna animazione; senza JS tutto visibile"
   ],
   "components": [
-    "header a pillola flottante con logo originale e CTA magenta",
-    "hero con titolo evidenziato (sottolineatura magenta, evidenziatore ciano) e blob con sensore",
-    "fascia scorrevole dei benefici",
-    "quattro card colorate 'la casa è più di un luogo'",
-    "bento dei dati del contesto con card piene magenta, ciano e ink, rette in pillole",
-    "feature card con icone in tondi colorati, timeline a tre cerchi, card 'per chi' con testata colorata",
-    "calcolatore dei costi, FAQ a pillole con più/meno, contatti su ink"
+    "header a pillola flottante bianca con logo originale e CTA magenta",
+    "hero bianco con titolo a doppia sottolineatura (magenta e ciano) e corsivo petrolio, sensore su disco soft dentro gli anelli radar",
+    "occhielli con i due punti del logo",
+    "fascia notte scorrevole dei benefici",
+    "quattro card 'la casa è più di un luogo': due bianche, una petrolio, una notte",
+    "bento dei dati su fondo soft: card bianche con numeri petrolio/teal e filetto ciano, card piene petrolio e notte, rette in pillole",
+    "feature card con icone ciano e l'icona allerte in magenta, timeline a tre cerchi (l'ultimo, 'allerta', bordato di magenta)",
+    "card 'per chi' con testata petrolio, teal e notte; calcolatore; FAQ a card; contatti su notte con form mailto"
   ],
   "fixes": [
-    "i colori del logo (magenta e ciano) finalmente usati nel sito, in versioni accessibili: il magenta originale #EE0E65 su bianco fa 4.30:1 e il ciano #00AEF0 2.53:1, quindi il testo usa #C8004F (5.88:1 come fondo CTA) e #00648C (6.56:1)",
-    "CTA principale: bianco su #C8004F 5.88:1",
+    "i colori del logo entrano nel sito solo dove sono leggibili: ciano come testo solo su Notte (5.91:1), su bianco icone in #017DAC (4.64:1); magenta come CTA #DF0E5D con testo bianco (4.82:1) e come testo solo su Notte in #F4508E (4.54:1)",
+    "il magenta non è più un colore di sfondo: solo la CTA chiave e piccoli segni, la base torna al blu petrolio del sito",
     "il nome non è più ripetuto: nel header solo il logo originale, che contiene già 'MediCleo'",
-    "testo secondario #4A5068 a 7.96:1 su bianco"
+    "testo secondario #4C5D6A: 6.82:1 su bianco, 6.16:1 su #ECF5F8; su Notte #EEF7FA al 78% 8.8:1"
   ],
   "references": [
-    {"label": "Alan, assicurazione salute con palette piena e card colorate", "url": "https://alan.com/"},
-    {"label": "Headspace, salute con forme tonde e tono amichevole", "url": "https://www.headspace.com/"},
-    {"label": "Joyful Health di Paper Tiger, sanità colorata animata con GSAP", "url": "https://www.papertiger.com/projects/joyful-health"},
-    {"label": "Godly (ora recent.design), galleria di web design", "url": "https://godly.website/"}
+    {
+      "label": "Alan, assicurazione salute con palette piena e card colorate",
+      "url": "https://alan.com/"
+    },
+    {
+      "label": "Headspace, salute con forme tonde e tono amichevole",
+      "url": "https://www.headspace.com/"
+    },
+    {
+      "label": "Joyful Health di Paper Tiger, sanità colorata animata con GSAP",
+      "url": "https://www.papertiger.com/projects/joyful-health"
+    },
+    {
+      "label": "Godly (ora recent.design), galleria di web design",
+      "url": "https://godly.website/"
+    }
   ]
 }

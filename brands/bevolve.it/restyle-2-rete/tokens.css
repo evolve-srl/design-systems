@@ -1,25 +1,34 @@
-/* Evolve — Restyle 2 "La rete": design tokens */
+/* Evolve — Restyle 2 "La rete": design tokens
+   Palette: solo colori di data/palettes.json per bevolve.it. Il logo è un wordmark monocromatico
+   (qui schiarito con filtro CSS), quindi i colori sono la famiglia navy del sito: pagina scura. */
 :root {
-  /* Colori — fondi notturni derivati dal navy del brand */
-  --c-night: #050A18;        /* fondo pagina */
-  --c-night-2: #0A1430;      /* fasce alternate */
-  --c-surface: #0E1A3D;      /* card e nodi */
-  --c-navy: #11338A;         /* navy storico del brand: superfici attive */
+  /* Colori — fondi: slate (theme-color del sito) e night (coda del gradiente del sito) */
+  --c-bg: #0F172A;           /* fondo pagina */
+  --c-bg-2: #0F1F4D;         /* fasce alternate, card dei servizi, nodo centrale */
+  --c-surface: #0F1F4D;      /* card su fondo slate */
+  --c-surface-on-2: rgba(15, 23, 42, 0.72); /* card su fascia night: slate in trasparenza */
+  --c-navy: #11338A;         /* navy del sito (bottoni e link): nodo "un solo interlocutore" */
+  --c-white: #FFFFFF;
 
-  /* Colori — testo su scuro */
-  --c-text: #EAF0FF;         /* 17.3:1 su night */
-  --c-muted: #A9B6D6;        /* 9.7:1 su night, 8.4:1 su surface */
-  --c-dim: #8B95A8;          /* solo etichette mono, 6.55:1 su night */
+  /* Colori — testo su scuro: bianco e bianco in trasparenza (neutri del sito) */
+  --c-text: #FFFFFF;                        /* 17.85:1 su slate, 15.87:1 su night */
+  --c-muted: rgba(255, 255, 255, 0.78);     /* 11.1:1 su slate, 10.06:1 su night */
+  --c-dim: rgba(255, 255, 255, 0.64);       /* solo etichette mono: 7.19:1 su night */
 
-  /* Colori — segnale: il blu elettrico delle connessioni e delle CTA */
-  --c-signal: #6E9BFF;       /* testo night su signal 7.33:1 */
-  --c-signal-ink: #050A18;
-  --c-signal-hover: #8FB2FF;  /* testo night su hover 9.4:1 */
+  /* Colori — segnale: blue-light per il testo, blue per le forme (entrambi dalla palette del sito) */
+  --c-signal: #6D85D7;       /* variante AA: 5.09:1 su slate, 4.52:1 su night */
+  --c-signal-shape: #3B5BC9; /* blue del gradiente del sito: nodi pieni e punti */
 
-  /* Colori — linee di rete e bordi */
-  --c-wire: rgba(110, 155, 255, 0.55);
-  --c-wire-dim: rgba(110, 155, 255, 0.22);
-  --c-border: rgba(169, 182, 214, 0.18);
+  /* Colori — gradiente firma del sito: CTA principali e box contatti */
+  --g-brand: linear-gradient(135deg, #3B5BC9 0%, #1E3A8A 50%, #0F1F4D 100%);
+  --c-brand-solid: #1E3A8A;  /* deep, colore medio del gradiente: fallback del bottone (bianco 10.36:1) */
+
+  /* Colori — linee di rete e bordi (blue-light e bianco in trasparenza) */
+  --c-wire: rgba(109, 133, 215, 0.6);
+  --c-wire-dim: rgba(109, 133, 215, 0.24);
+  --c-border: rgba(255, 255, 255, 0.14);
+  --c-tint: rgba(109, 133, 215, 0.1);       /* hover di link e card */
+  --c-on-gradient-line: rgba(255, 255, 255, 0.4);
 
   /* Tipografia — famiglie: Space Grotesk per titoli e testo, IBM Plex Mono per dati e nodi */
   --f-sans: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -57,12 +66,12 @@
   --max: 1280px;
   --gutter: 16px;
 
-  /* Forme — angoli tecnici, CTA a capsula stretta */
+  /* Forme — angoli tecnici, CTA a capsula */
   --r-s: 6px;
   --r-m: 14px;
   --r-pill: 999px;
 
-  /* Ombre — elevazione neutra, il segnale si esprime con il bordo, non con aloni */
+  /* Ombre — solo nero neutro: il segnale si esprime con il bordo, non con aloni */
   --lift: 0 12px 32px -16px rgba(0, 0, 0, 0.7);
 
   /* Movimento */
@@ -70,7 +79,8 @@
   --d-fast: 160ms;
   --d-base: 380ms;
 
-  /* Focus */
-  --focus: 0 0 0 2px #050A18, 0 0 0 4px #6E9BFF;
+  /* Focus — outline blue-light staccato dall'elemento */
+  --focus-color: #6D85D7;
+  --focus-color-on-gradient: #FFFFFF;
 }
 @media (min-width: 768px) { :root { --gutter: 32px; } }

@@ -19,7 +19,8 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 p{margin:0}
 :focus-visible{outline:3px solid var(--c-forest);outline-offset:3px;border-radius:6px}
-.skip{position:absolute;left:16px;top:-60px;background:var(--c-ink);color:#fff;padding:10px 14px;z-index:100;text-decoration:none;border-radius:var(--r-sm)}
+.season--inverno :focus-visible,.nando :focus-visible{outline-color:var(--c-on-dark)}
+.skip{position:absolute;left:16px;top:-60px;background:var(--c-ink);color:var(--c-on-dark);padding:10px 14px;z-index:100;text-decoration:none;border-radius:var(--r-sm)}
 .skip:focus{top:12px}
 .wrap{width:100%;max-width:calc(var(--wrap) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter)}
 .icon{width:1.15em;height:1.15em;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -37,14 +38,16 @@ h3{font-size:var(--fs-h3);font-weight:700;letter-spacing:-0.01em;line-height:1.1
 .logo span{font:800 1.1rem/1 var(--f-display);letter-spacing:.02em}
 .nav{display:flex;gap:2px;margin-left:auto;align-items:center}
 .nav a{font:600 .92rem/1 var(--f-text);text-decoration:none;padding:11px 13px;border-radius:var(--r-pill);transition:background-color var(--dur-fast)}
-.nav a:hover{background:var(--s-estate-bg)}
-.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:var(--r-pill);font:700 1rem/1 var(--f-text);text-decoration:none;border:0;cursor:pointer;transition:transform var(--dur) var(--ease-bounce)}
-.btn:hover{transform:translateY(-3px) rotate(-1.5deg)}
+.nav a:not(.btn):hover{background:var(--c-paper-2)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:var(--r-pill);font:700 1rem/1 var(--f-text);text-decoration:none;border:0;cursor:pointer;transition:transform var(--dur) var(--ease-out),background-color var(--dur-fast)}
+.btn:hover{transform:translateY(-2px)}
+.btn .icon{transition:transform var(--dur) var(--ease-out)}
+.btn:hover .icon:last-child{transform:translateX(3px)}
 .btn--ochre{background:var(--c-ochre);color:var(--c-ink)}
-.btn--forest{background:var(--c-forest);color:#fff}
-.btn--white{background:var(--c-card);color:var(--c-ink)}
+.btn--forest{background:var(--c-forest);color:var(--c-on-dark)}
+.btn--forest:hover{background:var(--c-ink)}
 .top .btn{min-height:44px}
-.menu-btn{display:none;margin-left:auto;background:var(--s-estate-bg);border:0;border-radius:50%;width:44px;height:44px;align-items:center;justify-content:center;color:var(--c-ink);cursor:pointer}
+.menu-btn{display:none;margin-left:auto;background:var(--c-paper-2);border:0;border-radius:50%;width:44px;height:44px;align-items:center;justify-content:center;color:var(--c-ink);cursor:pointer}
 .menu-btn .icon{width:22px;height:22px}
 .menu-btn .i-close{display:none}
 body.nav-open .menu-btn .i-open{display:none}
@@ -62,11 +65,9 @@ body.nav-open .menu-btn .i-close{display:block}
 .ctas{display:flex;flex-wrap:wrap;gap:12px}
 .pick{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .pick span{font:600 .9rem/1 var(--f-text);color:var(--c-muted);margin-right:4px}
-.pick a{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:var(--r-pill);font:600 .92rem/1 var(--f-text);text-decoration:none;transition:transform var(--dur) var(--ease-bounce)}
-.pick a:hover{transform:translateY(-3px)}
-.pick a[href="#estate"]{background:var(--s-estate-bg);color:var(--s-estate-ink)}
-.pick a[href="#autunno"]{background:var(--s-autunno-bg);color:var(--s-autunno-ink)}
-.pick a[href="#inverno"]{background:var(--s-inverno-bg);color:var(--s-inverno-ink)}
+.pick a{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border-radius:var(--r-pill);font:600 .92rem/1 var(--f-text);text-decoration:none;background:var(--c-card);color:var(--c-ink);border:1px solid var(--c-line);transition:background-color var(--dur-fast),border-color var(--dur-fast)}
+.pick a .icon{color:var(--c-forest)}
+.pick a:hover{background:var(--c-paper-2);border-color:var(--c-paper-2)}
 .hero__visual{grid-column:7 / span 6;position:relative;padding-bottom:40px}
 .hero__photo{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:5/4;margin-left:12%}
 .hero__photo img{width:100%;height:100%;object-fit:cover}
@@ -74,29 +75,27 @@ body.nav-open .menu-btn .i-close{display:block}
 /* Chat Nando */
 .chat{color:var(--c-ink);background:var(--c-card);border-radius:var(--r-md);box-shadow:var(--shadow);padding:18px;display:flex;flex-direction:column;gap:12px}
 .hero .chat{position:absolute;left:0;bottom:0;width:min(400px,78%)}
-.chat__head{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid rgba(20,29,22,.08)}
-.avatar{width:44px;height:44px;border-radius:50%;background:var(--c-forest);color:#fff;display:grid;place-items:center;flex:none}
+.chat__head{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--c-ink-line)}
+.avatar{width:44px;height:44px;border-radius:50%;background:var(--c-forest);color:var(--c-on-dark);display:grid;place-items:center;flex:none}
 .avatar .icon{width:22px;height:22px}
 .chat__head b{display:block;font:800 1.05rem/1.1 var(--f-display)}
 .chat__head small{display:flex;align-items:center;gap:6px;font-size:.82rem;color:var(--c-muted)}
-.chat__head small::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--d-facile)}
-.bubble{background:var(--s-estate-bg);color:var(--s-estate-ink);border-radius:18px 18px 18px 6px;padding:12px 15px;font-size:.98rem;line-height:1.45;max-width:92%}
-.typing{display:none;gap:4px;padding:14px 16px;background:var(--s-estate-bg);border-radius:18px 18px 18px 6px;width:max-content}
-.typing i{width:7px;height:7px;border-radius:50%;background:var(--s-estate-muted)}
+.chat__head small::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c-forest)}
+.bubble{background:var(--c-paper-2);color:var(--c-ink);border-radius:18px 18px 18px 6px;padding:12px 15px;font-size:.98rem;line-height:1.45;max-width:92%}
+.typing{display:none;gap:4px;padding:14px 16px;background:var(--c-paper-2);border-radius:18px 18px 18px 6px;width:max-content}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--c-muted)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
-.chip{display:inline-flex;align-items:center;padding:9px 13px;border-radius:18px 18px 6px 18px;background:var(--c-forest);color:#fff;font:600 .88rem/1.25 var(--f-text);text-decoration:none;transition:background-color var(--dur-fast)}
-.chip:hover{background:#173B26;text-decoration:underline}
-.ask{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 16px;border-radius:var(--r-pill);border:1.5px solid rgba(20,29,22,.18);text-decoration:none;color:var(--c-muted);font-size:.95rem}
+.chip{display:inline-flex;align-items:center;padding:9px 13px;border-radius:18px 18px 6px 18px;background:var(--c-forest);color:var(--c-on-dark);font:600 .88rem/1.25 var(--f-text);text-decoration:none;transition:background-color var(--dur-fast)}
+.chip:hover{background:var(--c-ink);text-decoration:underline}
+.ask{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 16px;border-radius:var(--r-pill);border:1.5px solid var(--c-ink-line-strong);text-decoration:none;color:var(--c-muted);font-size:.95rem;transition:border-color var(--dur-fast)}
+.ask:hover{border-color:var(--c-forest);color:var(--c-ink)}
 .ask span.go{width:38px;height:38px;border-radius:50%;background:var(--c-ochre);color:var(--c-ink);display:grid;place-items:center}
 
 /* ---------- Rubriche ---------- */
 .quick{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
-.qcard{display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:var(--r-md);background:var(--c-card);text-decoration:none;box-shadow:var(--shadow)}
-.qcard:hover{transform:translateY(-4px) rotate(-.6deg);transition:transform var(--dur) var(--ease-bounce)}
-.qcard .ic{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;flex:none}
-.qcard:nth-child(1) .ic{background:var(--s-estate-bg);color:var(--s-estate-ink)}
-.qcard:nth-child(2) .ic{background:var(--s-autunno-bg);color:var(--s-autunno-ink)}
-.qcard:nth-child(3) .ic{background:var(--s-inverno-bg);color:var(--s-inverno-ink)}
+.qcard{display:flex;gap:16px;align-items:flex-start;padding:22px;border-radius:var(--r-md);background:var(--c-card);text-decoration:none;box-shadow:var(--shadow);transition:transform var(--dur) var(--ease-out)}
+.qcard:hover{transform:translateY(-3px)}
+.ic{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;flex:none;background:var(--c-forest-tint);color:var(--c-forest)}
 .qcard small{display:block;font:700 .75rem/1 var(--f-text);letter-spacing:.08em;text-transform:uppercase;color:var(--c-muted);margin-bottom:6px}
 .qcard h3{margin-bottom:6px}
 .qcard p{color:var(--c-muted);font-size:.96rem}
@@ -108,63 +107,65 @@ body.nav-open .menu-btn .i-close{display:block}
 .comuni__head p{grid-column:7 / span 6;font-size:1.08rem;color:var(--c-ink)}
 .comuni{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);list-style:none;margin:0;padding:0}
 .comune{background:var(--c-card);border-radius:var(--r-md);padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
-.alt{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;padding:6px 12px;border-radius:var(--r-pill);background:var(--c-ochre-soft);color:var(--c-ink);font:700 .95rem/1 var(--f-text);font-variant-numeric:tabular-nums}
+.alt{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;padding:6px 12px;border-radius:var(--r-pill);background:var(--c-ochre);color:var(--c-ink);font:700 .95rem/1 var(--f-text);font-variant-numeric:tabular-nums}
 .comune h3{font-size:1.6rem}
 .comune p{color:var(--c-muted);font-size:.95rem}
 
-/* ---------- Stagioni ---------- */
-.sky{position:fixed;inset:0;z-index:-1;pointer-events:none;display:none}
-.sky i{position:absolute;inset:0;opacity:0}
-.sky i[data-s="estate"]{background:var(--s-estate-bg)}
-.sky i[data-s="autunno"]{background:var(--s-autunno-bg)}
-.sky i[data-s="inverno"]{background:var(--s-inverno-bg)}
-html.js-seasons .sky{display:block}
-html.js-seasons .season{background:transparent!important}
+/* ---------- Stagioni: tre capitoli, tre superfici ammesse ---------- */
 .seasons{position:relative}
 .rail{position:sticky;top:92px;z-index:30;display:flex;justify-content:center;height:0;overflow:visible}
 .rail__in{display:flex;gap:4px;padding:5px;border-radius:var(--r-pill);background:var(--c-card);box-shadow:var(--shadow);height:max-content}
 .rail a{display:inline-flex;align-items:center;gap:7px;padding:9px 15px;border-radius:var(--r-pill);font:700 .9rem/1 var(--f-text);text-decoration:none;color:var(--c-muted);transition:background-color var(--dur),color var(--dur)}
-.rail a.on[href="#estate"],.rail a[href="#estate"]:hover{background:var(--s-estate-bg);color:var(--s-estate-ink)}
-.rail a.on[href="#autunno"],.rail a[href="#autunno"]:hover{background:var(--s-autunno-bg);color:var(--s-autunno-ink)}
-.rail a.on[href="#inverno"],.rail a[href="#inverno"]:hover{background:var(--s-inverno-bg);color:var(--s-inverno-ink)}
-.season{position:relative;padding:clamp(110px,12vw,170px) 0 clamp(72px,9vw,120px);overflow:clip}
-.season--estate{background:var(--s-estate-bg);color:var(--s-estate-ink);--muted:var(--s-estate-muted);--bg:var(--s-estate-bg)}
-.season--autunno{background:var(--s-autunno-bg);color:var(--s-autunno-ink);--muted:var(--s-autunno-muted);--bg:var(--s-autunno-bg)}
-.season--inverno{background:var(--s-inverno-bg);color:var(--s-inverno-ink);--muted:var(--s-inverno-muted);--bg:var(--s-inverno-bg)}
-.season__name{font-size:var(--fs-season);line-height:.85;letter-spacing:-0.05em;display:flex;align-items:flex-end;gap:.15em;flex-wrap:wrap}
-.season__name .icon{width:.42em;height:.42em;stroke-width:1.6;margin-bottom:.12em}
-.season__sub{font:700 clamp(1.3rem,2.4vw,2rem)/1.2 var(--f-display);margin:14px 0 clamp(36px,5vw,64px);color:var(--muted);letter-spacing:-0.01em}
-.deco{position:absolute;inset:0;pointer-events:none;color:var(--muted)}
-.deco svg{position:absolute;width:44px;height:44px;opacity:.28;stroke-width:1.5}
+.rail a:hover{background:var(--c-paper-2);color:var(--c-ink)}
+.rail a.on{background:var(--c-forest);color:var(--c-on-dark)}
+.season{position:relative;padding:clamp(112px,11vw,160px) 0 clamp(72px,9vw,120px);background:var(--bg);color:var(--fg)}
+.season--estate{--bg:var(--c-card);--fg:var(--c-ink);--muted:var(--c-muted);--name:var(--c-forest)}
+.season--autunno{--bg:var(--c-paper-2);--fg:var(--c-ink);--muted:var(--c-muted);--name:var(--c-forest)}
+.season--inverno{--bg:var(--c-forest);--fg:var(--c-on-dark);--muted:var(--c-on-dark-muted);--name:var(--c-on-dark)}
+.season__head{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);align-items:end;margin-bottom:clamp(28px,4vw,48px)}
+.season__name{grid-column:1 / span 8;font-size:var(--fs-season);line-height:.82;letter-spacing:-0.055em;color:var(--name);display:flex;align-items:flex-start;gap:.08em}
+.season__name .no{font:700 .9rem/1 var(--f-text);letter-spacing:.08em;color:var(--muted);margin-top:.6em}
+.season__name .icon{width:.3em;height:.3em;stroke-width:1.6;color:var(--c-ochre);margin-top:.12em}
+.season__sub{grid-column:9 / span 4;font:700 clamp(1.25rem,2vw,1.7rem)/1.2 var(--f-display);color:var(--muted);letter-spacing:-0.01em;padding-bottom:.4em}
+/* Foto d'apertura del capitolo */
+.opener{position:relative;margin:0 0 var(--gap);border-radius:var(--r-lg);overflow:hidden;background:var(--c-paper-2)}
+.opener__img{position:relative;aspect-ratio:21/9;overflow:hidden}
+.opener__img img{position:absolute;left:0;top:-12%;width:100%;height:124%;max-width:none;object-fit:cover}
+.opener figcaption{position:absolute;left:clamp(12px,2vw,24px);bottom:clamp(12px,2vw,24px);max-width:440px;background:var(--c-card);color:var(--c-ink);border-radius:var(--r-md);padding:16px 20px;box-shadow:var(--shadow)}
+.opener figcaption h3{font-size:clamp(1.3rem,1.8vw,1.6rem);margin-bottom:4px}
+.opener figcaption p{color:var(--c-muted);font-size:.98rem}
 .sgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);position:relative}
-.photo{position:relative;border-radius:var(--r-lg);overflow:hidden;margin:0;background:var(--c-card)}
-.photo img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
-.photo figcaption{position:absolute;left:14px;right:14px;bottom:14px;background:var(--c-card);color:var(--c-ink);border-radius:var(--r-md);padding:14px 16px}
-.photo figcaption h3{margin-bottom:4px}
-.photo figcaption p{color:var(--c-muted);font-size:.95rem}
+.col{display:flex;flex-direction:column;gap:var(--gap)}
 .card{background:var(--c-card);color:var(--c-ink);border-radius:var(--r-md);padding:22px;box-shadow:var(--shadow)}
+.season--estate .card{box-shadow:none;border:1px solid var(--c-line)}
 .card__title{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-bottom:12px}
 .card__title h3{font-size:1.5rem}
-.card__title a{font:700 .9rem/1 var(--f-text);color:var(--c-forest);display:inline-flex;gap:6px;align-items:center}
+.card__title a,.textlink{font:700 .9rem/1 var(--f-text);color:var(--c-forest);display:inline-flex;gap:6px;align-items:center}
 .trails{list-style:none;margin:0;padding:0}
-.trails li{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:13px 0;border-top:1px solid rgba(20,29,22,.08)}
+.trails li{display:grid;grid-template-columns:1fr auto auto;gap:12px;align-items:center;padding:13px 0;border-top:1px solid var(--c-ink-line)}
 .trails b{font:700 1.02rem/1.3 var(--f-text)}
 .lvl{font:700 .78rem/1 var(--f-text);padding:6px 10px;border-radius:var(--r-pill);border:1.5px solid currentColor}
-.lvl--f{color:var(--d-facile)}
-.lvl--m{color:var(--d-medio)}
-.lvl--i{color:var(--d-impegnativo)}
+.lvl--f{color:var(--c-forest)}
+.lvl--m{color:var(--c-ochre-text)}
+.lvl--i{color:var(--c-card);background:var(--c-ink);border-color:var(--c-ink)}
 .dur{display:inline-flex;align-items:center;gap:6px;font:600 .92rem/1 var(--f-text);color:var(--c-muted);font-variant-numeric:tabular-nums;min-width:72px;justify-content:flex-end}
-.nando-says{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:var(--gap)}
-.nando-says .avatar{width:40px;height:40px}
-.nando-says a{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:18px 18px 18px 6px;background:var(--c-card);color:var(--c-ink);text-decoration:none;font-weight:600;box-shadow:var(--shadow);transition:transform var(--dur) var(--ease-bounce)}
-.nando-says a:hover{transform:translateY(-3px)}
-.nando-says a{flex-wrap:wrap;row-gap:2px}
-.nando-says a em{font-style:normal;color:var(--c-forest)}
-.today{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:var(--r-pill);background:var(--c-ochre-soft);color:var(--c-ink);font:700 .9rem/1 var(--f-text);margin-bottom:18px}
+/* Nando in ogni stagione */
+.ask-nando{display:flex;flex-direction:column;gap:14px;padding:22px;border-radius:var(--r-md);background:var(--c-forest);color:var(--c-on-dark);text-decoration:none;transition:transform var(--dur) var(--ease-out)}
+.ask-nando:hover{transform:translateY(-3px)}
+.ask-nando .who{display:flex;align-items:center;gap:10px;font:600 .9rem/1.2 var(--f-text);color:var(--c-on-dark-muted)}
+.ask-nando .avatar{width:38px;height:38px;background:var(--c-on-dark);color:var(--c-forest)}
+.ask-nando q{font:700 clamp(1.3rem,2vw,1.75rem)/1.18 var(--f-display);letter-spacing:-0.01em;quotes:"«" "»"}
+.ask-nando .go{margin-top:auto;padding-top:6px;display:inline-flex;align-items:center;gap:8px;font:700 .95rem/1 var(--f-text);text-decoration:underline;text-underline-offset:4px}
+.season--inverno .ask-nando{background:var(--c-card);color:var(--c-ink)}
+.season--inverno .ask-nando .who{color:var(--c-muted)}
+.season--inverno .ask-nando .avatar{background:var(--c-forest);color:var(--c-on-dark)}
+.season--inverno .ask-nando .go{color:var(--c-forest)}
+/* Autunno */
+.today{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:var(--r-pill);background:var(--c-ochre);color:var(--c-ink);font:700 .9rem/1 var(--f-text);margin:clamp(24px,4vw,48px) 0 16px}
+.ideas-title{font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:24px}
 .ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);list-style:none;margin:0 0 var(--gap);padding:0}
 .idea{background:var(--c-card);color:var(--c-ink);border-radius:var(--r-md);padding:22px;box-shadow:var(--shadow)}
-.idea:hover{transform:rotate(-1deg) translateY(-4px);transition:transform var(--dur) var(--ease-bounce)}
-.idea .n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--s-autunno-bg);color:var(--s-autunno-ink);font:800 1rem/1 var(--f-display);margin-bottom:14px}
+.idea .n{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--c-forest);color:var(--c-on-dark);font:800 1rem/1 var(--f-display);margin-bottom:14px}
 .idea h3{font-size:1.4rem;margin-bottom:4px}
 .idea small{display:block;color:var(--c-muted);font-weight:600;margin-bottom:8px}
 .idea p{color:var(--c-muted)}
@@ -175,43 +176,53 @@ html.js-seasons .season{background:transparent!important}
 .wlist{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px;list-style:none;padding:0}
 .wlist li{background:var(--c-paper);border-radius:var(--r-sm);padding:10px 12px;font-size:.85rem;color:var(--c-muted)}
 .wlist b{display:block;font:800 1.15rem/1.2 var(--f-display);color:var(--c-ink)}
-.mini-iti{display:flex;gap:14px;align-items:flex-start;text-decoration:none}
-.mini-iti .ic{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--bg);flex:none}
+.mini-iti{display:flex;gap:14px;align-items:flex-start;text-decoration:none;transition:transform var(--dur) var(--ease-out)}
+.mini-iti:hover{transform:translateY(-3px)}
+.mini-iti .ic{width:46px;height:46px;border-radius:14px}
 .mini-iti small{display:block;font:700 .75rem/1 var(--f-text);letter-spacing:.08em;text-transform:uppercase;color:var(--c-muted);margin-bottom:6px}
 .mini-iti h3{margin-bottom:4px}
 .mini-iti p{color:var(--c-muted);font-size:.95rem}
+/* Inverno */
+.ev-title{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-bottom:14px}
+.ev-title h3{font-size:1.6rem}
+.ev-title a{font:700 .9rem/1 var(--f-text);color:var(--c-on-dark);display:inline-flex;gap:6px;align-items:center}
 .events{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
-.events li{display:grid;grid-template-columns:96px 1fr;gap:14px;align-items:center;background:var(--c-card);color:var(--c-ink);border-radius:var(--r-md);padding:14px;box-shadow:var(--shadow)}
-.when{background:var(--s-inverno-bg);color:var(--s-inverno-ink);border-radius:var(--r-sm);padding:10px 8px;text-align:center;font:800 .88rem/1.15 var(--f-display)}
+.events li{display:grid;grid-template-columns:104px 1fr;gap:14px;align-items:center;background:var(--c-card);color:var(--c-ink);border-radius:var(--r-md);padding:14px}
+.when{background:var(--c-paper-2);color:var(--c-forest);border-radius:var(--r-sm);padding:10px 8px;text-align:center;font:800 .88rem/1.15 var(--f-display)}
 .events h3{font-size:1.15rem}
 .events p{color:var(--c-muted);font-size:.9rem}
-.spring{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:var(--gap);padding:18px 20px;border-radius:var(--r-md);background:var(--s-estate-bg);color:var(--s-estate-ink);border:2px dashed var(--s-estate-muted)}
+.spring{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:clamp(28px,4vw,48px);padding:20px 0 0;border-top:1px dashed var(--c-on-dark-line);color:var(--c-on-dark)}
+.spring .icon{width:26px;height:26px;color:var(--c-ochre)}
 .spring b{font:800 1.25rem/1.2 var(--f-display)}
-.spring span{color:var(--s-estate-muted);font-weight:600}
+.spring span{color:var(--c-on-dark-muted);font-weight:600}
 
-/* ---------- Itinerari ---------- */
+/* ---------- Itinerari: la superficie dice la stagione ---------- */
 .itis{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);list-style:none;margin:0;padding:0}
-.itis a{display:flex;flex-direction:column;gap:10px;height:100%;padding:24px;border-radius:var(--r-md);text-decoration:none;transition:transform var(--dur) var(--ease-bounce)}
-.itis a:hover{transform:translateY(-5px) rotate(-1deg)}
-.itis .i-estate a{background:var(--s-estate-bg);color:var(--s-estate-ink)}
-.itis .i-autunno a{background:var(--s-autunno-bg);color:var(--s-autunno-ink)}
-.itis .i-inverno a{background:var(--s-inverno-bg);color:var(--s-inverno-ink)}
-.itis .badge{align-self:flex-start;padding:6px 11px;border-radius:var(--r-pill);background:var(--c-card);color:var(--c-ink);font:700 .76rem/1 var(--f-text);letter-spacing:.06em;text-transform:uppercase}
+.itis a{display:flex;flex-direction:column;gap:10px;height:100%;padding:24px;border-radius:var(--r-md);text-decoration:none;transition:transform var(--dur) var(--ease-out)}
+.itis a:hover{transform:translateY(-4px)}
+.itis .i-estate a{background:var(--c-card);color:var(--c-ink);border:1px solid var(--c-line)}
+.itis .i-autunno a{background:var(--c-paper-2);color:var(--c-ink)}
+.itis .i-inverno a{background:var(--c-forest);color:var(--c-on-dark)}
+.itis .badge{align-self:flex-start;padding:6px 11px;border-radius:var(--r-pill);background:var(--c-paper-2);color:var(--c-ink);font:700 .76rem/1 var(--f-text);letter-spacing:.06em;text-transform:uppercase}
+.itis .i-autunno .badge{background:var(--c-card)}
+.itis .i-inverno .badge{background:var(--c-on-dark-fill);color:var(--c-on-dark)}
 .itis h3{font-size:1.6rem}
-.itis p{font-size:.98rem}
+.itis p{font-size:.98rem;color:var(--c-muted)}
+.itis .i-inverno p{color:var(--c-on-dark-muted)}
 .head-row{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:36px}
 
 /* ---------- Nando finale ---------- */
-.nando{background:var(--c-forest);color:#fff;border-radius:var(--r-lg);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);align-items:center}
+.nando{background:var(--c-forest);color:var(--c-on-dark);border-radius:var(--r-lg);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);align-items:center}
 .nando__txt{grid-column:1 / span 6;display:flex;flex-direction:column;gap:20px;align-items:flex-start}
-.nando__txt .tag{background:rgba(255,255,255,.12);color:#fff;box-shadow:none}
-.nando__txt .tag .icon{color:#fff}
+.nando__txt .tag{background:var(--c-on-dark-fill);color:var(--c-on-dark);box-shadow:none}
+.nando__txt .tag .icon{color:var(--c-on-dark)}
 .nando__txt h2{font-size:clamp(2.4rem,5vw,4.4rem)}
-.nando__txt p{color:var(--c-forest-muted);font-size:1.12rem;max-width:44ch}
+.nando__txt p{color:var(--c-on-dark-muted);font-size:1.12rem;max-width:44ch}
+.nando .btn--ochre:hover{background:var(--c-on-dark)}
 .nando .chat{grid-column:8 / span 5}
 
 /* ---------- Footer ---------- */
-.foot{padding:72px 0 36px}
+.foot{padding:72px 0 36px;background:var(--c-card);border-top:1px solid var(--c-line)}
 .foot__top{display:grid;grid-template-columns:5fr 7fr;gap:var(--gap)}
 .foot .logo span{font-size:1.5rem}
 .foot .logo svg{width:30px;height:30px}
@@ -222,9 +233,10 @@ html.js-seasons .season{background:transparent!important}
 .foot__cols li{margin-bottom:8px}
 .foot__cols a{text-decoration:none;font-weight:500}
 .foot__cols a:hover{text-decoration:underline}
-.foot__legal{margin-top:48px;padding-top:18px;border-top:1px solid rgba(20,29,22,.12);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.88rem;color:var(--c-muted)}
+.foot__legal{margin-top:48px;padding-top:18px;border-top:1px solid var(--c-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.88rem;color:var(--c-muted)}
 .foot__legal button{font:inherit;font-weight:600;color:var(--c-ink);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
-.restyle-bar{background:var(--c-ink);color:#fff;font-size:.85rem;padding:12px var(--gutter);text-align:center}
+.restyle-bar{background:var(--c-ink);color:var(--c-on-dark);font-size:.85rem;padding:12px var(--gutter);text-align:center}
+.restyle-bar a{color:var(--c-on-dark)}
 
 /* ---------- Responsive ---------- */
 @media (max-width:1100px){
@@ -239,6 +251,7 @@ html.js-seasons .season{background:transparent!important}
   .quick{grid-template-columns:1fr}
   .comuni{grid-template-columns:1fr 1fr}
   .comuni__head h2,.comuni__head p{grid-column:1 / -1}
+  .season__name,.season__sub{grid-column:1 / -1}
   .nando__txt,.nando .chat{grid-column:1 / -1}
 }
 @media (min-width:1101px){.nav .btn{display:none}}
@@ -250,26 +263,28 @@ html.js-seasons .season{background:transparent!important}
   .comuni{grid-template-columns:1fr}
   .rail{top:80px}
   .rail a{padding:9px 11px;font-size:.85rem}
+  .season{padding-top:104px}
+  .season__name .no{font-size:.75rem}
+  .opener__img{aspect-ratio:4/3}
+  .opener figcaption{position:static;max-width:none;border-radius:0;box-shadow:none;padding:16px 18px}
   .sgrid>*{grid-column:1 / -1!important}
   .ideas,.itis{grid-template-columns:1fr}
   .trails li{grid-template-columns:1fr auto;row-gap:8px}
   .trails li b{grid-column:1 / -1}
   .lvl{justify-self:start}
-  .deco{display:none}
   .wlist{grid-template-columns:1fr}
   .wlist li{display:flex;gap:10px;align-items:baseline}
   .wlist b{display:inline}
   .dur{justify-content:flex-start}
+  .events li{grid-template-columns:92px 1fr}
   .foot__top{grid-template-columns:1fr;gap:40px}
   .foot__cols{grid-template-columns:1fr 1fr;row-gap:32px}
-  .deco svg{width:30px;height:30px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Vai al contenuto</a>
-<div class="sky" aria-hidden="true"><i data-s="estate"></i><i data-s="autunno"></i><i data-s="inverno"></i></div>
 
 <header class="top" id="top">
   <div class="top__in">
@@ -373,132 +388,120 @@ html.js-seasons .season{background:transparent!important}
       </div>
     </nav>
 
-    <!-- ESTATE -->
+    <!-- ESTATE: superficie bianca, foto delle malghe -->
     <section class="season season--estate" id="estate" data-season="estate" aria-labelledby="h-estate">
-      <div class="deco" aria-hidden="true">
-        <svg class="icon" style="left:8%;top:14%" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-        <svg class="icon" style="right:10%;top:22%" viewBox="0 0 24 24"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></svg>
-        <svg class="icon" style="right:4%;top:62%" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
-        <svg class="icon" style="left:3%;top:70%" viewBox="0 0 24 24"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></svg>
-      </div>
       <div class="wrap">
-        <h2 class="season__name" id="h-estate"><span data-chars>Estate</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></h2>
-        <p class="season__sub">Pascoli, malghe e sentieri</p>
+        <div class="season__head">
+          <h2 class="season__name" id="h-estate"><span class="no" aria-hidden="true">01</span><span data-chars>Estate</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg></h2>
+          <p class="season__sub">Pascoli, malghe e sentieri</p>
+        </div>
+        <figure class="opener" data-opener>
+          <div class="opener__img"><img src="../assets/malghe-ClZ0urFs.jpg" width="1200" height="800" alt="Malghe e Asiago DOP" loading="lazy"></div>
+          <figcaption><h3>Malghe e Asiago DOP</h3><p>Dove assaggiare formaggio e ricotta appena fatti.</p></figcaption>
+        </figure>
         <div class="sgrid">
-          <figure class="photo" style="grid-column:1 / span 5" data-photo>
-            <img src="../assets/malghe-ClZ0urFs.jpg" width="1200" height="800" alt="Malghe e Asiago DOP" loading="lazy" style="aspect-ratio:1/1">
-            <figcaption><h3>Malghe e Asiago DOP</h3><p>Dove assaggiare formaggio e ricotta appena fatti.</p></figcaption>
-          </figure>
-          <div style="grid-column:6 / span 7;display:flex;flex-direction:column;justify-content:center">
-            <div class="card" data-rise>
-              <div class="card__title"><h3>Sentieri più cercati</h3><a href="https://tuttoaltopiano.it/sentieri">Tutti <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
-              <ul class="trails">
-                <li><b>Anello del Monte Zebio</b><span class="lvl lvl--f">Facile</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2h 30'</span></li>
-                <li><b>Cima Portule dalla Bocchetta Portule</b><span class="lvl lvl--m">Medio</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4h 30'</span></li>
-                <li><b>Anello della Marcesina</b><span class="lvl lvl--f">Facile</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2h 45'</span></li>
-                <li><b>Sentiero delle Calà - Val Frenzela</b><span class="lvl lvl--i">Impegnativo</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3h 30'</span></li>
-                <li><b>Monte Fior e Castelgomberto</b><span class="lvl lvl--m">Medio</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3h 45'</span></li>
-              </ul>
-            </div>
-            <div class="nando-says" data-rise>
-              <span class="avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>
-              <a href="https://tuttoaltopiano.it/chiedi-a-nando">Quali malghe sono aperte a settembre? <em>Chiedilo a Nando</em></a>
-            </div>
+          <div class="card" style="grid-column:1 / span 8" data-rise>
+            <div class="card__title"><h3>Sentieri più cercati</h3><a href="https://tuttoaltopiano.it/sentieri">Tutti i sentieri <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+            <ul class="trails">
+              <li><b>Anello del Monte Zebio</b><span class="lvl lvl--f">Facile</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2h 30'</span></li>
+              <li><b>Cima Portule dalla Bocchetta Portule</b><span class="lvl lvl--m">Medio</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4h 30'</span></li>
+              <li><b>Anello della Marcesina</b><span class="lvl lvl--f">Facile</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2h 45'</span></li>
+              <li><b>Sentiero delle Calà - Val Frenzela</b><span class="lvl lvl--i">Impegnativo</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3h 30'</span></li>
+              <li><b>Monte Fior e Castelgomberto</b><span class="lvl lvl--m">Medio</span><span class="dur"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3h 45'</span></li>
+            </ul>
           </div>
+          <a class="ask-nando" href="https://tuttoaltopiano.it/chiedi-a-nando" style="grid-column:9 / span 4" data-rise>
+            <span class="who"><span class="avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>Nando, guida virtuale</span>
+            <q>Quali malghe sono aperte a settembre?</q>
+            <span class="go">Chiedilo a Nando <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- AUTUNNO -->
+    <!-- AUTUNNO: superficie crema scura, foto della Grande Guerra -->
     <section class="season season--autunno" id="autunno" data-season="autunno" aria-labelledby="h-autunno">
-      <div class="deco" aria-hidden="true">
-        <svg class="icon leaf" style="left:12%;top:10%" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-        <svg class="icon leaf" style="left:62%;top:4%" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-        <svg class="icon leaf" style="right:14%;top:12%" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-        <svg class="icon leaf" style="right:4%;top:44%" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-      </div>
       <div class="wrap">
-        <h2 class="season__name" id="h-autunno"><span data-chars>Autunno</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></h2>
-        <p class="season__sub">Storia, contrade e foliage. E siamo qui.</p>
-        <p class="today" data-rise><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Consigli di oggi · lunedì 23 novembre</p>
-        <h3 style="font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:24px" id="oggi">Tre idee per la giornata</h3>
+        <div class="season__head">
+          <h2 class="season__name" id="h-autunno"><span class="no" aria-hidden="true">02</span><span data-chars>Autunno</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></h2>
+          <p class="season__sub">Storia, contrade e foliage. E siamo qui.</p>
+        </div>
+        <figure class="opener" data-opener>
+          <div class="opener__img"><img src="../assets/grande-guerra-Bd6f4mP5.jpg" width="1200" height="800" alt="Grande Guerra" loading="lazy"></div>
+          <figcaption><h3>Grande Guerra</h3><p>Trincee, forti e sacrari da visitare a piedi.</p></figcaption>
+        </figure>
+        <p class="today" data-rise><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Consigli di oggi · <span data-today="short">lunedì 23 novembre</span></p>
+        <h3 class="ideas-title" id="oggi">Tre idee per la giornata</h3>
         <ol class="ideas">
           <li class="idea" data-rise><span class="n">1</span><h3>Sacrario Militare del Leiten</h3><small>Asiago</small><p>Il grande monumento bianco che custodisce oltre 50.000 caduti della Grande Guerra.</p></li>
           <li class="idea" data-rise><span class="n">2</span><h3>Piana della Marcesina</h3><small>Enego / Gallio</small><p>La "piccola Finlandia" d'Italia: torbiere, abetaie e praterie a 1.300 metri.</p></li>
           <li class="idea" data-rise><span class="n">3</span><h3>Ponte di Roana</h3><small>Val d'Assa</small><p>Viadotto storico sospeso sulla Val d'Assa, simbolo dell'ingegneria di inizio Novecento.</p></li>
         </ol>
         <div class="sgrid">
-          <figure class="photo" style="grid-column:1 / span 7" data-photo>
-            <img src="../assets/grande-guerra-Bd6f4mP5.jpg" width="1200" height="800" alt="Grande Guerra" loading="lazy">
-            <figcaption><h3>Grande Guerra</h3><p>Trincee, forti e sacrari da visitare a piedi.</p></figcaption>
-          </figure>
-          <div style="grid-column:8 / span 5;display:flex;flex-direction:column;gap:var(--gap)">
-            <div class="card" id="meteo" data-rise>
-              <div class="card__title"><h3>Adesso ad Asiago (1.000 m)</h3></div>
-              <div class="weather">
-                <span class="big">5°C</span>
-                <span class="cond">Poco nuvoloso</span>
-                <span class="meta">Aggiornato: 15:15 · Open-Meteo</span>
-              </div>
-              <ul class="wlist">
-                <li><b>6 km/h</b>Vento · raffiche 9 km/h</li>
-                <li><b>81%</b>Umidità · percepita 2°C</li>
-                <li><b>0.0 cm</b>Neve fresca · pioggia 0.0 mm</li>
-              </ul>
-              <p style="margin-top:14px"><a href="https://tuttoaltopiano.it/meteo" style="font-weight:700;color:var(--c-forest)">Previsioni a 7 giorni</a></p>
+          <div class="card" id="meteo" style="grid-column:1 / span 6" data-rise>
+            <div class="card__title"><h3>Adesso ad Asiago (1.000 m)</h3></div>
+            <div class="weather">
+              <span class="big">5°C</span>
+              <span class="cond">Poco nuvoloso</span>
+              <span class="meta">Aggiornato: 15:15 · Open-Meteo</span>
             </div>
+            <ul class="wlist">
+              <li><b>6 km/h</b>Vento · raffiche 9 km/h</li>
+              <li><b>81%</b>Umidità · percepita 2°C</li>
+              <li><b>0.0 cm</b>Neve fresca · pioggia 0.0 mm</li>
+            </ul>
+            <p style="margin-top:14px"><a class="textlink" href="https://tuttoaltopiano.it/meteo">Previsioni a 7 giorni <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></p>
+          </div>
+          <div class="col" style="grid-column:7 / span 6">
             <a class="card mini-iti" href="https://tuttoaltopiano.it/itinerari" data-rise>
               <span class="ic" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></span>
               <span><small>2 giorni · Coppie</small><h3>Autunno slow tra le contrade</h3><p>Foliage, mercatini del formaggio e passeggiate senza fatica.</p></span>
             </a>
+            <a class="ask-nando" href="https://tuttoaltopiano.it/chiedi-a-nando" data-rise>
+              <span class="who"><span class="avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>Nando, guida virtuale</span>
+              <q>Cosa vedo in un giorno tra Asiago e Gallio?</q>
+              <span class="go">Chiedilo a Nando <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
           </div>
-        </div>
-        <div class="nando-says" data-rise>
-          <span class="avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>
-          <a href="https://tuttoaltopiano.it/chiedi-a-nando">Cosa vedo in un giorno tra Asiago e Gallio? <em>Chiedilo a Nando</em></a>
         </div>
       </div>
     </section>
 
-    <!-- INVERNO -->
+    <!-- INVERNO: superficie verde bosco, foto della neve -->
     <section class="season season--inverno" id="inverno" data-season="inverno" aria-labelledby="h-inverno">
-      <div class="deco" aria-hidden="true">
-        <svg class="icon flake" style="left:10%;top:8%" viewBox="0 0 24 24"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-        <svg class="icon flake" style="left:38%;top:4%" viewBox="0 0 24 24"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-        <svg class="icon flake" style="right:20%;top:10%" viewBox="0 0 24 24"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-        <svg class="icon flake" style="right:5%;top:36%" viewBox="0 0 24 24"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-        <svg class="icon flake" style="left:4%;top:52%" viewBox="0 0 24 24"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg>
-      </div>
       <div class="wrap">
-        <h2 class="season__name" id="h-inverno"><span data-chars>Inverno</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg></h2>
-        <p class="season__sub">Neve, fondo e feste in piazza</p>
+        <div class="season__head">
+          <h2 class="season__name" id="h-inverno"><span class="no" aria-hidden="true">03</span><span data-chars>Inverno</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg></h2>
+          <p class="season__sub">Neve, fondo e feste in piazza</p>
+        </div>
+        <figure class="opener" data-opener>
+          <div class="opener__img"><img src="../assets/inverno-DTfb18A4.jpg" width="1200" height="800" alt="Inverno e sci di fondo" loading="lazy"></div>
+          <figcaption><h3>Inverno e sci di fondo</h3><p>Campomulo, Marcesina e le piste dell'Altopiano.</p></figcaption>
+        </figure>
         <div class="sgrid">
-          <div style="grid-column:1 / span 7;display:flex;flex-direction:column;gap:var(--gap)">
-            <figure class="photo" data-photo>
-              <img src="../assets/inverno-DTfb18A4.jpg" width="1200" height="800" alt="Inverno e sci di fondo" loading="lazy">
-              <figcaption><h3>Inverno e sci di fondo</h3><p>Campomulo, Marcesina e le piste dell'Altopiano.</p></figcaption>
-            </figure>
-            <a class="card mini-iti" href="https://tuttoaltopiano.it/itinerari" data-rise>
-              <span class="ic" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg></span>
-              <span><small>2 giorni · Inverno</small><h3>Weekend sulla neve</h3><p>Fondo a Campomulo, discesa al Kaberlaba e ciaspole in Marcesina.</p></span>
-            </a>
-          </div>
-          <div style="grid-column:8 / span 5">
-            <div class="card__title" style="margin-bottom:14px"><h3 style="font-size:1.6rem">Prossimi appuntamenti</h3><a href="https://tuttoaltopiano.it/eventi" style="color:var(--s-inverno-ink)">Tutti gli eventi <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+          <div style="grid-column:1 / span 7">
+            <div class="ev-title"><h3>Prossimi appuntamenti</h3><a href="https://tuttoaltopiano.it/eventi">Tutti gli eventi <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
             <ul class="events">
               <li data-rise><span class="when">Dicembre</span><span><h3>Mercatini di Natale</h3><p>Asiago, Gallio, Canove</p></span></li>
               <li data-rise><span class="when">31 dicembre</span><span><h3>Capodanno in piazza</h3><p>Asiago</p></span></li>
               <li data-rise><span class="when">Gennaio - febbraio</span><span><h3>Gran Fondo Val Formica</h3><p>Campomulo (Gallio)</p></span></li>
               <li data-rise><span class="when">Febbraio</span><span><h3>Carnevale cimbro</h3><p>Roana e frazioni</p></span></li>
             </ul>
-            <div class="nando-says" data-rise>
-              <span class="avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>
-              <a href="https://tuttoaltopiano.it/chiedi-a-nando">Dove si scia oggi sull'Altopiano? <em>Chiedilo a Nando</em></a>
-            </div>
+          </div>
+          <div class="col" style="grid-column:8 / span 5;padding-top:clamp(0px,3.4vw,46px)">
+            <a class="card mini-iti" href="https://tuttoaltopiano.it/itinerari" data-rise>
+              <span class="ic" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><line x1="2" x2="22" y1="12" y2="12"/><line x1="12" x2="12" y1="2" y2="22"/><path d="m20 16-4-4 4-4"/><path d="m4 8 4 4-4 4"/><path d="m16 4-4 4-4-4"/><path d="m8 20 4-4 4 4"/></svg></span>
+              <span><small>2 giorni · Inverno</small><h3>Weekend sulla neve</h3><p>Fondo a Campomulo, discesa al Kaberlaba e ciaspole in Marcesina.</p></span>
+            </a>
+            <a class="ask-nando" href="https://tuttoaltopiano.it/chiedi-a-nando" data-rise>
+              <span class="who"><span class="avatar" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span>Nando, guida virtuale</span>
+              <q>Dove si scia oggi sull'Altopiano?</q>
+              <span class="go">Chiedilo a Nando <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+            </a>
           </div>
         </div>
         <div class="spring" data-rise>
-          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="width:28px;height:28px"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
           <b>E poi tutto ricomincia: Risveglio delle malghe</b>
           <span>Maggio - giugno · Pascoli di Gallio ed Enego</span>
         </div>
@@ -550,7 +553,7 @@ html.js-seasons .season{background:transparent!important}
   </section>
 </main>
 
-<footer class="foot" style="background:var(--c-card)">
+<footer class="foot">
   <div class="wrap">
     <div class="foot__top">
       <div>
@@ -573,7 +576,7 @@ html.js-seasons .season{background:transparent!important}
     </div>
   </div>
 </footer>
-<div class="restyle-bar">Restyle concept · direzione 3 di 3 · <a href="tokens.css" style="color:#fff">design system →</a> · <a href="../index.html" style="color:#fff">tutte le direzioni</a></div>
+<div class="restyle-bar">Restyle concept · direzione 3 di 3 · <a href="tokens.css">design system →</a> · <a href="../index.html">tutte le direzioni</a></div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
@@ -605,59 +608,55 @@ html.js-seasons .season{background:transparent!important}
   const fmt = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
   const run = () => {
-    // 1. Il cielo cambia colore: tre strati fissi che sfumano in opacità
-    document.documentElement.classList.add('js-seasons');
-    const layers = Object.fromEntries([...document.querySelectorAll('.sky i')].map(l => [l.dataset.s, l]));
-    const show = (id) => Object.entries(layers).forEach(([k, l]) => gsap.to(l, { opacity: k === id ? 1 : 0, duration: 0.9, ease: 'power2.out', overwrite: true }));
-    document.querySelectorAll('.season').forEach(s => ScrollTrigger.create({ trigger: s, start: 'top 60%', end: 'bottom 40%',
-      onEnter: () => show(s.dataset.season), onEnterBack: () => show(s.dataset.season),
-      onLeave: (self) => { if (s.id === 'inverno') show(null); }, onLeaveBack: () => { if (s.id === 'estate') show(null); } }));
-
-    // 2. Hero: parole che rimbalzano, sottolineatura disegnata
+    // 1. Hero: parole che salgono, sottolineatura ocra disegnata
     SplitText.create('.hero h1', { type: 'words', autoSplit: true,
-      onSplit: s => gsap.from(s.words, { yPercent: 60, opacity: 0, rotate: 4, duration: 0.7, ease: 'back.out(2.2)', stagger: 0.06 }) });
+      onSplit: s => gsap.from(s.words, { yPercent: 40, opacity: 0, duration: 0.8, ease: 'power3.out', stagger: 0.05 }) });
     const ul = document.querySelector('.hl path'); const L = ul.getTotalLength();
     gsap.fromTo(ul, { strokeDasharray: L, strokeDashoffset: L }, { strokeDashoffset: 0, duration: 0.9, ease: 'power2.inOut', delay: 0.8 });
-    gsap.from('[data-pop]', { y: 18, opacity: 0, duration: 0.6, ease: 'back.out(1.8)', stagger: 0.08, delay: 0.35 });
-    gsap.from('.hero__photo', { scale: 0.92, opacity: 0, rotate: 2, duration: 1, ease: 'expo.out', delay: 0.2 });
+    gsap.from('[data-pop]', { y: 16, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.08, delay: 0.35 });
+    gsap.from('.hero__photo', { scale: 0.94, opacity: 0, duration: 1.1, ease: 'expo.out', delay: 0.2 });
 
-    // 3. Nando scrive: puntini, poi il messaggio parola per parola, poi le domande
+    // 2. Nando scrive: puntini, poi il messaggio parola per parola, poi le domande
     const typing = document.querySelector('.hero .typing');
     const tl = gsap.timeline({ delay: 0.3 });
-    tl.from('.hero .chat', { y: 40, opacity: 0, duration: 0.5, ease: 'back.out(1.6)' })
+    tl.from('.hero .chat', { y: 32, opacity: 0, duration: 0.6, ease: 'power3.out' })
       .set(typing, { display: 'inline-flex' })
       .from(typing.children, { y: -3, repeat: 1, yoyo: true, duration: 0.15, stagger: 0.06 })
       .set(typing, { display: 'none' });
     const said = SplitText.create('[data-nando]', { type: 'words' });
     tl.from(said.words, { opacity: 0, duration: 0.01, stagger: 0.02 });
-    tl.from('.hero .chip, .hero .ask', { scale: 0.6, opacity: 0, duration: 0.35, ease: 'back.out(2.4)', stagger: 0.08, transformOrigin: '100% 50%' });
+    tl.from('.hero .chip, .hero .ask', { y: 10, opacity: 0, duration: 0.4, ease: 'power3.out', stagger: 0.08 });
 
-    // 4. Nomi delle stagioni: lettere che saltano
-    document.querySelectorAll('[data-chars]').forEach(el => SplitText.create(el, { type: 'chars', autoSplit: true,
-      onSplit: s => gsap.from(s.chars, { yPercent: 80, opacity: 0, rotate: () => gsap.utils.random(-14, 14), duration: 0.8, ease: 'back.out(2.4)', stagger: 0.05,
+    // 3. Nomi delle stagioni: lettere che salgono dentro una maschera
+    document.querySelectorAll('[data-chars]').forEach(el => SplitText.create(el, { type: 'chars', mask: 'chars', autoSplit: true,
+      onSplit: s => gsap.from(s.chars, { yPercent: 100, duration: 0.9, ease: 'power4.out', stagger: 0.04,
         scrollTrigger: { trigger: el, start: 'top 85%', once: true } }) }));
+
+    // 4. Foto d'apertura di ogni stagione: la finestra si apre allo scroll, la foto scorre all'interno
+    document.querySelectorAll('[data-opener]').forEach(f => {
+      gsap.fromTo(f, { scale: 0.94 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: f, start: 'top bottom', end: 'top 40%', scrub: 0.6 } });
+      gsap.fromTo(f.querySelector('img'), { yPercent: -6 }, { yPercent: 6, ease: 'none', scrollTrigger: { trigger: f, start: 'top bottom', end: 'bottom top', scrub: true } });
+    });
 
     // 5. Titoli e schede
     document.querySelectorAll('[data-split]').forEach(el => SplitText.create(el, { type: 'words', autoSplit: true,
-      onSplit: s => gsap.from(s.words, { yPercent: 50, opacity: 0, duration: 0.6, ease: 'back.out(2)', stagger: 0.05, scrollTrigger: { trigger: el, start: 'top 88%', once: true } }) }));
-    document.querySelectorAll('[data-rise]').forEach(el => gsap.from(el, { y: 36, opacity: 0, duration: 0.7, ease: 'back.out(1.5)', clearProps: 'transform',
+      onSplit: s => gsap.from(s.words, { yPercent: 40, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.04, scrollTrigger: { trigger: el, start: 'top 88%', once: true } }) }));
+    document.querySelectorAll('[data-rise]').forEach(el => gsap.from(el, { y: 28, opacity: 0, duration: 0.8, ease: 'power3.out', clearProps: 'transform',
       scrollTrigger: { trigger: el, start: 'top 92%', once: true } }));
-    document.querySelectorAll('.season [data-photo]').forEach(el => gsap.from(el, { scale: 0.9, rotate: -2, opacity: 0, duration: 0.9, ease: 'back.out(1.4)',
-      scrollTrigger: { trigger: el, start: 'top 88%', once: true } }));
 
     // 6. Quote che contano
     document.querySelectorAll('[data-count]').forEach(el => {
       const end = +el.dataset.count, o = { v: Math.round(end * 0.8) };
       gsap.to(o, { v: end, duration: 1.3, ease: 'power2.out', onUpdate: () => { el.textContent = fmt(o.v); }, scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
     });
-
-    // 7. Decorazioni stagionali: il sole gira, le foglie cadono ondeggiando, la neve scende
-    gsap.to('.season--estate .deco svg', { rotate: 360, duration: 24, ease: 'none', repeat: -1 });
-    gsap.utils.toArray('.leaf').forEach((l, i) => gsap.to(l, { y: 'random(120, 260)', x: 'random(-60, 60)', rotate: 'random(-90, 90)', duration: 'random(5, 8)', ease: 'sine.inOut', repeat: -1, yoyo: true, delay: i * 0.4 }));
-    gsap.utils.toArray('.flake').forEach((f, i) => gsap.to(f, { y: 'random(160, 320)', rotate: 180, duration: 'random(7, 11)', ease: 'none', repeat: -1, yoyo: true, delay: i * 0.5 }));
   };
   document.fonts && document.fonts.ready ? document.fonts.ready.then(run) : run();
 })();
+</script>
+<script>
+/* data del giorno (il testo nell'HTML resta come fallback senza JS) */
+(function(){var d=new Date();document.querySelectorAll('[data-today]').forEach(function(el){
+el.textContent=d.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});});})();
 </script>
 </body>
 </html>

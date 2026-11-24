@@ -2,20 +2,80 @@
   "n": 2,
   "slug": "tecnologia-invisibile",
   "name": "Tecnologia invisibile",
-  "concept": "Il radar diventa il linguaggio visivo: anelli che pulsano piano dal sensore, etichette tecniche in monospazio, dati veri che si contano davanti agli occhi con la loro fonte. Parla a operatori e decisori che vogliono capire come funziona e su quali numeri si basa la scelta, senza perdere il tono rassicurante: nessun valore clinico simulato, solo ciò che il sensore rileva.",
+  "concept": "Il radar diventa il linguaggio visivo: anelli ciano che pulsano piano dal sensore sul blu notte del sito, etichette tecniche in monospazio, dati veri che si contano davanti agli occhi con la loro fonte. Il ciano del logo è il segnale, il magenta compare solo come allerta. Parla a operatori e decisori che vogliono capire come funziona e su quali numeri si basa la scelta, senza perdere il tono rassicurante: nessun valore clinico simulato, solo ciò che il sensore rileva.",
   "palette": [
-    {"name": "Notte", "hex": "#0A1B2A", "role": "hero e sezioni dati scure"},
-    {"name": "Notte 2", "hex": "#10263A", "role": "card su fondo scuro"},
-    {"name": "Segnale", "hex": "#00AEF0", "role": "ciano del logo: CTA su notte con testo Notte 6.91:1, anelli radar"},
-    {"name": "Segnale chiaro", "hex": "#7FD8FF", "role": "accenti testuali su notte (10.95:1)"},
-    {"name": "Allerta", "hex": "#EE0E65", "role": "magenta del logo, solo indicatore puntiforme 'allerta'"},
-    {"name": "Carta", "hex": "#F4F8FA", "role": "sfondo sezioni chiare"},
-    {"name": "Ink", "hex": "#0D2131", "role": "testo su chiaro (15.37:1)"},
-    {"name": "Primario", "hex": "#00558B", "role": "CTA e numeri su chiaro (bianco 7.86:1)"}
+    {
+      "name": "Notte",
+      "hex": "#002946",
+      "role": "hero, sezioni dati scure, calcolatore, contatti, footer (card su notte = on-dark al 5%, bordi = on-dark al 14%)"
+    },
+    {
+      "name": "On-dark",
+      "hex": "#EEF7FA",
+      "role": "testo su Notte (13.74:1; al 76% per il secondario 8.46:1)"
+    },
+    {
+      "name": "Bianco",
+      "hex": "#FFFFFF",
+      "role": "titoli su Notte (14.94:1), card su chiaro, chip del logo"
+    },
+    {
+      "name": "Segnale (ciano logo)",
+      "hex": "#01AEEF",
+      "role": "anelli radar, linee, icone, CTA su Notte con testo Notte (5.91:1), testo accento solo su Notte (5.91:1)"
+    },
+    {
+      "name": "Allerta (magenta logo)",
+      "hex": "#ED0F63",
+      "role": "solo indicatore puntiforme 'allerta caduta'"
+    },
+    {
+      "name": "Allerta testo",
+      "hex": "#F4508E",
+      "role": "la parola 'Allerta caduta' su Notte (4.54:1)"
+    },
+    {
+      "name": "Carta",
+      "hex": "#ECF5F8",
+      "role": "sfondo sezioni chiare"
+    },
+    {
+      "name": "Linea",
+      "hex": "#D7E4E9",
+      "role": "bordi e assi grafici su chiaro"
+    },
+    {
+      "name": "Ink",
+      "hex": "#0D2131",
+      "role": "testo su chiaro (14.84:1 su Carta), barra di fondo"
+    },
+    {
+      "name": "Muted",
+      "hex": "#4C5D6A",
+      "role": "testo secondario (6.16:1 su Carta, 6.82:1 su bianco)"
+    },
+    {
+      "name": "Primario (petrolio)",
+      "hex": "#00558B",
+      "role": "CTA e numeri su chiaro (bianco 7.86:1, 7.10:1 su Carta)"
+    },
+    {
+      "name": "Teal",
+      "hex": "#007373",
+      "role": "barre '2025' dei grafici (confronto con il 2050 in petrolio)"
+    }
   ],
   "fonts": [
-    {"family": "Sora", "role": "titoli, testo, numeri grandi", "source": "Google Fonts (OFL)"},
-    {"family": "IBM Plex Mono", "role": "etichette tecniche, fonti, valori del calcolatore", "source": "Google Fonts (OFL)"}
+    {
+      "family": "Sora",
+      "role": "titoli, testo, numeri grandi",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "IBM Plex Mono",
+      "role": "etichette tecniche, fonti, valori del calcolatore",
+      "source": "Google Fonts (OFL)"
+    }
   ],
   "motion": [
     "impulsi radar: anelli SVG che si espandono e svaniscono dal sensore (scale + opacity, ciclo continuo)",
@@ -38,14 +98,23 @@
   ],
   "fixes": [
     "il nome non è più ripetuto: nel header solo il logo originale su chip bianco",
-    "il ciano del logo (#00AEF0) entra nel sito, ma solo dove è leggibile: come fondo CTA con testo scuro (6.91:1), mai come testo su bianco (2.53:1)",
-    "CTA principale: testo #0A1B2A su #00AEF0 6.91:1",
+    "il ciano del logo (#01AEEF) entra nel sito solo dove è leggibile: come testo solo su Notte (5.91:1), come fondo CTA con testo Notte (5.91:1), mai come testo su bianco (2.53:1)",
+    "il magenta del logo è riservato all'allerta: punto #ED0F63 e testo #F4508E su Notte (4.54:1)",
     "numeri del contesto resi leggibili come dati (grafico 2025→2050) con fonte accanto, non in fondo",
     "focus visibile su tutti i controlli"
   ],
   "references": [
-    {"label": "Vayyar Care, sensori senza telecamera per l'assistenza", "url": "https://vayyar.com/care/"},
-    {"label": "GSAP Showcase", "url": "https://gsap.com/showcase/"},
-    {"label": "Cascaid Health su Awwwards", "url": "https://www.awwwards.com/sites/cascaid-health"}
+    {
+      "label": "Vayyar Care, sensori senza telecamera per l'assistenza",
+      "url": "https://vayyar.com/care/"
+    },
+    {
+      "label": "GSAP Showcase",
+      "url": "https://gsap.com/showcase/"
+    },
+    {
+      "label": "Cascaid Health su Awwwards",
+      "url": "https://www.awwwards.com/sites/cascaid-health"
+    }
   ]
 }

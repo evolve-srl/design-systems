@@ -2,47 +2,27 @@
   "n": 1,
   "slug": "command-center",
   "name": "Command Center",
-  "concept": "Una sala operativa: fondo petrolio quasi nero, il verde del brand usato come luce di segnale e dettagli monospace da terminale. Parla a responsabili IT e imprenditori che vogliono percepire competenza tecnica reale e presidio 24/7. Funziona perché trasforma i dati ufficiali sulle minacce nel cuore visivo della pagina.",
+  "concept": "Una sala operativa: fondo petrolio del sito, il verde del logo usato come luce di segnale e dettagli monospace da terminale. Parla a responsabili IT e imprenditori che vogliono percepire competenza tecnica reale e presidio 24/7. È la direzione scura della terna: il verde compare solo come segnale (CTA, cifre, stato), mai come campitura.",
   "palette": [
     {
-      "name": "Void",
-      "hex": "#05161B",
-      "role": "sfondo pagina"
+      "name": "Petrolio",
+      "hex": "#0A2B33",
+      "role": "sfondo pagina; pannelli e linee come velature di bianco (4-24%) sul petrolio"
     },
     {
-      "name": "Surface",
-      "hex": "#0B242B",
-      "role": "card e pannelli"
+      "name": "Bianco",
+      "hex": "#FFFFFF",
+      "role": "testo principale (14.93:1), testo secondario al 72% (8.37:1), piastra del logo"
     },
     {
-      "name": "Line",
-      "hex": "#1F404A",
-      "role": "bordi e griglia"
+      "name": "Verde chiaro",
+      "hex": "#13A445",
+      "role": "testo verde, cifre e CTA su petrolio (4.57:1); CTA con testo petrolio (4.57:1)"
     },
     {
-      "name": "Text",
-      "hex": "#E8F3F1",
-      "role": "testo principale (16.29:1)"
-    },
-    {
-      "name": "Muted",
-      "hex": "#93AAB0",
-      "role": "testo secondario (7.58:1)"
-    },
-    {
-      "name": "Signal",
-      "hex": "#00C483",
-      "role": "CTA, cifre, accenti (8.11:1 su Void)"
-    },
-    {
-      "name": "On signal",
-      "hex": "#03140F",
-      "role": "testo sulla CTA verde (8.30:1)"
-    },
-    {
-      "name": "Alert",
-      "hex": "#FFB547",
-      "role": "etichette di allerta (10.51:1)"
+      "name": "Verde logo",
+      "hex": "#129740",
+      "role": "linee di avanzamento, bordi in evidenza, velatura dei riquadri icona"
     }
   ],
   "fonts": [
@@ -58,7 +38,7 @@
     }
   ],
   "motion": [
-    "H1 che si digita carattere per carattere (SplitText chars) con cursore lampeggiante",
+    "H1 che si digita carattere per carattere (SplitText words+chars, le parole non si spezzano a capo) con cursore lampeggiante",
     "ScrambleText sulle etichette mono all'ingresso",
     "contatori animati solo con numeri di content.md (+37%, 1.731, 81%, 68%)",
     "ticker orizzontale continuo di normative e standard (pausa al passaggio del mouse)",
@@ -81,8 +61,11 @@
     "footer con logo completo su piastra bianca"
   ],
   "fixes": [
-    "contrasto CTA principale 2.28 → 8.30 (testo #03140F su #00C483)",
-    "logo: Logo: file PNG originale non modificato; nell'header solo il lucchetto (ritaglio CSS, proporzioni intatte) accanto al nome in testo, logo completo a 240px di altezza in footer (piastra bianca) dove la scritta 'SECURITY EXPERTS' è leggibile",
+    "contrasto CTA principale 2.28 → 4.57 (testo petrolio #0A2B33 su verde #13A445, prima bianco sul vecchio verde menta)",
+    "palette riportata a quella del sito: verde menta e ambra delle versioni precedenti rimossi; etichette 'allerta' ora bianche con icona verde",
+    "testo secondario bianco 72% su petrolio 8.37:1; testo verde #13A445 solo su fondo petrolio pieno (4.57:1), non sulle velature",
+    "hero a 390px: colonna della griglia vincolata (minmax(0,1fr)), badge e readout non escono più dal margine destro; il titolo animato va a capo per parola",
+    "logo: file PNG originale non modificato; nell'header solo il lucchetto (ritaglio CSS, proporzioni intatte) accanto al nome in testo, logo completo a 240px di altezza in footer (piastra bianca) dove la scritta 'SECURITY EXPERTS' è leggibile",
     "numeri del blocco statistiche presi solo da content.md, ciascuno con fonte esplicita"
   ],
   "references": [

@@ -1,6 +1,9 @@
 # Brief comune per i restyle
 
-Ogni sito ha **3 direzioni di restyle** della homepage. Le direzioni devono essere davvero diverse tra loro (concetto, tipografia, palette, layout, linguaggio di movimento), non varianti dello stesso layout. Servono a scegliere la strada del nuovo design system, quindi ognuna deve rendere chiara e coerente la propria idea.
+Ogni sito ha **3 direzioni di restyle** della homepage. Le direzioni devono essere davvero diverse tra loro (concetto, tipografia, layout, linguaggio di movimento, proporzioni chiaro/scuro), non varianti dello stesso layout. Servono a scegliere la strada del nuovo design system, quindi ognuna deve rendere chiara e coerente la propria idea.
+
+## Palette: quella originale, ancorata al logo (vincolo fisso)
+La palette **non** è una variabile tra le direzioni: tutte e tre usano solo i colori di `data/palettes.json` per quel sito (colori del sito attuale e del logo, più le varianti più scure o più chiare della stessa tinta calcolate per il contrasto AA). Nessun colore nuovo, neanche per sfondi, ombre colorate, illustrazioni SVG o canvas. Le direzioni si distinguono per come dosano gli stessi colori (pagina chiara o scura, colore pieno o solo accento), non per colori diversi.
 
 ## Materiale di partenza (per ogni sito, in `brands/<dominio>/`)
 - `content.md`: testi reali della homepage in ordine di pagina, più l'elenco degli asset scaricati. **Si usano solo questi contenuti, claim e numeri.** I testi si possono accorciare, riordinare e rendere più incisivi ("giocare con i testi"). Vietato inventare dati, statistiche, clienti, testimonianze, certificazioni o prezzi.

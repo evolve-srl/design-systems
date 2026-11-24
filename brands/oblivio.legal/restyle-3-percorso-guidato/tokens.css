@@ -1,21 +1,35 @@
-/* Oblivio — direzione 3 "Percorso guidato": design system (solo variabili) */
+/* Oblivio — direzione 3 "Percorso guidato": design system (solo variabili)
+   Palette: solo i colori di data/palettes.json (oblivio.legal). Pagina morbida su #EBF2F8 con card
+   bianche, blu del logo per le azioni, azzurro e verde del sito per segnare l'avanzamento dei 3 passi
+   (azzurro = in corso, verde = fatto), gradiente del sito come unico grande campo colore (chiusura). */
 :root {
-  /* Fondi morbidi: sabbia calda + azzurri derivati dallo scudo del logo */
-  --c-bg: #F7F5F0;          /* sfondo pagina */
-  --c-card: #FFFFFF;        /* card e pannelli */
-  --c-mist: #EEF3FA;        /* sezioni alternate, footer */
-  --c-sky: #DCE7FB;         /* tinta dello scudo: chip, cerchi icone, passo attivo */
-  --c-line: #E4E0D6;        /* bordi sottili */
+  /* Fondi del sito attuale */
+  --c-bg: #EBF2F8;          /* sfondo pagina (sito "soft") */
+  --c-card: #FFFFFF;        /* card, pannelli, sezione FAQ, footer (sito "white") */
+  --c-mist: #EBF2F8;        /* superfici dentro le card bianche: bolle, righe del percorso (sito "soft") */
+  --c-tint: #DBF1FF;        /* chip, cerchi icone, passo corrente, hover nav (sito "tint") */
+  --c-line: #DEE5EC;        /* bordi sottili (sito "line") */
 
-  /* Testo */
-  --c-ink: #14213D;         /* testo principale, 14.7:1 su --c-bg */
-  --c-muted: #4A5568;       /* testo secondario, 6.91:1 su --c-bg, 6.75:1 su --c-mist */
+  /* Testo del sito */
+  --c-ink: #031222;         /* testo principale, 16.69:1 su --c-bg, 18.86:1 su bianco */
+  --c-muted: #596571;       /* testo secondario, 5.27:1 su --c-bg, 5.96:1 su bianco, 5.12:1 su --c-tint */
+  --c-on-ink-muted: rgba(255, 255, 255, .78); /* testo secondario sulla barra concept (bianco con alpha) */
 
-  /* Marca: un solo blu, quello del logo (brand kit #1D4ED8) */
-  --c-brand: #1D4ED8;       /* CTA, numeri dei passi, link; bianco sopra 6.70:1 */
-  --c-brand-hover: #1E40AF; /* hover; bianco sopra 8.72:1 */
+  /* Marca: il blu del logo per tutte le azioni */
+  --c-brand: #1D4ED8;       /* CTA, numeri dei passi, link (logo); bianco sopra 6.70:1, 5.93:1 su --c-bg */
+  --c-brand-hover: #031222; /* hover CTA: il blu passa all'inchiostro, bianco sopra 18.86:1 */
   --c-on-brand: #FFFFFF;
-  --c-on-brand-soft: #DCE7FB; /* testo secondario su pannello blu, 5.38:1 */
+
+  /* Avanzamento del percorso: azzurro = passo in corso, verde = passo fatto / contenuto rimosso */
+  --c-sky: #0B94C1;         /* azzurro del sito: barra di avanzamento, anello del passo attivo, barra "in corso" */
+  --c-sky-text: #097EA4;    /* azzurro per testo su bianco ("In corso"), 4.63:1 */
+  --c-green: #00AA6F;       /* verde del sito: SOLO passi completati e contenuti rimossi (barre, icone) */
+  --c-green-text: #008658;  /* verde per testo e icone su bianco ("Completata"), 4.61:1 */
+  --c-green-soft: rgba(0, 170, 111, .14); /* fondo del passo completato e del badge "Caso risolto" (verde con alpha) */
+
+  /* Gradiente del sito: unico grande campo colore, la chiusura */
+  --gradient-brand: linear-gradient(135deg, #1D4ED8 0%, #0B94C1 100%);
+  --c-on-gradient: #FFFFFF; /* testo sul gradiente: solo nella metà blu (≥ 4.6:1 misurato fino al 60% del gradiente) */
 
   /* Tipografia: Figtree (umana, leggibile) + Lora corsivo per le voci delle persone */
   --f-sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -40,11 +54,13 @@
   --r-cta: 12px;
   --r-card: 20px;
   --r-pill: 999px;
-  --shadow-soft: 0 1px 2px rgba(20, 33, 61, .05), 0 12px 32px -16px rgba(20, 33, 61, .18);
-  --shadow-lift: 0 2px 4px rgba(20, 33, 61, .06), 0 24px 48px -20px rgba(29, 78, 216, .28);
+
+  /* Ombre: solo nero neutro con alpha */
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, .04), 0 12px 32px -16px rgba(0, 0, 0, .16);
+  --shadow-lift: 0 2px 4px rgba(0, 0, 0, .06), 0 18px 36px -18px rgba(0, 0, 0, .3);
 
   /* Movimento: dolce, mai brusco */
   --ease: cubic-bezier(.33, 1, .68, 1);
   --dur: 220ms;
-  --focus: 0 0 0 3px var(--c-bg), 0 0 0 5px var(--c-brand);
+  --focus: 0 0 0 3px var(--c-card), 0 0 0 5px var(--c-brand);
 }

@@ -1,25 +1,31 @@
 /* Medicleo · Restyle 2 · Tecnologia invisibile
-   Design system: SOLO variabili. Pulito e tech, impulsi radar come motivo, dati con fonte. */
+   Design system: SOLO variabili. Pulito e tech, impulsi radar come motivo, dati con fonte.
+   Palette originale del sito (notte, petrolio, teal, neutri); ciano del logo = segnale radar, magenta del logo = solo allerta. */
 :root {
-  /* Colori · notte (sezioni scure) */
-  --c-notte: #0A1B2A;          /* sfondo hero e sezioni dati scure */
-  --c-notte-2: #10263A;        /* card su notte */
-  --c-notte-linea: #1F3A52;    /* bordi e griglie su notte */
-  --c-su-notte: #FFFFFF;       /* testo principale su notte */
-  --c-su-notte-muted: #9AB0C2; /* testo secondario su notte: 7.78:1 */
+  /* Colori · notte (blu notte del sito medicleo.com) */
+  --c-notte: #002946;                      /* sito: hero e sezioni dati scure */
+  --c-notte-2: rgba(238,247,250,.05);      /* on-dark al 5%: card su notte */
+  --c-notte-linea: rgba(238,247,250,.14);  /* on-dark al 14%: bordi e griglie su notte */
+  --c-notte-vetro: rgba(0,41,70,.92);      /* notte al 92%: etichette sopra il radar */
+  --c-su-notte: #EEF7FA;                   /* sito: testo principale su notte (13.74:1) */
+  --c-su-notte-muted: rgba(238,247,250,.76); /* on-dark al 76%: testo secondario su notte (8.46:1) */
+  --c-su-notte-bordo: rgba(238,247,250,.4);  /* on-dark al 40%: contorno bottoni su notte */
 
-  /* Colori · segnale (dal ciano del logo) */
-  --c-segnale: #00AEF0;        /* ciano del logo: CTA su notte con testo notte 6.91:1, anelli radar */
-  --c-segnale-chiaro: #7FD8FF; /* testo accento su notte: 10.95:1 */
-  --c-allerta: #EE0E65;        /* magenta del logo: solo indicatore "allerta" decorativo, mai testo */
+  /* Colori · segnale (dal logo) */
+  --c-segnale: #01AEEF;                    /* logo: anelli radar, linee, icone, CTA su notte (testo Notte 5.91:1), testo solo su notte (5.91:1) */
+  --c-segnale-alone: rgba(1,174,239,.18);  /* ciano al 18%: alone dei punti indicatori */
+  --c-allerta: #ED0F63;                    /* logo: solo indicatore puntiforme "allerta" */
+  --c-allerta-testo: #F4508E;              /* variante chiara del magenta: la parola "Allerta" su notte (4.54:1) */
 
-  /* Colori · chiaro (sezioni leggibili) */
-  --c-carta: #F4F8FA;          /* sfondo sezioni chiare */
-  --c-bianco: #FFFFFF;         /* card */
-  --c-linea: #D5E1E8;          /* bordi e assi grafici */
-  --c-ink: #0D2131;            /* testo principale su chiaro: 15.37:1 */
-  --c-muted: #4C5D6A;          /* testo secondario: 6.38:1 su carta */
-  --c-primario: #00558B;       /* CTA su chiaro (bianco 7.86:1), link (7.35:1 su carta) */
+  /* Colori · chiaro (neutri del sito) */
+  --c-carta: #ECF5F8;          /* sito: sfondo sezioni chiare */
+  --c-bianco: #FFFFFF;         /* sito: card, testo su petrolio */
+  --c-linea: #D7E4E9;          /* sito: bordi e assi grafici */
+  --c-ink: #0D2131;            /* sito: testo principale su chiaro (14.84:1 su carta) */
+  --c-muted: #4C5D6A;          /* sito: testo secondario (6.16:1 su carta, 6.82:1 su bianco) */
+  --c-primario: #00558B;       /* sito: CTA su chiaro (bianco 7.86:1), link e numeri (7.10:1 su carta) */
+  --c-primario-alone: rgba(0,85,139,.12); /* petrolio al 12%: alone dei punti indicatori su chiaro */
+  --c-teal: #007373;           /* sito: secondario, barre "2025" dei grafici e filetti dei valori */
 
   /* Tipografia */
   --f-titoli: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;

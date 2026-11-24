@@ -1,23 +1,27 @@
-/* Privacy Masters · Restyle 2 "Istituzionale" — design tokens */
+/* Privacy Masters · Restyle 2 "Istituzionale" — design tokens
+   Palette: solo i colori di data/palettes.json (verde del logo + petrolio del sito + neutri del sito). */
 :root {
-  /* Carta e inchiostro: fondo caldo da documento ufficiale, ink del brand */
-  --c-paper: #F6F5F0;       /* sfondo pagina */
-  --c-sheet: #FFFFFF;       /* riquadri, piastra del logo */
-  --c-ink: #0A2B33;         /* testo principale · 13.68:1 su paper */
-  --c-muted: #4D5E66;       /* testo secondario · 6.19:1 su paper */
-  --c-rule: #CDD3D0;        /* filetti della griglia */
+  /* Carta e inchiostro: fondo bianco e grigio-azzurro chiaro del sito, inchiostro petrolio */
+  --c-paper: #FFFFFF;       /* sfondo pagina (neutro del sito) */
+  --c-paper-a94: rgba(255, 255, 255, 0.94); /* header traslucido */
+  --c-sheet: #F5F9FA;       /* fondo tenue del sito: topline, cornice del logo, fasce alterne */
+  --c-ink: #0A2B33;         /* petrolio del sito: testo principale · 14.93:1 su bianco */
+  --c-muted: #55666F;       /* testo secondario del sito · 5.97:1 su bianco */
+  --c-rule: #D8DFE3;        /* filetti della griglia (linea del sito) */
   --c-rule-strong: #0A2B33; /* filetti di apertura sezione */
 
-  /* Verde istituzionale: versione scura del verde brand, leggibile come testo e come fondo */
-  --c-green: #006B4A;       /* CTA, link, numeri · 6.01:1 su paper, bianco su verde 6.56:1 (prima 2.28:1) */
-  --c-green-hover: #00573D; /* hover CTA · bianco 8.64:1 */
-  --c-signal: #00C483;      /* verde brand originale, solo decorativo (punti, filetti) o su fondo ink (6.56:1) */
+  /* Verde del logo #129740: grande corpo (titoli in corsivo, cifre ≥24px · 3.80:1) e segni grafici */
+  --c-brand: #129740;
+  /* Variante scura #0F8036: CTA con testo bianco (5.05:1) e testo verde piccolo su bianco */
+  --c-green: #0F8036;
   --c-on-green: #FFFFFF;
+  --c-green-hover: #0A2B33; /* hover CTA: diventa petrolio · bianco 14.93:1 */
 
-  /* Fasce scure */
+  /* Fasce scure: petrolio del sito; testo verde con la variante chiara #13A445 (4.57:1) */
   --c-band: #0A2B33;        /* sezione CTA finale */
   --c-on-band: #FFFFFF;     /* 14.93:1 */
-  --c-on-band-muted: #9FB4B9; /* 6.90:1 */
+  --c-on-band-muted: rgba(255, 255, 255, 0.72);
+  --c-band-green: #13A445;  /* corsivo e CTA sulla fascia petrolio (testo petrolio su verde 4.57:1) */
 
   /* Tipografia: serif editoriale + sans istituzionale (Google Fonts, OFL) */
   --font-serif: "Newsreader", Georgia, serif;

@@ -18,7 +18,7 @@ body{margin:0;background:var(--c-paper);color:var(--c-ink);font:400 var(--fs-bod
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 p{margin:0}
-:focus-visible{outline:2px solid var(--c-red);outline-offset:3px}
+:focus-visible{outline:2px solid var(--c-forest);outline-offset:3px}
 .skip{position:absolute;left:16px;top:-60px;background:var(--c-ink);color:var(--c-paper);padding:10px 14px;z-index:100;text-decoration:none}
 .skip:focus{top:12px}
 .wrap{width:100%;max-width:calc(var(--wrap) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter)}
@@ -26,9 +26,11 @@ p{margin:0}
 h1,h2,h3{font-family:var(--f-display);font-stretch:var(--wdth-display);font-weight:700;margin:0;text-transform:uppercase;letter-spacing:-0.005em;line-height:.94}
 h2{font-size:var(--fs-h2)}
 h3{font-size:var(--fs-h3);line-height:1.05}
-.label{font:500 var(--fs-label)/1.3 var(--f-mono);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--c-earth);margin:0 0 14px;display:flex;gap:10px;align-items:center}
-.label::before{content:"";width:18px;height:0;border-top:2px dashed var(--c-red)}
+.label{font:500 var(--fs-label)/1.3 var(--f-mono);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--c-ochre-text);margin:0 0 14px;display:flex;gap:10px;align-items:center}
+.label::before{content:"";width:18px;height:0;border-top:2px dashed var(--c-ochre)}
 .mono{font-family:var(--f-mono)}
+svg line{fill:none}
+.on-tint .sec-head .label{color:var(--c-forest)} /* su crema scura l'ocra testo non arriva a 4.5:1 */
 
 /* ---------- Header ---------- */
 .top{position:sticky;top:0;z-index:50;background:var(--c-paper);border-bottom:var(--line)}
@@ -40,11 +42,11 @@ h3{font-size:var(--fs-h3);line-height:1.05}
 .nav a{font:500 .76rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:9px 10px;border:1px solid transparent;transition:border-color var(--dur-fast)}
 .nav a:hover{border-color:var(--c-ink)}
 .btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;font:600 .98rem/1 var(--f-text);text-decoration:none;border:2px solid transparent;border-radius:var(--radius);transition:transform var(--dur-fast) ease,box-shadow var(--dur-fast) ease}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--c-ink)}
-.btn--red{background:var(--c-red);color:var(--c-white)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:var(--shadow-hard)}
+.btn--forest{background:var(--c-forest);color:var(--c-paper)}
 .btn--line{border-color:var(--c-ink);color:var(--c-ink);background:transparent}
 .btn--paper{background:var(--c-paper);color:var(--c-forest)}
-.btn--paper:hover{box-shadow:4px 4px 0 var(--c-paper-2)}
+.btn--paper:hover{background:var(--c-ochre);color:var(--c-ink);box-shadow:none}
 .btn .icon{transition:transform var(--dur) var(--ease-out)}
 .btn:hover .icon{transform:translateX(3px)}
 .top .btn{min-height:40px;font-size:.9rem;padding:0 16px}
@@ -56,28 +58,28 @@ body.nav-open .menu-btn .i-close{display:block}
 
 /* ---------- Hero / carta ---------- */
 .hero{position:relative;overflow:clip;border-bottom:var(--line);min-height:calc(100svh - 64px)}
-.hero__contours{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--c-contour);stroke-width:1;opacity:.75}
-.hero__contours .idx{stroke-width:1.8}
+.hero__contours{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--c-contour);stroke-width:1}
+.hero__contours .idx{stroke:var(--c-contour-idx);stroke-width:1.6}
 .frame{position:absolute;inset:14px;border:1px solid var(--c-ink);pointer-events:none}
-.frame__x,.frame__y{position:absolute;display:flex;justify-content:space-around;font:500 .66rem/1 var(--f-mono);color:var(--c-earth)}
+.frame__x,.frame__y{position:absolute;display:flex;justify-content:space-around;font:500 .66rem/1 var(--f-mono);color:var(--c-ochre-text)}
 .frame__x{left:0;right:0;top:6px}
 .frame__y{top:0;bottom:0;left:6px;flex-direction:column}
 .hero__grid{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);align-items:center;min-height:calc(100svh - 64px);padding-top:56px;padding-bottom:56px}
 .cartouche{grid-column:1 / span 7;background:var(--c-paper);border:var(--line);outline:1px solid var(--c-ink);outline-offset:5px;padding:clamp(22px,3vw,40px);position:relative}
 .cartouche h1{font-size:var(--fs-h1);margin:4px 0 22px}
-.cartouche h1 .r{color:var(--c-red)}
+.cartouche h1 .r{color:var(--c-forest)}
 .lede{font-size:1.15rem;line-height:1.5;max-width:40ch}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .scale{display:flex;align-items:center;gap:12px;margin-top:28px;font:500 .7rem/1 var(--f-mono);color:var(--c-muted);letter-spacing:.06em;text-transform:uppercase}
 .scale i{display:block;width:120px;height:8px;border:1px solid var(--c-ink);background:repeating-linear-gradient(90deg,var(--c-ink) 0 30px,transparent 30px 60px)}
 .trail{grid-column:8 / span 5;position:relative}
 .trail svg{width:100%;height:auto;overflow:visible}
-.trail .t-path{fill:none;stroke:var(--c-red);stroke-width:4;stroke-dasharray:10 8;stroke-linecap:round}
-.trail .t-mask{fill:none;stroke:#fff;stroke-width:10}
-.trail .wp circle{fill:var(--c-paper);stroke:var(--c-ink);stroke-width:2}
-.trail .wp .dot{fill:var(--c-red);stroke:none}
+.trail .t-path{fill:none;stroke:var(--c-ochre);stroke-width:4;stroke-dasharray:10 8;stroke-linecap:round}
+.trail .t-mask{fill:none;stroke:var(--c-white);stroke-width:10}
+.trail .wp circle{fill:var(--c-paper);stroke:var(--c-forest);stroke-width:2.5}
+.trail .wp .dot{fill:var(--c-forest);stroke:none}
 .trail .wp text{font:600 15px var(--f-mono);fill:var(--c-ink)}
-.trail .wp .q{font-weight:400;fill:var(--c-earth)}
+.trail .wp .q{font-weight:400;fill:var(--c-ochre-text)}
 .trail .wp rect{fill:var(--c-paper);stroke:none}
 .trail__note{font:500 .7rem/1.4 var(--f-mono);color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:8px;text-align:right}
 
@@ -85,7 +87,7 @@ body.nav-open .menu-btn .i-close{display:block}
 .legend{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:var(--line)}
 .leg{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:28px var(--gap) 30px;text-decoration:none;border-left:var(--line);transition:background-color var(--dur-fast)}
 .leg:first-child{border-left:0}
-.leg:hover{background:var(--c-paper-2)}
+.leg:hover{background:var(--c-white)}
 .sym{width:56px;height:56px;border:2px solid var(--c-ink);display:grid;place-items:center;background:var(--c-paper)}
 .sym .icon{width:26px;height:26px;color:var(--c-forest)}
 .leg h3{font-size:1.7rem;margin:2px 0 8px}
@@ -96,7 +98,7 @@ body.nav-open .menu-btn .i-close{display:block}
 .section{padding:var(--section) 0}
 .sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(32px,4vw,56px)}
 .sec-head h2{max-width:14em}
-.textlink{display:inline-flex;align-items:center;gap:8px;font:600 .82rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--c-ink);text-decoration:none;border-bottom:2px solid var(--c-red);padding-bottom:5px}
+.textlink{display:inline-flex;align-items:center;gap:8px;font:600 .82rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--c-ink);text-decoration:none;border-bottom:2px solid var(--c-ochre);padding-bottom:5px}
 .textlink .icon{transition:transform var(--dur) var(--ease-out)}
 .textlink:hover .icon{transform:translate(3px,-3px)}
 
@@ -104,21 +106,22 @@ body.nav-open .menu-btn .i-close{display:block}
 .altopiano{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);align-items:start}
 .altopiano__txt{grid-column:1 / span 5}
 .altopiano__txt p:not(.label){font-size:1.12rem;margin-top:24px}
-.profile{grid-column:7 / span 6;border:var(--line);background:var(--c-paper-2);padding:20px 20px 12px}
+.profile{grid-column:7 / span 6;border:var(--line);background:var(--c-white);padding:20px 20px 12px}
 .profile svg{width:100%;height:auto;display:block;overflow:visible}
-.profile .grid line{stroke:rgba(30,26,20,.18);stroke-width:1}
+.profile .grid line{stroke:var(--c-grid);stroke-width:1}
+#hatch line{stroke:var(--c-hatch);stroke-width:1.4}
 .profile .grid text{font:400 12px var(--f-mono);fill:var(--c-muted)}
 .profile .area{fill:url(#hatch)}
-.profile .pline{fill:none;stroke:var(--c-ink);stroke-width:2.5;stroke-linejoin:round}
-.profile .pt circle{fill:var(--c-red);stroke:var(--c-paper-2);stroke-width:3}
+.profile .pline{fill:none;stroke:var(--c-forest);stroke-width:2.5;stroke-linejoin:round}
+.profile .pt circle{fill:var(--c-ochre);stroke:var(--c-white);stroke-width:3}
 .profile .pt text{font:600 12.5px var(--f-mono);fill:var(--c-ink)}
-.profile .pt .q{font-weight:400;fill:var(--c-earth)}
+.profile .pt .q{font-weight:400;fill:var(--c-ochre-text-white)}
 .profile figcaption{font:500 .7rem/1.4 var(--f-mono);color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:10px;border-top:var(--line-soft);padding-top:10px}
 .comuni{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(40px,5vw,72px);border-top:var(--line);border-bottom:var(--line)}
 .comune{padding:24px var(--gap) 28px;border-left:var(--line-soft)}
 .comune:first-child{border-left:0;padding-left:0}
 .comune .q{display:block;font:500 clamp(1.8rem,2.6vw,2.4rem)/1 var(--f-mono);letter-spacing:-0.02em;color:var(--c-ink);margin:10px 0 14px}
-.comune .q small{font-size:.5em;color:var(--c-earth);margin-left:4px;letter-spacing:0}
+.comune .q small{font-size:.5em;color:var(--c-ochre-text);margin-left:4px;letter-spacing:0}
 .comune p{color:var(--c-muted);font-size:.98rem}
 .comune h3{font-size:1.9rem}
 
@@ -127,28 +130,28 @@ body.nav-open .menu-btn .i-close{display:block}
 .route__list{list-style:none;margin:0;padding:0}
 .route__line{position:absolute;left:22px;top:10px;bottom:10px;width:12px}
 .route__line svg{width:12px;height:100%;display:block;overflow:visible}
-.route__line .base{stroke:rgba(30,26,20,.2);stroke-width:4;stroke-dasharray:8 8}
-.route__line .draw{stroke:var(--c-red);stroke-width:4;stroke-dasharray:8 8}
+.route__line .base{stroke:var(--c-grid);stroke-width:4;stroke-dasharray:8 8}
+.route__line .draw{stroke:var(--c-ochre);stroke-width:4;stroke-dasharray:8 8}
 .stop{position:relative;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--gap);align-items:center;padding:24px 0;border-bottom:var(--line-soft)}
 .stop:first-child{border-top:var(--line)}
 .stop::before{content:attr(data-n);position:absolute;left:-72px;top:50%;width:44px;height:44px;margin-top:-22px;display:grid;place-items:center;background:var(--c-paper);border:2px solid var(--c-ink);font:600 .9rem/1 var(--f-mono)}
 .stop h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
 .segnavia{display:inline-grid;grid-template-columns:1fr;width:34px;height:20px;border:1px solid var(--c-ink);margin-bottom:10px}
-.segnavia::before{content:"";background:linear-gradient(var(--c-red) 0 33.3%,var(--c-white) 33.3% 66.6%,var(--c-red) 66.6%)}
+.segnavia::before{content:"";background:linear-gradient(var(--c-forest) 0 33.3%,var(--c-white) 33.3% 66.6%,var(--c-forest) 66.6%)}
 .diff{display:flex;align-items:center;gap:10px;font:500 .88rem/1 var(--f-mono)}
 .diff i{display:inline-flex;gap:3px}
 .diff i b{width:10px;height:10px;border:1.5px solid var(--c-ink)}
 .diff i b.on{background:var(--c-ink)}
 .time{display:flex;align-items:center;gap:8px;font:500 1.15rem/1 var(--f-mono)}
-.time .icon{color:var(--c-earth)}
+.time .icon{color:var(--c-ochre-text)}
 
 /* Tre idee: waypoint */
 .waypoints{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);list-style:none;margin:0;padding:0}
 .waypoint{border:var(--line);padding:26px;background:var(--c-paper);position:relative}
-.pin{width:46px;height:46px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--c-red);display:grid;place-items:center;margin-bottom:20px}
-.pin span{transform:rotate(45deg);color:var(--c-white);font:600 1.05rem/1 var(--f-mono)}
+.pin{width:46px;height:46px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--c-ochre);display:grid;place-items:center;margin-bottom:20px}
+.pin span{transform:rotate(45deg);color:var(--c-ink);font:600 1.05rem/1 var(--f-mono)}
 .waypoint h3{font-size:1.9rem;margin-bottom:6px}
-.waypoint .where{font:500 .78rem/1.3 var(--f-mono);color:var(--c-earth);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:12px}
+.waypoint .where{font:500 .78rem/1.3 var(--f-mono);color:var(--c-ochre-text);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:12px}
 .waypoint p{color:var(--c-ink)}
 
 /* Tavole fotografiche */
@@ -186,29 +189,29 @@ body.nav-open .menu-btn .i-close{display:block}
 .nando__txt p:not(.label){font-size:1.15rem;color:var(--c-forest-muted);max-width:46ch}
 .qs{grid-column:8 / span 5;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
 .qs a{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:16px 18px;background:var(--c-paper);color:var(--c-ink);text-decoration:none;font:600 1.05rem/1.3 var(--f-text);border:2px solid var(--c-paper);transition:transform var(--dur-fast),box-shadow var(--dur-fast)}
-.qs a:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--c-red)}
-.qs a .n{font:600 .75rem/1 var(--f-mono);color:var(--c-red);margin-right:4px}
-.qs .icon{color:var(--c-red)}
+.qs a:hover{transform:translateX(6px);border-color:var(--c-ochre)}
+.qs a .n{font:600 .75rem/1 var(--f-mono);color:var(--c-ochre-text);margin-right:4px}
+.qs .icon{color:var(--c-ochre-text)}
 
 /* Calendario */
 .cal{border-top:var(--line)}
 .cal__months,.ev{display:grid;grid-template-columns:minmax(220px,1.3fr) 2.7fr;gap:var(--gap);align-items:center}
 .cal__months{padding:12px 0;border-bottom:var(--line)}
 .cal__m,.ev__track{display:grid;grid-template-columns:repeat(7,1fr)}
-.cal__m span{font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c-earth);border-left:var(--line-soft);padding-left:8px}
+.cal__m span{font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c-ochre-text);border-left:var(--line-soft);padding-left:8px}
 .ev{list-style:none;padding:16px 0;border-bottom:var(--line-soft)}
 .ev h3{font-size:1.4rem}
 .ev p{font:400 .82rem/1.4 var(--f-mono);color:var(--c-muted);margin-top:4px}
-.ev__track{height:26px;background:repeating-linear-gradient(90deg,rgba(30,26,20,.14) 0 1px,transparent 1px calc(100%/7))}
-.ev__bar{grid-column:var(--s) / var(--e);height:12px;align-self:center;background:var(--c-red);transform-origin:left center}
+.ev__track{height:26px;background:repeating-linear-gradient(90deg,var(--c-grid) 0 1px,transparent 1px calc(100%/7))}
+.ev__bar{grid-column:var(--s) / var(--e);height:12px;align-self:center;background:var(--c-ochre);transform-origin:left center}
 .ev__bar.dot{justify-self:end;width:14px;height:14px;border-radius:50%;margin-right:-7px}
 .cal ul{margin:0;padding:0}
 
 /* Itinerari */
 .iti{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);list-style:none;margin:0;padding:0}
 .iti a{display:flex;flex-direction:column;gap:10px;height:100%;padding:24px;border:var(--line);background:var(--c-paper);text-decoration:none;transition:transform var(--dur-fast),box-shadow var(--dur-fast)}
-.iti a:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--c-ink)}
-.days{display:flex;align-items:center;gap:10px;font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c-earth)}
+.iti a:hover{transform:translate(-3px,-3px);box-shadow:var(--shadow-hard)}
+.days{display:flex;align-items:center;gap:10px;font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c-ochre-text)}
 .days i{display:inline-flex;gap:3px}
 .days i b{width:22px;height:8px;border:1.5px solid var(--c-ink)}
 .days i b.on{background:var(--c-forest);border-color:var(--c-forest)}
@@ -230,7 +233,7 @@ body.nav-open .menu-btn .i-close{display:block}
 .foot__cols li{margin-bottom:8px}
 .foot__cols a{text-decoration:none;font-size:.95rem}
 .foot__cols a:hover{text-decoration:underline}
-.foot__legal{margin-top:56px;padding-top:18px;border-top:1px solid rgba(239,232,214,.25);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:400 .8rem/1.5 var(--f-mono);color:var(--c-night-muted)}
+.foot__legal{margin-top:56px;padding-top:18px;border-top:1px solid var(--c-night-rule);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:400 .8rem/1.5 var(--f-mono);color:var(--c-night-muted)}
 .foot__legal button{font:inherit;color:var(--c-paper);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
 .restyle-bar{background:var(--c-paper);color:var(--c-ink);font:500 .78rem/1.4 var(--f-mono);padding:12px var(--gutter);text-align:center;border-top:var(--line)}
 
@@ -276,7 +279,7 @@ body.nav-open .menu-btn .i-close{display:block}
   .tav__img{aspect-ratio:4/3}
   .cal__months{display:none}
   .ev{grid-template-columns:1fr;gap:10px}
-  .ev__track{background:repeating-linear-gradient(90deg,rgba(30,26,20,.14) 0 1px,transparent 1px calc(100%/7))}
+  .ev__track{background:repeating-linear-gradient(90deg,var(--c-grid) 0 1px,transparent 1px calc(100%/7))}
   .ev__track::before{content:none}
   .cal__m-mobile{display:grid!important}
   .foot__top{grid-template-columns:1fr;gap:40px}
@@ -285,12 +288,13 @@ body.nav-open .menu-btn .i-close{display:block}
   .profile{padding:14px 12px 10px}
   .profile .pt text{font-size:23px}
   .profile .pt .q{transform:translateY(-8px)}
-  .profile .pt-gallio text{transform:translate(30px,52px)} .profile .pt-gallio .q{transform:translate(30px,44px)} /* evita la sovrapposizione con Asiago su mobile */
+  .profile .pt-gallio text{transform:translate(42px,58px)} .profile .pt-gallio .q{transform:translate(42px,50px)} /* evita la sovrapposizione con Asiago su mobile */
   .profile .grid text{display:none} /* su mobile le quote sono già sui punti: niente asse, niente sovrapposizioni */
   .trail .wp text{font-size:20px}
+  .trail .wp-far text,.trail .wp-far rect{transform:translateX(-64px)} /* la Marcesina resta dentro la cornice a 390px */
 }
 .cal__m-mobile{display:none;grid-template-columns:repeat(7,1fr);padding:10px 0;border-bottom:var(--line)}
-.cal__m-mobile span{font:600 .64rem/1 var(--f-mono);color:var(--c-earth);text-transform:uppercase;border-left:var(--line-soft);padding-left:4px}
+.cal__m-mobile span{font:600 .64rem/1 var(--f-mono);color:var(--c-ochre-text);text-transform:uppercase;border-left:var(--line-soft);padding-left:4px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
 </style>
 </head>
@@ -310,9 +314,9 @@ body.nav-open .menu-btn .i-close{display:block}
       <a href="#oggi">Dove andare oggi</a>
       <a href="#meteo">Meteo &amp; neve</a>
       <a href="https://tuttoaltopiano.it/mappa">Mappa</a>
-      <a class="btn btn--red" href="#nando">Chiedi a Nando</a>
+      <a class="btn btn--forest" href="#nando">Chiedi a Nando</a>
     </nav>
-    <a class="btn btn--red" href="#nando">Chiedi a Nando</a>
+    <a class="btn btn--forest" href="#nando">Chiedi a Nando</a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu">
       <svg class="icon i-open" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
       <svg class="icon i-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -377,7 +381,7 @@ body.nav-open .menu-btn .i-close{display:block}
         <h1 id="h1">Asiago, Gallio, Roana: <span class="r">l'Altopiano spiegato bene</span></h1>
         <p class="lede">Sentieri, malghe, trincee della Grande Guerra, neve e sagre. Una guida indipendente aggiornata ogni giorno, con Nando che risponde alle tue domande.</p>
         <div class="ctas">
-          <a class="btn btn--red" href="#sentieri">Sentieri ed escursioni <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a class="btn btn--forest" href="#sentieri">Sentieri ed escursioni <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
           <a class="btn btn--line" href="#oggi">Dove andare oggi</a>
         </div>
         <div class="scale" aria-hidden="true"><i></i><span>Guida indipendente · aggiornata ogni giorno</span></div>
@@ -392,7 +396,7 @@ body.nav-open .menu-btn .i-close{display:block}
           <g class="wp"><circle cx="180" cy="390" r="11"/><circle class="dot" cx="180" cy="390" r="4.5"/><rect x="198" y="378" width="118" height="40"/><text x="202" y="394">ROANA</text><text class="q" x="202" y="412">992 m</text></g>
           <g class="wp"><circle cx="290" cy="330" r="11"/><circle class="dot" cx="290" cy="330" r="4.5"/><rect x="308" y="318" width="128" height="40"/><text x="312" y="334">ASIAGO</text><text class="q" x="312" y="352">1.001 m</text></g>
           <g class="wp"><circle cx="390" cy="250" r="11"/><circle class="dot" cx="390" cy="250" r="4.5"/><rect x="408" y="238" width="128" height="40"/><text x="412" y="254">GALLIO</text><text class="q" x="412" y="272">1.090 m</text></g>
-          <g class="wp"><circle cx="480" cy="90" r="11"/><circle class="dot" cx="480" cy="90" r="4.5"/><rect x="330" y="20" width="200" height="40"/><text x="334" y="36">PIANA DELLA MARCESINA</text><text class="q" x="334" y="54">1.300 m</text></g>
+          <g class="wp wp-far"><circle cx="480" cy="90" r="11"/><circle class="dot" cx="480" cy="90" r="4.5"/><rect x="330" y="20" width="200" height="40"/><text x="334" y="36">PIANA DELLA MARCESINA</text><text class="q" x="334" y="54">1.300 m</text></g>
         </svg>
         <figcaption class="trail__note">Schema delle quote · non in scala</figcaption>
       </figure>
@@ -429,7 +433,7 @@ body.nav-open .menu-btn .i-close{display:block}
         </div>
         <figure class="profile" style="margin:0">
           <svg viewBox="0 0 640 330" role="img" aria-label="Quote dei centri in ordine di altezza: Rotzo 935 m, Roana 992 m, Asiago 1.001 m, Gallio 1.090 m, Piana della Marcesina 1.300 m">
-            <defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9A6B3F" stroke-width="1.4" opacity=".55"/></pattern></defs>
+            <defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7"/></pattern></defs>
             <g class="grid">
               <line x1="62" x2="630" y1="300" y2="300"/><text x="0" y="304">900</text>
               <line x1="62" x2="630" y1="237.8" y2="237.8"/><text x="0" y="242">1.000</text>
@@ -476,10 +480,10 @@ body.nav-open .menu-btn .i-close{display:block}
     </div>
   </section>
 
-  <section class="section" id="oggi" aria-labelledby="h-oggi" style="background:var(--c-paper-2);border-top:var(--line);border-bottom:var(--line)">
+  <section class="section on-tint" id="oggi" aria-labelledby="h-oggi" style="background:var(--c-paper-2);border-top:var(--line);border-bottom:var(--line)">
     <div class="wrap">
       <div class="sec-head">
-        <div><p class="label">Consigli di oggi · lunedì 23 novembre</p><h2 id="h-oggi" data-split>Tre idee per la giornata</h2></div>
+        <div><p class="label">Consigli di oggi · <span data-today="short">lunedì 23 novembre</span></p><h2 id="h-oggi" data-split>Tre idee per la giornata</h2></div>
         <a class="textlink" href="https://tuttoaltopiano.it/dove-oggi">Vedi la pagina completa <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
       </div>
       <ol class="waypoints">
@@ -600,7 +604,7 @@ body.nav-open .menu-btn .i-close{display:block}
     <div class="wrap">
       <div class="sec-head">
         <div><p class="label">Da 1 a 3 giorni</p><h2 id="h-iti" data-split>Itinerari pronti all'uso</h2></div>
-        <a class="btn btn--red" href="https://tuttoaltopiano.it/itinerari">Tutti gli itinerari <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        <a class="btn btn--forest" href="https://tuttoaltopiano.it/itinerari">Tutti gli itinerari <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
       </div>
       <ul class="iti">
         <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><span class="days"><i aria-hidden="true"><b class="on"></b><b></b><b></b></i>1 giorno · Prima volta</span><h3>L'Altopiano in 1 giorno</h3><p>Il giro classico tra Asiago, Gallio e Roana per chi ha solo una giornata.</p></a></li>
@@ -711,7 +715,7 @@ body.nav-open .menu-btn .i-close{display:block}
     const mask = document.querySelector('.t-mask'); prepDraw([mask]);
     gsap.timeline({ delay: 0.9 })
       .to(mask, { strokeDashoffset: 0, duration: 2, ease: 'power1.inOut' })
-      .from('.trail .wp', { scale: 0, opacity: 0, transformOrigin: '0% 50%', duration: 0.5, ease: 'back.out(2)', stagger: 0.32 }, 0.1);
+      .from('.trail .wp', { scale: 0, opacity: 0, transformOrigin: '0% 50%', duration: 0.5, ease: 'power3.out', stagger: 0.32 }, 0.1);
 
     // 4. Titoli di sezione
     document.querySelectorAll('[data-split]').forEach(el => SplitText.create(el, { type: 'lines', mask: 'lines', autoSplit: true,
@@ -755,6 +759,11 @@ body.nav-open .menu-btn .i-close{display:block}
   };
   document.fonts && document.fonts.ready ? document.fonts.ready.then(run) : run();
 })();
+</script>
+<script>
+/* data del giorno (il testo nell'HTML resta come fallback senza JS) */
+(function(){var d=new Date();document.querySelectorAll('[data-today]').forEach(function(el){
+el.textContent=d.toLocaleDateString('it-IT',{weekday:'long',day:'numeric',month:'long'});});})();
 </script>
 </body>
 </html>

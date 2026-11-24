@@ -1,17 +1,23 @@
 /* TUTTOALTOPIANO · Restyle 1 "Rivista d'Altopiano" · design tokens */
 :root {
-  /* Colori: carta da rivista, inchiostro, verde bosco del brand, ocra scurito per il testo */
-  --c-paper: #F4F1E8;        /* fondo pagina */
-  --c-paper-2: #EAE5D6;      /* fondo riquadri e bollettino */
-  --c-ink: #141D16;          /* testo principale (15.3:1 su carta) */
-  --c-muted: #586156;        /* testo secondario (5.7:1 su carta) */
-  --c-forest: #1F4D32;       /* CTA primaria, link (testo carta su bosco 8.6:1) */
-  --c-ochre: #CD8643;        /* ocra del brand: solo come fondo con testo ink (5.8:1) */
-  --c-ochre-text: #8A4F1A;   /* ocra scurito per occhielli e numeri su carta (5.8:1) */
-  --c-rule: rgba(20, 29, 22, 0.18); /* filetti tipografici */
-  --c-night: #141D16;        /* fondo della rubrica Nando */
-  --c-night-text: #F4F1E8;   /* testo su notte (15.3:1) */
-  --c-night-muted: #B9B5A6;  /* testo secondario su notte (8.4:1) */
+  /* Colori: palette originale di tuttoaltopiano.it (data/palettes.json), nessun colore nuovo */
+  /* Brand, dal logo e dal sito */
+  --c-forest: #1F4D32;       /* verde bosco del logo: CTA primaria, link, corsivi (crema su bosco 9.18:1) */
+  --c-ochre: #CD8643;        /* ocra del sito: puntini, CTA su fondo scuro con testo inchiostro (5.82:1) */
+  /* Varianti AA della stessa ocra, solo per testo */
+  --c-ochre-text: #9F632A;   /* occhielli e numerali su crema #FAF9F1 (4.63:1) */
+  /* Neutri del sito */
+  --c-paper: #FAF9F1;        /* crema: fondo pagina */
+  --c-paper-2: #EDEBDC;      /* crema scura: bollettino, fondo foto in caricamento */
+  --c-white: #FFFFFF;        /* bianco: hover delle rubriche */
+  --c-ink: #141D16;          /* testo principale (16.3:1 su crema) */
+  --c-muted: #586156;        /* testo secondario (6.10:1 su crema, 5.37:1 su crema scura) */
+  --c-rule: rgba(20, 29, 22, 0.18); /* filetti: inchiostro in trasparenza */
+  --c-night: #141D16;        /* fondo della rubrica Nando: inchiostro */
+  --c-night-text: #FAF9F1;   /* testo su inchiostro (16.3:1) */
+  --c-night-muted: rgba(250, 249, 241, 0.72); /* testo secondario su inchiostro: crema al 72% (8.9:1) */
+  --c-night-rule: rgba(250, 249, 241, 0.3);   /* filetti su inchiostro */
+  --c-night-rule-soft: rgba(250, 249, 241, 0.18); /* filetti sottili su inchiostro */
 
   /* Tipografia: Newsreader per titoli e didascalie, Inter Tight per testo e interfaccia */
   --f-display: "Newsreader", Georgia, "Times New Roman", serif;
