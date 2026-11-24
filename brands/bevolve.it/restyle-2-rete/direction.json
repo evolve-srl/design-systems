@@ -1,0 +1,98 @@
+{
+  "n": 2,
+  "slug": "rete",
+  "name": "La rete",
+  "concept": "Evolve è un system integrator: il suo valore sta nei collegamenti. Qui i servizi sono nodi di una rete SVG che si disegna davanti all'utente, e le quattro aree convergono visivamente in un unico interlocutore. Fondo notturno derivato dal navy del brand, per un pubblico IT e PA che vuole capire al volo 'cosa integrate e come'.",
+  "palette": [
+    {
+      "name": "Night",
+      "hex": "#050A18",
+      "role": "fondo pagina"
+    },
+    {
+      "name": "Night 2",
+      "hex": "#0A1430",
+      "role": "fasce alternate"
+    },
+    {
+      "name": "Surface",
+      "hex": "#0E1A3D",
+      "role": "card e nodi"
+    },
+    {
+      "name": "Navy",
+      "hex": "#11338A",
+      "role": "navy storico, nodo 'un solo interlocutore', CTA box"
+    },
+    {
+      "name": "Signal",
+      "hex": "#6E9BFF",
+      "role": "connessioni, CTA (testo night su signal 7.33:1)"
+    },
+    {
+      "name": "Text",
+      "hex": "#EAF0FF",
+      "role": "testo principale (17.3:1)"
+    },
+    {
+      "name": "Muted",
+      "hex": "#A9B6D6",
+      "role": "testo secondario (9.7:1)"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Space Grotesk",
+      "role": "titoli e testo",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "IBM Plex Mono",
+      "role": "etichette dei nodi, dati, domini",
+      "source": "Google Fonts (OFL)"
+    }
+  ],
+  "motion": [
+    "hero: la rete si disegna dal centro (DrawSVG) verso le 4 aree e le 12 competenze, poi l'anello di integrazione",
+    "pacchetti di dati che viaggiano sulle connessioni (MotionPath, solo transform)",
+    "titoli che compaiono parola per parola con SplitText (sfocatura iniziale nella hero)",
+    "le 4 aree convergono nel nodo 'Un solo interlocutore responsabile' (DrawSVG in scrub)",
+    "bus dei prodotti e pipeline del metodo che si tracciano con lo scroll",
+    "video originale hero-home.mp4 da URL assoluto, invertito via CSS e messo in pausa con reduced motion"
+  ],
+  "components": [
+    "hero a due colonne: testo + schema di rete SVG accessibile (role=img con aria-label)",
+    "4 card-nodo dei servizi con tag delle competenze",
+    "diagramma di convergenza SVG (desktop) / filo verticale (mobile)",
+    "fascia fatti: sede, clienti, territorio",
+    "7 prodotti come nodi agganciati a un bus",
+    "pipeline orizzontale in 4 fasi",
+    "box CTA con mini-rete in parallasse",
+    "footer con logo schiarito via filtro CSS"
+  ],
+  "fixes": [
+    "Colore di brand quasi assente (pagina grigia): qui il blu diventa protagonista",
+    "Logo: file originale mai sotto i 168px di larghezza (sul sito attuale le linee sottili si perdono sotto i 140px)",
+    "Contrasto CTA principale 5.96:1 (gradiente attuale) → 7.33:1 (#050A18 su #6E9BFF)",
+    "Il concetto 'integrazione' diventa visibile invece di restare uno slogan",
+    "Logo su fondo scuro: file originale con filtro CSS invert(1) brightness(1.05), non ridisegnato"
+  ],
+  "references": [
+    {
+      "label": "Cloudflare — mappa della rete globale",
+      "url": "https://www.cloudflare.com/network/"
+    },
+    {
+      "label": "GSAP Showcase",
+      "url": "https://gsap.com/showcase/"
+    },
+    {
+      "label": "GSAP DrawSVGPlugin",
+      "url": "https://gsap.com/docs/v3/Plugins/DrawSVGPlugin/"
+    },
+    {
+      "label": "Palantir — software house enterprise su fondo scuro",
+      "url": "https://www.palantir.com/"
+    }
+  ]
+}

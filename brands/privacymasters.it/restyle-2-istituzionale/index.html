@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Masters — Cybersecurity, GDPR, NIS2 | Rovigo, Veneto</title>
+<meta name="description" content="Privacy Masters (Evolve S.r.l., Rovigo): cybersecurity, GDPR, NIS2, DORA, investigazioni e sicurezza fisica. Check-up gratuito in 48h.">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:90px}
+body{margin:0;background:var(--c-paper);color:var(--c-ink);font:400 var(--fs-body)/var(--lh-body) var(--font-sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:none;box-shadow:var(--focus-ring)}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--c-ink);color:#fff;padding:8px 14px}
+.skip:focus{left:8px}
+.wrap{max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--col-gap)}
+.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+h1,h2,h3{font-family:var(--font-serif);font-weight:400;margin:0;letter-spacing:-0.015em}
+h2{font-size:var(--fs-h2);line-height:1.04}
+h3{font-size:var(--fs-h3);line-height:1.2;font-weight:500}
+p{margin:0}
+em{font-style:italic}
+.kicker{font:600 var(--fs-kicker)/1.3 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--c-muted)}
+.kicker b{color:var(--c-green);font-weight:600}
+
+/* Buttons: rettangolari, con freccia che scorre */
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:52px;padding:12px 24px;border-radius:var(--radius);font:600 .98rem/1.25 var(--font-sans);text-decoration:none;transition:background var(--dur) var(--ease),color var(--dur) var(--ease)}
+.btn .icon{transition:transform var(--dur) var(--ease)}
+.btn:hover .icon{transform:translateX(4px)}
+.btn-primary{background:var(--c-green);color:var(--c-on-green)}
+.btn-primary:hover{background:var(--c-green-hover)}
+.btn-line{color:var(--c-ink);padding-left:0;padding-right:0;border-bottom:1px solid var(--c-ink);border-radius:0;min-height:44px}
+.btn-line:hover{color:var(--c-green);border-color:var(--c-green)}
+
+/* Header */
+.topline{border-bottom:1px solid var(--c-rule);font-size:.8rem;color:var(--c-muted)}
+.topline .wrap{display:flex;justify-content:space-between;gap:16px;padding-top:8px;padding-bottom:8px}
+.topline a{text-decoration:none}
+.topline a:hover{color:var(--c-green);text-decoration:underline}
+.hdr{position:sticky;top:0;z-index:50;background:rgba(246,245,240,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--c-rule)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:35px;height:40px;overflow:hidden;position:relative;flex:none}
+.brand-mark img{position:absolute;left:-4.3px;top:-2.9px;width:51.8px;height:58px;max-width:none}
+.brand-name{font:500 1.45rem/1 var(--font-serif);letter-spacing:-0.01em}
+.nav{display:flex;gap:6px}
+.nav a{font-size:.92rem;text-decoration:none;padding:10px 12px;color:var(--c-ink);background-image:linear-gradient(var(--c-green),var(--c-green));background-size:0 1px;background-repeat:no-repeat;background-position:12px calc(100% - 8px);transition:background-size var(--dur) var(--ease)}
+.nav a:hover{background-size:calc(100% - 24px) 1px;color:var(--c-green)}
+.hdr .btn{min-height:44px;padding:10px 18px;font-size:.9rem}
+.burger{display:none;background:none;border:1px solid var(--c-ink);color:var(--c-ink);width:44px;height:44px;border-radius:var(--radius);align-items:center;justify-content:center;cursor:pointer}
+@media (max-width:1100px){
+  .nav{display:none;position:absolute;top:78px;left:0;right:0;flex-direction:column;background:var(--c-paper);border-bottom:1px solid var(--c-rule);padding:8px var(--gutter) 20px}
+  .nav.open{display:flex}
+  .nav a{font:400 1.5rem/1.2 var(--font-serif);padding:14px 0;border-bottom:1px solid var(--c-rule);background:none}
+  .burger{display:inline-flex}
+  .hdr .btn-cta{display:none}
+}
+@media (max-width:640px){.topline .addr{display:none}}
+
+/* Hero */
+.hero{padding:clamp(3rem,8vw,6.5rem) 0 0}
+.hero .kicker{grid-column:1/-1;display:flex;align-items:center;gap:12px;margin-bottom:clamp(1.5rem,3vw,2.5rem)}
+.hero .kicker::before{content:"";width:10px;height:10px;background:var(--c-signal);border-radius:50%}
+.hero h1{grid-column:1/9;font-size:var(--fs-hero);line-height:var(--lh-display);letter-spacing:-0.035em;max-width:11.5ch}
+.hero h1 em{color:var(--c-green)}
+.hero-body{grid-column:1/8;margin-top:clamp(2rem,4vw,3.5rem);display:grid;gap:28px}
+.hero-body p{font-size:clamp(1.1rem,1.5vw,1.3rem);line-height:1.55;max-width:52ch}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px}
+.seal{grid-column:9/13;grid-row:2/4;align-self:start;justify-self:end;background:var(--c-sheet);border:1px solid var(--c-rule);padding:28px 32px 20px;display:grid;gap:14px;justify-items:center;margin-top:12px}
+.seal img{height:280px;width:auto}
+.seal figcaption{font-size:.78rem;color:var(--c-muted);text-align:center;letter-spacing:.04em;border-top:1px solid var(--c-rule);padding-top:12px;width:100%}
+.facts{margin-top:clamp(3rem,6vw,5rem);border-top:1px solid var(--c-rule-strong);display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.facts div{padding:22px 20px 26px 0;border-right:1px solid var(--c-rule);display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:6px}
+.facts div+div{padding-left:20px}
+.facts div:last-child{border-right:0}
+.facts dt{font-size:.82rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.facts dd{margin:0;font:400 clamp(2.4rem,4vw,3.4rem)/1 var(--font-serif);color:var(--c-ink)}
+@media (max-width:980px){
+  .hero h1,.hero-body{grid-column:1/-1}
+  .seal{grid-column:1/-1;grid-row:auto;justify-self:start;align-self:start;margin-top:clamp(2rem,4vw,3.5rem)}
+}
+@media (max-width:640px){
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts div:nth-child(2){border-right:0}
+  .facts div:nth-child(3){padding-left:0}
+  .facts div:nth-child(n+3){border-top:1px solid var(--c-rule)}
+  .seal{padding:20px 22px 16px;justify-self:stretch}
+  .seal img{height:240px}
+}
+
+/* Sezioni con numerazione § */
+.sec{padding:var(--space-section) 0 0}
+.sec-head{border-top:1px solid var(--c-rule-strong);padding-top:22px;margin-bottom:clamp(2.5rem,5vw,4.5rem);row-gap:18px}
+.sec-head .kicker{grid-column:1/4}
+.sec-head h2{grid-column:4/12}
+.sec-head .lead{grid-column:4/11;color:var(--c-muted);font-size:1.12rem;max-width:60ch}
+@media (max-width:860px){.sec-head .kicker,.sec-head h2,.sec-head .lead{grid-column:1/-1}}
+
+/* Dati: tabella editoriale */
+.data{border-top:1px solid var(--c-rule)}
+.row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--col-gap);padding:28px 0;border-bottom:1px solid var(--c-rule);align-items:baseline}
+.row .num{grid-column:1/4;font:400 clamp(3rem,6vw,5.4rem)/0.95 var(--font-serif);letter-spacing:-0.03em;color:var(--c-green);font-variant-numeric:lining-nums}
+.row h3{grid-column:4/7}
+.row p{grid-column:7/11;color:var(--c-ink)}
+.row cite{grid-column:11/13;font:normal 600 .75rem/1.4 var(--font-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--c-muted);text-align:right}
+@media (max-width:860px){.row{row-gap:10px}.row .num{grid-column:1/-1}.row h3,.row p,.row cite{grid-column:1/-1;text-align:left}}
+.statement{padding:clamp(4rem,9vw,8rem) 0 0}
+.statement p{font:400 var(--fs-statement)/1.08 var(--font-serif);letter-spacing:-0.025em;max-width:20ch}
+.statement p em{color:var(--c-green)}
+
+/* Servizi: 4 colonne svizzere */
+.intro-big{font:400 clamp(1.7rem,3.2vw,2.8rem)/1.15 var(--font-serif);letter-spacing:-0.02em;grid-column:4/12;margin-bottom:clamp(2.5rem,5vw,4rem)}
+.intro-big em{color:var(--c-green)}
+@media (max-width:860px){.intro-big{grid-column:1/-1}}
+.areas{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--col-gap)}
+.area{border-top:1px solid var(--c-rule-strong);padding-top:20px;display:grid;gap:14px;align-content:start}
+.area .roman{font:italic 400 1.1rem/1 var(--font-serif);color:var(--c-green)}
+.area .icon{width:28px;height:28px;color:var(--c-ink)}
+.area p{color:var(--c-muted)}
+.area a{font-weight:600;font-size:.92rem;color:var(--c-green);text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.area a:hover{text-decoration:underline}
+@media (max-width:980px){.areas{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}}
+@media (max-width:560px){.areas{grid-template-columns:1fr}}
+
+/* Metodo */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--col-gap);counter-reset:s}
+.steps li{list-style:none;border-left:1px solid var(--c-rule);padding:4px 0 4px 24px}
+.steps .n{font:italic 400 4.5rem/1 var(--font-serif);color:var(--c-green);display:block;margin-bottom:18px;letter-spacing:-0.04em}
+.steps h3{margin-bottom:8px}
+.steps p{color:var(--c-muted);max-width:30ch}
+.steps-wrap{padding:0;margin:0}
+.after{margin-top:clamp(2rem,4vw,3rem)}
+@media (max-width:760px){.steps{grid-template-columns:1fr;row-gap:32px}.steps .n{font-size:3.2rem;margin-bottom:8px}}
+
+/* Settori */
+.sectors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--col-gap);border-top:1px solid var(--c-rule)}
+.sector{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:8px 24px;padding:22px 0;border-bottom:1px solid var(--c-rule);align-items:baseline}
+.sector h3{font-size:1.3rem}
+.sector p{color:var(--c-muted);font-size:.97rem}
+@media (max-width:860px){.sectors{grid-template-columns:1fr}}
+@media (max-width:520px){.sector{grid-template-columns:1fr}}
+
+/* Standard: indice bibliografico */
+.biblio{columns:2;column-gap:calc(var(--col-gap) * 2);margin:0;padding:0;list-style:none;counter-reset:b}
+.biblio li{break-inside:avoid;counter-increment:b;display:grid;grid-template-columns:44px 1fr;padding:16px 0;border-bottom:1px solid var(--c-rule)}
+.biblio li::before{content:"[" counter(b) "]";font:400 1rem/1.5 var(--font-serif);color:var(--c-green)}
+.biblio strong{font-weight:600}
+.biblio span{color:var(--c-muted)}
+@media (max-width:760px){.biblio{columns:1}}
+
+/* Team */
+.team-quote{font:400 clamp(3rem,9vw,8rem)/0.95 var(--font-serif);letter-spacing:-0.04em;margin:0 0 clamp(2.5rem,5vw,4rem)}
+.team-quote em{color:var(--c-green)}
+.team-grid{row-gap:28px}
+.roles{grid-column:1/7;margin:0;padding:0;list-style:none;border-top:1px solid var(--c-rule)}
+.roles li{display:flex;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--c-rule);font-size:1.08rem}
+.roles .icon{color:var(--c-green)}
+.team-text{grid-column:8/13;display:grid;gap:16px;align-content:start}
+.team-text p:first-child{font:400 1.45rem/1.3 var(--font-serif)}
+.team-text p+p{color:var(--c-muted)}
+@media (max-width:860px){.roles,.team-text{grid-column:1/-1}}
+
+/* FAQ */
+.faq{margin:0;padding:0;list-style:none;border-top:1px solid var(--c-rule)}
+.faq a{display:grid;grid-template-columns:60px 1fr auto;align-items:center;gap:12px;padding:24px 0;border-bottom:1px solid var(--c-rule);text-decoration:none;font:400 clamp(1.25rem,2.2vw,1.7rem)/1.25 var(--font-serif);transition:color var(--dur) var(--ease)}
+.faq a span{font:600 .8rem/1 var(--font-sans);color:var(--c-muted);letter-spacing:.08em}
+.faq a .icon{color:var(--c-green);transition:transform var(--dur) var(--ease)}
+.faq a:hover{color:var(--c-green)}
+.faq a:hover .icon{transform:translateX(4px)}
+@media (max-width:560px){.faq a{grid-template-columns:36px 1fr auto}}
+
+/* CTA finale */
+.band{margin-top:var(--space-section);background:var(--c-band);color:var(--c-on-band);padding:clamp(4.5rem,10vw,8rem) 0}
+.band h2{font-size:clamp(2.8rem,7.4vw,6.6rem);line-height:.98;letter-spacing:-0.035em;grid-column:1/9}
+.band h2 em{color:var(--c-signal)}
+.band .side{grid-column:9/13;align-self:end;display:grid;gap:24px}
+.band .side p{color:var(--c-on-band-muted);font-size:1.15rem}
+.band .btn-primary{background:var(--c-signal);color:var(--c-ink);justify-self:start}
+.band .btn-primary:hover{background:#2DD99B}
+.band :focus-visible{box-shadow:0 0 0 2px var(--c-band),0 0 0 4px var(--c-signal)}
+@media (max-width:860px){.band h2,.band .side{grid-column:1/-1}.band .side{margin-top:28px}}
+
+/* Footer */
+.ftr{padding:clamp(3.5rem,7vw,5.5rem) 0 28px;font-size:.95rem}
+.ftr-top{row-gap:36px}
+.ftr-brand{grid-column:1/5}
+.ftr-brand .name{font:400 2rem/1 var(--font-serif);letter-spacing:-0.02em;margin-bottom:12px}
+.ftr-brand p{color:var(--c-muted);max-width:34ch}
+.ftr-col{grid-column:span 2}
+.ftr-col.wide{grid-column:span 4}
+.ftr h3{font:600 var(--fs-kicker)/1.3 var(--font-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--c-muted);margin-bottom:14px}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.ftr a{text-decoration:none}
+.ftr a:hover{color:var(--c-green);text-decoration:underline}
+.ftr li{display:flex;gap:10px;align-items:flex-start}
+.ftr li .icon{width:18px;height:18px;margin-top:3px;color:var(--c-green)}
+.ftr dl{margin:0;display:grid;gap:6px}
+.ftr dt{display:inline;color:var(--c-muted)}
+.ftr dd{display:inline;margin:0}
+.legal{margin-top:48px;border-top:1px solid var(--c-rule-strong);padding-top:20px;display:grid;gap:14px;color:var(--c-muted);font-size:.84rem}
+.legal-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.legal-row nav{display:flex;gap:18px}
+@media (max-width:1100px){.ftr-brand{grid-column:1/-1}.ftr-col{grid-column:span 4}.ftr-col.wide{grid-column:span 4}}
+@media (max-width:760px){.ftr-col,.ftr-col.wide{grid-column:1/-1}}
+.concept{border-top:1px solid var(--c-rule);padding:14px 0;font-size:.8rem;color:var(--c-muted)}
+.concept a{color:var(--c-green)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+</svg>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<div class="topline"><div class="wrap"><span>Privacy Masters è un brand operativo di Evolve S.r.l.</span><span class="addr"><a href="tel:+390425090621">+39 0425 090621</a> · <a href="mailto:info@privacymasters.it">info@privacymasters.it</a></span></div></div>
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="https://privacymasters.it/" aria-label="Privacy Masters, home">
+      <span class="brand-mark"><img src="../assets/logo-BgtPAKuu.png" alt="" width="531" height="595"></span>
+      <span class="brand-name">Privacy Masters</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principale">
+      <a href="https://privacymasters.it/chi-siamo">Chi siamo</a>
+      <a href="https://privacymasters.it/servizi">Servizi</a>
+      <a href="https://privacymasters.it/perche-proteggersi">Perché proteggersi</a>
+      <a href="https://privacymasters.it/blog">Blog normativo</a>
+      <a href="https://privacymasters.it/contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-primary btn-cta" href="https://privacymasters.it/check-up">Check-up gratuito<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="grid">
+        <p class="kicker">Difesa integrata 360° · GDPR · NIS2 · DORA · AI Act</p>
+        <h1 id="hero-title" class="split-lines">Protezione totale. <em>Zero compromessi.</em></h1>
+        <div class="hero-body">
+          <p class="fade">Cybersecurity, privacy, investigazione e sicurezza fisica. Un unico team operativo — avvocati, ethical hacker, investigatori e ingegneri — per difendere aziende e persone in conformità a GDPR, NIS2, DORA e AI Act.</p>
+          <div class="hero-actions fade">
+            <a class="btn btn-primary" href="https://privacymasters.it/check-up">Richiedi check-up gratuito<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-line" href="https://privacymasters.it/contatti">Parla con un esperto</a>
+          </div>
+        </div>
+        <figure class="seal fade">
+          <img src="../assets/logo-BgtPAKuu.png" alt="Privacy Masters — Security Experts" width="531" height="595">
+          <figcaption>Evolve S.r.l. · Rovigo</figcaption>
+        </figure>
+      </div>
+      <dl class="facts">
+        <div><dt>Aree integrate</dt><dd>4</dd></div>
+        <div><dt>Normative coperte</dt><dd>12+</dd></div>
+        <div><dt>Incident response</dt><dd>24/7</dd></div>
+        <div><dt>Risposta check-up</dt><dd>48h</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec" id="numeri" aria-labelledby="numeri-title">
+    <div class="wrap">
+      <div class="grid sec-head">
+        <p class="kicker"><b>§ 01</b> · Dati 2023–2024</p>
+        <h2 id="numeri-title" class="split-lines">I numeri della cybersicurezza in Italia</h2>
+        <p class="lead">I dati ufficiali fotografano una situazione critica per le imprese italiane. Fonti aggiornate ad aprile 2025.</p>
+      </div>
+      <div class="data">
+        <div class="row"><p class="num">+37%</p><h3>Ransomware</h3><p>Attacchi ransomware in più solo nel 2024. L'Italia è tra i 5 Paesi al mondo più colpiti.</p><cite>Clusit</cite></div>
+        <div class="row"><p class="num">1.731</p><h3>Violazioni GDPR</h3><p>Data breach notificati al Garante Privacy nel 2023. Trend in costante crescita.</p><cite>Garante Privacy, Relazione 2024</cite></div>
+        <div class="row"><p class="num">81%</p><h3>Phishing &amp; social engineering</h3><p>Tecnica utilizzata negli attacchi che sfruttano credenziali rubate.</p><cite>Verizon DBIR 2024</cite></div>
+        <div class="row"><p class="num">68%</p><h3>Furto credenziali</h3><p>Violazioni che coinvolgono un fattore umano non malintenzionato.</p><cite>Verizon DBIR 2024</cite></div>
+      </div>
+      <div class="statement"><p class="scrub-words">Il problema non è se succederà. <em>Ma quando.</em></p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="servizi" aria-labelledby="servizi-title">
+    <div class="wrap">
+      <div class="grid sec-head">
+        <p class="kicker"><b>§ 02</b> · Una difesa completa</p>
+        <h2 id="servizi-title" class="split-lines">Quattro aree, un solo presidio operativo.</h2>
+      </div>
+      <div class="grid"><p class="intro-big fade">Competenze di cybersecurity, legali, investigative e tecniche. Non lavoriamo a compartimenti separati. <em>Lavoriamo insieme.</em></p></div>
+      <div class="areas">
+        <article class="area"><span class="roman">I.</span><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg><h3>GDPR &amp; Compliance</h3><p>Adeguamento, DPO esterno, audit privacy.</p><a href="https://privacymasters.it/servizi">Scopri di più<svg class="icon" aria-hidden="true" style="width:16px;height:16px;color:inherit"><use href="#i-arrow"/></svg></a></article>
+        <article class="area"><span class="roman">II.</span><svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg><h3>Cybersecurity</h3><p>Pen test, vulnerability assessment, NIS2.</p><a href="https://privacymasters.it/servizi">Scopri di più<svg class="icon" aria-hidden="true" style="width:16px;height:16px;color:inherit"><use href="#i-arrow"/></svg></a></article>
+        <article class="area"><span class="roman">III.</span><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg><h3>Investigazioni &amp; Intelligence</h3><p>Frodi, controlli interni, raccolta prove.</p><a href="https://privacymasters.it/servizi">Scopri di più<svg class="icon" aria-hidden="true" style="width:16px;height:16px;color:inherit"><use href="#i-arrow"/></svg></a></article>
+        <article class="area"><span class="roman">IV.</span><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg><h3>Sicurezza Fisica</h3><p>Videosorveglianza, controllo accessi, anti-intrusione.</p><a href="https://privacymasters.it/servizi">Scopri di più<svg class="icon" aria-hidden="true" style="width:16px;height:16px;color:inherit"><use href="#i-arrow"/></svg></a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="metodo" aria-labelledby="metodo-title">
+    <div class="wrap">
+      <div class="grid sec-head">
+        <p class="kicker"><b>§ 03</b> · Metodo</p>
+        <h2 id="metodo-title" class="split-lines">Come funziona</h2>
+      </div>
+      <ol class="steps steps-wrap">
+        <li><span class="n">01</span><h3>Analisi del rischio</h3><p>Mappatura completa di asset, processi e vulnerabilità.</p></li>
+        <li><span class="n">02</span><h3>Piano di protezione</h3><p>Strategia su misura: tecnica, legale, operativa.</p></li>
+        <li><span class="n">03</span><h3>Monitoraggio continuo</h3><p>Vigilanza, aggiornamenti e risposta agli incidenti.</p></li>
+      </ol>
+      <div class="after"><a class="btn btn-primary" href="https://privacymasters.it/check-up">Scopri il tuo livello di rischio<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="settori" aria-labelledby="settori-title">
+    <div class="wrap">
+      <div class="grid sec-head">
+        <p class="kicker"><b>§ 04</b> · Verticali</p>
+        <h2 id="settori-title" class="split-lines">Settori serviti</h2>
+        <p class="lead">Esperienza verticale nei settori inclusi nel perimetro NIS2 e nelle infrastrutture critiche nazionali.</p>
+      </div>
+      <div class="sectors">
+        <div class="sector"><h3>Pubblica Amministrazione</h3><p>Linee guida AGID, Misure minime ICT, perimetro PSNC.</p></div>
+        <div class="sector"><h3>Sanità</h3><p>Soggetto essenziale NIS2, FSE, telemedicina, dati sanitari (art. 9 GDPR).</p></div>
+        <div class="sector"><h3>Finance &amp; Assicurazioni</h3><p>DORA, ICT risk management, ABI Lab, IVASS.</p></div>
+        <div class="sector"><h3>Manifattura</h3><p>OT/ICS security, supply chain, IEC 62443.</p></div>
+        <div class="sector"><h3>Energia &amp; Utilities</h3><p>NIS2 essenziale, Direttiva CER, ENISA Energy.</p></div>
+        <div class="sector"><h3>Retail &amp; e-commerce</h3><p>PSD2, PCI-DSS, profilazione e marketing.</p></div>
+        <div class="sector"><h3>Studi professionali</h3><p>Segreto professionale, antiriciclaggio, custodia dati clienti.</p></div>
+        <div class="sector"><h3>Terzo settore &amp; no-profit</h3><p>GDPR, fundraising, tutela donatori e beneficiari.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="standard" aria-labelledby="standard-title">
+    <div class="wrap">
+      <div class="grid sec-head">
+        <p class="kicker"><b>§ 05</b> · Qualità</p>
+        <h2 id="standard-title" class="split-lines">Standard e framework di riferimento</h2>
+        <p class="lead">Operiamo secondo gli standard internazionali e le linee guida nazionali.</p>
+      </div>
+      <ol class="biblio">
+        <li><p><strong>ISO/IEC 27001:2022</strong> <span>— Sistemi di gestione della sicurezza delle informazioni</span></p></li>
+        <li><p><strong>ISO/IEC 27701:2019</strong> <span>— Gestione delle informazioni sulla privacy</span></p></li>
+        <li><p><strong>ISO/IEC 27017 / 27018</strong> <span>— Sicurezza e privacy in cloud</span></p></li>
+        <li><p><strong>ISO/IEC 22301:2019</strong> <span>— Business continuity</span></p></li>
+        <li><p><strong>NIST Cybersecurity Framework 2.0</strong> <span>(2024)</span></p></li>
+        <li><p><strong>MITRE ATT&amp;CK &amp; D3FEND</strong></p></li>
+        <li><p><strong>Linee guida AGID</strong> <span>per la sicurezza ICT della PA</span></p></li>
+        <li><p><strong>Framework Nazionale Cybersecurity &amp; Data Protection</strong> <span>(CIS-Sapienza)</span></p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="team" aria-labelledby="team-title">
+    <div class="wrap">
+      <div class="grid sec-head">
+        <p class="kicker"><b>§ 06</b> · Team</p>
+        <h2 id="team-title" class="split-lines">Competenze multidisciplinari realmente operative</h2>
+      </div>
+      <p class="team-quote split-lines">Non consulenti. <em>Operativi.</em></p>
+      <div class="grid team-grid">
+        <ul class="roles">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Ex appartenenti alle Forze dell'Ordine</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-terminal"/></svg>Ethical hacker certificati</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg>Avvocati specializzati in privacy e cyber</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg>Ingegneri della sicurezza informatica</li>
+        </ul>
+        <div class="team-text">
+          <p>Il team Privacy Masters integra profili giuridici, tecnici e investigativi che operano insieme su ogni incarico.</p>
+          <p>Le competenze del team derivano da esperienze maturate in ambito istituzionale, forense e tecnico-operativo. Su richiesta forniamo CV anonimizzati e referenze contrattuali.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="grid sec-head">
+        <p class="kicker"><b>§ 07</b> · FAQ</p>
+        <h2 id="faq-title" class="split-lines">Domande frequenti</h2>
+        <p class="lead">Le domande più comuni che riceviamo da imprenditori e responsabili IT. Ognuna apre il contatto con un esperto.</p>
+      </div>
+      <ul class="faq">
+        <li><a href="https://privacymasters.it/contatti"><span>01</span>La mia azienda è obbligata ad applicare la NIS2?<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://privacymasters.it/contatti"><span>02</span>Cosa rischio se subisco un data breach senza notificarlo?<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://privacymasters.it/contatti"><span>03</span>Devo nominare un DPO?<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://privacymasters.it/contatti"><span>04</span>Quanto costa un check-up di sicurezza?<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="https://privacymasters.it/contatti"><span>05</span>Coprite anche la sicurezza fisica?<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="final-title">
+    <div class="wrap grid">
+      <h2 id="final-title" class="split-lines">Non aspettare <em>il problema.</em></h2>
+      <div class="side">
+        <p>Un check-up gratuito può evitarti danni da centinaia di migliaia di euro. Risposta in 48h.</p>
+        <a class="btn btn-primary" href="https://privacymasters.it/check-up">Prenota il tuo check-up gratuito<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="grid ftr-top">
+      <div class="ftr-brand">
+        <p class="name">Privacy Masters</p>
+        <p>Cybersecurity, privacy, investigazione e sicurezza fisica. Un unico team operativo per difendere aziende e persone. Privacy Masters è un brand operativo di Evolve S.r.l.</p>
+      </div>
+      <div class="ftr-col">
+        <h3>Link rapidi</h3>
+        <ul>
+          <li><a href="https://privacymasters.it/chi-siamo">Chi siamo</a></li>
+          <li><a href="https://privacymasters.it/servizi">Servizi</a></li>
+          <li><a href="https://privacymasters.it/perche-proteggersi">Perché proteggersi</a></li>
+          <li><a href="https://privacymasters.it/blog">Blog normativo</a></li>
+          <li><a href="https://privacymasters.it/check-up">Check-up gratuito</a></li>
+          <li><a href="https://privacymasters.it/contatti">Contatti</a></li>
+          <li><a href="https://privacymasters.it/fonti">Fonti e bibliografia</a></li>
+        </ul>
+      </div>
+      <div class="ftr-col">
+        <h3>Contatti</h3>
+        <ul>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:info@privacymasters.it">info@privacymasters.it</a></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+390425090621">+39 0425 090621</a></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Via Luigi Einaudi 54, 45100 Rovigo (RO), Italia</span></li>
+        </ul>
+      </div>
+      <div class="ftr-col wide">
+        <h3>Dati societari</h3>
+        <dl>
+          <div><dt>Ragione sociale:</dt> <dd>Evolve S.r.l.</dd></div>
+          <div><dt>P.IVA / C.F.:</dt> <dd>04597090234</dd></div>
+          <div><dt>REA:</dt> <dd>RO-426960</dd></div>
+          <div><dt>Cap. soc.:</dt> <dd>€ 10.000,00 i.v.</dd></div>
+          <div><dt>Sede:</dt> <dd>Via Luigi Einaudi 54, 45100 Rovigo (RO), Italia</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="legal">
+      <p>I contenuti del sito hanno finalità informative e non costituiscono parere legale. Riferimenti normativi e dati statistici aggiornati ad aprile 2025; per casi specifici si raccomanda consulenza professionale qualificata. Fonti citate: Garante per la protezione dei dati personali, EUR-Lex, Gazzetta Ufficiale, ACN, EDPB, ENISA, Clusit, IBM Security, Verizon, Sophos.</p>
+      <div class="legal-row">
+        <p>© 2026 Evolve S.r.l. — Privacy Masters. Tutti i diritti riservati.</p>
+        <nav aria-label="Note legali"><a href="https://privacymasters.it/privacy-policy">Privacy policy</a><a href="https://privacymasters.it/cookie-policy">Cookie policy</a></nav>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="concept"><div class="wrap">Restyle concept · direzione 2 di 3 · <a href="tokens.css">design system →</a> · <a href="../index.html">tutte le direzioni</a></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script>
+(() => {
+  const burger = document.querySelector('.burger'), nav = document.getElementById('nav');
+  const setMenu = open => { nav.classList.toggle('open', open); burger.setAttribute('aria-expanded', open); burger.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu'); burger.querySelector('use').setAttribute('href', open ? '#i-x' : '#i-menu'); };
+  burger.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+  nav.addEventListener('click', e => { if (e.target.closest('a')) setMenu(false); });
+
+  if (!window.gsap) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  document.fonts.ready.then(() => {
+    // Titoli: righe che salgono da una maschera, lente e composte
+    document.querySelectorAll('.split-lines').forEach((el, i) => {
+      const inHero = !!el.closest('.hero');
+      SplitText.create(el, { type: 'lines', mask: 'lines', autoSplit: true, onSplit(self) {
+        return gsap.from(self.lines, { yPercent: 110, duration: inHero ? 1.2 : 1, stagger: 0.12, ease: 'expo.out', delay: inHero ? 0.15 : 0,
+          scrollTrigger: inHero ? null : { trigger: el, start: 'top 86%', once: true } });
+      }});
+    });
+
+    // Paragrafi e blocchi: dissolvenza sobria
+    gsap.utils.toArray('.fade').forEach(el => {
+      const inHero = !!el.closest('.hero');
+      gsap.from(el, { autoAlpha: 0, y: 18, duration: 1, ease: 'power3.out', delay: inHero ? 0.6 : 0, scrollTrigger: inHero ? null : { trigger: el, start: 'top 88%', once: true } });
+    });
+    gsap.from('.facts > div', { autoAlpha: 0, y: 14, duration: .8, stagger: .08, ease: 'power3.out', delay: .9 });
+
+    // Filetti che si disegnano all'apertura di ogni sezione
+    gsap.utils.toArray('.sec-head').forEach(el => {
+      gsap.from(el.querySelector('.kicker'), { autoAlpha: 0, x: -10, duration: .7, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+
+    // Tabella dati: le righe entrano in sequenza
+    gsap.utils.toArray('.row').forEach(r => gsap.from(r.children, { autoAlpha: 0, y: 16, duration: .8, stagger: .06, ease: 'power3.out', scrollTrigger: { trigger: r, start: 'top 88%', once: true } }));
+
+    // Frase manifesto: le parole si "accendono" con lo scroll (scrub)
+    const st = document.querySelector('.scrub-words');
+    SplitText.create(st, { type: 'words', autoSplit: true, onSplit(self) {
+      return gsap.fromTo(self.words, { opacity: 0.15 }, { opacity: 1, stagger: 0.1, ease: 'none', scrollTrigger: { trigger: st, start: 'top 80%', end: 'bottom 45%', scrub: true } });
+    }});
+
+    gsap.from('.area', { autoAlpha: 0, y: 24, duration: .9, stagger: .1, ease: 'power3.out', scrollTrigger: { trigger: '.areas', start: 'top 85%', once: true } });
+    gsap.from('.steps li', { autoAlpha: 0, y: 24, duration: .9, stagger: .12, ease: 'power3.out', scrollTrigger: { trigger: '.steps', start: 'top 85%', once: true } });
+    gsap.from('.sector', { autoAlpha: 0, duration: .8, stagger: .05, ease: 'power2.out', scrollTrigger: { trigger: '.sectors', start: 'top 85%', once: true } });
+    gsap.from('.biblio li', { autoAlpha: 0, y: 10, duration: .6, stagger: .05, ease: 'power2.out', scrollTrigger: { trigger: '.biblio', start: 'top 85%', once: true } });
+  });
+})();
+</script>
+</body>
+</html>

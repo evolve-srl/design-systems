@@ -1,0 +1,629 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TUTTOALTOPIANO — Guida ad Asiago, Gallio e Roana</title>
+<meta name="description" content="Sentieri, malghe, meteo, eventi e itinerari dell'Altopiano dei Sette Comuni. La guida indipendente di Asiago, Gallio e Roana.">
+<link rel="icon" href="../assets/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:96px}
+body{margin:0;background:var(--c-paper);color:var(--c-ink);font:400 var(--fs-body)/var(--lh-body) var(--f-text);overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--c-forest);outline-offset:3px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--c-ink);color:var(--c-paper);padding:10px 14px;z-index:100;text-decoration:none}
+.skip:focus{top:12px}
+.wrap{width:100%;max-width:calc(var(--wrap) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter)}
+.kicker{font:600 var(--fs-kicker)/1.3 var(--f-text);letter-spacing:var(--tracking-kicker);text-transform:uppercase;color:var(--c-ochre-text);margin:0 0 18px}
+.icon{width:1.1em;height:1.1em;flex:none;stroke:currentColor;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;margin:0;letter-spacing:-0.015em}
+h2{font-size:var(--fs-h2);line-height:1.04}
+h3{font-size:var(--fs-h3);line-height:1.15;font-weight:500}
+em{font-style:italic}
+p{margin:0}
+
+/* ---------- Header / testata ---------- */
+.mast{position:sticky;top:0;z-index:50;background:var(--c-paper);border-bottom:var(--rule-w) solid var(--c-rule)}
+.mast__top{display:flex;justify-content:space-between;gap:16px;font-size:var(--fs-small);color:var(--c-muted);padding-top:8px;padding-bottom:8px;border-bottom:var(--rule-w) solid var(--c-rule)}
+.mast__bar{display:flex;align-items:center;gap:24px;height:68px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--c-ink)}
+.logo svg{width:24px;height:24px;color:var(--c-forest);flex:none}
+.logo span{font:600 1.18rem/1 var(--f-display);letter-spacing:.06em}
+.nav{display:flex;gap:22px;margin-left:auto;align-items:center}
+.nav a:not(.btn){font-size:.95rem;text-decoration:none;color:var(--c-ink);padding:6px 0;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size var(--dur) var(--ease-out)}
+.nav a:not(.btn):hover{background-size:100% 1px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 22px;border-radius:var(--radius-btn);font:600 .95rem/1 var(--f-text);text-decoration:none;border:1px solid transparent;transition:transform var(--dur-fast) ease,background-color var(--dur-fast) ease}
+.btn .icon{transition:transform var(--dur) var(--ease-out)}
+.btn:hover .icon{transform:translateX(4px)}
+.btn--primary{background:var(--c-forest);color:var(--c-paper)}
+.btn--primary:hover{background:#173B26}
+.btn--ghost{border-color:var(--c-ink);color:var(--c-ink)}
+.btn--ochre{background:var(--c-ochre);color:var(--c-ink)}
+.btn--ochre:hover{background:#D9965A}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--c-rule);border-radius:999px;width:44px;height:44px;align-items:center;justify-content:center;color:var(--c-ink);cursor:pointer}
+.menu-btn .icon{width:22px;height:22px}
+.menu-btn .i-close{display:none}
+body.nav-open .menu-btn .i-open{display:none}
+body.nav-open .menu-btn .i-close{display:block}
+
+/* ---------- Copertina ---------- */
+.cover{padding-top:clamp(28px,4vw,56px)}
+.cover__title{font-size:var(--fs-cover);line-height:var(--lh-tight);font-weight:400;letter-spacing:-0.025em}
+.cover__title em{font-weight:300;color:var(--c-forest);display:block}
+.cover__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);margin-top:clamp(28px,4vw,52px)}
+.cover__fig{grid-column:1 / span 8;margin:0}
+.cover__side{grid-column:9 / span 4;display:flex;flex-direction:column;gap:28px;padding-top:4px}
+.lede{font-size:var(--fs-lede);line-height:1.5;color:var(--c-ink)}
+.cover__ctas{display:flex;flex-wrap:wrap;gap:12px}
+.mask{position:relative;overflow:hidden;background:var(--c-paper-2)}
+.mask__in{position:relative;width:100%;height:100%}
+.par{position:absolute;inset:-7% 0;will-change:transform}
+.par img{width:100%;height:100%;object-fit:cover}
+.cover__fig .mask{aspect-ratio:16/10}
+figcaption{display:flex;gap:14px;align-items:baseline;margin-top:12px;font-size:var(--fs-small);color:var(--c-muted)}
+figcaption b{font-weight:600;color:var(--c-ink)}
+.toc{border-top:1px solid var(--c-ink);margin:0;padding:0;list-style:none;counter-reset:toc}
+.toc li{border-bottom:1px solid var(--c-rule)}
+.toc a{display:grid;grid-template-columns:34px 1fr auto;align-items:baseline;gap:8px;padding:11px 0;text-decoration:none;font:400 1.15rem/1.25 var(--f-display)}
+.toc a::before{counter-increment:toc;content:counter(toc,decimal-leading-zero);font:600 .72rem/1 var(--f-text);color:var(--c-ochre-text);letter-spacing:.08em}
+.toc a .icon{opacity:.0;transform:translateX(-6px);transition:opacity var(--dur-fast),transform var(--dur) var(--ease-out)}
+.toc a:hover .icon,.toc a:focus-visible .icon{opacity:1;transform:none}
+.toc__label{font:600 var(--fs-kicker)/1 var(--f-text);letter-spacing:var(--tracking-kicker);text-transform:uppercase;margin:0 0 10px;color:var(--c-muted)}
+
+/* ---------- Rubriche ---------- */
+.section{padding:var(--section) 0}
+.rubriche{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--c-ink);border-bottom:1px solid var(--c-rule)}
+.rubrica{padding:28px 28px 32px;border-left:1px solid var(--c-rule);text-decoration:none;display:flex;flex-direction:column;gap:10px;transition:background-color var(--dur) ease}
+.rubrica:first-child{border-left:0;padding-left:0}
+.rubrica:hover{background:var(--c-paper-2)}
+.rubrica .kicker{margin:0}
+.rubrica h3{font-size:clamp(1.6rem,2.4vw,2.2rem);font-weight:400}
+.rubrica p{color:var(--c-muted)}
+.more{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.95rem;margin-top:auto;padding-top:8px;color:var(--c-forest)}
+
+/* ---------- Sette comuni (long read) ---------- */
+.longread{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.longread__head{grid-column:1 / span 5}
+.longread__head h2{position:sticky;top:120px}
+.longread__body{grid-column:7 / span 6}
+.dropcap{font-size:1.18rem;line-height:1.65}
+.dropcap::first-letter{float:left;font:400 5.2em/.82 var(--f-display);margin:.06em .1em 0 0;color:var(--c-forest)}
+.comuni{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(40px,5vw,72px);border-top:1px solid var(--c-ink)}
+.comune{padding:24px 24px 28px;border-left:1px solid var(--c-rule)}
+.comune:first-child{border-left:0;padding-left:0}
+.quota{font:300 clamp(2.6rem,4.6vw,4rem)/1 var(--f-display);color:var(--c-forest);letter-spacing:-0.03em;display:block;margin:6px 0 12px;font-variant-numeric:lining-nums tabular-nums}
+.quota small{font-size:.4em;letter-spacing:0;margin-left:4px;color:var(--c-muted)}
+.comune h3{font-size:1.55rem}
+.comune p{color:var(--c-muted);font-size:.98rem}
+
+/* ---------- Banda che scorre ---------- */
+.band{overflow:clip;border-top:1px solid var(--c-ink);border-bottom:1px solid var(--c-ink);padding:18px 0}
+.band__track{display:flex;gap:48px;white-space:nowrap;font:300 italic clamp(2.4rem,6vw,5.6rem)/1.05 var(--f-display);width:max-content}
+.band__track span{display:inline-flex;align-items:center;gap:48px}
+.band__track span::after{content:"";width:.28em;height:.28em;border-radius:50%;background:var(--c-ochre)}
+
+/* ---------- Tre idee ---------- */
+.idee__head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.idee{list-style:none;margin:0;padding:0;border-top:1px solid var(--c-ink)}
+.idea{display:grid;grid-template-columns:minmax(90px,1.2fr) 4fr 5fr;gap:var(--gap);align-items:baseline;padding:30px 0;border-bottom:1px solid var(--c-rule)}
+.idea__n{font:300 italic clamp(3rem,6vw,5.5rem)/.9 var(--f-display);color:var(--c-ochre-text)}
+.idea h3{font-size:clamp(1.6rem,2.8vw,2.5rem);font-weight:400}
+.idea .where{display:block;margin-top:6px;font-size:var(--fs-small);color:var(--c-muted);letter-spacing:.04em}
+.idea p{font-size:1.08rem;color:var(--c-ink)}
+
+/* ---------- Servizi fotografici ---------- */
+.spread{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);align-items:end;margin-bottom:clamp(64px,9vw,128px)}
+.spread .mask{aspect-ratio:3/2}
+.spread__fig{grid-column:1 / span 7;margin:0}
+.spread__cap{grid-column:9 / span 4;padding-bottom:8px}
+.spread--rev .spread__fig{grid-column:6 / span 7;order:2}
+.spread--rev .spread__cap{grid-column:1 / span 4;order:1}
+.spread--wide .spread__fig{grid-column:1 / -1}
+.spread--wide .mask{aspect-ratio:21/9}
+.spread--wide .spread__cap{grid-column:1 / span 8;padding-top:20px}
+.bigcap{font:300 italic var(--fs-caption)/1.18 var(--f-display);margin:10px 0 18px}
+.spread h3{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:400}
+.link{display:inline-flex;gap:8px;align-items:center;font-weight:600;color:var(--c-forest);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.link .icon{transition:transform var(--dur) var(--ease-out)}
+.link:hover .icon{transform:translate(3px,-3px)}
+
+/* ---------- Bollettino meteo ---------- */
+.bollettino{background:var(--c-paper-2);padding:clamp(28px,4vw,56px)}
+.bollettino__head{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:end;border-bottom:1px solid var(--c-ink);padding-bottom:22px}
+.bollettino__head p{color:var(--c-muted);font-size:var(--fs-small)}
+.dati{display:grid;grid-template-columns:repeat(4,1fr);margin:0}
+.dato{padding:26px 22px 8px 0;border-right:1px solid var(--c-rule)}
+.dato+.dato{padding-left:22px}
+.dato:last-child{border-right:0}
+.dato dt{font:600 var(--fs-kicker)/1 var(--f-text);letter-spacing:var(--tracking-kicker);text-transform:uppercase;color:var(--c-muted);display:flex;gap:8px;align-items:center}
+.dato dd{margin:12px 0 0}
+.dato .v{font:300 clamp(2.4rem,4vw,3.6rem)/1 var(--f-display);display:block;letter-spacing:-0.02em}
+.dato .s{display:block;margin-top:8px;font-size:var(--fs-small);color:var(--c-muted)}
+
+/* ---------- Nando ---------- */
+.nando{background:var(--c-night);color:var(--c-night-text)}
+.nando .kicker{color:var(--c-ochre)}
+.nando__grid{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap)}
+.nando__intro{grid-column:1 / span 5;display:flex;flex-direction:column;gap:24px;align-items:flex-start}
+.nando__intro p:not(.kicker){color:var(--c-night-muted);font-size:1.12rem}
+.domande{grid-column:7 / span 6;list-style:none;margin:0;padding:0;border-top:1px solid rgba(244,241,232,.4)}
+.domande a{display:flex;justify-content:space-between;gap:18px;align-items:center;padding:22px 0;border-bottom:1px solid rgba(244,241,232,.2);text-decoration:none;font:300 italic clamp(1.5rem,2.6vw,2.3rem)/1.2 var(--f-display);transition:color var(--dur-fast),padding var(--dur) var(--ease-out)}
+.domande a:hover{color:var(--c-ochre);padding-left:10px}
+.domande .icon{width:28px;height:28px;stroke-width:1.5}
+
+/* ---------- Agenda ---------- */
+.agenda{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px)}
+.agenda h2{font-size:clamp(1.9rem,3.2vw,2.8rem);margin-bottom:24px}
+.tab{width:100%;border-collapse:collapse}
+.tab th,.tab td{text-align:left;padding:15px 12px 15px 0;border-bottom:1px solid var(--c-rule);vertical-align:baseline}
+.tab thead th{font:600 var(--fs-kicker)/1 var(--f-text);letter-spacing:var(--tracking-kicker);text-transform:uppercase;color:var(--c-muted);border-bottom:1px solid var(--c-ink)}
+.tab td.name{font:400 1.22rem/1.25 var(--f-display)}
+.tab td.meta{font-size:var(--fs-small);color:var(--c-muted);white-space:nowrap}
+.tab td.when{font:600 .82rem/1.3 var(--f-text);color:var(--c-ochre-text);letter-spacing:.02em;width:34%}
+.tab .place{display:block;font:400 var(--fs-small)/1.4 var(--f-text);color:var(--c-muted);margin-top:4px}
+
+/* ---------- Itinerari ---------- */
+.iti__head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.iti{display:grid;grid-template-columns:repeat(3,1fr);gap:0 var(--gap);list-style:none;margin:0;padding:0}
+.iti li{border-top:1px solid var(--c-ink);padding:22px 0 40px}
+.iti a{text-decoration:none;display:block}
+.iti h3{font-size:clamp(1.5rem,2.2vw,1.95rem);font-weight:400;margin:4px 0 10px;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;display:inline;transition:background-size var(--dur) var(--ease-out)}
+.iti a:hover h3{background-size:100% 1px}
+.iti p{color:var(--c-muted);margin-top:12px}
+.iti .kicker{margin:0}
+
+/* ---------- Footer ---------- */
+.foot{border-top:1px solid var(--c-ink);padding:64px 0 40px}
+.foot__top{display:grid;grid-template-columns:5fr 7fr;gap:var(--gap)}
+.foot .logo span{font-size:1.6rem}
+.foot .logo svg{width:32px;height:32px}
+.foot__tag{font:300 italic 1.5rem/1.3 var(--f-display);margin-top:18px;max-width:22ch}
+.foot__cols{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.foot__cols h2{font:600 var(--fs-kicker)/1 var(--f-text);letter-spacing:var(--tracking-kicker);text-transform:uppercase;margin:0 0 14px;color:var(--c-muted)}
+.foot__cols ul{list-style:none;margin:0;padding:0}
+.foot__cols li{margin:0 0 8px}
+.foot__cols a{text-decoration:none;font-size:.95rem}
+.foot__cols a:hover{text-decoration:underline}
+.foot__legal{margin-top:56px;padding-top:20px;border-top:1px solid var(--c-rule);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:var(--fs-small);color:var(--c-muted)}
+.foot__legal button{font:inherit;color:var(--c-ink);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.restyle-bar{background:var(--c-ink);color:var(--c-paper);font-size:.82rem;padding:12px 0;text-align:center}
+.restyle-bar a{color:var(--c-paper)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1080px){
+  .nav{display:none}
+  .menu-btn{display:inline-flex}
+  .mast__bar .btn{display:none}
+  body.nav-open .nav{display:flex;position:fixed;left:0;right:0;top:var(--mast-h,106px);bottom:0;flex-direction:column;align-items:flex-start;gap:4px;background:var(--c-paper);padding:24px var(--gutter);border-top:1px solid var(--c-rule);overflow:auto}
+  body.nav-open .nav a:not(.btn){font:400 1.8rem/1.3 var(--f-display)}
+  body.nav-open .nav .btn{display:inline-flex;margin-top:16px;font:600 1rem/1 var(--f-text)}
+  .cover__fig{grid-column:1 / -1}
+  .cover__side{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .cover__side .toc-wrap{grid-row:1 / span 2;grid-column:2}
+  .longread__head,.longread__body{grid-column:1 / -1}
+  .longread__head h2{position:static;margin-bottom:28px}
+  .comuni{grid-template-columns:1fr 1fr}
+  .comune:nth-child(3){border-left:0;padding-left:0}
+  .comune{border-bottom:1px solid var(--c-rule)}
+  .nando__intro,.domande{grid-column:1 / -1}
+}
+@media (min-width:1081px){.nav .btn{display:none}}
+@media (max-width:760px){
+  .mast__top{display:none}
+  .cover__side{display:flex}
+  .rubriche{grid-template-columns:1fr}
+  .rubrica{border-left:0;border-top:1px solid var(--c-rule);padding:24px 0}
+  .rubrica:first-child{border-top:0}
+  .rubrica:hover{background:none}
+  .comuni{grid-template-columns:1fr}
+  .comune{border-left:0;padding-left:0;padding-right:0}
+  .idea{grid-template-columns:64px 1fr;row-gap:10px}
+  .idea p{grid-column:2}
+  .spread__fig,.spread__cap,.spread--rev .spread__fig,.spread--rev .spread__cap,.spread--wide .spread__cap{grid-column:1 / -1;order:initial}
+  .spread--wide .mask{aspect-ratio:4/3}
+  .dati{grid-template-columns:1fr 1fr}
+  .dato{border-right:0;border-bottom:1px solid var(--c-rule);padding:20px 0 16px}
+  .dato+.dato{padding-left:0}
+  .dato:nth-child(even){padding-left:16px;border-left:1px solid var(--c-rule)}
+  .agenda{grid-template-columns:1fr}
+  .iti{grid-template-columns:1fr}
+  .foot__top{grid-template-columns:1fr;gap:40px}
+  .foot__cols{grid-template-columns:1fr 1fr;row-gap:32px}
+  .bollettino{margin:0 calc(-1 * var(--gutter))}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="mast" id="top">
+  <div class="mast__top wrap"><span>La guida indipendente dell'Altopiano dei Sette Comuni · aggiornata ogni giorno</span><span data-today="long">Lunedì 23 novembre 2026</span></div>
+  <div class="mast__bar wrap">
+    <a class="logo" href="#top" aria-label="TUTTOALTOPIANO, torna all'inizio">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"></path></svg>
+      <span>TUTTOALTOPIANO</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principale">
+      <a href="https://tuttoaltopiano.it/cosa-vedere">Cosa vedere</a>
+      <a href="#sentieri">Sentieri</a>
+      <a href="#itinerari">Itinerari</a>
+      <a href="#oggi">Dove andare oggi</a>
+      <a href="#meteo">Meteo &amp; neve</a>
+      <a href="https://tuttoaltopiano.it/mappa">Mappa</a>
+      <a class="btn btn--primary" href="#nando">Chiedi a Nando</a>
+    </nav>
+    <a class="btn btn--primary" href="#nando">Chiedi a Nando</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu">
+      <svg class="icon i-open" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      <svg class="icon i-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- Copertina -->
+  <section class="cover" aria-labelledby="h1">
+    <div class="wrap">
+      <p class="kicker">Altopiano dei Sette Comuni · Veneto</p>
+      <h1 class="cover__title" id="h1">Asiago, Gallio, Roana: <em>l'Altopiano spiegato bene</em></h1>
+    </div>
+    <div class="wrap cover__grid">
+      <figure class="cover__fig">
+        <div class="mask" data-mask="load"><div class="mask__in"><div class="par"><img src="../assets/hero-altopiano-CWMDIx28.jpg" width="1920" height="1088" alt="Pascoli e malga dell'Altopiano di Asiago al tramonto con le montagne sullo sfondo" fetchpriority="high"></div></div></div>
+        <figcaption><b>In copertina</b> Pascoli e malga dell'Altopiano al tramonto.</figcaption>
+      </figure>
+      <div class="cover__side">
+        <p class="lede" data-reveal>Sentieri, malghe, trincee della Grande Guerra, neve e sagre. Una guida indipendente aggiornata ogni giorno, con Nando che risponde alle tue domande.</p>
+        <div class="cover__ctas" data-reveal>
+          <a class="btn btn--primary" href="#sentieri">Sentieri ed escursioni <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a class="btn btn--ghost" href="#oggi">Dove andare oggi</a>
+        </div>
+        <div class="toc-wrap" data-reveal>
+          <p class="toc__label">In questo numero</p>
+          <ol class="toc">
+            <li><a href="#comuni">I Sette Comuni <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+            <li><a href="#oggi">Tre idee per oggi <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+            <li><a href="#storie">Malghe, Grande Guerra, neve <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+            <li><a href="#nando">La posta di Nando <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+            <li><a href="#itinerari">Itinerari pronti <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rubriche -->
+  <section class="section" aria-label="Le rubriche di oggi" style="padding-bottom:0">
+    <div class="wrap">
+      <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">In evidenza oggi</h2>
+      <div class="rubriche">
+        <a class="rubrica" href="https://tuttoaltopiano.it/dove-oggi" data-reveal>
+          <p class="kicker">Consiglio del giorno</p>
+          <h3>Dove andare oggi</h3>
+          <p>La scelta migliore in base a meteo, vento e neve.</p>
+          <span class="more">Leggi <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="rubrica" href="https://tuttoaltopiano.it/come-arrivare" data-reveal>
+          <p class="kicker">Arrivare</p>
+          <h3>Strade e bus 2026</h3>
+          <p>Valdastico, Valsugana, catene e collegamenti senza auto.</p>
+          <span class="more">Leggi <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+        <a class="rubrica" href="#itinerari" data-reveal>
+          <p class="kicker">Itinerari</p>
+          <h3>6 itinerari pronti</h3>
+          <p>Da 1 giorno a 3, con bambini o sugli sci.</p>
+          <span class="more">Leggi <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- I Sette Comuni -->
+  <section class="section" id="comuni" aria-labelledby="h-comuni">
+    <div class="wrap longread">
+      <div class="longread__head">
+        <p class="kicker">Il territorio</p>
+        <h2 id="h-comuni" data-split>L'Altopiano: sette comuni, <em>mille modi di viverlo</em></h2>
+      </div>
+      <div class="longread__body">
+        <p class="dropcap" data-reveal>Un tavolato calcareo a mille metri sopra la pianura veneta, dove i pascoli d'alta quota confinano con le abetaie e con le trincee del 1916. Asiago è il cuore commerciale, Gallio la porta delle malghe e della neve, Roana il paese cimbro dei ponti e delle contrade. TUTTOALTOPIANO mette insieme quello che serve davvero: sentieri, orari, meteo, sapori e memoria.</p>
+      </div>
+      <div class="comuni">
+        <article class="comune" data-reveal>
+          <h3>Asiago</h3>
+          <span class="quota"><span data-count="1001">1.001</span><small>m</small></span>
+          <p>Il capoluogo dell'Altopiano: il Corso, il Sacrario militare del Leiten, l'Osservatorio astrofisico e il formaggio DOP che porta il suo nome. Punto di partenza naturale per ogni escursione.</p>
+        </article>
+        <article class="comune" data-reveal>
+          <h3>Gallio</h3>
+          <span class="quota"><span data-count="1090">1.090</span><small>m</small></span>
+          <p>Il paese delle malghe e della neve: da qui si sale a Melette e Campomulo, cuore dello sci di fondo dell'Altopiano, tra pascoli, contrade e trattorie di montagna.</p>
+        </article>
+        <article class="comune" data-reveal>
+          <h3>Roana</h3>
+          <span class="quota"><span data-count="992">992</span><small>m</small></span>
+          <p>Il comune cimbro per eccellenza, con le frazioni di Mezzaselva, Canove, Camporovere e Cesuna. Qui si conserva la lingua cimbra e il celebre Ponte di Roana.</p>
+        </article>
+        <article class="comune" data-reveal>
+          <h3>Rotzo</h3>
+          <span class="quota"><span data-count="935">935</span><small>m</small></span>
+          <p>Terra del patatino di Rotzo, con l'altura di Castelletto e le viste sulla Val d'Astico.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="band" aria-hidden="true">
+    <div class="band__track"><span>Sentieri</span><span>malghe</span><span>trincee della Grande Guerra</span><span>neve</span><span>sagre</span><span>Sentieri</span><span>malghe</span><span>trincee della Grande Guerra</span></div>
+  </div>
+
+  <!-- Tre idee -->
+  <section class="section" id="oggi" aria-labelledby="h-oggi">
+    <div class="wrap">
+      <div class="idee__head">
+        <div>
+          <p class="kicker">Consigli di oggi · <span data-today="short">lunedì 23 novembre</span></p>
+          <h2 id="h-oggi" data-split>Tre idee per la giornata</h2>
+        </div>
+        <a class="link" href="https://tuttoaltopiano.it/dove-oggi">Vedi la pagina completa <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+      </div>
+      <ol class="idee">
+        <li class="idea" data-reveal>
+          <span class="idea__n" aria-hidden="true">01</span>
+          <h3>Sacrario Militare del Leiten</h3>
+          <p>Il grande monumento bianco che custodisce oltre 50.000 caduti della Grande Guerra.</p>
+        </li>
+        <li class="idea" data-reveal>
+          <span class="idea__n" aria-hidden="true">02</span>
+          <h3>Piana della Marcesina <span class="where">Enego / Gallio</span></h3>
+          <p>La "piccola Finlandia" d'Italia: torbiere, abetaie e praterie a 1.300 metri.</p>
+        </li>
+        <li class="idea" data-reveal>
+          <span class="idea__n" aria-hidden="true">03</span>
+          <h3>Ponte di Roana</h3>
+          <p>Viadotto storico sospeso sulla Val d'Assa, simbolo dell'ingegneria di inizio Novecento.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Servizi fotografici -->
+  <section id="storie" aria-labelledby="h-storie">
+    <div class="wrap">
+      <p class="kicker">Tre temi, tre stagioni</p>
+      <h2 id="h-storie" data-split style="margin-bottom:clamp(36px,5vw,72px);max-width:20ch">L'Altopiano da assaggiare, da ricordare, da attraversare</h2>
+      <article class="spread">
+        <figure class="spread__fig"><div class="mask" data-mask><div class="mask__in"><div class="par"><img src="../assets/malghe-ClZ0urFs.jpg" width="1200" height="800" alt="Malghe e Asiago DOP" loading="lazy"></div></div></div></figure>
+        <div class="spread__cap" data-reveal>
+          <p class="kicker">Sapori</p>
+          <h3>Malghe e Asiago DOP</h3>
+          <p class="bigcap">Dove assaggiare formaggio e ricotta appena fatti.</p>
+          <a class="link" href="https://tuttoaltopiano.it/dove-mangiare">Le malghe <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        </div>
+      </article>
+      <article class="spread spread--rev">
+        <figure class="spread__fig"><div class="mask" data-mask><div class="mask__in"><div class="par"><img src="../assets/grande-guerra-Bd6f4mP5.jpg" width="1200" height="800" alt="Grande Guerra" loading="lazy"></div></div></div></figure>
+        <div class="spread__cap" data-reveal>
+          <p class="kicker">Memoria</p>
+          <h3>Grande Guerra</h3>
+          <p class="bigcap">Trincee, forti e sacrari da visitare a piedi.</p>
+          <a class="link" href="https://tuttoaltopiano.it/storia">Storia e Grande Guerra <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+        </div>
+      </article>
+      <article class="spread spread--wide">
+        <figure class="spread__fig"><div class="mask" data-mask><div class="mask__in"><div class="par"><img src="../assets/inverno-DTfb18A4.jpg" width="1200" height="800" alt="Inverno e sci di fondo" loading="lazy"></div></div></div></figure>
+        <div class="spread__cap" data-reveal>
+          <p class="kicker">Neve</p>
+          <h3>Inverno e sci di fondo</h3>
+          <p class="bigcap">Campomulo, Marcesina e le piste dell'Altopiano.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Bollettino -->
+  <section class="section" id="meteo" aria-labelledby="h-meteo" style="padding-top:0">
+    <div class="wrap">
+      <div class="bollettino" data-reveal>
+        <div class="bollettino__head">
+          <div>
+            <p class="kicker">Meteo e neve in diretta</p>
+            <h2 id="h-meteo" style="font-size:clamp(1.8rem,3vw,2.6rem)">Meteo e neve ad Asiago (1.000 m)</h2>
+          </div>
+          <p>Aggiornato: 15:15 · Open-Meteo<br>Dati aggiornati ogni 30 minuti.</p>
+        </div>
+        <dl class="dati">
+          <div class="dato"><dt><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>Temperatura</dt><dd><span class="v">5°C</span><span class="s">Poco nuvoloso</span></dd></div>
+          <div class="dato"><dt><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>Vento</dt><dd><span class="v">6 km/h</span><span class="s">Raffiche 9 km/h</span></dd></div>
+          <div class="dato"><dt><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>Umidità</dt><dd><span class="v">81%</span><span class="s">Percepita 2°C</span></dd></div>
+          <div class="dato"><dt><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M8 15h.01"/><path d="M8 19h.01"/><path d="M12 17h.01"/><path d="M12 21h.01"/><path d="M16 15h.01"/><path d="M16 19h.01"/></svg>Neve fresca</dt><dd><span class="v">0.0 cm</span><span class="s">Pioggia 0.0 mm</span></dd></div>
+        </dl>
+        <p style="margin-top:24px"><a class="link" href="https://tuttoaltopiano.it/meteo">Previsioni a 7 giorni <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nando -->
+  <section class="section nando" id="nando" aria-labelledby="h-nando">
+    <div class="wrap nando__grid">
+      <div class="nando__intro">
+        <p class="kicker" style="margin:0">Assistente locale · la posta di Nando</p>
+        <h2 id="h-nando" data-split>Chiedi a <em>Nando</em></h2>
+        <p data-reveal>Nando è la guida virtuale dell'Altopiano: gli chiedi che sentiero fare con la pioggia, dove mangiare in malga o come arrivare senza auto, e ti risponde in un attimo.</p>
+        <a class="btn btn--ochre" href="https://tuttoaltopiano.it/chiedi-a-nando" data-reveal>Parla con Nando <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <ul class="domande" aria-label="Domande frequenti a Nando">
+        <li data-reveal><a href="https://tuttoaltopiano.it/chiedi-a-nando">«Che sentiero faccio con i bambini?» <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/chiedi-a-nando">«Dove si scia oggi sull'Altopiano?» <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/chiedi-a-nando">«Cosa vedo in un giorno tra Asiago e Gallio?» <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/chiedi-a-nando">«Quali malghe sono aperte a settembre?» <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Agenda -->
+  <section class="section" id="sentieri" aria-label="Sentieri e appuntamenti">
+    <div class="wrap agenda">
+      <div data-reveal>
+        <p class="kicker">Escursioni</p>
+        <h2>Sentieri più cercati</h2>
+        <table class="tab">
+          <thead><tr><th scope="col">Sentiero</th><th scope="col">Difficoltà</th><th scope="col">Tempo</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Anello del Monte Zebio</td><td class="meta">Facile</td><td class="meta">2h 30'</td></tr>
+            <tr><td class="name">Cima Portule dalla Bocchetta Portule</td><td class="meta">Medio</td><td class="meta">4h 30'</td></tr>
+            <tr><td class="name">Anello della Marcesina</td><td class="meta">Facile</td><td class="meta">2h 45'</td></tr>
+            <tr><td class="name">Sentiero delle Calà - Val Frenzela</td><td class="meta">Impegnativo</td><td class="meta">3h 30'</td></tr>
+            <tr><td class="name">Monte Fior e Castelgomberto</td><td class="meta">Medio</td><td class="meta">3h 45'</td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:24px"><a class="link" href="https://tuttoaltopiano.it/sentieri">Tutti i sentieri <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></p>
+      </div>
+      <div data-reveal>
+        <p class="kicker">Agenda</p>
+        <h2>Prossimi appuntamenti</h2>
+        <table class="tab">
+          <thead><tr><th scope="col">Quando</th><th scope="col">Evento</th></tr></thead>
+          <tbody>
+            <tr><td class="when">Dicembre</td><td class="name">Mercatini di Natale<span class="place">Asiago, Gallio, Canove</span></td></tr>
+            <tr><td class="when">31 dicembre</td><td class="name">Capodanno in piazza<span class="place">Asiago</span></td></tr>
+            <tr><td class="when">Gennaio - febbraio</td><td class="name">Gran Fondo Val Formica<span class="place">Campomulo (Gallio)</span></td></tr>
+            <tr><td class="when">Febbraio</td><td class="name">Carnevale cimbro<span class="place">Roana e frazioni</span></td></tr>
+            <tr><td class="when">Maggio - giugno</td><td class="name">Risveglio delle malghe<span class="place">Pascoli di Gallio ed Enego</span></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:24px"><a class="link" href="https://tuttoaltopiano.it/eventi">Tutti gli eventi <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Itinerari -->
+  <section class="section" id="itinerari" aria-labelledby="h-iti" style="padding-top:0">
+    <div class="wrap">
+      <div class="iti__head">
+        <div>
+          <p class="kicker">Da 1 a 3 giorni</p>
+          <h2 id="h-iti" data-split>Itinerari pronti all'uso</h2>
+        </div>
+        <a class="btn btn--primary" href="https://tuttoaltopiano.it/itinerari">Tutti gli itinerari <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <ul class="iti">
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><p class="kicker">1 giorno · Prima volta</p><h3>L'Altopiano in 1 giorno</h3><p>Il giro classico tra Asiago, Gallio e Roana per chi ha solo una giornata.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><p class="kicker">2 giorni · Famiglie</p><h3>2 giorni con bambini</h3><p>Percorsi facili, animali, parco avventura e una serata sotto le stelle.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><p class="kicker">2 giorni · Storia</p><h3>2 giorni sulla Grande Guerra</h3><p>Trincee, sacrari e musei per capire il fronte dell'Altopiano.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><p class="kicker">3 giorni · Escursionisti</p><h3>3 giorni di trekking</h3><p>Le cime maggiori dell'Altopiano, dormendo tra Gallio e Asiago.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><p class="kicker">2 giorni · Inverno</p><h3>Weekend sulla neve</h3><p>Fondo a Campomulo, discesa al Kaberlaba e ciaspole in Marcesina.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><p class="kicker">2 giorni · Coppie</p><h3>Autunno slow tra le contrade</h3><p>Foliage, mercatini del formaggio e passeggiate senza fatica.</p></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <a class="logo" href="#top" aria-label="TUTTOALTOPIANO, torna all'inizio">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"></path></svg>
+          <span>TUTTOALTOPIANO</span>
+        </a>
+        <p class="foot__tag">La guida indipendente dell'Altopiano dei Sette Comuni</p>
+        <p style="color:var(--c-muted);margin-top:10px;font-size:var(--fs-small)">Asiago · Gallio · Roana e gli altri Sette Comuni</p>
+      </div>
+      <div class="foot__cols">
+        <nav aria-label="Scoprire"><h2>Scoprire</h2><ul><li><a href="https://tuttoaltopiano.it/cosa-vedere">Cosa vedere</a></li><li><a href="https://tuttoaltopiano.it/cosa-fare">Cosa fare</a></li><li><a href="https://tuttoaltopiano.it/sentieri">Sentieri</a></li><li><a href="https://tuttoaltopiano.it/itinerari">Itinerari</a></li><li><a href="https://tuttoaltopiano.it/storia">Storia e Grande Guerra</a></li></ul></nav>
+        <nav aria-label="Organizzare"><h2>Organizzare</h2><ul><li><a href="https://tuttoaltopiano.it/come-arrivare">Come arrivare</a></li><li><a href="https://tuttoaltopiano.it/come-muoversi">Come muoversi</a></li><li><a href="https://tuttoaltopiano.it/dove-dormire">Dove dormire</a></li><li><a href="https://tuttoaltopiano.it/dove-mangiare">Dove mangiare</a></li><li><a href="https://tuttoaltopiano.it/mappa">Mappa</a></li></ul></nav>
+        <nav aria-label="Ogni giorno"><h2>Ogni giorno</h2><ul><li><a href="https://tuttoaltopiano.it/dove-oggi">Dove andare oggi</a></li><li><a href="https://tuttoaltopiano.it/meteo">Meteo e neve</a></li><li><a href="https://tuttoaltopiano.it/webcam">Webcam</a></li><li><a href="https://tuttoaltopiano.it/eventi">Eventi</a></li><li><a href="https://tuttoaltopiano.it/numeri-utili">Numeri utili</a></li></ul></nav>
+        <nav aria-label="Info"><h2>Info</h2><ul><li><a href="https://tuttoaltopiano.it/chiedi-a-nando">Chiedi a Nando</a></li><li><a href="https://tuttoaltopiano.it/faq">Domande frequenti</a></li><li><a href="https://tuttoaltopiano.it/contatti">Contatti</a></li><li><a href="https://tuttoaltopiano.it/privacy">Privacy</a></li><li><a href="https://tuttoaltopiano.it/cookie-policy">Cookie policy</a></li></ul></nav>
+      </div>
+    </div>
+    <div class="foot__legal">
+      <span>© 2026 tuttoaltopiano.it — guida indipendente, non è un sito istituzionale. Dati meteo: Open-Meteo.</span>
+      <button type="button">Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+<div class="restyle-bar">Restyle concept · direzione 1 di 3 · <a href="tokens.css">design system →</a> · <a href="../index.html">tutte le direzioni</a></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script>
+(() => {
+  // Menu mobile
+  const btn = document.querySelector('.menu-btn');
+  const mast = document.querySelector('.mast');
+  const setOpen = (open) => {
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+    document.documentElement.style.setProperty('--mast-h', mast.getBoundingClientRect().height + 'px');
+    document.body.classList.toggle('nav-open', open);
+  };
+  btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
+  document.querySelectorAll('#nav a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+
+  // Movimento: solo se il JS e GSAP partono e l'utente non chiede meno movimento
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.gsap || !window.ScrollTrigger || !window.SplitText) return;
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  const fmt = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  const run = () => {
+    // Copertina: titolo che sale riga per riga dentro una maschera
+    SplitText.create('.cover__title', { type: 'lines', mask: 'lines', autoSplit: true,
+      onSplit: s => gsap.from(s.lines, { yPercent: 105, duration: 1.15, ease: 'expo.out', stagger: 0.12, delay: 0.1 }) });
+
+    // Titoli di sezione
+    document.querySelectorAll('[data-split]').forEach(el => SplitText.create(el, { type: 'lines', mask: 'lines', autoSplit: true,
+      onSplit: s => gsap.from(s.lines, { yPercent: 105, duration: 1, ease: 'expo.out', stagger: 0.1,
+        scrollTrigger: { trigger: el, start: 'top 88%', once: true } }) }));
+
+    // Immagini: reveal a maschera (sipario dal basso) + leggero parallax interno
+    document.querySelectorAll('[data-mask]').forEach(m => {
+      const inner = m.querySelector('.mask__in'), img = m.querySelector('img');
+      const tl = gsap.timeline(m.dataset.mask === 'load' ? { delay: 0.25 } : { scrollTrigger: { trigger: m, start: 'top 88%', once: true } });
+      tl.from(inner, { yPercent: 100, duration: 1.4, ease: 'expo.out' })
+        .from(img, { yPercent: -100, scale: 1.25, duration: 1.4, ease: 'expo.out' }, 0);
+      gsap.fromTo(m.querySelector('.par'), { yPercent: -5 }, { yPercent: 5, ease: 'none',
+        scrollTrigger: { trigger: m, start: 'top bottom', end: 'bottom top', scrub: true } });
+    });
+
+    // Testi e blocchi
+    document.querySelectorAll('[data-reveal]').forEach(el => gsap.from(el, { y: 28, opacity: 0, duration: 0.9, ease: 'power3.out', clearProps: 'transform',
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true } }));
+
+    // Quote che contano (solo numeri reali)
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const end = +el.dataset.count, o = { v: Math.round(end * 0.8) };
+      gsap.to(o, { v: end, duration: 1.6, ease: 'power2.out', onUpdate: () => { el.textContent = fmt(o.v); },
+        scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+    });
+
+    // Banda di parole che scorre con lo scroll
+    gsap.fromTo('.band__track', { xPercent: 0 }, { xPercent: -28, ease: 'none',
+      scrollTrigger: { trigger: '.band', start: 'top bottom', end: 'bottom top', scrub: 0.6 } });
+  };
+  document.fonts && document.fonts.ready ? document.fonts.ready.then(run) : run();
+})();
+</script>
+<script>
+/* data del giorno nella testata (il testo nell'HTML resta come fallback senza JS) */
+(function(){var d=new Date();document.querySelectorAll('[data-today]').forEach(function(el){
+var long=el.getAttribute('data-today')==='long';
+var t=d.toLocaleDateString('it-IT',long?{weekday:'long',day:'numeric',month:'long',year:'numeric'}:{weekday:'long',day:'numeric',month:'long'});
+el.textContent=long?t.charAt(0).toUpperCase()+t.slice(1):t;});})();
+</script>
+</body>
+</html>

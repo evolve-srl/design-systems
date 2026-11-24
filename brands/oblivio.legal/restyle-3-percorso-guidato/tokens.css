@@ -1,0 +1,50 @@
+/* Oblivio — direzione 3 "Percorso guidato": design system (solo variabili) */
+:root {
+  /* Fondi morbidi: sabbia calda + azzurri derivati dallo scudo del logo */
+  --c-bg: #F7F5F0;          /* sfondo pagina */
+  --c-card: #FFFFFF;        /* card e pannelli */
+  --c-mist: #EEF3FA;        /* sezioni alternate, footer */
+  --c-sky: #DCE7FB;         /* tinta dello scudo: chip, cerchi icone, passo attivo */
+  --c-line: #E4E0D6;        /* bordi sottili */
+
+  /* Testo */
+  --c-ink: #14213D;         /* testo principale, 14.7:1 su --c-bg */
+  --c-muted: #4A5568;       /* testo secondario, 6.91:1 su --c-bg, 6.75:1 su --c-mist */
+
+  /* Marca: un solo blu, quello del logo (brand kit #1D4ED8) */
+  --c-brand: #1D4ED8;       /* CTA, numeri dei passi, link; bianco sopra 6.70:1 */
+  --c-brand-hover: #1E40AF; /* hover; bianco sopra 8.72:1 */
+  --c-on-brand: #FFFFFF;
+  --c-on-brand-soft: #DCE7FB; /* testo secondario su pannello blu, 5.38:1 */
+
+  /* Tipografia: Figtree (umana, leggibile) + Lora corsivo per le voci delle persone */
+  --f-sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-voice: "Lora", Georgia, serif;
+  --fs-display: clamp(2.4rem, 1.4rem + 3.6vw, 4.25rem);  /* H1 */
+  --fs-h2: clamp(1.9rem, 1.3rem + 2vw, 3rem);
+  --fs-h3: 1.3rem;
+  --fs-kicker: clamp(1.15rem, 1rem + .6vw, 1.45rem);
+  --fs-lead: 1.15rem;
+  --fs-body: 1.0625rem;
+  --fs-small: .9rem;
+  --lh-display: 1.08;
+  --lh-body: 1.65;
+
+  /* Spaziatura */
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1200px;
+  --space-section: clamp(80px, 10vw, 140px);
+  --gap: clamp(16px, 2vw, 24px);
+
+  /* Forme: tutto arrotondato e morbido */
+  --r-cta: 12px;
+  --r-card: 20px;
+  --r-pill: 999px;
+  --shadow-soft: 0 1px 2px rgba(20, 33, 61, .05), 0 12px 32px -16px rgba(20, 33, 61, .18);
+  --shadow-lift: 0 2px 4px rgba(20, 33, 61, .06), 0 24px 48px -20px rgba(29, 78, 216, .28);
+
+  /* Movimento: dolce, mai brusco */
+  --ease: cubic-bezier(.33, 1, .68, 1);
+  --dur: 220ms;
+  --focus: 0 0 0 3px var(--c-bg), 0 0 0 5px var(--c-brand);
+}

@@ -1,0 +1,101 @@
+{
+  "n": 2,
+  "slug": "istituzionale",
+  "name": "Istituzionale",
+  "concept": "Un documento autorevole più che un sito tech: carta calda, serif editoriale e griglia svizzera a 12 colonne con sezioni numerate come un atto. Pensata per DPO, uffici legali, PA e finance che scelgono un partner per affidabilità e rigore. Mette in risalto la parte giuridica e normativa che distingue Privacy Masters dai soli fornitori IT.",
+  "palette": [
+    {
+      "name": "Paper",
+      "hex": "#F6F5F0",
+      "role": "sfondo pagina"
+    },
+    {
+      "name": "Sheet",
+      "hex": "#FFFFFF",
+      "role": "piastra logo"
+    },
+    {
+      "name": "Ink",
+      "hex": "#0A2B33",
+      "role": "testo principale (13.68:1), fascia CTA finale"
+    },
+    {
+      "name": "Muted",
+      "hex": "#4D5E66",
+      "role": "testo secondario (6.19:1)"
+    },
+    {
+      "name": "Rule",
+      "hex": "#CDD3D0",
+      "role": "filetti della griglia"
+    },
+    {
+      "name": "Green",
+      "hex": "#006B4A",
+      "role": "CTA (bianco 6.56:1), numeri e corsivi (6.01:1)"
+    },
+    {
+      "name": "Signal",
+      "hex": "#00C483",
+      "role": "verde brand: solo punti decorativi e CTA su fondo Ink (6.56:1)"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Newsreader",
+      "role": "titoli, cifre, frasi manifesto (anche corsivo)",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "Public Sans",
+      "role": "testo, etichette, UI",
+      "source": "Google Fonts (OFL)"
+    }
+  ],
+  "motion": [
+    "titoli che salgono per riga da una maschera (SplitText lines + mask, expo.out)",
+    "frase manifesto con parole che si accendono allo scroll (SplitText words + scrub)",
+    "righe della tabella dati in sequenza",
+    "dissolvenze sobrie su paragrafi, aree e bibliografia",
+    "sottolineatura animata della navigazione all'hover"
+  ],
+  "components": [
+    "topline con contatti",
+    "header con lucchetto + nome in serif e CTA rettangolare",
+    "hero tipografico con logo completo a 280px in cornice-sigillo",
+    "riga dei 4 fatti con filetti",
+    "sezioni numerate § 01-07 su griglia 12 colonne",
+    "tabella editoriale dei dati con fonte",
+    "frase manifesto a tutta larghezza",
+    "4 colonne servizi con numeri romani",
+    "metodo in 3 colonne",
+    "settori a due colonne",
+    "indice bibliografico degli standard",
+    "citazione 'Non consulenti. Operativi.' a grande corpo",
+    "FAQ numerate",
+    "fascia CTA finale scura"
+  ],
+  "fixes": [
+    "contrasto CTA principale 2.28 → 6.56 (bianco su #006B4A); CTA finale 6.56 (#0A2B33 su #00C483)",
+    "verde brand non più usato come colore di testo su chiaro: sostituito da #006B4A (6.01:1)",
+    "logo: Logo: file PNG originale non modificato; nell'header solo il lucchetto (ritaglio CSS, proporzioni intatte) accanto al nome in testo, logo completo a 280px di altezza in hero (240px su mobile) dove la scritta 'SECURITY EXPERTS' è leggibile"
+  ],
+  "references": [
+    {
+      "label": "Harvey (legal AI, serif editoriale)",
+      "url": "https://www.harvey.ai/"
+    },
+    {
+      "label": "Legora (legal tech)",
+      "url": "https://legora.com/"
+    },
+    {
+      "label": "Freshfields (studio legale internazionale)",
+      "url": "https://www.freshfields.com/"
+    },
+    {
+      "label": "ACN – Agenzia per la Cybersicurezza Nazionale",
+      "url": "https://www.acn.gov.it/"
+    }
+  ]
+}

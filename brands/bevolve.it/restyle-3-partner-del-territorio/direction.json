@@ -1,0 +1,102 @@
+{
+  "n": 3,
+  "slug": "partner-del-territorio",
+  "name": "Partner del territorio",
+  "concept": "Il system integrator di casa: chiaro, caldo e umano, con un serif morbido e la sede di Rovigo in primo piano. Parla a PMI e Comuni del Veneto che cercano una persona di riferimento più che una tecnologia; il navy del brand resta il colore delle azioni, la terracotta porta calore.",
+  "palette": [
+    {
+      "name": "Cream",
+      "hex": "#F6F1E8",
+      "role": "fondo pagina"
+    },
+    {
+      "name": "Paper",
+      "hex": "#FFFDF8",
+      "role": "card"
+    },
+    {
+      "name": "Sand",
+      "hex": "#EADFCC",
+      "role": "card alternate, footer"
+    },
+    {
+      "name": "Sky",
+      "hex": "#DCE4F5",
+      "role": "tinta fredda di contrappunto"
+    },
+    {
+      "name": "Ink",
+      "hex": "#1B1A17",
+      "role": "testo principale (15.5:1)"
+    },
+    {
+      "name": "Muted",
+      "hex": "#5E574C",
+      "role": "testo secondario (6.3:1)"
+    },
+    {
+      "name": "Navy",
+      "hex": "#11338A",
+      "role": "CTA e superfici forti (crema su navy 10.0:1)"
+    },
+    {
+      "name": "Terracotta",
+      "hex": "#B8462A",
+      "role": "corsivi, numeri, segni (4.73:1 su crema)"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Fraunces",
+      "role": "titoli, citazioni, marquee",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "Inter",
+      "role": "testo e interfaccia (continuità col sito attuale)",
+      "source": "Google Fonts (OFL)"
+    }
+  ],
+  "motion": [
+    "titolo hero parola per parola (SplitText words)",
+    "due marquee testuali (aree e fasi) in direzioni opposte che accelerano con la velocità dello scroll",
+    "paragrafo 'chi siamo' che si accende parola per parola mentre si legge (scrub)",
+    "contatori sui soli numeri reali (4, 7, 24 h)",
+    "bento di servizi e prodotti a cascata",
+    "filo del metodo che si riempie in scrub; hover morbidi sulle card"
+  ],
+  "components": [
+    "hero con chip di sede, H1 serif con corsivo navy, promesse (un solo interlocutore, risposta entro 24 ore)",
+    "riquadro con il video originale in multiply su tinta cielo e biglietto sovrapposto",
+    "marquee navy delle 4 aree",
+    "bento dei servizi (6 tessere, una con link)",
+    "bento dei 7 prodotti propri con dominio reale",
+    "CTA navy con box 'Dove siamo' (indirizzo, telefono, email)",
+    "footer sabbia con logo originale"
+  ],
+  "fixes": [
+    "Colore di brand quasi assente (pagina grigia): qui il blu diventa protagonista",
+    "Logo: file originale mai sotto i 168px di larghezza (sul sito attuale le linee sottili si perdono sotto i 140px)",
+    "Contrasto CTA principale 5.96:1 (gradiente attuale) → 10.0:1 (crema su #11338A)",
+    "Etichette piccole in terracotta scurita (#9A3820) sulle card colorate per restare sopra 4.5:1",
+    "Tono più umano: la sede di Rovigo e 'un solo interlocutore' diventano il messaggio, non una nota a piè di pagina"
+  ],
+  "references": [
+    {
+      "label": "Basecamp — tono umano e caldo",
+      "url": "https://basecamp.com/"
+    },
+    {
+      "label": "Thoughtworks Italia — consulenza tecnologica",
+      "url": "https://www.thoughtworks.com/it-it"
+    },
+    {
+      "label": "Bento Grids — raccolta di layout bento",
+      "url": "https://bentogrids.com/"
+    },
+    {
+      "label": "Awwwards — siti corporate",
+      "url": "https://www.awwwards.com/websites/corporate/"
+    }
+  ]
+}

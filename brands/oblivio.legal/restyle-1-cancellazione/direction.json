@@ -1,0 +1,96 @@
+{
+  "n": 1,
+  "slug": "cancellazione",
+  "name": "Cancellazione",
+  "concept": "L'oblio raccontato con la tipografia: allo scroll le parole che fanno male si barrano, vengono oscurate come in un documento redatto e svaniscono, lasciando spazio alla frase che conta. Pagina chiara e silenziosa, con molto bianco: per chi vuole sentire che qualcosa di pesante può davvero sparire, senza toni drammatici.",
+  "palette": [
+    {
+      "name": "Carta",
+      "hex": "#FBFBFA",
+      "role": "sfondo pagina"
+    },
+    {
+      "name": "Inchiostro",
+      "hex": "#0F172A",
+      "role": "testo principale e barra di oscuramento"
+    },
+    {
+      "name": "Blu Oblivio",
+      "hex": "#1D4ED8",
+      "role": "CTA, link, parola chiave (blu del logo)"
+    },
+    {
+      "name": "Grigio nota",
+      "hex": "#556070",
+      "role": "testo secondario (6.16:1)"
+    },
+    {
+      "name": "Tinta scudo",
+      "hex": "#E8EDFB",
+      "role": "badge e superfici leggere"
+    },
+    {
+      "name": "Superficie",
+      "hex": "#F2F4F7",
+      "role": "riquadri normativi, footer"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Inter Tight",
+      "role": "titoli e testo",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "IBM Plex Mono",
+      "role": "etichette e dettagli da documento (URL, riferimenti normativi)",
+      "source": "Google Fonts (OFL)"
+    }
+  ],
+  "motion": [
+    "H1 composto per parola con SplitText (mask sulle parole)",
+    "URL d'esempio nell'hero che si barra e poi viene oscurato da una barra nera (scaleX)",
+    "Sezione 'Che cosa togliamo' pinnata per uno schermo: con scrub ogni frase si barra, si oscura e svanisce, poi compare 'Riprendi il controllo della tua identità digitale.'",
+    "Titoli di sezione per righe da maschera (SplitText lines + mask)",
+    "Testimonianza principale: le parole emergono con lo scroll (opposto della cancellazione)",
+    "Filetti dei 3 passi che si tracciano, contatore 0→100 su '100%' (numero reale)",
+    "Micro-interazione freccia su CTA e righe servizi"
+  ],
+  "components": [
+    "header sticky con lockup scudo + wordmark Obliv/io e menu mobile a pannello",
+    "hero tipografico con documento d'esempio 'Caso risolto' (dicitura illustrativa mantenuta)",
+    "striscia garanzie a 4 celle con filetti",
+    "manifesto di redazione pinnato",
+    "passi numerati 01-03 con filetto",
+    "indice servizi a righe con hover",
+    "numeri + riquadro normativo in mono",
+    "testimonianza grande + due secondarie con iniziali",
+    "CTA finale tipografica con telefono ed email",
+    "footer completo con dati societari"
+  ],
+  "fixes": [
+    "Due blu diversi (logo #1D4ED8, CTA #0068CB) → un solo blu, #1D4ED8 del brand kit, per logo, CTA e link: testo bianco sulla CTA 5.47 → 6.70:1",
+    "Badge 'Caso risolto' (testo quasi bianco su verde chiaro, circa 1.1:1) → inchiostro #0F172A su tinta #E8EDFB, 15.25:1",
+    "Pulsante flottante verde menta 'Ti richiamiamo' (#62D0A4, fuori palette) eliminato: il telefono è un link in palette nell'header/menu e nella chiusura",
+    "Scudo del logo visualizzato a circa 27px (PNG originale a 56px, senza modifiche): nell'header attuale è di circa 18px, sotto il minimo di 24px indicato dal brand kit",
+    "Tempi di risposta incoerenti nel sito attuale (stat '<24h' e 'entro 48 ore'): si usa solo 'entro 48 ore', da confermare col cliente"
+  ],
+  "references": [
+    {
+      "label": "GSAP SplitText (mask per righe e parole)",
+      "url": "https://gsap.com/docs/v3/Plugins/SplitText/"
+    },
+    {
+      "label": "Awwwards Inspiration: Filling text (DD.NYC), testo che cambia stato allo scroll",
+      "url": "https://www.awwwards.com/inspiration/filling-text-dd-nyc"
+    },
+    {
+      "label": "Signal: privacy detta in frasi brevi, molto bianco",
+      "url": "https://signal.org/"
+    },
+    {
+      "label": "Mullvad: servizio privacy-first sobrio e tipografico",
+      "url": "https://mullvad.net/"
+    }
+  ]
+}

@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Masters — Cybersecurity, GDPR, NIS2 | Rovigo, Veneto</title>
+<meta name="description" content="Privacy Masters (Evolve S.r.l., Rovigo): cybersecurity, GDPR, NIS2, DORA, investigazioni e sicurezza fisica. Check-up gratuito in 48h.">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+body{margin:0;background:var(--c-void);color:var(--c-text);font:400 var(--fs-body)/var(--lh-body) var(--font-display);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:none;box-shadow:var(--focus-ring);border-radius:var(--radius-sm)}
+.skip{position:absolute;left:-999px;top:8px;z-index:100;background:var(--c-signal);color:var(--c-on-signal);padding:8px 14px;border-radius:var(--radius-sm)}
+.skip:focus{left:8px}
+.wrap{width:100%;max-width:var(--container);margin:0 auto;padding:0 var(--gutter)}
+.icon{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.label{font:500 var(--fs-label)/1.4 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--c-signal)}
+.label::before{content:"// ";color:var(--c-muted)}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;margin:0;letter-spacing:-0.02em}
+h2{font-size:var(--fs-h2);line-height:1.05;max-width:18ch}
+h3{font-size:var(--fs-h3);line-height:1.25}
+p{margin:0}
+.muted{color:var(--c-muted)}
+section{position:relative}
+.sec{padding:var(--space-section) 0;border-top:1px solid var(--c-line)}
+.sec-head{display:grid;gap:var(--space-3);margin-bottom:var(--space-6);max-width:760px}
+.sec-head p.lead{color:var(--c-muted);font-size:1.125rem;max-width:56ch}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 22px;line-height:1.25!important;border-radius:var(--radius-sm);font:500 0.95rem/1 var(--font-mono);text-decoration:none;letter-spacing:0.02em;transition:transform var(--dur-fast) var(--ease-out),background var(--dur-base),box-shadow var(--dur-base)}
+.btn-signal{background:var(--c-signal);color:var(--c-on-signal);box-shadow:0 0 0 0 var(--c-signal-glow)}
+.btn-signal:hover{box-shadow:0 0 0 6px var(--c-signal-glow)}
+.btn-signal:hover .icon{transform:translateX(3px)}
+.btn .icon{transition:transform var(--dur-fast) var(--ease-out)}
+.btn-ghost{border:1px solid var(--c-line);color:var(--c-text);background:rgba(5,22,27,.5)}
+.btn-ghost:hover{border-color:var(--c-signal);color:var(--c-signal)}
+
+@media (max-width:420px){.btn{font-size:.88rem;padding:12px 18px}}
+/* Header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(5,22,27,.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--c-line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand-mark{width:35px;height:40px;overflow:hidden;position:relative;flex:none}
+.brand-mark img{position:absolute;left:-4.3px;top:-2.9px;width:51.8px;height:58px;max-width:none}
+.brand-name{font:700 1.15rem/1 var(--font-display);letter-spacing:-0.01em}
+.brand-name b{color:var(--c-signal);font-weight:700}
+.nav{display:flex;align-items:center;gap:4px}
+.nav a{font:400 0.82rem/1 var(--font-mono);text-decoration:none;color:var(--c-muted);padding:10px 12px;border-radius:var(--radius-sm);letter-spacing:.02em}
+.nav a:hover{color:var(--c-text);background:var(--c-surface)}
+.hdr .btn{min-height:42px;padding:0 16px;font-size:.85rem}
+.burger{display:none;background:none;border:1px solid var(--c-line);color:var(--c-text);width:44px;height:44px;border-radius:var(--radius-sm);align-items:center;justify-content:center;cursor:pointer}
+@media (max-width: 1080px){
+  .nav{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;background:var(--c-void);border-bottom:1px solid var(--c-line);padding:12px var(--gutter) 20px}
+  .nav.open{display:flex}
+  .nav a{font-size:1rem;padding:14px 8px;border-bottom:1px solid var(--c-line)}
+  .burger{display:inline-flex}
+  .hdr .btn-cta{display:none}
+}
+
+/* Hero */
+.hero{min-height:calc(100svh - 72px);display:flex;align-items:center;padding:72px 0 56px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2;background:url(../assets/hero-bg-DpxwDN4b.jpg) center 62%/cover no-repeat}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(5,22,27,.55) 0%,rgba(5,22,27,.35) 45%,var(--c-void) 100%),linear-gradient(90deg,rgba(5,22,27,.85) 0%,rgba(5,22,27,.2) 70%)}
+.hero .wrap{display:grid;gap:28px}
+.prompt{display:inline-flex;align-items:center;gap:10px;font:400 .85rem/1.4 var(--font-mono);color:var(--c-muted);border:1px solid var(--c-line);background:rgba(11,36,43,.7);padding:8px 14px;border-radius:var(--radius-sm);width:max-content;max-width:100%}
+.prompt .dot{width:8px;height:8px;border-radius:50%;background:var(--c-signal);box-shadow:0 0 0 4px var(--c-signal-glow)}
+.prompt b{color:var(--c-signal);font-weight:500}
+.hero h1{font-size:var(--fs-hero);line-height:var(--lh-tight);max-width:14ch}
+.hero h1 .l2{color:var(--c-signal);display:block}
+.caret{display:inline-block;width:.08em;min-width:4px;height:.82em;margin-left:.08em;background:var(--c-signal);vertical-align:-0.04em}
+@media (prefers-reduced-motion: no-preference){.caret{animation:blink 1.05s steps(1) infinite}}
+@keyframes blink{50%{opacity:0}}
+.hero-sub{font-size:clamp(1.05rem,1.6vw,1.25rem);color:#C4D4D7;max-width:58ch}
+.hero-sub strong{color:var(--c-text);font-weight:500}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+.readout{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--c-line);border-radius:var(--radius-md);background:rgba(11,36,43,.72);max-width:860px;margin-top:12px}
+.readout div{padding:16px 18px;border-left:1px solid var(--c-line)}
+.readout div:first-child{border-left:0}
+.readout dt{font:500 .7rem/1.3 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--c-muted);order:2}
+.readout dd{margin:0 0 4px;font:500 1.75rem/1.1 var(--font-mono);color:var(--c-signal)}
+.readout div{display:flex;flex-direction:column}
+@media (max-width:640px){.readout{grid-template-columns:repeat(2,minmax(0,1fr))}.readout div:nth-child(3){border-left:0}.readout div:nth-child(n+3){border-top:1px solid var(--c-line)}}
+
+/* Ticker */
+.ticker{border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);overflow:hidden;background:var(--c-surface)}
+.ticker-track{display:flex;width:max-content;gap:0}
+.ticker ul{display:flex;list-style:none;margin:0;padding:0}
+.ticker li{font:500 .85rem/1 var(--font-mono);letter-spacing:.08em;color:var(--c-muted);padding:18px 28px;white-space:nowrap;border-right:1px solid var(--c-line)}
+.ticker li b{color:var(--c-text);font-weight:500}
+
+/* Stats */
+.grid-bg{background-image:linear-gradient(var(--c-line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--c-line-soft) 1px,transparent 1px);background-size:56px 56px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--c-line);border:1px solid var(--c-line);border-radius:var(--radius-lg);overflow:hidden}
+.stat{background:var(--c-void);padding:28px 24px 24px;display:flex;flex-direction:column;gap:14px;min-height:300px}
+.stat-k{font:500 var(--fs-label)/1.3 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--c-alert);display:flex;align-items:center;gap:8px}
+.stat-v{font:500 clamp(2.6rem,4.6vw,3.9rem)/1 var(--font-mono);color:var(--c-signal);font-variant-numeric:tabular-nums;letter-spacing:-0.03em}
+.stat p.desc{color:var(--c-text);font-size:.98rem;flex:1}
+.stat p.src{font:400 .75rem/1.4 var(--font-mono);color:var(--c-muted);border-top:1px dashed var(--c-line);padding-top:12px}
+.stats-note{margin-top:20px;font:400 .8rem/1.5 var(--font-mono);color:var(--c-muted)}
+.quote{margin-top:var(--space-6);font:700 clamp(1.8rem,4vw,3.2rem)/1.1 var(--font-display);letter-spacing:-0.02em;max-width:22ch}
+.quote span{color:var(--c-signal)}
+@media (max-width:980px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.stats{grid-template-columns:1fr}.stat{min-height:0}}
+
+/* Services */
+.modules{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.module{position:relative;background:var(--c-surface);border:1px solid var(--c-line);border-radius:var(--radius-lg);padding:28px;display:grid;grid-template-columns:auto 1fr;gap:18px 20px;transition:border-color var(--dur-base),transform var(--dur-base) var(--ease-out)}
+.module:hover{border-color:var(--c-signal);transform:translateY(-3px)}
+.module .ico{width:52px;height:52px;border-radius:var(--radius-md);border:1px solid var(--c-line);display:grid;place-items:center;color:var(--c-signal);background:var(--c-void)}
+.module .ico .icon{width:24px;height:24px}
+.module .id{font:500 var(--fs-label)/1 var(--font-mono);letter-spacing:.12em;color:var(--c-muted);margin-bottom:8px}
+.module p{color:var(--c-muted);margin-top:8px}
+.module ul{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.module li{font:400 .78rem/1 var(--font-mono);border:1px solid var(--c-line);padding:8px 10px;border-radius:var(--radius-sm);color:var(--c-text)}
+.together{margin-top:var(--space-5);display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;border:1px dashed var(--c-line);border-radius:var(--radius-lg);padding:24px 28px}
+.together p{font:500 1.25rem/1.35 var(--font-display);flex:1 1 320px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font:500 .78rem/1 var(--font-mono);color:var(--c-on-signal);background:var(--c-signal);padding:8px 10px;border-radius:var(--radius-sm)}
+@media (max-width:760px){.modules{grid-template-columns:1fr}.module{padding:22px}}
+
+/* Method */
+.pipeline{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.rail{position:absolute;left:0;right:0;top:26px;height:2px;background:var(--c-line)}
+.rail i{position:absolute;inset:0;background:var(--c-signal);transform-origin:0 50%}
+.step{position:relative;padding-top:0}
+.step .node{width:54px;height:54px;border-radius:50%;border:1px solid var(--c-signal);background:var(--c-void);display:grid;place-items:center;color:var(--c-signal);font:500 .9rem/1 var(--font-mono);position:relative;z-index:1}
+.step h3{margin-top:22px}
+.step p{color:var(--c-muted);margin-top:8px;max-width:32ch}
+.method-cta{margin-top:var(--space-5)}
+@media (max-width:760px){.pipeline{grid-template-columns:1fr;gap:32px}.rail{left:26px;right:auto;top:0;bottom:0;width:2px;height:auto}.rail i{transform-origin:50% 0}.step{padding-left:76px}.step .node{position:absolute;left:0;top:0}.step h3{margin-top:12px}}
+
+/* Sectors */
+.sectors{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-top:1px solid var(--c-line)}
+.sector{align-content:start;display:grid;grid-template-columns:44px 1fr;gap:4px 12px;padding:22px 8px;border-bottom:1px solid var(--c-line);transition:background var(--dur-base)}
+.sector:nth-child(odd){border-right:1px solid var(--c-line);padding-right:24px}
+.sector:nth-child(even){padding-left:24px}
+.sector:hover{background:var(--c-surface)}
+.sector .n{font:500 .8rem/1.6 var(--font-mono);color:var(--c-signal)}
+.sector p{grid-column:2;color:var(--c-muted);font-size:.95rem}
+@media (max-width:760px){.sectors{grid-template-columns:1fr}.sector:nth-child(odd){border-right:0;padding-right:8px}.sector:nth-child(even){padding-left:8px}}
+
+/* Standards + team */
+.split{display:grid;grid-template-columns:1.1fr .9fr;gap:var(--space-6)}
+.term{background:#031014;border:1px solid var(--c-line);border-radius:var(--radius-lg);overflow:hidden}
+.term-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid var(--c-line);font:400 .78rem/1 var(--font-mono);color:var(--c-muted)}
+.term-bar i{width:10px;height:10px;border-radius:50%;background:var(--c-line)}
+.term ol{list-style:none;margin:0;padding:18px 20px 22px;font:400 .86rem/1.5 var(--font-mono)}
+.term li{display:grid;grid-template-columns:auto 1fr;gap:12px;padding:7px 0;color:var(--c-text)}
+.term li::before{content:"[ OK ]";color:var(--c-signal)}
+.term li em{font-style:normal;color:var(--c-muted)}
+.team h3{font-size:1.4rem;margin-bottom:12px}
+.roles{list-style:none;margin:20px 0;padding:0;display:grid;gap:10px}
+.roles li{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--c-line);border-radius:var(--radius-md);background:var(--c-surface)}
+.roles .icon{color:var(--c-signal)}
+.team .note{color:var(--c-muted);font-size:.95rem}
+.team .big{font:700 clamp(2rem,4vw,3rem)/1.05 var(--font-display);margin-top:28px;letter-spacing:-0.02em}
+.team .big span{color:var(--c-signal)}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{list-style:none;margin:0;padding:0;border-top:1px solid var(--c-line)}
+.faq li{border-bottom:1px solid var(--c-line)}
+.faq a{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 4px;text-decoration:none;font:500 1.15rem/1.35 var(--font-display)}
+.faq a .icon{color:var(--c-signal);transition:transform var(--dur-fast) var(--ease-out)}
+.faq a:hover{color:var(--c-signal)}
+.faq a:hover .icon{transform:translate(3px,-3px)}
+.faq-note{margin-top:16px;font:400 .82rem/1.5 var(--font-mono);color:var(--c-muted)}
+
+/* Final CTA */
+.final{padding:var(--space-section) 0;border-top:1px solid var(--c-line);overflow:hidden}
+.final-box{position:relative;border:1px solid var(--c-signal);border-radius:var(--radius-lg);padding:clamp(28px,6vw,72px);background:radial-gradient(120% 140% at 100% 0%,rgba(0,196,131,.16),transparent 55%),var(--c-surface)}
+.final h2{font-size:clamp(2.2rem,5.6vw,4.6rem);max-width:14ch}
+.final p:not(.label){color:#C4D4D7;font-size:1.2rem;margin:18px 0 28px;max-width:46ch}
+
+/* Footer */
+.ftr{border-top:1px solid var(--c-line);padding:64px 0 32px;font-size:.95rem}
+.ftr-grid{display:grid;grid-template-columns:auto 1fr 1fr 1fr;gap:40px}
+.logo-plate{background:var(--c-paper);border-radius:var(--radius-lg);padding:18px 22px;width:max-content}
+.logo-plate img{height:240px;width:auto}
+.ftr h3{font:500 var(--fs-label)/1.3 var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--c-muted);margin-bottom:14px}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ftr a{text-decoration:none;color:var(--c-text)}
+.ftr a:hover{color:var(--c-signal);text-decoration:underline}
+.ftr li{display:flex;gap:10px;align-items:flex-start}
+.ftr li .icon{color:var(--c-signal);margin-top:3px;width:18px;height:18px}
+.ftr .about{color:var(--c-muted);margin-top:16px;max-width:30ch}
+.ftr dl{margin:0;display:grid;gap:6px;color:var(--c-muted)}
+.ftr dt{display:inline;color:var(--c-text)}
+.ftr dd{display:inline;margin:0}
+.legal{margin-top:48px;padding-top:24px;border-top:1px solid var(--c-line);color:var(--c-muted);font-size:.82rem;display:grid;gap:14px}
+.legal-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.legal-row nav{display:flex;gap:18px;flex-wrap:wrap}
+.legal-row a{color:var(--c-muted)}
+@media (max-width:1080px){.ftr-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.ftr-grid{grid-template-columns:1fr}.logo-plate img{height:220px}}
+
+.concept{border-top:1px solid var(--c-line);background:#031014;font:400 .78rem/1.4 var(--font-mono);color:var(--c-muted);padding:14px 0}
+.concept a{color:var(--c-signal)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+  <symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+</svg>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="brand" href="https://privacymasters.it/" aria-label="Privacy Masters, home">
+      <span class="brand-mark"><img src="../assets/logo-BgtPAKuu.png" alt="" width="531" height="595"></span>
+      <span class="brand-name">Privacy<b>Masters</b></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principale">
+      <a href="https://privacymasters.it/chi-siamo">Chi siamo</a>
+      <a href="https://privacymasters.it/servizi">Servizi</a>
+      <a href="https://privacymasters.it/perche-proteggersi">Perché proteggersi</a>
+      <a href="https://privacymasters.it/blog">Blog normativo</a>
+      <a href="https://privacymasters.it/contatti">Contatti</a>
+    </nav>
+    <a class="btn btn-signal btn-cta" href="https://privacymasters.it/check-up"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Check-up gratuito</a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap">
+      <p class="prompt"><span class="dot" aria-hidden="true"></span><span>difesa integrata <b>360°</b> · stato: operativo</span></p>
+      <h1 id="hero-title" class="type"><span class="l1">Protezione totale.</span> <span class="l2">Zero compromessi.<span class="caret" aria-hidden="true"></span></span></h1>
+      <p class="hero-sub">Cybersecurity, privacy, investigazione e sicurezza fisica. <strong>Un unico team operativo</strong> — avvocati, ethical hacker, investigatori e ingegneri — per difendere aziende e persone in conformità a GDPR, NIS2, DORA e AI Act.</p>
+      <div class="cta-row">
+        <a class="btn btn-signal" href="https://privacymasters.it/check-up">Richiedi check-up gratuito<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="https://privacymasters.it/contatti">Parla con un esperto</a>
+      </div>
+      <dl class="readout">
+        <div><dt>Aree integrate</dt><dd>4</dd></div>
+        <div><dt>Normative coperte</dt><dd>12+</dd></div>
+        <div><dt>Incident response</dt><dd>24/7</dd></div>
+        <div><dt>Risposta check-up</dt><dd>48h</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="ticker" aria-label="Normative e standard di riferimento">
+    <div class="ticker-track">
+      <ul>
+        <li><b>GDPR</b> · Reg. UE 2016/679</li><li><b>NIS2</b></li><li><b>DORA</b></li><li><b>AI Act</b></li><li><b>ISO/IEC 27001:2022</b></li><li><b>ISO/IEC 27701:2019</b></li><li><b>ISO/IEC 22301:2019</b></li><li><b>NIST CSF 2.0</b></li><li><b>MITRE ATT&amp;CK &amp; D3FEND</b></li>
+      </ul>
+      <ul aria-hidden="true">
+        <li><b>GDPR</b> · Reg. UE 2016/679</li><li><b>NIS2</b></li><li><b>DORA</b></li><li><b>AI Act</b></li><li><b>ISO/IEC 27001:2022</b></li><li><b>ISO/IEC 27701:2019</b></li><li><b>ISO/IEC 22301:2019</b></li><li><b>NIST CSF 2.0</b></li><li><b>MITRE ATT&amp;CK &amp; D3FEND</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="sec grid-bg" id="numeri" aria-labelledby="numeri-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Dati 2023–2024 · le minacce sono reali</p>
+        <h2 id="numeri-title" class="reveal-h">I numeri della cybersicurezza in Italia</h2>
+        <p class="lead">I dati ufficiali fotografano una situazione critica per le imprese italiane. Fonti: Clusit, Garante Privacy e Verizon, aggiornate ad aprile 2025.</p>
+      </div>
+      <div class="stats">
+        <article class="stat">
+          <p class="stat-k"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Ransomware</p>
+          <p class="stat-v"><span class="count" data-to="37" data-prefix="+" data-suffix="%">+37%</span></p>
+          <p class="desc">di attacchi ransomware solo nel 2024. L'Italia è tra i 5 Paesi al mondo più colpiti.</p>
+          <p class="src">Fonte: Clusit</p>
+        </article>
+        <article class="stat">
+          <p class="stat-k"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Violazioni GDPR</p>
+          <p class="stat-v"><span class="count" data-to="1731">1.731</span></p>
+          <p class="desc">data breach notificati al Garante Privacy nel 2023. Trend in costante crescita.</p>
+          <p class="src">Fonte: Garante Privacy – Relazione annuale 2024</p>
+        </article>
+        <article class="stat">
+          <p class="stat-k"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Phishing</p>
+          <p class="stat-v"><span class="count" data-to="81" data-suffix="%">81%</span></p>
+          <p class="desc">degli attacchi che sfruttano credenziali rubate usa phishing e social engineering.</p>
+          <p class="src">Fonte: Verizon DBIR 2024</p>
+        </article>
+        <article class="stat">
+          <p class="stat-k"><svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>Fattore umano</p>
+          <p class="stat-v"><span class="count" data-to="68" data-suffix="%">68%</span></p>
+          <p class="desc">delle violazioni coinvolge un fattore umano non malintenzionato.</p>
+          <p class="src">Fonte: Verizon DBIR 2024</p>
+        </article>
+      </div>
+      <p class="stats-note">&gt; Elenco completo delle fonti su <a href="https://privacymasters.it/fonti">privacymasters.it/fonti</a></p>
+      <p class="quote reveal-h">“Il problema non è se succederà. <span>Ma quando.</span>”</p>
+    </div>
+  </section>
+
+  <section class="sec" id="servizi" aria-labelledby="servizi-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Cosa facciamo</p>
+        <h2 id="servizi-title" class="reveal-h">Quattro aree, un solo presidio operativo.</h2>
+      </div>
+      <div class="modules">
+        <article class="module">
+          <span class="ico"><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg></span>
+          <div><p class="id">MOD_01 · LEGALE</p><h3>GDPR &amp; Compliance</h3><p>Adeguamento, DPO esterno, audit privacy.</p></div>
+          <ul><li>GDPR</li><li>DORA</li><li>AI Act</li></ul>
+        </article>
+        <article class="module">
+          <span class="ico"><svg class="icon" aria-hidden="true"><use href="#i-terminal"/></svg></span>
+          <div><p class="id">MOD_02 · CYBER</p><h3>Cybersecurity</h3><p>Pen test, vulnerability assessment, NIS2.</p></div>
+          <ul><li>Pen test</li><li>Vulnerability assessment</li><li>NIS2</li></ul>
+        </article>
+        <article class="module">
+          <span class="ico"><svg class="icon" aria-hidden="true"><use href="#i-search"/></svg></span>
+          <div><p class="id">MOD_03 · INVESTIGATIVA</p><h3>Investigazioni &amp; Intelligence</h3><p>Frodi, controlli interni, raccolta prove.</p></div>
+          <ul><li>Frodi</li><li>Controlli interni</li><li>Raccolta prove</li></ul>
+        </article>
+        <article class="module">
+          <span class="ico"><svg class="icon" aria-hidden="true"><use href="#i-video"/></svg></span>
+          <div><p class="id">MOD_04 · TECNICA</p><h3>Sicurezza Fisica</h3><p>Videosorveglianza, controllo accessi, anti-intrusione.</p></div>
+          <ul><li>Videosorveglianza</li><li>Controllo accessi</li><li>Anti-intrusione</li></ul>
+        </article>
+      </div>
+      <div class="together">
+        <p>“Non lavoriamo a compartimenti separati. Lavoriamo insieme.”</p>
+        <div class="chips" aria-label="Competenze"><span>Cybersecurity</span><span>Legali</span><span>Investigative</span><span>Tecniche</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec grid-bg" id="metodo" aria-labelledby="metodo-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Metodo</p>
+        <h2 id="metodo-title" class="reveal-h">Come funziona</h2>
+      </div>
+      <div class="pipeline">
+        <div class="rail" aria-hidden="true"><i></i></div>
+        <div class="step"><span class="node">01</span><h3>Analisi del rischio</h3><p>Mappatura completa di asset, processi e vulnerabilità.</p></div>
+        <div class="step"><span class="node">02</span><h3>Piano di protezione</h3><p>Strategia su misura: tecnica, legale, operativa.</p></div>
+        <div class="step"><span class="node">03</span><h3>Monitoraggio continuo</h3><p>Vigilanza, aggiornamenti e risposta agli incidenti.</p></div>
+      </div>
+      <div class="method-cta"><a class="btn btn-signal" href="https://privacymasters.it/check-up">Scopri il tuo livello di rischio<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </section>
+
+  <section class="sec" id="settori" aria-labelledby="settori-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Verticali</p>
+        <h2 id="settori-title" class="reveal-h">Settori serviti</h2>
+        <p class="lead">Esperienza verticale nei settori inclusi nel perimetro NIS2 e nelle infrastrutture critiche nazionali.</p>
+      </div>
+      <div class="sectors">
+        <div class="sector"><span class="n">01</span><h3>Pubblica Amministrazione</h3><p>Linee guida AGID, Misure minime ICT, perimetro PSNC.</p></div>
+        <div class="sector"><span class="n">02</span><h3>Sanità</h3><p>Soggetto essenziale NIS2, FSE, telemedicina, dati sanitari (art. 9 GDPR).</p></div>
+        <div class="sector"><span class="n">03</span><h3>Finance &amp; Assicurazioni</h3><p>DORA, ICT risk management, ABI Lab, IVASS.</p></div>
+        <div class="sector"><span class="n">04</span><h3>Manifattura</h3><p>OT/ICS security, supply chain, IEC 62443.</p></div>
+        <div class="sector"><span class="n">05</span><h3>Energia &amp; Utilities</h3><p>NIS2 essenziale, Direttiva CER, ENISA Energy.</p></div>
+        <div class="sector"><span class="n">06</span><h3>Retail &amp; e-commerce</h3><p>PSD2, PCI-DSS, profilazione e marketing.</p></div>
+        <div class="sector"><span class="n">07</span><h3>Studi professionali</h3><p>Segreto professionale, antiriciclaggio, custodia dati clienti.</p></div>
+        <div class="sector"><span class="n">08</span><h3>Terzo settore &amp; no-profit</h3><p>GDPR, fundraising, tutela donatori e beneficiari.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec grid-bg" id="team" aria-labelledby="team-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">Qualità · Team</p>
+        <h2 id="team-title" class="reveal-h">Standard internazionali, competenze realmente operative</h2>
+      </div>
+      <div class="split">
+        <div class="term" role="group" aria-label="Standard e framework di riferimento">
+          <div class="term-bar"><i></i><i></i><i></i><span>standard-e-framework.log</span></div>
+          <ol>
+            <li><span>ISO/IEC 27001:2022 <em>— Sistemi di gestione della sicurezza delle informazioni</em></span></li>
+            <li><span>ISO/IEC 27701:2019 <em>— Gestione delle informazioni sulla privacy</em></span></li>
+            <li><span>ISO/IEC 27017 / 27018 <em>— Sicurezza e privacy in cloud</em></span></li>
+            <li><span>ISO/IEC 22301:2019 <em>— Business continuity</em></span></li>
+            <li><span>NIST Cybersecurity Framework 2.0 (2024)</span></li>
+            <li><span>MITRE ATT&amp;CK &amp; D3FEND</span></li>
+            <li><span>Linee guida AGID per la sicurezza ICT della PA</span></li>
+            <li><span>Framework Nazionale Cybersecurity &amp; Data Protection (CIS-Sapienza)</span></li>
+          </ol>
+        </div>
+        <div class="team">
+          <h3>Il team integra profili giuridici, tecnici e investigativi che operano insieme su ogni incarico.</h3>
+          <ul class="roles">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>Ex appartenenti alle Forze dell'Ordine</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-terminal"/></svg>Ethical hacker certificati</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-scale"/></svg>Avvocati specializzati in privacy e cyber</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-activity"/></svg>Ingegneri della sicurezza informatica</li>
+          </ul>
+          <p class="note">Esperienze maturate in ambito istituzionale, forense e tecnico-operativo. Su richiesta forniamo CV anonimizzati e referenze contrattuali.</p>
+          <p class="big">“Non consulenti. <span>Operativi.</span>”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="label">FAQ</p>
+        <h2 id="faq-title" class="reveal-h">Domande frequenti</h2>
+        <p class="lead">Le domande più comuni che riceviamo da imprenditori e responsabili IT.</p>
+      </div>
+      <ul class="faq">
+        <li><a href="https://privacymasters.it/contatti">La mia azienda è obbligata ad applicare la NIS2?<svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
+        <li><a href="https://privacymasters.it/contatti">Cosa rischio se subisco un data breach senza notificarlo?<svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
+        <li><a href="https://privacymasters.it/contatti">Devo nominare un DPO?<svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
+        <li><a href="https://privacymasters.it/contatti">Quanto costa un check-up di sicurezza?<svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
+        <li><a href="https://privacymasters.it/contatti">Coprite anche la sicurezza fisica?<svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"/></svg></a></li>
+      </ul>
+      <p class="faq-note">&gt; Ogni domanda apre il contatto diretto con un esperto.</p>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="final-title">
+    <div class="wrap">
+      <div class="final-box">
+        <p class="label">Check-up gratuito · risposta in 48h</p>
+        <h2 id="final-title" class="reveal-h">Non aspettare il problema.</h2>
+        <p>Un check-up gratuito può evitarti danni da centinaia di migliaia di euro.</p>
+        <a class="btn btn-signal" href="https://privacymasters.it/check-up">Prenota il tuo check-up gratuito<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <div class="logo-plate"><img src="../assets/logo-BgtPAKuu.png" alt="Privacy Masters" width="531" height="595"></div>
+        <p class="about">Cybersecurity, privacy, investigazione e sicurezza fisica. Un unico team operativo per difendere aziende e persone. Privacy Masters è un brand operativo di Evolve S.r.l.</p>
+      </div>
+      <div>
+        <h3>Link rapidi</h3>
+        <ul>
+          <li><a href="https://privacymasters.it/chi-siamo">Chi siamo</a></li>
+          <li><a href="https://privacymasters.it/servizi">Servizi</a></li>
+          <li><a href="https://privacymasters.it/perche-proteggersi">Perché proteggersi</a></li>
+          <li><a href="https://privacymasters.it/blog">Blog normativo</a></li>
+          <li><a href="https://privacymasters.it/check-up">Check-up gratuito</a></li>
+          <li><a href="https://privacymasters.it/contatti">Contatti</a></li>
+          <li><a href="https://privacymasters.it/fonti">Fonti e bibliografia</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contatti</h3>
+        <ul>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:info@privacymasters.it">info@privacymasters.it</a></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+390425090621">+39 0425 090621</a></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg><span>Via Luigi Einaudi 54, 45100 Rovigo (RO), Italia</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Dati societari</h3>
+        <dl>
+          <div><dt>Ragione sociale:</dt> <dd>Evolve S.r.l.</dd></div>
+          <div><dt>P.IVA / C.F.:</dt> <dd>04597090234</dd></div>
+          <div><dt>REA:</dt> <dd>RO-426960</dd></div>
+          <div><dt>Cap. soc.:</dt> <dd>€ 10.000,00 i.v.</dd></div>
+          <div><dt>Sede:</dt> <dd>Via Luigi Einaudi 54, 45100 Rovigo (RO), Italia</dd></div>
+        </dl>
+      </div>
+    </div>
+    <div class="legal">
+      <p>I contenuti del sito hanno finalità informative e non costituiscono parere legale. Riferimenti normativi e dati statistici aggiornati ad aprile 2025; per casi specifici si raccomanda consulenza professionale qualificata. Fonti citate: Garante per la protezione dei dati personali, EUR-Lex, Gazzetta Ufficiale, ACN, EDPB, ENISA, Clusit, IBM Security, Verizon, Sophos.</p>
+      <div class="legal-row">
+        <p>© 2026 Evolve S.r.l. — Privacy Masters. Tutti i diritti riservati.</p>
+        <nav aria-label="Note legali"><a href="https://privacymasters.it/privacy-policy">Privacy policy</a><a href="https://privacymasters.it/cookie-policy">Cookie policy</a></nav>
+      </div>
+    </div>
+  </div>
+</footer>
+<div class="concept"><div class="wrap">Restyle concept · direzione 1 di 3 · <a href="tokens.css">design system →</a> · <a href="../index.html">tutte le direzioni</a></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrambleTextPlugin.min.js"></script>
+<script>
+(() => {
+  // Mobile menu (works regardless of motion preference)
+  const burger = document.querySelector('.burger'), nav = document.getElementById('nav');
+  burger.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+    burger.querySelector('use').setAttribute('href', open ? '#i-x' : '#i-menu');
+  });
+  nav.addEventListener('click', e => { if (e.target.closest('a')) { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); burger.querySelector('use').setAttribute('href', '#i-menu'); } });
+
+  if (!window.gsap) return;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return; // contenuto già visibile, nessuna animazione
+  gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin);
+  const fmt = n => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+  // Ticker normative: scorrimento orizzontale continuo (solo transform)
+  const track = document.querySelector('.ticker-track');
+  const loop = gsap.to(track, { xPercent: -50, duration: 38, ease: 'none', repeat: -1 });
+  track.addEventListener('mouseenter', () => loop.pause());
+  track.addEventListener('mouseleave', () => loop.play());
+
+  document.fonts.ready.then(() => {
+    // Hero: titolo che si "digita" carattere per carattere, come in un terminale
+    const h1 = document.querySelector('.hero h1');
+    const caret = h1.querySelector('.caret');
+    const split = SplitText.create(h1.querySelectorAll('.l1, .l2'), { type: 'chars', charsClass: 'ch' });
+    const tl = gsap.timeline({ delay: 0.2 });
+    tl.from('.prompt', { autoAlpha: 0, y: 8, duration: 0.4, ease: 'power2.out' })
+      .from(split.chars, { autoAlpha: 0, duration: 0.01, stagger: 0.032, ease: 'none' }, '>-0.1')
+      .from('.hero-sub', { autoAlpha: 0, y: 14, duration: 0.6, ease: 'power3.out' }, '-=0.15')
+      .from('.hero .cta-row > *', { autoAlpha: 0, y: 12, duration: 0.5, stagger: 0.08, ease: 'power3.out' }, '-=0.35')
+      .from('.readout > div', { autoAlpha: 0, y: 10, duration: 0.4, stagger: 0.07, ease: 'power2.out' }, '-=0.3');
+    gsap.to('.prompt b', { duration: 0.9, delay: 0.3, scrambleText: { text: '360°', chars: '01#%/', speed: 0.6 } });
+    // il cursore segue la digitazione: resta in fondo al titolo
+    h1.querySelector('.l2').appendChild(caret);
+
+    // Titoli di sezione: reveal per riga con maschera
+    document.querySelectorAll('.reveal-h').forEach(el => {
+      SplitText.create(el, { type: 'lines', mask: 'lines', autoSplit: true, onSplit(self) {
+        return gsap.from(self.lines, { yPercent: 105, duration: 0.8, stagger: 0.08, ease: 'power4.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+      }});
+    });
+
+    // Etichette mono: effetto scramble all'ingresso
+    document.querySelectorAll('.sec .label, .final .label').forEach(el => {
+      const txt = el.textContent;
+      ScrollTrigger.create({ trigger: el, start: 'top 90%', once: true, onEnter: () => gsap.to(el, { duration: 0.8, scrambleText: { text: txt, chars: 'upperCase', speed: 0.5 } }) });
+    });
+
+    // Contatori: solo numeri reali di content.md
+    document.querySelectorAll('.count').forEach(el => {
+      const to = +el.dataset.to, pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+      const o = { v: 0 };
+      el.textContent = pre + '0' + suf;
+      gsap.to(o, { v: to, duration: 1.8, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%', once: true },
+        onUpdate: () => { el.textContent = pre + fmt(Math.round(o.v)) + suf; } });
+    });
+    gsap.from('.stat', { autoAlpha: 0, y: 24, duration: 0.6, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: '.stats', start: 'top 85%', once: true } });
+
+    // Moduli servizi e settori: comparsa a cascata
+    gsap.from('.module', { autoAlpha: 0, y: 30, duration: 0.7, stagger: 0.1, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: '.modules', start: 'top 85%', once: true } });
+    gsap.from('.sector', { autoAlpha: 0, x: -12, duration: 0.5, stagger: 0.05, ease: 'power2.out', scrollTrigger: { trigger: '.sectors', start: 'top 85%', once: true } });
+
+    // Pipeline metodo: la linea si riempie con lo scroll (scrub)
+    const vertical = window.matchMedia('(max-width: 760px)').matches;
+    gsap.fromTo('.rail i', vertical ? { scaleY: 0 } : { scaleX: 0 }, { scaleX: 1, scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.pipeline', start: 'top 75%', end: 'bottom 55%', scrub: 0.6 } });
+    gsap.from('.step', { autoAlpha: 0, y: 20, duration: 0.6, stagger: 0.15, ease: 'power3.out', scrollTrigger: { trigger: '.pipeline', start: 'top 80%', once: true } });
+
+    // Log standard: righe che compaiono come output di terminale
+    gsap.from('.term li', { autoAlpha: 0, duration: 0.01, stagger: 0.12, scrollTrigger: { trigger: '.term', start: 'top 80%', once: true } });
+    gsap.from('.roles li', { autoAlpha: 0, x: 16, duration: 0.5, stagger: 0.08, ease: 'power2.out', scrollTrigger: { trigger: '.roles', start: 'top 85%', once: true } });
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+/* Evolve — Restyle 3 "Partner del territorio": design tokens */
+:root {
+  /* Colori — superfici calde: carta, crema, sabbia */
+  --c-cream: #F6F1E8;        /* fondo pagina */
+  --c-paper: #FFFDF8;        /* card */
+  --c-sand: #EADFCC;         /* card alternate, footer */
+  --c-sky: #DCE4F5;          /* tinta fredda di contrappunto, dal navy */
+
+  /* Colori — testo */
+  --c-ink: #1B1A17;          /* 15.5:1 su crema */
+  --c-muted: #5E574C;        /* 6.3:1 su crema, 5.4:1 su sabbia */
+
+  /* Colori — brand: il navy storico diventa il colore pieno delle azioni */
+  --c-navy: #11338A;         /* crema su navy 10.0:1 */
+  --c-navy-deep: #0B2466;    /* hover */
+  --c-on-navy: #F6F1E8;
+  --c-on-navy-muted: #C8D4F5; /* 7.6:1 su navy */
+
+  /* Colori — accento caldo (terracotta), per corsivi, numeri e segni */
+  --c-terra: #B8462A;        /* 4.73:1 su crema, 5.2:1 su carta */
+  --c-terra-deep: #9A3820;   /* testo piccolo su sabbia (5.4:1) e cielo (5.6:1) */
+  --c-terra-light: #F2B9A6;  /* segni e etichette su navy */
+  --c-muted-deep: #4F493F;   /* testo secondario su sabbia (footer) */
+  --c-bar-text: #D9D2C5;     /* barra restyle su ink */
+
+  /* Colori — bordi */
+  --c-line: rgba(27, 26, 23, 0.12);
+  --c-line-on-navy: rgba(246, 241, 232, 0.22);
+
+  /* Tipografia — famiglie: Fraunces per i titoli (tono umano), Inter per il testo (continuità col sito attuale) */
+  --f-serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --f-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Tipografia — scala */
+  --t-hero: clamp(2.25rem, 1.3rem + 3.4vw, 4.5rem);
+  --t-xxl: clamp(2rem, 1.3rem + 2.8vw, 3.75rem);
+  --t-xl: clamp(1.5rem, 1.2rem + 1.1vw, 2.125rem);
+  --t-l: clamp(1.125rem, 1rem + 0.45vw, 1.3125rem);
+  --t-quote: clamp(1.5rem, 1.1rem + 1.7vw, 2.625rem);
+  --t-marquee: clamp(2rem, 1.2rem + 3.4vw, 4.5rem);
+  --t-body: 1rem;
+  --t-s: 0.875rem;
+  --t-xs: 0.75rem;
+
+  /* Tipografia — pesi, interlinea, tracking */
+  --w-regular: 400;
+  --w-medium: 500;
+  --w-semibold: 600;
+  --lh-tight: 1.04;
+  --lh-snug: 1.25;
+  --lh-body: 1.6;
+  --ls-title: -0.02em;
+  --ls-label: 0.06em;
+
+  /* Spaziatura */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-5: 3rem;
+  --s-6: 4.5rem;
+  --s-7: 7rem;
+
+  /* Layout */
+  --max: 1280px;
+  --gutter: 16px;
+
+  /* Forme — morbide, CTA a pillola come il sito attuale */
+  --r-s: 12px;
+  --r-m: 20px;
+  --r-l: 28px;
+  --r-pill: 999px;
+
+  /* Ombre — calde e basse */
+  --sh-card: 0 1px 0 rgba(27, 26, 23, 0.04), 0 12px 30px -18px rgba(60, 40, 20, 0.35);
+
+  /* Movimento */
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --d-fast: 160ms;
+  --d-base: 420ms;
+
+  /* Focus */
+  --focus: 0 0 0 3px #F6F1E8, 0 0 0 5px #11338A;
+}
+@media (min-width: 768px) { :root { --gutter: 32px; } }

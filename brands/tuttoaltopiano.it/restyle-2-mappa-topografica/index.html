@@ -1,0 +1,760 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TUTTOALTOPIANO — Guida ad Asiago, Gallio e Roana</title>
+<meta name="description" content="Sentieri, malghe, meteo, eventi e itinerari dell'Altopiano dei Sette Comuni. La guida indipendente di Asiago, Gallio e Roana.">
+<link rel="icon" href="../assets/favicon-32x32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+body{margin:0;background:var(--c-paper);color:var(--c-ink);font:400 var(--fs-body)/var(--lh-body) var(--f-text);overflow-x:clip}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+p{margin:0}
+:focus-visible{outline:2px solid var(--c-red);outline-offset:3px}
+.skip{position:absolute;left:16px;top:-60px;background:var(--c-ink);color:var(--c-paper);padding:10px 14px;z-index:100;text-decoration:none}
+.skip:focus{top:12px}
+.wrap{width:100%;max-width:calc(var(--wrap) + 2*var(--gutter));margin:0 auto;padding:0 var(--gutter)}
+.icon{width:1.1em;height:1.1em;flex:none;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+h1,h2,h3{font-family:var(--f-display);font-stretch:var(--wdth-display);font-weight:700;margin:0;text-transform:uppercase;letter-spacing:-0.005em;line-height:.94}
+h2{font-size:var(--fs-h2)}
+h3{font-size:var(--fs-h3);line-height:1.05}
+.label{font:500 var(--fs-label)/1.3 var(--f-mono);letter-spacing:var(--tracking-mono);text-transform:uppercase;color:var(--c-earth);margin:0 0 14px;display:flex;gap:10px;align-items:center}
+.label::before{content:"";width:18px;height:0;border-top:2px dashed var(--c-red)}
+.mono{font-family:var(--f-mono)}
+
+/* ---------- Header ---------- */
+.top{position:sticky;top:0;z-index:50;background:var(--c-paper);border-bottom:var(--line)}
+.top__in{display:flex;align-items:center;gap:24px;height:64px}
+.logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--c-ink)}
+.logo svg{width:24px;height:24px;color:var(--c-forest);flex:none}
+.logo span{font:800 1.2rem/1 var(--f-display);font-stretch:75%;letter-spacing:.04em}
+.nav{display:flex;gap:4px;margin-left:auto;align-items:center}
+.nav a{font:500 .76rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:9px 10px;border:1px solid transparent;transition:border-color var(--dur-fast)}
+.nav a:hover{border-color:var(--c-ink)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 20px;font:600 .98rem/1 var(--f-text);text-decoration:none;border:2px solid transparent;border-radius:var(--radius);transition:transform var(--dur-fast) ease,box-shadow var(--dur-fast) ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--c-ink)}
+.btn--red{background:var(--c-red);color:var(--c-white)}
+.btn--line{border-color:var(--c-ink);color:var(--c-ink);background:transparent}
+.btn--paper{background:var(--c-paper);color:var(--c-forest)}
+.btn--paper:hover{box-shadow:4px 4px 0 var(--c-paper-2)}
+.btn .icon{transition:transform var(--dur) var(--ease-out)}
+.btn:hover .icon{transform:translateX(3px)}
+.top .btn{min-height:40px;font-size:.9rem;padding:0 16px}
+.menu-btn{display:none;margin-left:auto;background:none;border:var(--line);width:44px;height:44px;align-items:center;justify-content:center;color:var(--c-ink);cursor:pointer;border-radius:var(--radius)}
+.menu-btn .icon{width:22px;height:22px}
+.menu-btn .i-close{display:none}
+body.nav-open .menu-btn .i-open{display:none}
+body.nav-open .menu-btn .i-close{display:block}
+
+/* ---------- Hero / carta ---------- */
+.hero{position:relative;overflow:clip;border-bottom:var(--line);min-height:calc(100svh - 64px)}
+.hero__contours{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--c-contour);stroke-width:1;opacity:.75}
+.hero__contours .idx{stroke-width:1.8}
+.frame{position:absolute;inset:14px;border:1px solid var(--c-ink);pointer-events:none}
+.frame__x,.frame__y{position:absolute;display:flex;justify-content:space-around;font:500 .66rem/1 var(--f-mono);color:var(--c-earth)}
+.frame__x{left:0;right:0;top:6px}
+.frame__y{top:0;bottom:0;left:6px;flex-direction:column}
+.hero__grid{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);align-items:center;min-height:calc(100svh - 64px);padding-top:56px;padding-bottom:56px}
+.cartouche{grid-column:1 / span 7;background:var(--c-paper);border:var(--line);outline:1px solid var(--c-ink);outline-offset:5px;padding:clamp(22px,3vw,40px);position:relative}
+.cartouche h1{font-size:var(--fs-h1);margin:4px 0 22px}
+.cartouche h1 .r{color:var(--c-red)}
+.lede{font-size:1.15rem;line-height:1.5;max-width:40ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.scale{display:flex;align-items:center;gap:12px;margin-top:28px;font:500 .7rem/1 var(--f-mono);color:var(--c-muted);letter-spacing:.06em;text-transform:uppercase}
+.scale i{display:block;width:120px;height:8px;border:1px solid var(--c-ink);background:repeating-linear-gradient(90deg,var(--c-ink) 0 30px,transparent 30px 60px)}
+.trail{grid-column:8 / span 5;position:relative}
+.trail svg{width:100%;height:auto;overflow:visible}
+.trail .t-path{fill:none;stroke:var(--c-red);stroke-width:4;stroke-dasharray:10 8;stroke-linecap:round}
+.trail .t-mask{fill:none;stroke:#fff;stroke-width:10}
+.trail .wp circle{fill:var(--c-paper);stroke:var(--c-ink);stroke-width:2}
+.trail .wp .dot{fill:var(--c-red);stroke:none}
+.trail .wp text{font:600 15px var(--f-mono);fill:var(--c-ink)}
+.trail .wp .q{font-weight:400;fill:var(--c-earth)}
+.trail .wp rect{fill:var(--c-paper);stroke:none}
+.trail__note{font:500 .7rem/1.4 var(--f-mono);color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:8px;text-align:right}
+
+/* ---------- Legenda (3 schede rapide) ---------- */
+.legend{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:var(--line)}
+.leg{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:28px var(--gap) 30px;text-decoration:none;border-left:var(--line);transition:background-color var(--dur-fast)}
+.leg:first-child{border-left:0}
+.leg:hover{background:var(--c-paper-2)}
+.sym{width:56px;height:56px;border:2px solid var(--c-ink);display:grid;place-items:center;background:var(--c-paper)}
+.sym .icon{width:26px;height:26px;color:var(--c-forest)}
+.leg h3{font-size:1.7rem;margin:2px 0 8px}
+.leg p{color:var(--c-muted)}
+.leg .label{margin-bottom:6px}
+
+/* ---------- Sezioni ---------- */
+.section{padding:var(--section) 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(32px,4vw,56px)}
+.sec-head h2{max-width:14em}
+.textlink{display:inline-flex;align-items:center;gap:8px;font:600 .82rem/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--c-ink);text-decoration:none;border-bottom:2px solid var(--c-red);padding-bottom:5px}
+.textlink .icon{transition:transform var(--dur) var(--ease-out)}
+.textlink:hover .icon{transform:translate(3px,-3px)}
+
+/* Profilo altimetrico */
+.altopiano{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);align-items:start}
+.altopiano__txt{grid-column:1 / span 5}
+.altopiano__txt p:not(.label){font-size:1.12rem;margin-top:24px}
+.profile{grid-column:7 / span 6;border:var(--line);background:var(--c-paper-2);padding:20px 20px 12px}
+.profile svg{width:100%;height:auto;display:block;overflow:visible}
+.profile .grid line{stroke:rgba(30,26,20,.18);stroke-width:1}
+.profile .grid text{font:400 12px var(--f-mono);fill:var(--c-muted)}
+.profile .area{fill:url(#hatch)}
+.profile .pline{fill:none;stroke:var(--c-ink);stroke-width:2.5;stroke-linejoin:round}
+.profile .pt circle{fill:var(--c-red);stroke:var(--c-paper-2);stroke-width:3}
+.profile .pt text{font:600 12.5px var(--f-mono);fill:var(--c-ink)}
+.profile .pt .q{font-weight:400;fill:var(--c-earth)}
+.profile figcaption{font:500 .7rem/1.4 var(--f-mono);color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;margin-top:10px;border-top:var(--line-soft);padding-top:10px}
+.comuni{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(40px,5vw,72px);border-top:var(--line);border-bottom:var(--line)}
+.comune{padding:24px var(--gap) 28px;border-left:var(--line-soft)}
+.comune:first-child{border-left:0;padding-left:0}
+.comune .q{display:block;font:500 clamp(1.8rem,2.6vw,2.4rem)/1 var(--f-mono);letter-spacing:-0.02em;color:var(--c-ink);margin:10px 0 14px}
+.comune .q small{font-size:.5em;color:var(--c-earth);margin-left:4px;letter-spacing:0}
+.comune p{color:var(--c-muted);font-size:.98rem}
+.comune h3{font-size:1.9rem}
+
+/* Sentieri: foglio di percorso */
+.route{position:relative;padding:0 0 0 72px}
+.route__list{list-style:none;margin:0;padding:0}
+.route__line{position:absolute;left:22px;top:10px;bottom:10px;width:12px}
+.route__line svg{width:12px;height:100%;display:block;overflow:visible}
+.route__line .base{stroke:rgba(30,26,20,.2);stroke-width:4;stroke-dasharray:8 8}
+.route__line .draw{stroke:var(--c-red);stroke-width:4;stroke-dasharray:8 8}
+.stop{position:relative;display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:var(--gap);align-items:center;padding:24px 0;border-bottom:var(--line-soft)}
+.stop:first-child{border-top:var(--line)}
+.stop::before{content:attr(data-n);position:absolute;left:-72px;top:50%;width:44px;height:44px;margin-top:-22px;display:grid;place-items:center;background:var(--c-paper);border:2px solid var(--c-ink);font:600 .9rem/1 var(--f-mono)}
+.stop h3{font-size:clamp(1.5rem,2.4vw,2.1rem)}
+.segnavia{display:inline-grid;grid-template-columns:1fr;width:34px;height:20px;border:1px solid var(--c-ink);margin-bottom:10px}
+.segnavia::before{content:"";background:linear-gradient(var(--c-red) 0 33.3%,var(--c-white) 33.3% 66.6%,var(--c-red) 66.6%)}
+.diff{display:flex;align-items:center;gap:10px;font:500 .88rem/1 var(--f-mono)}
+.diff i{display:inline-flex;gap:3px}
+.diff i b{width:10px;height:10px;border:1.5px solid var(--c-ink)}
+.diff i b.on{background:var(--c-ink)}
+.time{display:flex;align-items:center;gap:8px;font:500 1.15rem/1 var(--f-mono)}
+.time .icon{color:var(--c-earth)}
+
+/* Tre idee: waypoint */
+.waypoints{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);list-style:none;margin:0;padding:0}
+.waypoint{border:var(--line);padding:26px;background:var(--c-paper);position:relative}
+.pin{width:46px;height:46px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--c-red);display:grid;place-items:center;margin-bottom:20px}
+.pin span{transform:rotate(45deg);color:var(--c-white);font:600 1.05rem/1 var(--f-mono)}
+.waypoint h3{font-size:1.9rem;margin-bottom:6px}
+.waypoint .where{font:500 .78rem/1.3 var(--f-mono);color:var(--c-earth);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:12px}
+.waypoint p{color:var(--c-ink)}
+
+/* Tavole fotografiche */
+.tavole{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.tav{margin:0}
+.tav:nth-child(2){margin-top:72px}
+.tav__frame{position:relative;border:var(--line);padding:8px;background:var(--c-paper)}
+.tav__img{overflow:hidden;aspect-ratio:4/5}
+.tav__img img{width:100%;height:100%;object-fit:cover}
+.tav__tag{position:absolute;top:18px;left:18px;background:var(--c-paper);border:var(--line);font:600 .7rem/1 var(--f-mono);padding:6px 8px;letter-spacing:.06em;text-transform:uppercase}
+.tav figcaption{padding-top:16px}
+.tav h3{font-size:1.9rem;margin-bottom:6px}
+.tav p{color:var(--c-muted)}
+
+/* Stazione meteo */
+.station{border:var(--line);display:grid;grid-template-columns:1.2fr repeat(4,1fr)}
+.station__id{padding:28px;background:var(--c-forest);color:var(--c-forest-text);display:flex;flex-direction:column;gap:10px;justify-content:space-between}
+.station__id h2{font-size:clamp(1.9rem,2.8vw,2.6rem)}
+.station__id .label{color:var(--c-forest-muted)}
+.station__id .label::before{border-color:var(--c-forest-text)}
+.station__id p{color:var(--c-forest-muted);font:400 .8rem/1.5 var(--f-mono)}
+.station__id a{color:var(--c-forest-text)}
+.meter{padding:28px 22px;border-left:var(--line)}
+.meter .k{font:500 .7rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c-muted);display:flex;gap:8px;align-items:center}
+.meter .v{display:block;font:500 clamp(2rem,3.2vw,2.9rem)/1 var(--f-mono);letter-spacing:-0.03em;margin:18px 0 10px}
+.meter .s{font:400 .82rem/1.3 var(--f-mono);color:var(--c-muted)}
+
+/* Nando */
+.nando{position:relative;background:var(--c-forest);color:var(--c-forest-text);overflow:clip}
+.nando__lines{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--c-forest-text);stroke-width:1;opacity:.12}
+.nando__grid{position:relative;display:grid;grid-template-columns:repeat(12,1fr);gap:var(--gap);align-items:center}
+.nando__txt{grid-column:1 / span 6;display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.nando .label{color:var(--c-forest-muted);margin:0}
+.nando .label::before{border-color:var(--c-forest-text)}
+.nando__txt p:not(.label){font-size:1.15rem;color:var(--c-forest-muted);max-width:46ch}
+.qs{grid-column:8 / span 5;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.qs a{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:16px 18px;background:var(--c-paper);color:var(--c-ink);text-decoration:none;font:600 1.05rem/1.3 var(--f-text);border:2px solid var(--c-paper);transition:transform var(--dur-fast),box-shadow var(--dur-fast)}
+.qs a:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--c-red)}
+.qs a .n{font:600 .75rem/1 var(--f-mono);color:var(--c-red);margin-right:4px}
+.qs .icon{color:var(--c-red)}
+
+/* Calendario */
+.cal{border-top:var(--line)}
+.cal__months,.ev{display:grid;grid-template-columns:minmax(220px,1.3fr) 2.7fr;gap:var(--gap);align-items:center}
+.cal__months{padding:12px 0;border-bottom:var(--line)}
+.cal__m,.ev__track{display:grid;grid-template-columns:repeat(7,1fr)}
+.cal__m span{font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c-earth);border-left:var(--line-soft);padding-left:8px}
+.ev{list-style:none;padding:16px 0;border-bottom:var(--line-soft)}
+.ev h3{font-size:1.4rem}
+.ev p{font:400 .82rem/1.4 var(--f-mono);color:var(--c-muted);margin-top:4px}
+.ev__track{height:26px;background:repeating-linear-gradient(90deg,rgba(30,26,20,.14) 0 1px,transparent 1px calc(100%/7))}
+.ev__bar{grid-column:var(--s) / var(--e);height:12px;align-self:center;background:var(--c-red);transform-origin:left center}
+.ev__bar.dot{justify-self:end;width:14px;height:14px;border-radius:50%;margin-right:-7px}
+.cal ul{margin:0;padding:0}
+
+/* Itinerari */
+.iti{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);list-style:none;margin:0;padding:0}
+.iti a{display:flex;flex-direction:column;gap:10px;height:100%;padding:24px;border:var(--line);background:var(--c-paper);text-decoration:none;transition:transform var(--dur-fast),box-shadow var(--dur-fast)}
+.iti a:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--c-ink)}
+.days{display:flex;align-items:center;gap:10px;font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c-earth)}
+.days i{display:inline-flex;gap:3px}
+.days i b{width:22px;height:8px;border:1.5px solid var(--c-ink)}
+.days i b.on{background:var(--c-forest);border-color:var(--c-forest)}
+.iti h3{font-size:1.75rem}
+.iti p{color:var(--c-muted)}
+
+/* Footer */
+.foot{position:relative;background:var(--c-night);color:var(--c-paper);overflow:clip;padding:72px 0 36px}
+.foot__lines{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:var(--c-paper);stroke-width:1;opacity:.08}
+.foot__in{position:relative}
+.foot__top{display:grid;grid-template-columns:5fr 7fr;gap:var(--gap)}
+.foot .logo{color:var(--c-paper)}
+.foot .logo svg{color:var(--c-paper);width:30px;height:30px}
+.foot .logo span{font-size:1.7rem}
+.foot__tag{color:var(--c-night-muted);margin-top:16px;max-width:34ch}
+.foot__cols{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.foot__cols h2{font:600 .72rem/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--c-night-muted);margin:0 0 14px}
+.foot__cols ul{list-style:none;margin:0;padding:0}
+.foot__cols li{margin-bottom:8px}
+.foot__cols a{text-decoration:none;font-size:.95rem}
+.foot__cols a:hover{text-decoration:underline}
+.foot__legal{margin-top:56px;padding-top:18px;border-top:1px solid rgba(239,232,214,.25);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:400 .8rem/1.5 var(--f-mono);color:var(--c-night-muted)}
+.foot__legal button{font:inherit;color:var(--c-paper);background:none;border:0;padding:0;text-decoration:underline;cursor:pointer}
+.restyle-bar{background:var(--c-paper);color:var(--c-ink);font:500 .78rem/1.4 var(--f-mono);padding:12px var(--gutter);text-align:center;border-top:var(--line)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1100px){
+  .nav{display:none}
+  .menu-btn{display:inline-flex}
+  .top__in>.btn{display:none}
+  body.nav-open .nav{display:flex;position:fixed;left:0;right:0;top:64px;bottom:0;flex-direction:column;align-items:stretch;gap:0;background:var(--c-paper);padding:12px var(--gutter) 24px;overflow:auto}
+  body.nav-open .nav a{font-size:1rem;padding:16px 0;border:0;border-bottom:var(--line-soft)}
+  body.nav-open .nav .btn{margin-top:20px;justify-content:center;border:0}
+  .cartouche{grid-column:1 / span 8}
+  .trail{grid-column:9 / span 4}
+  .altopiano__txt,.profile{grid-column:1 / -1}
+  .comuni{grid-template-columns:1fr 1fr}
+  .comune:nth-child(3){border-left:0;padding-left:0}
+  .comune{border-bottom:var(--line-soft)}
+  .station{grid-template-columns:1fr 1fr}
+  .station__id{grid-column:1 / -1}
+  .meter{border-top:var(--line)}
+  .meter:nth-child(even){border-left:0}
+  .nando__txt,.qs{grid-column:1 / -1}
+}
+@media (min-width:1101px){.nav .btn{display:none}}
+@media (max-width:760px){
+  .hero__grid{grid-template-columns:1fr;padding-top:40px;padding-bottom:40px;min-height:0}
+  .cartouche,.trail{grid-column:1 / -1}
+  .trail{max-width:340px;justify-self:center;width:100%}
+  .frame{inset:8px}
+  .frame__y{display:none}
+  .legend{grid-template-columns:1fr}
+  .leg{border-left:0;border-top:var(--line);padding:22px 0}
+  .leg:first-child{border-top:0}
+  .comuni{grid-template-columns:1fr}
+  .comune{border-left:0;padding-left:0;padding-right:0}
+  .route{padding-left:56px}
+  .stop::before{left:-56px;width:38px;height:38px;margin-top:-19px}
+  .route__line{left:13px}
+  .stop{grid-template-columns:1fr 1fr;row-gap:12px}
+  .stop>div:first-child{grid-column:1 / -1}
+  .waypoints,.tavole,.iti{grid-template-columns:1fr}
+  .tav:nth-child(2){margin-top:0}
+  .tav__img{aspect-ratio:4/3}
+  .cal__months{display:none}
+  .ev{grid-template-columns:1fr;gap:10px}
+  .ev__track{background:repeating-linear-gradient(90deg,rgba(30,26,20,.14) 0 1px,transparent 1px calc(100%/7))}
+  .ev__track::before{content:none}
+  .cal__m-mobile{display:grid!important}
+  .foot__top{grid-template-columns:1fr;gap:40px}
+  .foot__cols{grid-template-columns:1fr 1fr;row-gap:32px}
+  .meter{padding:20px 16px}
+  .profile{padding:14px 12px 10px}
+  .profile .pt text{font-size:23px}
+  .profile .pt .q{transform:translateY(-8px)}
+  .profile .pt-gallio text{transform:translate(30px,52px)} .profile .pt-gallio .q{transform:translate(30px,44px)} /* evita la sovrapposizione con Asiago su mobile */
+  .profile .grid text{display:none} /* su mobile le quote sono già sui punti: niente asse, niente sovrapposizioni */
+  .trail .wp text{font-size:20px}
+}
+.cal__m-mobile{display:none;grid-template-columns:repeat(7,1fr);padding:10px 0;border-bottom:var(--line)}
+.cal__m-mobile span{font:600 .64rem/1 var(--f-mono);color:var(--c-earth);text-transform:uppercase;border-left:var(--line-soft);padding-left:4px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="top" id="top">
+  <div class="wrap top__in">
+    <a class="logo" href="#top" aria-label="TUTTOALTOPIANO, torna all'inizio">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"></path></svg>
+      <span>TUTTOALTOPIANO</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Principale">
+      <a href="https://tuttoaltopiano.it/cosa-vedere">Cosa vedere</a>
+      <a href="#sentieri">Sentieri</a>
+      <a href="#itinerari">Itinerari</a>
+      <a href="#oggi">Dove andare oggi</a>
+      <a href="#meteo">Meteo &amp; neve</a>
+      <a href="https://tuttoaltopiano.it/mappa">Mappa</a>
+      <a class="btn btn--red" href="#nando">Chiedi a Nando</a>
+    </nav>
+    <a class="btn btn--red" href="#nando">Chiedi a Nando</a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Apri il menu">
+      <svg class="icon i-open" viewBox="0 0 24 24" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      <svg class="icon i-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="h1">
+    <svg class="hero__contours" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<path class="ln" d="M36 0 L26 14 L14 35 L4 56 L0 64"/>
+<path class="ln" d="M274 0 L294 10 L308 18 L331 28 L350 35 L378 42 L392 43 L420 44 L448 43 L462 41 L490 35 L513 28 L532 21 L551 14 L574 4 L582 0"/>
+<path class="ln" d="M338 910 L326 896 L314 882 L303 868 L292 854 L280 839 L266 821 L252 804 L238 790 L224 778 L210 768 L186 756 L168 750 L145 742 L126 737 L98 729 L84 725 L56 716 L42 711 L17 700 L0 691"/>
+<path class="ln" d="M83 0 L65 14 L52 28 L42 42 L28 67 L19 84 L13 98 L1 126 L0 127"/>
+<path class="ln" d="M206 0 L224 8 L238 15 L261 28 L280 38 L294 46 L316 56 L336 64 L357 70 L378 74 L406 76 L434 75 L462 72 L476 70 L504 64 L532 56 L546 51 L572 42 L588 35 L605 28 L630 16 L644 10 L667 0"/>
+<path class="ln" d="M383 910 L372 896 L361 882 L350 868 L336 851 L322 833 L308 816 L294 799 L280 784 L266 772 L252 761 L238 753 L215 742 L196 736 L169 728 L154 725 L126 719 L108 714 L84 708 L60 700 L42 693 L27 686 L3 672 L0 670"/>
+<path class="ln" d="M777 0 L756 5 L728 13 L714 18 L688 28 L672 35 L657 42 L630 54 L616 60 L588 70 L574 75 L546 83 L532 87 L504 94 L482 98 L462 101 L434 104 L406 105 L378 103 L350 98 L336 94 L308 84 L294 78 L279 70 L253 56 L238 48 L224 41 L196 28 L182 23 L154 18 L126 19 L101 28 L84 40 L70 54 L58 70 L49 84 L41 98 L28 126 L22 140 L14 159 L5 182 L0 197"/>
+<path class="ln" d="M421 910 L411 896 L401 882 L390 868 L378 852 L364 834 L350 817 L336 800 L322 784 L308 770 L294 758 L280 748 L266 740 L240 728 L224 723 L196 716 L182 713 L154 708 L126 703 L112 700 L84 693 L65 686 L42 676 L28 669 L12 658 L0 648"/>
+<path class="ln" d="M1442 694 L1436 714 L1433 742 L1435 770 L1440 798 L1442 807"/>
+<path class="idx" d="M1235 0 L1218 4 L1190 10 L1168 14 L1148 16 L1120 18 L1092 20 L1064 20 L1036 20 L1008 20 L980 19 L952 19 L924 18 L896 19 L868 20 L840 22 L812 26 L798 29 L770 36 L752 42 L728 51 L714 57 L686 69 L672 75 L648 84 L630 90 L606 98 L588 103 L560 110 L546 113 L518 119 L490 125 L476 127 L448 131 L420 133 L392 133 L364 130 L347 126 L322 119 L305 112 L280 101 L266 94 L247 84 L224 72 L210 66 L182 56 L168 53 L140 52 L124 56 L99 70 L84 84 L73 98 L64 112 L56 126 L43 154 L37 168 L28 190 L21 210 L14 234 L9 252 L4 280 L0 308 L0 312"/>
+<path class="idx" d="M454 910 L445 896 L434 879 L420 859 L406 840 L395 826 L384 812 L373 798 L361 784 L348 770 L334 756 L317 742 L295 728 L280 721 L261 714 L238 708 L210 702 L196 700 L168 696 L140 692 L113 686 L98 682 L70 673 L56 667 L39 658 L19 644 L5 630 L0 624"/>
+<path class="idx" d="M1442 656 L1432 672 L1424 686 L1416 714 L1414 742 L1417 770 L1423 798 L1428 821 L1432 840 L1436 868 L1437 896 L1436 910"/>
+<path class="ln" d="M1358 0 L1344 2 L1316 9 L1294 14 L1274 19 L1246 25 L1226 28 L1204 31 L1176 34 L1148 36 L1120 37 L1092 38 L1064 39 L1036 39 L1008 40 L980 40 L952 41 L933 42 L910 44 L882 47 L854 51 L832 56 L812 62 L788 70 L770 77 L754 84 L728 95 L714 101 L686 111 L672 115 L644 123 L630 126 L602 132 L574 138 L560 140 L532 146 L504 151 L484 154 L462 157 L434 160 L406 161 L378 159 L350 154 L336 151 L308 141 L294 135 L273 126 L252 116 L238 109 L212 98 L196 92 L168 87 L140 89 L118 98 L101 112 L89 126 L79 140 L70 155 L57 182 L51 196 L42 221 L36 238 L29 266 L26 280 L22 308 L18 336 L15 364 L14 379 L11 406 L7 434 L2 462 L0 471"/>
+<path class="ln" d="M485 910 L476 896 L462 874 L449 854 L440 840 L430 826 L420 812 L406 794 L392 777 L378 761 L364 747 L350 734 L336 724 L319 714 L294 704 L280 699 L252 693 L224 689 L200 686 L182 684 L154 681 L126 676 L109 672 L84 665 L68 658 L43 644 L28 632 L14 617 L4 602 L0 592"/>
+<path class="ln" d="M1442 630 L1428 646 L1414 666 L1404 686 L1400 700 L1396 728 L1398 756 L1400 770 L1406 798 L1413 826 L1415 840 L1419 868 L1420 896 L1418 910"/>
+<path class="ln" d="M1442 99 L1430 84 L1415 70 L1400 59 L1386 53 L1358 46 L1330 45 L1302 46 L1274 47 L1246 49 L1218 51 L1190 52 L1162 53 L1134 54 L1106 55 L1078 56 L1064 56 L1036 57 L1008 59 L980 61 L952 64 L924 68 L910 70 L882 77 L860 84 L840 92 L826 98 L798 112 L784 119 L768 126 L742 137 L728 142 L700 149 L677 154 L658 157 L630 162 L602 166 L585 168 L560 172 L532 176 L504 181 L490 184 L462 188 L434 191 L406 191 L378 188 L350 182 L336 178 L308 168 L294 162 L275 154 L252 144 L238 138 L210 128 L196 124 L168 120 L140 126 L126 134 L112 145 L98 161 L85 182 L77 196 L70 211 L60 238 L55 252 L48 280 L42 307 L39 322 L35 350 L32 378 L28 402 L25 420 L19 448 L14 474 L11 490 L7 518 L6 546 L10 574 L14 588 L28 611 L42 626 L56 637 L70 645 L98 656 L112 660 L140 666 L168 670 L190 672 L210 674 L238 676 L266 678 L294 683 L309 686 L336 695 L350 702 L369 714 L386 728 L400 742 L412 756 L424 770 L434 784 L448 804 L462 825 L471 840 L479 854 L490 872 L504 895 L513 910"/>
+<path class="ln" d="M1442 608 L1428 621 L1414 636 L1400 654 L1390 672 L1384 686 L1378 714 L1379 742 L1383 770 L1386 784 L1393 812 L1399 840 L1401 854 L1403 882 L1400 910"/>
+<path class="ln" d="M1442 155 L1428 141 L1414 127 L1400 115 L1386 104 L1372 96 L1344 84 L1330 81 L1302 76 L1274 73 L1246 72 L1218 71 L1190 70 L1162 70 L1134 71 L1106 71 L1078 72 L1050 74 L1022 76 L994 80 L968 84 L952 87 L924 95 L910 100 L884 112 L868 121 L854 129 L837 140 L814 154 L798 163 L784 169 L756 179 L742 182 L714 188 L686 191 L658 194 L641 196 L616 198 L588 202 L560 206 L535 210 L518 213 L490 219 L462 223 L448 225 L420 226 L403 224 L378 220 L350 211 L336 206 L310 196 L294 189 L278 182 L252 171 L238 166 L210 157 L190 154 L170 154 L154 157 L134 168 L118 182 L107 196 L98 210 L84 237 L78 252 L70 275 L65 294 L59 322 L56 336 L51 364 L46 392 L42 413 L37 434 L31 462 L28 476 L22 504 L20 532 L22 560 L28 582 L39 602 L51 616 L70 630 L84 638 L99 644 L126 652 L154 657 L168 658 L196 660 L224 661 L252 662 L280 663 L308 665 L336 669 L350 673 L378 684 L392 692 L406 703 L420 717 L434 733 L448 752 L460 770 L469 784 L477 798 L490 821 L500 840 L508 854 L518 873 L531 896 L540 910"/>
+<path class="ln" d="M1442 587 L1428 599 L1414 612 L1400 626 L1386 643 L1376 658 L1368 672 L1361 700 L1360 728 L1363 756 L1369 784 L1373 798 L1379 826 L1384 854 L1385 882 L1382 910"/>
+<path class="idx" d="M1442 190 L1428 177 L1414 165 L1400 153 L1383 140 L1361 126 L1344 117 L1330 111 L1302 102 L1285 98 L1260 94 L1232 90 L1204 88 L1176 87 L1148 87 L1120 87 L1092 88 L1064 90 L1036 93 L1008 98 L994 101 L966 109 L952 114 L927 126 L910 137 L896 147 L882 158 L868 170 L852 182 L831 196 L812 205 L798 211 L770 218 L742 223 L728 225 L700 227 L672 230 L644 232 L616 235 L596 238 L574 242 L546 249 L532 252 L504 261 L488 266 L462 272 L434 273 L406 266 L392 261 L370 252 L350 243 L336 236 L311 224 L294 216 L280 210 L252 198 L238 193 L210 186 L182 185 L154 193 L140 202 L126 215 L112 234 L102 252 L96 266 L86 294 L81 308 L75 336 L70 357 L66 378 L59 406 L56 420 L49 448 L42 476 L39 490 L34 518 L34 546 L40 574 L47 588 L57 602 L72 616 L97 630 L112 636 L140 643 L154 645 L182 648 L210 648 L238 648 L266 647 L294 646 L322 645 L350 645 L378 648 L406 656 L420 664 L434 676 L448 692 L462 711 L472 728 L480 742 L490 760 L502 784 L508 798 L518 819 L528 840 L534 854 L546 877 L557 896 L566 910"/>
+<path class="idx" d="M1442 566 L1428 578 L1414 591 L1400 603 L1386 616 L1372 631 L1358 650 L1347 672 L1343 686 L1340 714 L1343 742 L1345 756 L1352 784 L1358 807 L1362 826 L1367 854 L1367 882 L1362 910"/>
+<path class="ln" d="M1442 218 L1428 205 L1414 193 L1400 182 L1381 168 L1361 154 L1344 144 L1330 137 L1303 126 L1288 121 L1260 114 L1246 111 L1218 107 L1190 104 L1162 103 L1134 103 L1106 104 L1078 106 L1050 110 L1036 112 L1008 120 L990 126 L966 138 L952 147 L938 158 L924 172 L910 187 L896 203 L882 217 L868 228 L850 238 L826 247 L805 252 L784 255 L756 258 L728 261 L700 263 L672 266 L658 267 L630 272 L602 279 L588 284 L565 294 L546 306 L532 318 L518 333 L506 350 L498 364 L490 382 L478 406 L462 416 L448 398 L438 378 L430 364 L420 349 L406 331 L392 316 L378 302 L364 290 L350 279 L331 266 L308 252 L294 244 L280 237 L252 225 L238 220 L210 215 L182 216 L161 224 L142 238 L130 252 L121 266 L112 283 L102 308 L98 322 L90 350 L84 373 L79 392 L72 420 L68 434 L60 462 L56 476 L50 504 L47 532 L51 560 L56 574 L70 595 L84 608 L98 617 L126 628 L140 631 L168 635 L196 636 L224 636 L252 634 L280 630 L294 628 L322 623 L350 617 L364 613 L392 605 L406 601 L434 596 L451 602 L465 616 L476 635 L486 658 L492 672 L504 700 L509 714 L518 738 L524 756 L532 779 L539 798 L546 818 L554 840 L560 854 L574 882 L582 896 L591 910"/>
+<path class="ln" d="M1442 546 L1428 558 L1414 570 L1400 581 L1386 593 L1372 605 L1358 618 L1344 635 L1330 658 L1325 672 L1320 700 L1322 728 L1327 756 L1331 770 L1338 798 L1344 822 L1347 840 L1349 868 L1346 896 L1341 910"/>
+<path class="ln" d="M1442 242 L1428 230 L1414 218 L1400 206 L1386 196 L1366 182 L1344 168 L1330 160 L1316 153 L1288 142 L1274 137 L1246 129 L1228 126 L1204 122 L1176 120 L1148 119 L1120 120 L1092 122 L1067 126 L1050 130 L1022 139 L1008 146 L994 154 L977 168 L964 182 L952 199 L938 223 L930 238 L922 252 L910 267 L892 280 L868 288 L840 292 L812 293 L784 293 L764 294 L742 295 L714 297 L686 301 L658 307 L644 311 L618 322 L602 333 L588 345 L574 364 L567 378 L560 400 L555 420 L551 448 L548 476 L546 504 L545 518 L544 546 L543 574 L544 602 L545 630 L546 644 L549 672 L552 700 L556 728 L560 756 L562 770 L568 798 L574 820 L580 840 L588 860 L599 882 L607 896 L617 910"/>
+<path class="ln" d="M182 248 L168 254 L153 266 L140 282 L126 306 L119 322 L112 341 L105 364 L98 386 L92 406 L84 431 L79 448 L70 476 L67 490 L62 518 L63 546 L70 569 L83 588 L98 601 L112 609 L130 616 L154 621 L182 624 L210 624 L238 622 L266 617 L280 614 L308 606 L322 601 L347 588 L364 576 L378 561 L387 546 L393 532 L399 504 L399 476 L396 448 L392 424 L388 406 L379 378 L373 364 L364 346 L350 326 L336 309 L322 296 L308 284 L294 275 L280 266 L252 253 L238 248 L210 244 L182 248"/>
+<path class="ln" d="M1442 524 L1428 537 L1414 548 L1399 560 L1381 574 L1363 588 L1346 602 L1331 616 L1320 630 L1311 644 L1302 670 L1299 686 L1300 714 L1302 728 L1308 756 L1316 784 L1320 798 L1326 826 L1330 854 L1328 882 L1318 910"/>
+<path class="ln" d="M1442 266 L1428 253 L1414 240 L1400 229 L1386 218 L1372 208 L1354 196 L1330 182 L1316 174 L1302 168 L1274 156 L1260 152 L1232 144 L1207 140 L1190 138 L1162 136 L1134 136 L1106 139 L1092 141 L1064 149 L1049 154 L1025 168 L1009 182 L999 196 L992 210 L984 238 L983 266 L987 294 L994 312 L1007 336 L1016 350 L1025 364 L1036 383 L1043 406 L1039 434 L1027 448 L1008 457 L980 457 L961 448 L946 434 L936 420 L924 403 L910 385 L896 371 L882 361 L860 350 L840 343 L812 337 L798 335 L770 332 L742 332 L714 335 L700 337 L672 346 L658 352 L641 364 L627 378 L616 395 L606 420 L602 435 L598 462 L597 490 L598 518 L601 546 L603 560 L607 588 L609 616 L609 644 L606 672 L602 699 L600 714 L597 742 L596 770 L598 798 L602 824 L606 840 L616 867 L624 882 L632 896 L643 910"/>
+<path class="ln" d="M196 276 L182 282 L165 294 L153 308 L140 329 L130 350 L125 364 L114 392 L109 406 L99 434 L94 448 L85 476 L81 490 L77 518 L78 546 L84 563 L98 582 L112 593 L129 602 L154 609 L182 612 L210 611 L238 608 L264 602 L280 597 L301 588 L322 575 L336 563 L349 546 L357 532 L364 505 L366 490 L365 462 L364 448 L359 420 L350 392 L345 378 L336 361 L322 339 L308 322 L294 309 L280 298 L266 289 L245 280 L224 275 L196 276"/>
+<path class="ln" d="M1442 501 L1428 514 L1414 526 L1400 537 L1386 548 L1368 560 L1348 574 L1330 587 L1316 599 L1302 613 L1290 630 L1283 644 L1276 672 L1276 700 L1281 728 L1288 756 L1292 770 L1300 798 L1303 812 L1308 840 L1308 868 L1302 890 L1291 910"/>
+<path class="idx" d="M1442 291 L1428 276 L1414 263 L1400 251 L1383 238 L1363 224 L1344 211 L1330 203 L1316 195 L1289 182 L1274 176 L1251 168 L1232 163 L1204 158 L1176 155 L1148 154 L1120 157 L1092 164 L1078 169 L1057 182 L1043 196 L1035 210 L1029 238 L1033 266 L1038 280 L1050 301 L1064 322 L1074 336 L1084 350 L1093 364 L1106 389 L1112 406 L1116 434 L1112 462 L1106 476 L1092 494 L1078 506 L1057 518 L1036 526 L1014 532 L994 536 L966 538 L938 537 L916 532 L896 520 L883 504 L876 490 L868 469 L859 448 L852 434 L840 416 L826 402 L811 392 L784 381 L769 378 L742 377 L728 378 L700 387 L686 395 L672 407 L658 429 L652 448 L649 476 L652 504 L658 528 L665 546 L672 560 L686 588 L691 602 L693 630 L686 649 L674 672 L666 686 L657 700 L644 726 L638 742 L630 770 L628 784 L628 812 L630 827 L637 854 L644 871 L658 895 L671 910"/>
+<path class="idx" d="M210 308 L196 312 L179 322 L166 336 L154 353 L141 378 L134 392 L126 411 L117 434 L111 448 L101 476 L97 490 L92 518 L95 546 L101 560 L112 574 L133 588 L154 595 L182 599 L210 598 L238 593 L256 588 L280 578 L294 569 L308 558 L322 541 L333 518 L337 504 L340 476 L337 448 L334 434 L326 406 L321 392 L308 368 L295 350 L282 336 L266 323 L252 315 L227 308 L210 308"/>
+<path class="idx" d="M1442 475 L1428 490 L1414 503 L1400 514 L1386 524 L1372 534 L1351 546 L1330 559 L1316 567 L1302 576 L1285 588 L1271 602 L1260 619 L1251 644 L1249 672 L1251 700 L1257 728 L1261 742 L1270 770 L1274 784 L1281 812 L1285 840 L1283 868 L1274 890 L1260 907 L1257 910"/>
+<path class="ln" d="M1442 322 L1432 308 L1420 294 L1406 280 L1390 266 L1372 252 L1358 242 L1344 233 L1330 224 L1304 210 L1288 202 L1274 196 L1246 186 L1230 182 L1204 177 L1176 175 L1148 177 L1121 182 L1106 189 L1092 197 L1078 215 L1072 238 L1077 266 L1084 280 L1092 294 L1106 315 L1120 334 L1131 350 L1140 364 L1148 378 L1160 406 L1165 420 L1170 448 L1171 476 L1168 504 L1162 522 L1148 539 L1134 548 L1106 559 L1092 563 L1064 570 L1048 574 L1022 580 L994 586 L980 590 L952 596 L929 602 L910 607 L882 616 L868 620 L843 630 L826 637 L812 645 L787 658 L770 668 L756 677 L742 686 L724 700 L708 714 L694 728 L683 742 L672 760 L662 784 L658 811 L658 814 L660 840 L669 868 L677 882 L688 896 L701 910"/>
+<path class="ln" d="M210 346 L196 351 L180 364 L168 378 L154 400 L143 420 L136 434 L126 456 L118 476 L112 498 L110 518 L112 538 L123 560 L140 573 L154 579 L182 584 L210 583 L238 577 L252 572 L273 560 L289 546 L300 532 L308 516 L314 490 L314 462 L308 434 L303 420 L294 399 L280 378 L267 364 L252 353 L238 347 L210 346"/>
+<path class="ln" d="M1442 442 L1428 461 L1414 475 L1400 488 L1386 498 L1372 507 L1353 518 L1330 529 L1316 535 L1288 546 L1274 551 L1252 560 L1232 572 L1219 588 L1213 602 L1211 630 L1213 658 L1218 681 L1223 700 L1231 728 L1235 742 L1245 770 L1249 784 L1256 812 L1258 840 L1252 868 L1244 882 L1230 896 L1205 910"/>
+<path class="ln" d="M1148 207 L1134 215 L1120 235 L1119 252 L1122 266 L1134 291 L1145 308 L1154 322 L1164 336 L1176 354 L1190 377 L1198 392 L1205 406 L1216 434 L1222 448 L1232 468 L1246 486 L1260 496 L1288 502 L1316 499 L1344 491 L1358 485 L1374 476 L1393 462 L1408 448 L1419 434 L1428 419 L1436 392 L1435 364 L1428 342 L1416 322 L1405 308 L1391 294 L1376 280 L1358 266 L1344 257 L1330 248 L1313 238 L1288 225 L1274 219 L1249 210 L1232 206 L1204 201 L1176 201 L1148 207"/>
+<path class="ln" d="M210 388 L196 394 L182 406 L168 423 L154 444 L145 462 L138 476 L131 504 L132 532 L140 547 L157 560 L182 566 L210 565 L231 560 L252 549 L266 537 L280 518 L285 504 L289 476 L284 448 L279 434 L266 412 L252 398 L238 389 L210 388"/>
+<path class="ln" d="M1090 910 L1106 907 L1134 901 L1156 896 L1176 889 L1191 882 L1209 868 L1219 854 L1225 826 L1223 798 L1218 780 L1210 756 L1204 740 L1193 714 L1187 700 L1176 676 L1166 658 L1155 644 L1139 630 L1120 622 L1092 617 L1064 618 L1036 621 L1008 627 L994 630 L966 638 L946 644 L924 651 L906 658 L882 667 L868 673 L840 684 L826 690 L805 700 L784 710 L770 718 L754 728 L735 742 L720 756 L708 770 L700 784 L690 812 L690 840 L699 868 L708 882 L720 896 L737 910"/>
+<path class="ln" d="M1204 236 L1190 241 L1176 263 L1176 268 L1184 294 L1192 308 L1204 327 L1218 349 L1227 364 L1236 378 L1246 395 L1260 416 L1274 433 L1288 445 L1302 451 L1330 454 L1352 448 L1372 437 L1386 425 L1400 406 L1405 392 L1405 364 L1400 348 L1386 325 L1372 309 L1358 297 L1344 286 L1330 276 L1313 266 L1288 253 L1274 248 L1246 239 L1232 236 L1204 236"/>
+<path class="ln" d="M224 434 L210 434 L187 448 L175 462 L166 476 L157 504 L166 532 L182 541 L210 541 L231 532 L246 518 L254 504 L257 476 L252 459 L238 441 L224 434"/>
+<path class="ln" d="M977 910 L994 905 L1022 898 L1036 894 L1064 887 L1082 882 L1106 875 L1129 868 L1148 859 L1162 850 L1176 834 L1183 812 L1180 784 L1176 769 L1165 742 L1157 728 L1148 714 L1134 697 L1120 685 L1096 672 L1078 667 L1050 665 L1022 668 L997 672 L980 676 L952 684 L938 688 L910 698 L896 702 L868 713 L854 718 L830 728 L812 736 L798 743 L776 756 L757 770 L743 784 L734 798 L727 812 L724 840 L728 856 L742 879 L756 892 L770 902 L787 910"/>
+<path class="idx" d="M1288 307 L1274 312 L1274 331 L1283 350 L1293 364 L1308 378 L1330 386 L1347 378 L1348 350 L1339 336 L1324 322 L1302 310 L1288 307"/>
+<path class="idx" d="M952 727 L938 730 L910 738 L896 742 L868 751 L854 756 L826 769 L812 777 L798 786 L784 798 L770 820 L767 840 L770 854 L784 873 L798 883 L826 894 L840 897 L868 900 L896 899 L916 896 L938 891 L966 884 L980 879 L1008 869 L1022 863 L1046 854 L1064 846 L1078 839 L1099 826 L1112 812 L1118 784 L1108 756 L1096 742 L1078 729 L1064 723 L1036 718 L1008 718 L980 721 L952 727"/>
+    </svg>
+    <div class="frame" aria-hidden="true">
+      <div class="frame__x"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+      <div class="frame__y"><span>1</span><span>2</span><span>3</span><span>4</span></div>
+    </div>
+    <div class="wrap hero__grid">
+      <div class="cartouche">
+        <p class="label">Altopiano dei Sette Comuni · Veneto</p>
+        <h1 id="h1">Asiago, Gallio, Roana: <span class="r">l'Altopiano spiegato bene</span></h1>
+        <p class="lede">Sentieri, malghe, trincee della Grande Guerra, neve e sagre. Una guida indipendente aggiornata ogni giorno, con Nando che risponde alle tue domande.</p>
+        <div class="ctas">
+          <a class="btn btn--red" href="#sentieri">Sentieri ed escursioni <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a class="btn btn--line" href="#oggi">Dove andare oggi</a>
+        </div>
+        <div class="scale" aria-hidden="true"><i></i><span>Guida indipendente · aggiornata ogni giorno</span></div>
+      </div>
+      <figure class="trail" style="margin:0">
+        <svg viewBox="0 0 560 520" role="img" aria-label="Schema non in scala delle quote: Rotzo 935 m, Roana 992 m, Asiago 1.001 m, Gallio 1.090 m, Piana della Marcesina 1.300 m">
+          <defs>
+            <mask id="trail-mask" maskUnits="userSpaceOnUse"><path class="t-mask" d="M60 460 C120 450 150 410 180 390 S 250 345 290 330 S 360 280 390 250 S 450 160 480 90"/></mask>
+          </defs>
+          <path class="t-path" mask="url(#trail-mask)" d="M60 460 C120 450 150 410 180 390 S 250 345 290 330 S 360 280 390 250 S 450 160 480 90"/>
+          <g class="wp"><circle cx="60" cy="460" r="11"/><circle class="dot" cx="60" cy="460" r="4.5"/><rect x="78" y="448" width="118" height="40"/><text x="82" y="464">ROTZO</text><text class="q" x="82" y="482">935 m</text></g>
+          <g class="wp"><circle cx="180" cy="390" r="11"/><circle class="dot" cx="180" cy="390" r="4.5"/><rect x="198" y="378" width="118" height="40"/><text x="202" y="394">ROANA</text><text class="q" x="202" y="412">992 m</text></g>
+          <g class="wp"><circle cx="290" cy="330" r="11"/><circle class="dot" cx="290" cy="330" r="4.5"/><rect x="308" y="318" width="128" height="40"/><text x="312" y="334">ASIAGO</text><text class="q" x="312" y="352">1.001 m</text></g>
+          <g class="wp"><circle cx="390" cy="250" r="11"/><circle class="dot" cx="390" cy="250" r="4.5"/><rect x="408" y="238" width="128" height="40"/><text x="412" y="254">GALLIO</text><text class="q" x="412" y="272">1.090 m</text></g>
+          <g class="wp"><circle cx="480" cy="90" r="11"/><circle class="dot" cx="480" cy="90" r="4.5"/><rect x="330" y="20" width="200" height="40"/><text x="334" y="36">PIANA DELLA MARCESINA</text><text class="q" x="334" y="54">1.300 m</text></g>
+        </svg>
+        <figcaption class="trail__note">Schema delle quote · non in scala</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-label="Da dove partire">
+    <div class="wrap">
+      <h2 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap">In evidenza oggi</h2>
+      <div class="legend">
+        <a class="leg" href="https://tuttoaltopiano.it/dove-oggi" data-reveal>
+          <span class="sym" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <span><p class="label">Consiglio del giorno</p><h3>Dove andare oggi</h3><p>La scelta migliore in base a meteo, vento e neve.</p></span>
+        </a>
+        <a class="leg" href="https://tuttoaltopiano.it/come-arrivare" data-reveal>
+          <span class="sym" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/></svg></span>
+          <span><p class="label">Arrivare</p><h3>Strade e bus 2026</h3><p>Valdastico, Valsugana, catene e collegamenti senza auto.</p></span>
+        </a>
+        <a class="leg" href="#itinerari" data-reveal>
+          <span class="sym" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg></span>
+          <span><p class="label">Itinerari</p><h3>6 itinerari pronti</h3><p>Da 1 giorno a 3, con bambini o sugli sci.</p></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="comuni" aria-labelledby="h-comuni">
+    <div class="wrap">
+      <div class="altopiano">
+        <div class="altopiano__txt">
+          <p class="label">Il territorio</p>
+          <h2 id="h-comuni" data-split>L'Altopiano: sette comuni, mille modi di viverlo</h2>
+          <p data-reveal>Un tavolato calcareo a mille metri sopra la pianura veneta, dove i pascoli d'alta quota confinano con le abetaie e con le trincee del 1916. Asiago è il cuore commerciale, Gallio la porta delle malghe e della neve, Roana il paese cimbro dei ponti e delle contrade. TUTTOALTOPIANO mette insieme quello che serve davvero: sentieri, orari, meteo, sapori e memoria.</p>
+        </div>
+        <figure class="profile" style="margin:0">
+          <svg viewBox="0 0 640 330" role="img" aria-label="Quote dei centri in ordine di altezza: Rotzo 935 m, Roana 992 m, Asiago 1.001 m, Gallio 1.090 m, Piana della Marcesina 1.300 m">
+            <defs><pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#9A6B3F" stroke-width="1.4" opacity=".55"/></pattern></defs>
+            <g class="grid">
+              <line x1="62" x2="630" y1="300" y2="300"/><text x="0" y="304">900</text>
+              <line x1="62" x2="630" y1="237.8" y2="237.8"/><text x="0" y="242">1.000</text>
+              <line x1="62" x2="630" y1="175.6" y2="175.6"/><text x="0" y="180">1.100</text>
+              <line x1="62" x2="630" y1="113.3" y2="113.3"/><text x="0" y="117">1.200</text>
+              <line x1="62" x2="630" y1="51.1" y2="51.1"/><text x="0" y="55">1.300</text>
+            </g>
+            <path class="area" d="M80 278.2 L210 242.8 L340 237.2 L470 181.8 L600 51.1 L600 300 L80 300 Z"/>
+            <path class="pline" d="M80 278.2 L210 242.8 L340 237.2 L470 181.8 L600 51.1"/>
+            <g class="pt"><circle cx="80" cy="278.2" r="7"/><text x="80" y="258" text-anchor="middle">ROTZO</text><text class="q" x="80" y="244" text-anchor="middle">935</text></g>
+            <g class="pt"><circle cx="210" cy="242.8" r="7"/><text x="210" y="223" text-anchor="middle">ROANA</text><text class="q" x="210" y="209" text-anchor="middle">992</text></g>
+            <g class="pt"><circle cx="340" cy="237.2" r="7"/><text x="340" y="217" text-anchor="middle">ASIAGO</text><text class="q" x="340" y="203" text-anchor="middle">1.001</text></g>
+            <g class="pt pt-gallio"><circle cx="470" cy="181.8" r="7"/><text x="456" y="192" text-anchor="end">GALLIO</text><text class="q" x="456" y="178" text-anchor="end">1.090</text></g>
+            <g class="pt"><circle cx="600" cy="51.1" r="7"/><text x="586" y="62" text-anchor="end">MARCESINA</text><text class="q" x="586" y="48" text-anchor="end">1.300</text></g>
+          </svg>
+          <figcaption>Profilo altimetrico · quote in metri, in ordine di altezza (non è un tracciato)</figcaption>
+        </figure>
+      </div>
+      <div class="comuni">
+        <article class="comune" data-reveal><h3>Asiago</h3><span class="q"><span data-count="1001">1.001</span><small>m s.l.m.</small></span><p>Il capoluogo dell'Altopiano: il Corso, il Sacrario militare del Leiten, l'Osservatorio astrofisico e il formaggio DOP che porta il suo nome. Punto di partenza naturale per ogni escursione.</p></article>
+        <article class="comune" data-reveal><h3>Gallio</h3><span class="q"><span data-count="1090">1.090</span><small>m s.l.m.</small></span><p>Il paese delle malghe e della neve: da qui si sale a Melette e Campomulo, cuore dello sci di fondo dell'Altopiano, tra pascoli, contrade e trattorie di montagna.</p></article>
+        <article class="comune" data-reveal><h3>Roana</h3><span class="q"><span data-count="992">992</span><small>m s.l.m.</small></span><p>Il comune cimbro per eccellenza, con le frazioni di Mezzaselva, Canove, Camporovere e Cesuna. Qui si conserva la lingua cimbra e il celebre Ponte di Roana.</p></article>
+        <article class="comune" data-reveal><h3>Rotzo</h3><span class="q"><span data-count="935">935</span><small>m s.l.m.</small></span><p>Terra del patatino di Rotzo, con l'altura di Castelletto e le viste sulla Val d'Astico.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="sentieri" aria-labelledby="h-sentieri" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="label">Foglio di percorso</p><h2 id="h-sentieri" data-split>Sentieri più cercati</h2></div>
+        <a class="textlink" href="https://tuttoaltopiano.it/sentieri">Tutti i sentieri <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+      </div>
+      <div class="route">
+        <div class="route__line" aria-hidden="true"><svg viewBox="0 0 12 100" preserveAspectRatio="none"><line class="base" x1="6" y1="0" x2="6" y2="100" vector-effect="non-scaling-stroke"/></svg></div>
+        <ol class="route__list">
+        <li class="stop" data-n="01" data-reveal><div><span class="segnavia" aria-hidden="true"></span><h3>Anello del Monte Zebio</h3></div><span class="diff"><i aria-hidden="true"><b class="on"></b><b></b><b></b></i>Facile</span><span class="time"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2h 30'</span></li>
+        <li class="stop" data-n="02" data-reveal><div><span class="segnavia" aria-hidden="true"></span><h3>Cima Portule dalla Bocchetta Portule</h3></div><span class="diff"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b></i>Medio</span><span class="time"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>4h 30'</span></li>
+        <li class="stop" data-n="03" data-reveal><div><span class="segnavia" aria-hidden="true"></span><h3>Anello della Marcesina</h3></div><span class="diff"><i aria-hidden="true"><b class="on"></b><b></b><b></b></i>Facile</span><span class="time"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2h 45'</span></li>
+        <li class="stop" data-n="04" data-reveal><div><span class="segnavia" aria-hidden="true"></span><h3>Sentiero delle Calà - Val Frenzela</h3></div><span class="diff"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b></i>Impegnativo</span><span class="time"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3h 30'</span></li>
+        <li class="stop" data-n="05" data-reveal><div><span class="segnavia" aria-hidden="true"></span><h3>Monte Fior e Castelgomberto</h3></div><span class="diff"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b></i>Medio</span><span class="time"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>3h 45'</span></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="oggi" aria-labelledby="h-oggi" style="background:var(--c-paper-2);border-top:var(--line);border-bottom:var(--line)">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="label">Consigli di oggi · lunedì 23 novembre</p><h2 id="h-oggi" data-split>Tre idee per la giornata</h2></div>
+        <a class="textlink" href="https://tuttoaltopiano.it/dove-oggi">Vedi la pagina completa <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+      </div>
+      <ol class="waypoints">
+        <li class="waypoint" data-reveal><div class="pin" aria-hidden="true"><span>1</span></div><h3>Sacrario Militare del Leiten</h3><span class="where">Asiago</span><p>Il grande monumento bianco che custodisce oltre 50.000 caduti della Grande Guerra.</p></li>
+        <li class="waypoint" data-reveal><div class="pin" aria-hidden="true"><span>2</span></div><h3>Piana della Marcesina</h3><span class="where">Enego / Gallio · 1.300 m</span><p>La "piccola Finlandia" d'Italia: torbiere, abetaie e praterie a 1.300 metri.</p></li>
+        <li class="waypoint" data-reveal><div class="pin" aria-hidden="true"><span>3</span></div><h3>Ponte di Roana</h3><span class="where">Val d'Assa</span><p>Viadotto storico sospeso sulla Val d'Assa, simbolo dell'ingegneria di inizio Novecento.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="h-tavole">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="label">Tavole tematiche</p><h2 id="h-tavole" data-split>Malghe, memoria, neve</h2></div></div>
+      <div class="tavole">
+        <figure class="tav" data-tav>
+          <div class="tav__frame"><div class="tav__img"><img src="../assets/malghe-ClZ0urFs.jpg" width="1200" height="800" alt="Malghe e Asiago DOP" loading="lazy"></div><span class="tav__tag">Tav. 1</span></div>
+          <figcaption><h3>Malghe e Asiago DOP</h3><p>Dove assaggiare formaggio e ricotta appena fatti.</p></figcaption>
+        </figure>
+        <figure class="tav" data-tav>
+          <div class="tav__frame"><div class="tav__img"><img src="../assets/grande-guerra-Bd6f4mP5.jpg" width="1200" height="800" alt="Grande Guerra" loading="lazy"></div><span class="tav__tag">Tav. 2</span></div>
+          <figcaption><h3>Grande Guerra</h3><p>Trincee, forti e sacrari da visitare a piedi.</p></figcaption>
+        </figure>
+        <figure class="tav" data-tav>
+          <div class="tav__frame"><div class="tav__img"><img src="../assets/inverno-DTfb18A4.jpg" width="1200" height="800" alt="Inverno e sci di fondo" loading="lazy"></div><span class="tav__tag">Tav. 3</span></div>
+          <figcaption><h3>Inverno e sci di fondo</h3><p>Campomulo, Marcesina e le piste dell'Altopiano.</p></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="meteo" aria-labelledby="h-meteo" style="padding-top:0">
+    <div class="wrap">
+      <div class="station" data-reveal>
+        <div class="station__id">
+          <div><p class="label">Meteo e neve in diretta</p><h2 id="h-meteo">Asiago · 1.000 m</h2></div>
+          <p>Aggiornato: 15:15 · Open-Meteo<br>Dati aggiornati ogni 30 minuti.<br><a href="https://tuttoaltopiano.it/meteo">Previsioni a 7 giorni →</a></p>
+        </div>
+        <div class="meter"><span class="k"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>Temperatura</span><span class="v">5°C</span><span class="s">Poco nuvoloso</span></div>
+        <div class="meter"><span class="k"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.8 19.6A2 2 0 1 0 14 16H2"/><path d="M17.5 8a2.5 2.5 0 1 1 2 4H2"/><path d="M9.8 4.4A2 2 0 1 1 11 8H2"/></svg>Vento</span><span class="v">6 km/h</span><span class="s">Raffiche 9 km/h</span></div>
+        <div class="meter"><span class="k"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>Umidità</span><span class="v">81%</span><span class="s">Percepita 2°C</span></div>
+        <div class="meter"><span class="k"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="M8 15h.01"/><path d="M8 19h.01"/><path d="M12 17h.01"/><path d="M12 21h.01"/><path d="M16 15h.01"/><path d="M16 19h.01"/></svg>Neve fresca</span><span class="v">0.0 cm</span><span class="s">Pioggia 0.0 mm</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section nando" id="nando" aria-labelledby="h-nando">
+    <svg class="nando__lines" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<path class="ln" d="M1098 640 L1104 612 L1106 592 L1108 560 L1106 528 L1104 512 L1093 480 L1083 464 L1066 448 L1040 439 L1008 439 L976 444 L956 448 L928 453 L896 459 L871 464 L848 470 L820 480 L800 490 L784 500 L766 512 L747 528 L731 544 L717 560 L704 578 L688 607 L681 624 L676 640"/>
+<path class="ln" d="M1132 640 L1133 608 L1133 576 L1131 544 L1127 512 L1120 482 L1113 464 L1104 446 L1088 426 L1072 415 L1040 408 L1008 409 L976 413 L948 416 L928 417 L896 418 L864 418 L832 419 L800 424 L780 432 L752 448 L736 460 L720 475 L704 491 L688 508 L672 528 L660 544 L649 560 L640 576 L624 606 L616 624 L610 640"/>
+<path class="ln" d="M1156 640 L1154 608 L1152 576 L1151 560 L1148 528 L1142 496 L1136 470 L1128 448 L1120 430 L1104 408 L1088 395 L1060 384 L1040 382 L1008 384 L992 385 L960 388 L928 388 L896 385 L880 382 L848 375 L816 370 L784 371 L753 384 L736 396 L720 411 L704 427 L688 444 L672 462 L657 480 L643 496 L630 512 L617 528 L605 544 L592 562 L576 586 L561 608 L550 624 L539 640"/>
+<path class="ln" d="M409 640 L409 608 L405 576 L400 557 L387 528 L373 512 L352 507 L336 516 L320 540 L313 560 L308 592 L316 624 L327 640"/>
+<path class="idx" d="M80 0 L64 15 L48 30 L32 46 L16 61 L0 75"/>
+<path class="idx" d="M1236 0 L1248 32 L1254 48 L1264 74 L1274 96 L1280 112 L1296 140 L1312 160 L1328 173 L1344 181 L1376 186 L1402 176 L1408 160 L1401 144 L1387 128 L1373 112 L1360 95 L1344 64 L1339 48 L1334 16 L1335 0"/>
+<path class="idx" d="M1175 640 L1172 608 L1169 576 L1167 560 L1163 528 L1158 496 L1152 465 L1147 448 L1136 420 L1124 400 L1111 384 L1089 368 L1072 362 L1040 358 L1008 360 L976 363 L944 363 L912 358 L891 352 L864 342 L848 334 L816 320 L800 315 L768 316 L752 323 L735 336 L719 352 L704 369 L688 388 L672 407 L656 426 L640 445 L624 462 L608 479 L592 494 L576 508 L560 520 L544 530 L512 537 L492 528 L475 512 L462 496 L448 475 L432 452 L417 432 L402 416 L384 402 L368 394 L336 391 L315 400 L299 416 L288 436 L279 464 L272 490 L267 512 L259 544 L255 560 L251 592 L253 624 L258 640"/>
+<path class="ln" d="M149 0 L129 16 L112 31 L96 48 L82 64 L68 80 L55 96 L42 112 L28 128 L13 144 L0 157"/>
+<path class="ln" d="M1199 0 L1204 16 L1214 48 L1219 64 L1229 96 L1235 112 L1248 144 L1256 160 L1264 176 L1280 199 L1296 215 L1312 227 L1337 240 L1360 247 L1392 254 L1416 256 L1432 256 L1440 256"/>
+<path class="ln" d="M1381 0 L1390 32 L1402 48 L1424 63 L1440 66"/>
+<path class="ln" d="M1192 640 L1188 608 L1184 576 L1182 560 L1178 528 L1173 496 L1168 467 L1164 448 L1154 416 L1147 400 L1136 381 L1120 362 L1104 350 L1072 337 L1056 335 L1024 336 L1008 337 L976 339 L944 337 L928 334 L896 322 L880 313 L864 302 L846 288 L826 272 L802 256 L784 250 L760 256 L737 272 L722 288 L710 304 L698 320 L686 336 L672 356 L656 377 L640 396 L624 413 L608 429 L592 442 L576 453 L547 464 L528 465 L512 460 L494 448 L477 432 L464 416 L448 397 L432 377 L416 359 L400 344 L384 334 L352 325 L320 326 L288 334 L272 342 L256 353 L240 374 L234 400 L234 432 L235 464 L233 496 L228 528 L224 552 L220 576 L218 608 L222 640"/>
+<path class="ln" d="M207 0 L183 16 L163 32 L147 48 L132 64 L119 80 L107 96 L96 114 L80 141 L69 160 L62 176 L48 207 L42 224 L34 256 L34 288 L33 320 L18 336 L0 344"/>
+<path class="ln" d="M1170 0 L1180 32 L1184 48 L1194 80 L1200 98 L1210 128 L1216 144 L1229 176 L1237 192 L1248 212 L1264 233 L1280 248 L1296 260 L1321 272 L1344 280 L1370 288 L1392 294 L1424 301 L1440 305"/>
+<path class="ln" d="M1209 640 L1203 608 L1200 585 L1196 560 L1192 528 L1188 496 L1184 472 L1180 448 L1172 416 L1167 400 L1152 368 L1141 352 L1126 336 L1104 321 L1088 315 L1056 310 L1024 312 L992 314 L960 313 L928 304 L912 296 L896 285 L880 270 L864 252 L848 231 L832 209 L817 192 L800 179 L784 175 L768 178 L749 192 L734 208 L720 227 L704 251 L691 272 L682 288 L671 304 L656 327 L640 349 L624 368 L608 384 L592 397 L576 406 L544 414 L512 404 L496 391 L480 375 L464 355 L449 336 L436 320 L422 304 L401 288 L384 280 L352 276 L320 279 L288 285 L272 289 L240 297 L214 304 L192 312 L169 320 L146 336 L142 352 L150 368 L161 384 L176 405 L190 432 L196 448 L202 480 L203 512 L200 544 L195 576 L192 607 L192 624 L193 640"/>
+<path class="ln" d="M265 0 L240 13 L224 24 L208 35 L192 49 L176 65 L160 84 L144 108 L134 128 L127 144 L119 176 L121 208 L128 224 L145 240 L176 252 L208 255 L240 253 L272 249 L304 243 L320 240 L352 235 L384 233 L410 240 L432 254 L448 272 L460 288 L471 304 L482 320 L496 337 L512 352 L544 367 L576 362 L593 352 L611 336 L626 320 L640 300 L656 275 L667 256 L676 240 L688 216 L700 192 L709 176 L720 153 L734 128 L743 112 L752 92 L765 64 L768 48 L768 17 L765 0"/>
+<path class="ln" d="M854 0 L845 16 L833 48 L835 80 L844 112 L850 128 L862 160 L868 176 L880 204 L890 224 L901 240 L914 256 L935 272 L960 283 L992 287 L1024 285 L1056 282 L1088 286 L1104 290 L1131 304 L1150 320 L1162 336 L1171 352 L1183 384 L1187 400 L1193 432 L1198 464 L1200 480 L1204 512 L1208 544 L1213 576 L1216 594 L1222 624 L1225 640"/>
+<path class="ln" d="M1142 0 L1152 32 L1156 48 L1166 80 L1171 96 L1182 128 L1187 144 L1198 176 L1204 192 L1216 220 L1227 240 L1238 256 L1255 272 L1279 288 L1296 296 L1317 304 L1344 312 L1369 320 L1392 327 L1415 336 L1440 348"/>
+<path class="ln" d="M168 640 L169 608 L173 576 L176 551 L178 528 L176 496 L173 480 L160 452 L144 434 L128 422 L112 414 L80 407 L48 406 L16 409 L0 411"/>
+<path class="idx" d="M343 0 L320 8 L299 16 L272 29 L256 38 L240 49 L222 64 L207 80 L192 101 L179 128 L175 144 L176 169 L188 192 L208 205 L224 210 L256 212 L288 209 L304 206 L336 199 L364 192 L384 188 L416 188 L432 193 L451 208 L464 224 L480 249 L494 272 L505 288 L520 304 L544 318 L560 320 L576 316 L595 304 L611 288 L624 271 L640 246 L652 224 L660 208 L672 180 L681 160 L688 142 L699 112 L705 96 L713 64 L718 32 L719 0"/>
+<path class="idx" d="M926 0 L913 32 L910 48 L906 80 L908 112 L911 144 L914 160 L924 192 L931 208 L944 227 L960 240 L992 249 L1024 249 L1056 246 L1088 247 L1120 253 L1136 257 L1165 256 L1172 240 L1169 208 L1166 192 L1158 160 L1152 138 L1144 112 L1136 86 L1129 64 L1120 34 L1114 16 L1109 0"/>
+<path class="idx" d="M1440 394 L1424 379 L1408 368 L1376 353 L1360 347 L1328 338 L1312 334 L1280 326 L1256 320 L1232 315 L1214 320 L1207 352 L1208 384 L1210 416 L1213 448 L1215 480 L1217 496 L1221 528 L1225 560 L1231 592 L1234 608 L1242 640"/>
+<path class="idx" d="M145 640 L148 608 L153 576 L155 544 L154 512 L144 483 L129 464 L112 451 L96 444 L64 439 L32 439 L0 443"/>
+<path class="ln" d="M464 0 L448 14 L432 23 L400 32 L384 34 L352 39 L320 47 L304 54 L284 64 L263 80 L248 96 L239 112 L238 144 L255 160 L272 164 L304 163 L320 159 L352 147 L368 140 L397 128 L416 121 L448 126 L464 138 L480 159 L490 176 L498 192 L512 220 L525 240 L540 256 L560 264 L584 256 L602 240 L614 224 L625 208 L640 177 L647 160 L656 138 L665 112 L672 90 L679 64 L684 32 L686 0"/>
+<path class="ln" d="M1024 40 L1016 64 L1011 96 L1009 128 L1024 160 L1040 164 L1072 160 L1081 144 L1078 112 L1072 91 L1060 64 L1052 48 L1024 40"/>
+<path class="ln" d="M1440 459 L1429 432 L1417 416 L1400 400 L1376 385 L1360 378 L1328 368 L1312 365 L1280 363 L1261 368 L1243 384 L1234 416 L1232 434 L1232 464 L1232 480 L1235 512 L1239 544 L1244 576 L1248 594 L1257 624 L1262 640"/>
+<path class="ln" d="M121 640 L128 608 L130 592 L134 560 L132 528 L128 512 L112 487 L96 475 L64 465 L48 464 L32 464 L0 468"/>
+<path class="ln" d="M1440 556 L1435 576 L1424 606 L1415 624 L1407 640"/>
+<path class="ln" d="M526 0 L515 32 L513 64 L519 96 L528 123 L537 144 L545 160 L560 177 L582 176 L600 160 L611 144 L624 118 L632 96 L640 73 L646 48 L650 16 L651 0"/>
+<path class="ln" d="M1373 640 L1385 624 L1395 608 L1408 579 L1414 560 L1419 528 L1419 496 L1411 464 L1402 448 L1390 432 L1369 416 L1344 405 L1321 400 L1302 400 L1280 407 L1264 424 L1256 448 L1253 480 L1253 512 L1257 544 L1263 576 L1268 592 L1280 624 L1289 640"/>
+<path class="ln" d="M96 640 L102 624 L109 592 L112 567 L112 556 L107 528 L96 510 L78 496 L48 488 L16 488 L0 490"/>
+<path class="ln" d="M1312 442 L1296 450 L1280 480 L1278 496 L1278 528 L1280 544 L1290 576 L1297 592 L1312 610 L1344 613 L1360 600 L1376 577 L1383 560 L1389 528 L1386 496 L1376 472 L1360 454 L1344 445 L1312 442"/>
+<path class="ln" d="M63 640 L74 624 L82 608 L88 576 L83 544 L73 528 L48 514 L32 512 L14 512 L0 514"/>
+    </svg>
+    <div class="wrap nando__grid">
+      <div class="nando__txt">
+        <p class="label">Assistente locale</p>
+        <h2 id="h-nando" data-split>Chiedi la strada a Nando</h2>
+        <p data-reveal>Nando è la guida virtuale dell'Altopiano: gli chiedi che sentiero fare con la pioggia, dove mangiare in malga o come arrivare senza auto, e ti risponde in un attimo.</p>
+        <a class="btn btn--paper" href="https://tuttoaltopiano.it/chiedi-a-nando" data-reveal>Parla con Nando <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <ul class="qs" aria-label="Domande da fare a Nando">
+        <li data-reveal><a href="https://tuttoaltopiano.it/chiedi-a-nando"><span><span class="n">01</span> Che sentiero faccio con i bambini?</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/chiedi-a-nando"><span><span class="n">02</span> Dove si scia oggi sull'Altopiano?</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/chiedi-a-nando"><span><span class="n">03</span> Cosa vedo in un giorno tra Asiago e Gallio?</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/chiedi-a-nando"><span><span class="n">04</span> Quali malghe sono aperte a settembre?</span><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="eventi" aria-labelledby="h-eventi">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="label">Calendario</p><h2 id="h-eventi" data-split>Prossimi appuntamenti</h2></div>
+        <a class="textlink" href="https://tuttoaltopiano.it/eventi">Tutti gli eventi <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+      </div>
+      <div class="cal">
+        <div class="cal__months" aria-hidden="true"><span></span><div class="cal__m"><span>Dic</span><span>Gen</span><span>Feb</span><span>Mar</span><span>Apr</span><span>Mag</span><span>Giu</span></div></div>
+        <div class="cal__m-mobile" aria-hidden="true"><span>Dic</span><span>Gen</span><span>Feb</span><span>Mar</span><span>Apr</span><span>Mag</span><span>Giu</span></div>
+        <ul>
+          <li class="ev"><div><h3>Mercatini di Natale</h3><p>Dicembre · Asiago, Gallio, Canove</p></div><div class="ev__track" aria-hidden="true"><span class="ev__bar" style="--s:1;--e:2"></span></div></li>
+          <li class="ev"><div><h3>Capodanno in piazza</h3><p>31 dicembre · Asiago</p></div><div class="ev__track" aria-hidden="true"><span class="ev__bar dot" style="--s:1;--e:2"></span></div></li>
+          <li class="ev"><div><h3>Gran Fondo Val Formica</h3><p>Gennaio - febbraio · Campomulo (Gallio)</p></div><div class="ev__track" aria-hidden="true"><span class="ev__bar" style="--s:2;--e:4"></span></div></li>
+          <li class="ev"><div><h3>Carnevale cimbro</h3><p>Febbraio · Roana e frazioni</p></div><div class="ev__track" aria-hidden="true"><span class="ev__bar" style="--s:3;--e:4"></span></div></li>
+          <li class="ev"><div><h3>Risveglio delle malghe</h3><p>Maggio - giugno · Pascoli di Gallio ed Enego</p></div><div class="ev__track" aria-hidden="true"><span class="ev__bar" style="--s:6;--e:8"></span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="itinerari" aria-labelledby="h-iti" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><p class="label">Da 1 a 3 giorni</p><h2 id="h-iti" data-split>Itinerari pronti all'uso</h2></div>
+        <a class="btn btn--red" href="https://tuttoaltopiano.it/itinerari">Tutti gli itinerari <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+      </div>
+      <ul class="iti">
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><span class="days"><i aria-hidden="true"><b class="on"></b><b></b><b></b></i>1 giorno · Prima volta</span><h3>L'Altopiano in 1 giorno</h3><p>Il giro classico tra Asiago, Gallio e Roana per chi ha solo una giornata.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><span class="days"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b></i>2 giorni · Famiglie</span><h3>2 giorni con bambini</h3><p>Percorsi facili, animali, parco avventura e una serata sotto le stelle.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><span class="days"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b></i>2 giorni · Storia</span><h3>2 giorni sulla Grande Guerra</h3><p>Trincee, sacrari e musei per capire il fronte dell'Altopiano.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><span class="days"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b class="on"></b></i>3 giorni · Escursionisti</span><h3>3 giorni di trekking</h3><p>Le cime maggiori dell'Altopiano, dormendo tra Gallio e Asiago.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><span class="days"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b></i>2 giorni · Inverno</span><h3>Weekend sulla neve</h3><p>Fondo a Campomulo, discesa al Kaberlaba e ciaspole in Marcesina.</p></a></li>
+        <li data-reveal><a href="https://tuttoaltopiano.it/itinerari"><span class="days"><i aria-hidden="true"><b class="on"></b><b class="on"></b><b></b></i>2 giorni · Coppie</span><h3>Autunno slow tra le contrade</h3><p>Foliage, mercatini del formaggio e passeggiate senza fatica.</p></a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <svg class="foot__lines" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<path class="ln" d="M1098 640 L1104 612 L1106 592 L1108 560 L1106 528 L1104 512 L1093 480 L1083 464 L1066 448 L1040 439 L1008 439 L976 444 L956 448 L928 453 L896 459 L871 464 L848 470 L820 480 L800 490 L784 500 L766 512 L747 528 L731 544 L717 560 L704 578 L688 607 L681 624 L676 640"/>
+<path class="ln" d="M1132 640 L1133 608 L1133 576 L1131 544 L1127 512 L1120 482 L1113 464 L1104 446 L1088 426 L1072 415 L1040 408 L1008 409 L976 413 L948 416 L928 417 L896 418 L864 418 L832 419 L800 424 L780 432 L752 448 L736 460 L720 475 L704 491 L688 508 L672 528 L660 544 L649 560 L640 576 L624 606 L616 624 L610 640"/>
+<path class="ln" d="M1156 640 L1154 608 L1152 576 L1151 560 L1148 528 L1142 496 L1136 470 L1128 448 L1120 430 L1104 408 L1088 395 L1060 384 L1040 382 L1008 384 L992 385 L960 388 L928 388 L896 385 L880 382 L848 375 L816 370 L784 371 L753 384 L736 396 L720 411 L704 427 L688 444 L672 462 L657 480 L643 496 L630 512 L617 528 L605 544 L592 562 L576 586 L561 608 L550 624 L539 640"/>
+<path class="ln" d="M409 640 L409 608 L405 576 L400 557 L387 528 L373 512 L352 507 L336 516 L320 540 L313 560 L308 592 L316 624 L327 640"/>
+<path class="idx" d="M80 0 L64 15 L48 30 L32 46 L16 61 L0 75"/>
+<path class="idx" d="M1236 0 L1248 32 L1254 48 L1264 74 L1274 96 L1280 112 L1296 140 L1312 160 L1328 173 L1344 181 L1376 186 L1402 176 L1408 160 L1401 144 L1387 128 L1373 112 L1360 95 L1344 64 L1339 48 L1334 16 L1335 0"/>
+<path class="idx" d="M1175 640 L1172 608 L1169 576 L1167 560 L1163 528 L1158 496 L1152 465 L1147 448 L1136 420 L1124 400 L1111 384 L1089 368 L1072 362 L1040 358 L1008 360 L976 363 L944 363 L912 358 L891 352 L864 342 L848 334 L816 320 L800 315 L768 316 L752 323 L735 336 L719 352 L704 369 L688 388 L672 407 L656 426 L640 445 L624 462 L608 479 L592 494 L576 508 L560 520 L544 530 L512 537 L492 528 L475 512 L462 496 L448 475 L432 452 L417 432 L402 416 L384 402 L368 394 L336 391 L315 400 L299 416 L288 436 L279 464 L272 490 L267 512 L259 544 L255 560 L251 592 L253 624 L258 640"/>
+<path class="ln" d="M149 0 L129 16 L112 31 L96 48 L82 64 L68 80 L55 96 L42 112 L28 128 L13 144 L0 157"/>
+<path class="ln" d="M1199 0 L1204 16 L1214 48 L1219 64 L1229 96 L1235 112 L1248 144 L1256 160 L1264 176 L1280 199 L1296 215 L1312 227 L1337 240 L1360 247 L1392 254 L1416 256 L1432 256 L1440 256"/>
+<path class="ln" d="M1381 0 L1390 32 L1402 48 L1424 63 L1440 66"/>
+<path class="ln" d="M1192 640 L1188 608 L1184 576 L1182 560 L1178 528 L1173 496 L1168 467 L1164 448 L1154 416 L1147 400 L1136 381 L1120 362 L1104 350 L1072 337 L1056 335 L1024 336 L1008 337 L976 339 L944 337 L928 334 L896 322 L880 313 L864 302 L846 288 L826 272 L802 256 L784 250 L760 256 L737 272 L722 288 L710 304 L698 320 L686 336 L672 356 L656 377 L640 396 L624 413 L608 429 L592 442 L576 453 L547 464 L528 465 L512 460 L494 448 L477 432 L464 416 L448 397 L432 377 L416 359 L400 344 L384 334 L352 325 L320 326 L288 334 L272 342 L256 353 L240 374 L234 400 L234 432 L235 464 L233 496 L228 528 L224 552 L220 576 L218 608 L222 640"/>
+<path class="ln" d="M207 0 L183 16 L163 32 L147 48 L132 64 L119 80 L107 96 L96 114 L80 141 L69 160 L62 176 L48 207 L42 224 L34 256 L34 288 L33 320 L18 336 L0 344"/>
+<path class="ln" d="M1170 0 L1180 32 L1184 48 L1194 80 L1200 98 L1210 128 L1216 144 L1229 176 L1237 192 L1248 212 L1264 233 L1280 248 L1296 260 L1321 272 L1344 280 L1370 288 L1392 294 L1424 301 L1440 305"/>
+<path class="ln" d="M1209 640 L1203 608 L1200 585 L1196 560 L1192 528 L1188 496 L1184 472 L1180 448 L1172 416 L1167 400 L1152 368 L1141 352 L1126 336 L1104 321 L1088 315 L1056 310 L1024 312 L992 314 L960 313 L928 304 L912 296 L896 285 L880 270 L864 252 L848 231 L832 209 L817 192 L800 179 L784 175 L768 178 L749 192 L734 208 L720 227 L704 251 L691 272 L682 288 L671 304 L656 327 L640 349 L624 368 L608 384 L592 397 L576 406 L544 414 L512 404 L496 391 L480 375 L464 355 L449 336 L436 320 L422 304 L401 288 L384 280 L352 276 L320 279 L288 285 L272 289 L240 297 L214 304 L192 312 L169 320 L146 336 L142 352 L150 368 L161 384 L176 405 L190 432 L196 448 L202 480 L203 512 L200 544 L195 576 L192 607 L192 624 L193 640"/>
+<path class="ln" d="M265 0 L240 13 L224 24 L208 35 L192 49 L176 65 L160 84 L144 108 L134 128 L127 144 L119 176 L121 208 L128 224 L145 240 L176 252 L208 255 L240 253 L272 249 L304 243 L320 240 L352 235 L384 233 L410 240 L432 254 L448 272 L460 288 L471 304 L482 320 L496 337 L512 352 L544 367 L576 362 L593 352 L611 336 L626 320 L640 300 L656 275 L667 256 L676 240 L688 216 L700 192 L709 176 L720 153 L734 128 L743 112 L752 92 L765 64 L768 48 L768 17 L765 0"/>
+<path class="ln" d="M854 0 L845 16 L833 48 L835 80 L844 112 L850 128 L862 160 L868 176 L880 204 L890 224 L901 240 L914 256 L935 272 L960 283 L992 287 L1024 285 L1056 282 L1088 286 L1104 290 L1131 304 L1150 320 L1162 336 L1171 352 L1183 384 L1187 400 L1193 432 L1198 464 L1200 480 L1204 512 L1208 544 L1213 576 L1216 594 L1222 624 L1225 640"/>
+<path class="ln" d="M1142 0 L1152 32 L1156 48 L1166 80 L1171 96 L1182 128 L1187 144 L1198 176 L1204 192 L1216 220 L1227 240 L1238 256 L1255 272 L1279 288 L1296 296 L1317 304 L1344 312 L1369 320 L1392 327 L1415 336 L1440 348"/>
+<path class="ln" d="M168 640 L169 608 L173 576 L176 551 L178 528 L176 496 L173 480 L160 452 L144 434 L128 422 L112 414 L80 407 L48 406 L16 409 L0 411"/>
+<path class="idx" d="M343 0 L320 8 L299 16 L272 29 L256 38 L240 49 L222 64 L207 80 L192 101 L179 128 L175 144 L176 169 L188 192 L208 205 L224 210 L256 212 L288 209 L304 206 L336 199 L364 192 L384 188 L416 188 L432 193 L451 208 L464 224 L480 249 L494 272 L505 288 L520 304 L544 318 L560 320 L576 316 L595 304 L611 288 L624 271 L640 246 L652 224 L660 208 L672 180 L681 160 L688 142 L699 112 L705 96 L713 64 L718 32 L719 0"/>
+<path class="idx" d="M926 0 L913 32 L910 48 L906 80 L908 112 L911 144 L914 160 L924 192 L931 208 L944 227 L960 240 L992 249 L1024 249 L1056 246 L1088 247 L1120 253 L1136 257 L1165 256 L1172 240 L1169 208 L1166 192 L1158 160 L1152 138 L1144 112 L1136 86 L1129 64 L1120 34 L1114 16 L1109 0"/>
+<path class="idx" d="M1440 394 L1424 379 L1408 368 L1376 353 L1360 347 L1328 338 L1312 334 L1280 326 L1256 320 L1232 315 L1214 320 L1207 352 L1208 384 L1210 416 L1213 448 L1215 480 L1217 496 L1221 528 L1225 560 L1231 592 L1234 608 L1242 640"/>
+<path class="idx" d="M145 640 L148 608 L153 576 L155 544 L154 512 L144 483 L129 464 L112 451 L96 444 L64 439 L32 439 L0 443"/>
+<path class="ln" d="M464 0 L448 14 L432 23 L400 32 L384 34 L352 39 L320 47 L304 54 L284 64 L263 80 L248 96 L239 112 L238 144 L255 160 L272 164 L304 163 L320 159 L352 147 L368 140 L397 128 L416 121 L448 126 L464 138 L480 159 L490 176 L498 192 L512 220 L525 240 L540 256 L560 264 L584 256 L602 240 L614 224 L625 208 L640 177 L647 160 L656 138 L665 112 L672 90 L679 64 L684 32 L686 0"/>
+<path class="ln" d="M1024 40 L1016 64 L1011 96 L1009 128 L1024 160 L1040 164 L1072 160 L1081 144 L1078 112 L1072 91 L1060 64 L1052 48 L1024 40"/>
+<path class="ln" d="M1440 459 L1429 432 L1417 416 L1400 400 L1376 385 L1360 378 L1328 368 L1312 365 L1280 363 L1261 368 L1243 384 L1234 416 L1232 434 L1232 464 L1232 480 L1235 512 L1239 544 L1244 576 L1248 594 L1257 624 L1262 640"/>
+<path class="ln" d="M121 640 L128 608 L130 592 L134 560 L132 528 L128 512 L112 487 L96 475 L64 465 L48 464 L32 464 L0 468"/>
+<path class="ln" d="M1440 556 L1435 576 L1424 606 L1415 624 L1407 640"/>
+<path class="ln" d="M526 0 L515 32 L513 64 L519 96 L528 123 L537 144 L545 160 L560 177 L582 176 L600 160 L611 144 L624 118 L632 96 L640 73 L646 48 L650 16 L651 0"/>
+<path class="ln" d="M1373 640 L1385 624 L1395 608 L1408 579 L1414 560 L1419 528 L1419 496 L1411 464 L1402 448 L1390 432 L1369 416 L1344 405 L1321 400 L1302 400 L1280 407 L1264 424 L1256 448 L1253 480 L1253 512 L1257 544 L1263 576 L1268 592 L1280 624 L1289 640"/>
+<path class="ln" d="M96 640 L102 624 L109 592 L112 567 L112 556 L107 528 L96 510 L78 496 L48 488 L16 488 L0 490"/>
+<path class="ln" d="M1312 442 L1296 450 L1280 480 L1278 496 L1278 528 L1280 544 L1290 576 L1297 592 L1312 610 L1344 613 L1360 600 L1376 577 L1383 560 L1389 528 L1386 496 L1376 472 L1360 454 L1344 445 L1312 442"/>
+<path class="ln" d="M63 640 L74 624 L82 608 L88 576 L83 544 L73 528 L48 514 L32 512 L14 512 L0 514"/>
+  </svg>
+  <div class="wrap foot__in">
+    <div class="foot__top">
+      <div>
+        <a class="logo" href="#top" aria-label="TUTTOALTOPIANO, torna all'inizio">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path><path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19"></path></svg>
+          <span>TUTTOALTOPIANO</span>
+        </a>
+        <p class="foot__tag">La guida indipendente dell'Altopiano dei Sette Comuni. Asiago · Gallio · Roana e gli altri Sette Comuni.</p>
+      </div>
+      <div class="foot__cols">
+        <nav aria-label="Scoprire"><h2>Scoprire</h2><ul><li><a href="https://tuttoaltopiano.it/cosa-vedere">Cosa vedere</a></li><li><a href="https://tuttoaltopiano.it/cosa-fare">Cosa fare</a></li><li><a href="https://tuttoaltopiano.it/sentieri">Sentieri</a></li><li><a href="https://tuttoaltopiano.it/itinerari">Itinerari</a></li><li><a href="https://tuttoaltopiano.it/storia">Storia e Grande Guerra</a></li></ul></nav>
+        <nav aria-label="Organizzare"><h2>Organizzare</h2><ul><li><a href="https://tuttoaltopiano.it/come-arrivare">Come arrivare</a></li><li><a href="https://tuttoaltopiano.it/come-muoversi">Come muoversi</a></li><li><a href="https://tuttoaltopiano.it/dove-dormire">Dove dormire</a></li><li><a href="https://tuttoaltopiano.it/dove-mangiare">Dove mangiare</a></li><li><a href="https://tuttoaltopiano.it/mappa">Mappa</a></li></ul></nav>
+        <nav aria-label="Ogni giorno"><h2>Ogni giorno</h2><ul><li><a href="https://tuttoaltopiano.it/dove-oggi">Dove andare oggi</a></li><li><a href="https://tuttoaltopiano.it/meteo">Meteo e neve</a></li><li><a href="https://tuttoaltopiano.it/webcam">Webcam</a></li><li><a href="https://tuttoaltopiano.it/eventi">Eventi</a></li><li><a href="https://tuttoaltopiano.it/numeri-utili">Numeri utili</a></li></ul></nav>
+        <nav aria-label="Info"><h2>Info</h2><ul><li><a href="https://tuttoaltopiano.it/chiedi-a-nando">Chiedi a Nando</a></li><li><a href="https://tuttoaltopiano.it/faq">Domande frequenti</a></li><li><a href="https://tuttoaltopiano.it/contatti">Contatti</a></li><li><a href="https://tuttoaltopiano.it/privacy">Privacy</a></li><li><a href="https://tuttoaltopiano.it/cookie-policy">Cookie policy</a></li></ul></nav>
+      </div>
+    </div>
+    <div class="foot__legal">
+      <span>© 2026 tuttoaltopiano.it — guida indipendente, non è un sito istituzionale. Dati meteo: Open-Meteo.</span>
+      <button type="button">Preferenze cookie</button>
+    </div>
+  </div>
+</footer>
+<div class="restyle-bar">Restyle concept · direzione 2 di 3 · <a href="tokens.css">design system →</a> · <a href="../index.html">tutte le direzioni</a></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script>
+(() => {
+  // Menu mobile
+  const btn = document.querySelector('.menu-btn');
+  const setOpen = (open) => {
+    btn.setAttribute('aria-expanded', String(open));
+    btn.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu');
+    document.body.classList.toggle('nav-open', open);
+  };
+  btn.addEventListener('click', () => setOpen(btn.getAttribute('aria-expanded') !== 'true'));
+  document.querySelectorAll('#nav a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.gsap || !window.ScrollTrigger || !window.SplitText) return;
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  const fmt = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  const prepDraw = (els) => els.forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; });
+
+  const run = () => {
+    // 1. Curve di livello che si disegnano all'apertura
+    const lines = [...document.querySelectorAll('.hero__contours path')];
+    prepDraw(lines);
+    gsap.to(lines, { strokeDashoffset: 0, duration: 2.2, ease: 'power2.inOut', stagger: { each: 0.025, from: 'random' } });
+    gsap.to('.hero__contours', { yPercent: 6, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+    // 2. Titolo: lettere che salgono, riga per riga dentro la maschera
+    SplitText.create('.cartouche h1', { type: 'lines,chars', mask: 'lines', autoSplit: true,
+      onSplit: s => gsap.from(s.chars, { yPercent: 110, duration: 0.8, ease: 'power3.out', stagger: 0.018, delay: 0.2 }) });
+    gsap.from('.cartouche', { y: 24, opacity: 0, duration: 0.8, ease: 'power3.out' });
+
+    // 3. Il sentiero rosso si traccia tra le quote
+    const mask = document.querySelector('.t-mask'); prepDraw([mask]);
+    gsap.timeline({ delay: 0.9 })
+      .to(mask, { strokeDashoffset: 0, duration: 2, ease: 'power1.inOut' })
+      .from('.trail .wp', { scale: 0, opacity: 0, transformOrigin: '0% 50%', duration: 0.5, ease: 'back.out(2)', stagger: 0.32 }, 0.1);
+
+    // 4. Titoli di sezione
+    document.querySelectorAll('[data-split]').forEach(el => SplitText.create(el, { type: 'lines', mask: 'lines', autoSplit: true,
+      onSplit: s => gsap.from(s.lines, { yPercent: 105, duration: 0.9, ease: 'power3.out', stagger: 0.08, scrollTrigger: { trigger: el, start: 'top 88%', once: true } }) }));
+
+    // 5. Blocchi che entrano
+    document.querySelectorAll('[data-reveal]').forEach(el => gsap.from(el, { y: 26, opacity: 0, duration: 0.8, ease: 'power3.out', clearProps: 'transform',
+      scrollTrigger: { trigger: el, start: 'top 92%', once: true } }));
+
+    // 6. Profilo altimetrico: linea che si disegna, punti che compaiono
+    const pl = document.querySelector('.pline'); prepDraw([pl]);
+    gsap.timeline({ scrollTrigger: { trigger: '.profile', start: 'top 80%', once: true } })
+      .to(pl, { strokeDashoffset: 0, duration: 1.6, ease: 'power2.inOut' })
+      .from('.profile .area', { opacity: 0, duration: 0.8 }, 0.4)
+      .from('.profile .pt', { opacity: 0, y: 8, duration: 0.4, stagger: 0.18 }, 0.2);
+
+    // 7. Quote che contano
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const end = +el.dataset.count, o = { v: Math.round(end * 0.85) };
+      gsap.to(o, { v: end, duration: 1.4, ease: 'power2.out', onUpdate: () => { el.textContent = fmt(o.v); }, scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+    });
+
+    // 8. Foglio di percorso: il tratteggio rosso avanza con lo scroll
+    const svg = document.querySelector('.route__line svg');
+    const draw = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    draw.setAttribute('x1', '6'); draw.setAttribute('y1', '0'); draw.setAttribute('x2', '6'); draw.setAttribute('y2', '100');
+    draw.setAttribute('class', 'draw'); draw.setAttribute('vector-effect', 'non-scaling-stroke');
+    svg.appendChild(draw);
+    gsap.fromTo(draw, { scaleY: 0, transformOrigin: '50% 0%' }, { scaleY: 1, ease: 'none',
+      scrollTrigger: { trigger: '.route', start: 'top 70%', end: 'bottom 60%', scrub: 0.5 } });
+
+    // 9. Tavole: cornice e foto che si assestano
+    document.querySelectorAll('[data-tav]').forEach((t, i) => {
+      gsap.timeline({ scrollTrigger: { trigger: t, start: 'top 88%', once: true } })
+        .from(t, { y: 40, opacity: 0, duration: 0.8, ease: 'power3.out', delay: i * 0.1 })
+        .from(t.querySelector('img'), { scale: 1.25, duration: 1.4, ease: 'expo.out' }, 0);
+    });
+
+    // 10. Calendario: barre che si allungano
+    gsap.from('.ev__bar', { scaleX: 0, duration: 0.9, ease: 'power3.out', stagger: 0.12, scrollTrigger: { trigger: '.cal', start: 'top 80%', once: true } });
+  };
+  document.fonts && document.fonts.ready ? document.fonts.ready.then(run) : run();
+})();
+</script>
+</body>
+</html>

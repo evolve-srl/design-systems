@@ -1,0 +1,52 @@
+/* Medicleo · Restyle 2 · Tecnologia invisibile
+   Design system: SOLO variabili. Pulito e tech, impulsi radar come motivo, dati con fonte. */
+:root {
+  /* Colori · notte (sezioni scure) */
+  --c-notte: #0A1B2A;          /* sfondo hero e sezioni dati scure */
+  --c-notte-2: #10263A;        /* card su notte */
+  --c-notte-linea: #1F3A52;    /* bordi e griglie su notte */
+  --c-su-notte: #FFFFFF;       /* testo principale su notte */
+  --c-su-notte-muted: #9AB0C2; /* testo secondario su notte: 7.78:1 */
+
+  /* Colori · segnale (dal ciano del logo) */
+  --c-segnale: #00AEF0;        /* ciano del logo: CTA su notte con testo notte 6.91:1, anelli radar */
+  --c-segnale-chiaro: #7FD8FF; /* testo accento su notte: 10.95:1 */
+  --c-allerta: #EE0E65;        /* magenta del logo: solo indicatore "allerta" decorativo, mai testo */
+
+  /* Colori · chiaro (sezioni leggibili) */
+  --c-carta: #F4F8FA;          /* sfondo sezioni chiare */
+  --c-bianco: #FFFFFF;         /* card */
+  --c-linea: #D5E1E8;          /* bordi e assi grafici */
+  --c-ink: #0D2131;            /* testo principale su chiaro: 15.37:1 */
+  --c-muted: #4C5D6A;          /* testo secondario: 6.38:1 su carta */
+  --c-primario: #00558B;       /* CTA su chiaro (bianco 7.86:1), link (7.35:1 su carta) */
+
+  /* Tipografia */
+  --f-titoli: "Sora", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-dati: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --t-hero: clamp(2.4rem, 1.5rem + 3.9vw, 4.6rem);
+  --t-h2: clamp(1.9rem, 1.3rem + 2.1vw, 3.1rem);
+  --t-h3: clamp(1.1rem, 1rem + .35vw, 1.3rem);
+  --t-num: clamp(2.6rem, 1.8rem + 3vw, 4.4rem);
+  --t-lead: clamp(1.05rem, .98rem + .3vw, 1.22rem);
+  --t-body: 1rem;
+  --t-mono: .78rem;            /* etichette tecniche, fonti */
+  --ls-mono: .08em;
+
+  /* Spaziatura e layout */
+  --gutter: clamp(16px, 4vw, 40px);
+  --max: 1240px;
+  --sezione: clamp(72px, 9vw, 128px);
+  --gap: clamp(16px, 2.4vw, 28px);
+
+  /* Forme: precise, poco arrotondate */
+  --r-card: 14px;
+  --r-pill: 999px;
+
+  /* Movimento: impulsi regolari */
+  --m-impulso: 3.2s;           /* durata di un anello radar */
+  --m-ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* Logo: area utile del file originale (300x300), su chip bianco */
+  --logo-h: 46px;
+}

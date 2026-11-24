@@ -1,0 +1,54 @@
+/* Oblivio — direzione 2 "Studio legale": design system (solo variabili) */
+:root {
+  /* Carta: fondi caldi da atto notarile */
+  --c-paper: #F4F0E8;       /* sfondo pagina */
+  --c-paper-2: #EAE4D8;     /* fascicolo, pannelli, footer */
+  --c-rule: #CFC6B5;        /* filetti decorativi (non usati per testo) */
+  --c-rule-strong: #0E1626; /* filetto pieno di apertura sezione */
+
+  /* Inchiostro: testo e sezioni scure */
+  --c-ink: #0E1626;         /* testo principale, 15.9:1 su carta */
+  --c-ink-2: #2B3344;       /* testo secondario forte, 10:1 su --c-paper-2 */
+  --c-muted: #5A6170;       /* note e didascalie, 5.47:1 su carta, 4.91:1 su --c-paper-2 */
+  --c-night: #0B1424;       /* sezione "quadro normativo" */
+  --c-on-night: #F4F0E8;    /* testo su notte, 16.2:1 */
+  --c-on-night-muted: #A9B1C2; /* testo secondario su notte, 8.56:1 */
+  --c-night-accent: #8FA7E8;   /* blu del brand schiarito per il fondo scuro, 7.77:1 */
+
+  /* Marca: un solo blu, quello del logo e del brand kit */
+  --c-brand: #1D4ED8;       /* CTA e timbro; bianco sopra 6.70:1, su carta 5.90:1 */
+  --c-brand-hover: #1E40AF; /* hover CTA, bianco sopra 8.72:1 */
+  --c-on-brand: #FFFFFF;
+
+  /* Tipografia: Newsreader (serif editoriale, titoli e citazioni) + Inter (testo e interfaccia) */
+  --f-serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --f-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs-display: clamp(2.6rem, 1.3rem + 4.4vw, 5.25rem);  /* H1 */
+  --fs-h2: clamp(2rem, 1.3rem + 2.6vw, 3.5rem);
+  --fs-h3: clamp(1.35rem, 1.2rem + .5vw, 1.7rem);
+  --fs-quote: clamp(1.6rem, 1rem + 2.4vw, 3.1rem);
+  --fs-lead: 1.15rem;
+  --fs-body: 1rem;
+  --fs-small: .875rem;
+  --fs-label: .75rem;       /* maiuscoletti: numeri di paragrafo, intestazioni correnti */
+  --tracking-label: .14em;
+  --lh-display: 1.04;
+  --lh-body: 1.65;
+
+  /* Spaziatura e griglia: colonna a margine per i numeri di paragrafo */
+  --gutter: clamp(16px, 4vw, 56px);
+  --max: 1240px;
+  --margin-col: minmax(0, 3fr);
+  --text-col: minmax(0, 9fr);
+  --space-section: clamp(88px, 11vw, 168px);
+
+  /* Forme: angoli quasi vivi, come un documento */
+  --r-cta: 2px;
+  --r-panel: 2px;
+  --hair: 1px solid var(--c-rule);
+
+  /* Movimento: poco e lento */
+  --dur-slow: 1.4s;
+  --ease: cubic-bezier(.25, .1, .25, 1);
+  --focus: 0 0 0 2px var(--c-paper), 0 0 0 4px var(--c-brand);
+}

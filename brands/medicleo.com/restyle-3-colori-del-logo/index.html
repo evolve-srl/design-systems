@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medicleo – Anziani al sicuro a casa con il monitoraggio radar non invasivo</title>
+<meta name="description" content="Sempre più anziani, pochi posti in struttura. Medicleo permette di restare a casa in sicurezza: monitoraggio continuo, allerte immediate, nessuna telecamera.">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32x32.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--c-pagina);color:var(--c-ink);font-family:var(--f-testo);font-size:var(--t-body);line-height:1.6;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--c-ciano);text-underline-offset:3px;font-weight:600}
+a:hover{color:var(--c-magenta)}
+:focus-visible{outline:3px solid var(--c-magenta);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--c-ink);color:#fff;padding:10px 16px;border-radius:12px;z-index:100}
+.skip:focus{left:8px}
+h1,h2,h3{font-family:var(--f-titoli);margin:0;line-height:1.05;letter-spacing:-.02em;font-weight:900}
+h2{font-size:var(--t-h2)}
+h3{font-size:var(--t-h3);font-weight:800;letter-spacing:-.01em;line-height:1.2}
+p{margin:0}
+.kicker{display:inline-block;font-family:var(--f-titoli);font-weight:800;font-size:.9rem;padding:6px 14px;border-radius:var(--r-pill);background:var(--c-rosa);color:var(--c-magenta);margin-bottom:18px}
+.kicker.c{background:var(--c-azzurro);color:var(--c-ciano-scuro)}
+.lead{font-size:var(--t-lead);color:var(--c-grigio);max-width:60ch}
+.ico{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:var(--r-pill);font:800 1.02rem var(--f-titoli);text-decoration:none;border:2px solid transparent;transition:transform .35s var(--m-pop),background-color .25s,color .25s;cursor:pointer}
+.btn:hover{transform:scale(1.04)}
+.btn:active{transform:scale(.97)}
+.btn .ico{width:20px;height:20px}
+.btn-mag,.btn-mag:hover{background:var(--c-magenta);color:#fff}
+.btn-mag:hover{background:var(--c-magenta-scuro)}
+.btn-ink{border-color:var(--c-ink);color:var(--c-ink);background:#fff}
+.btn-ink:hover{background:var(--c-ink);color:#fff}
+.btn-cia{background:var(--c-ciano);color:#fff}
+.btn-cia:hover{background:var(--c-ciano-scuro);color:#fff}
+.src{font-size:.85rem;color:var(--c-grigio);margin-top:12px}
+.src a{color:inherit;font-weight:600}
+
+/* logo */
+.logo{display:block;position:relative;overflow:hidden;height:var(--logo-h);width:calc(var(--logo-h) * 231 / 172);flex:none}
+.logo img{position:absolute;max-width:none;width:calc(var(--logo-h) * 300 / 172);height:auto;left:calc(var(--logo-h) * -32 / 172);top:calc(var(--logo-h) * -47 / 172)}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:50;padding:12px 0}
+.nav{display:flex;align-items:center;gap:18px;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:var(--r-pill);padding:8px 10px 8px 22px;box-shadow:var(--ombra);max-width:var(--max);margin:0 auto}
+.nav-wrap{padding:0 var(--gutter)}
+.nav-links{display:flex;gap:4px;list-style:none;margin:0 auto;padding:0}
+.nav-links a{display:block;padding:9px 13px;border-radius:var(--r-pill);color:var(--c-ink);text-decoration:none;font-weight:700;font-size:.95rem}
+.nav-links a:hover{background:var(--c-azzurro);color:var(--c-ciano-scuro)}
+.nav .btn{padding:12px 20px;font-size:.95rem}
+.menu-btn{display:none;margin-left:auto;background:var(--c-ink);color:#fff;border:0;border-radius:var(--r-pill);padding:11px 16px;font:800 .95rem var(--f-titoli);align-items:center;gap:8px;cursor:pointer}
+@media (max-width:1120px){
+  .nav-links,.nav .btn-mag{display:none}
+  .menu-btn{display:inline-flex}
+  .nav{position:relative;padding-left:16px}
+  .nav.open .nav-links{display:flex;flex-direction:column;position:absolute;top:calc(100% + 8px);left:0;right:0;background:#fff;border-radius:var(--r-card-s);padding:10px;box-shadow:var(--ombra)}
+  .nav.open .nav-links a{font-size:1.1rem;padding:12px 14px}
+  :root{--logo-h:48px}
+}
+
+/* hero */
+.hero{padding:clamp(28px,5vw,64px) 0 var(--sezione);overflow-x:clip}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,72px);align-items:center}
+.hero h1{font-size:var(--t-hero);line-height:1.12}
+.hl-m{position:relative;white-space:nowrap;display:inline-block}
+.hl-m::after{content:"";position:absolute;left:-2%;right:-2%;bottom:-.02em;height:.13em;background:var(--c-magenta-logo);border-radius:var(--r-pill);z-index:-1;opacity:.9}
+.hl-c{background:var(--c-ciano-logo);color:var(--c-ink);border-radius:.35em;padding:0 .18em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.hero h1 .soft{color:var(--c-magenta)}
+.hero .lead{margin-top:26px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.note{display:flex;gap:14px;align-items:flex-start;margin-top:30px;background:var(--c-azzurro);border-radius:var(--r-card-s);padding:16px 18px;max-width:58ch;font-size:.95rem;color:var(--c-ink)}
+.note .ico{color:var(--c-ciano-scuro)}
+.blob-wrap{position:relative;aspect-ratio:1;max-width:560px;width:100%;margin-left:auto}
+.blob{position:absolute;inset:4%;background:var(--c-ciano-logo);border-radius:var(--r-blob)}
+.blob-2{position:absolute;width:34%;aspect-ratio:1;right:0;top:0;background:var(--c-magenta-logo);border-radius:50%;opacity:.95}
+.blob-wrap img{position:absolute;inset:8%;width:84%;height:84%;object-fit:contain;filter:drop-shadow(0 24px 30px rgba(27,34,51,.25))}
+.sticker{position:absolute;display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:var(--r-pill);font:800 .95rem var(--f-titoli);box-shadow:var(--ombra);white-space:nowrap}
+.sticker .ico{width:18px;height:18px}
+.s1{left:0;top:16%;background:#fff;color:var(--c-magenta)}
+.s2{right:2%;bottom:20%;background:var(--c-ink);color:#fff}
+.s3{left:8%;bottom:4%;background:var(--c-magenta);color:#fff}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.blob-wrap{max-width:420px;margin:0 auto}}
+@media (max-width:420px){.sticker{font-size:.85rem;padding:8px 12px}}
+
+/* fascia scorrevole */
+.band-outer{overflow:hidden;contain:paint;padding:14px 0}
+.band{background:var(--c-magenta);color:#fff;overflow:hidden;white-space:nowrap;padding:18px 0;transform:rotate(-1.5deg);margin:0 -2%}
+.band-track{display:inline-flex;gap:36px;padding-right:36px}
+.band-track span{font:900 clamp(1.3rem,1rem + 1.4vw,2.2rem) var(--f-titoli);display:inline-flex;align-items:center;gap:36px}
+.band-track span::after{content:"";width:14px;height:14px;border-radius:50%;background:var(--c-ciano-logo)}
+
+/* vantaggi */
+.values{padding:var(--sezione) 0}
+.values-head{text-align:center;max-width:760px;margin:0 auto clamp(36px,5vw,60px)}
+.values-head .lead{margin:20px auto 0}
+.vgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
+.vcard{border-radius:var(--r-card);padding:28px 24px;transition:transform .4s var(--m-pop)}
+.vcard:hover{transform:translateY(-6px) rotate(-1deg)}
+.vcard .ico-b{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;margin-bottom:18px;background:#fff}
+.vcard p{margin-top:10px}
+.v1{background:var(--c-rosa)}.v1 .ico-b{color:var(--c-magenta)}.v1 p{color:var(--c-grigio)}
+.v2{background:var(--c-azzurro)}.v2 .ico-b{color:var(--c-ciano-scuro)}.v2 p{color:var(--c-grigio)}
+.v3{background:var(--c-magenta-scuro);color:#fff}.v3 .ico-b{color:var(--c-magenta-scuro)}.v3 p{color:var(--c-rosa)}
+.v4{background:var(--c-ciano-scuro);color:#fff}.v4 .ico-b{color:var(--c-ciano-scuro)}.v4 p{color:var(--c-azzurro-chiaro)}
+@media (max-width:980px){.vgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.vgrid{grid-template-columns:1fr}}
+
+/* contesto bento */
+.ctx{padding:var(--sezione) 0;background:var(--c-rosa)}
+.ctx-head{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:end;margin-bottom:clamp(32px,4vw,56px)}
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--gap)}
+.b{border-radius:var(--r-card);padding:clamp(22px,2.6vw,34px);background:#fff;display:flex;flex-direction:column}
+.b .big{font:900 var(--t-big) var(--f-titoli);letter-spacing:-.04em;line-height:.95}
+.b .big small{font-size:.38em;letter-spacing:0;display:block;margin-bottom:.15em}
+.b h3{margin-top:12px}
+.b p{margin-top:8px;color:var(--c-grigio)}
+.b .src{margin-top:auto;padding-top:14px}
+.b1{grid-column:span 3;background:var(--c-ciano-logo)}.b1 .big{color:var(--c-ink)}.b1 p,.b1 .src{color:var(--c-ink)}
+.b2{grid-column:span 3}.b2 .big{color:var(--c-magenta)}
+.b3{grid-column:span 2;background:var(--c-ciano-scuro);color:#fff}.b3 p,.b3 .src{color:var(--c-azzurro-chiaro)}
+.b4{grid-column:span 2;background:var(--c-magenta-scuro);color:#fff}.b4 p,.b4 .src{color:var(--c-rosa)}
+.b5{grid-column:span 2;background:var(--c-ink);color:#fff}.b5 p,.b5 .src{color:#D4D8E4}
+.b5 .big{color:var(--c-rosa-forte)}
+.b6{grid-column:span 6;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(20px,3vw,48px);align-items:center}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 4px}
+.pills span{background:var(--c-rosa);border-radius:var(--r-pill);padding:10px 16px;font:800 1.15rem var(--f-titoli);color:var(--c-magenta-scuro)}
+.pills span small{font:700 .85rem var(--f-testo);color:var(--c-grigio);margin-left:4px}
+@media (max-width:980px){.bento{grid-template-columns:1fr 1fr}.b1,.b2,.b3,.b4{grid-column:span 1}.b5,.b6{grid-column:span 2}.b6{grid-template-columns:1fr}.ctx-head{grid-template-columns:1fr}}
+@media (max-width:600px){.bento{grid-template-columns:1fr}.b1,.b2,.b3,.b4,.b5,.b6{grid-column:span 1}}
+
+/* soluzione */
+.sol{padding:var(--sezione) 0;background:var(--c-azzurro)}
+.sol-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+.sol-visual{position:relative;aspect-ratio:1;background:#fff;border-radius:var(--r-card);overflow:hidden;contain:paint}
+.sol-visual img{position:absolute;inset:2%;width:96%;height:96%;object-fit:contain}
+.sol-visual .dot-m{position:absolute;width:22%;aspect-ratio:1;border-radius:50%;background:var(--c-rosa-forte);left:8%;bottom:8%}
+.sol-visual .dot-c{position:absolute;width:12%;aspect-ratio:1;border-radius:50%;background:var(--c-ciano-logo);right:10%;top:10%}
+.sol h2{margin-bottom:18px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px}
+.fcard{background:#fff;border-radius:var(--r-card-s);padding:20px;display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.fcard .ib{width:44px;height:44px;border-radius:14px;display:grid;place-items:center}
+.fcard:nth-child(odd) .ib{background:var(--c-rosa);color:var(--c-magenta)}
+.fcard:nth-child(even) .ib{background:var(--c-azzurro);color:var(--c-ciano-scuro)}
+.fcard p{color:var(--c-grigio);font-size:.95rem;margin-top:4px}
+.policy{margin-top:clamp(36px,5vw,60px);background:#fff;border-radius:var(--r-card);padding:clamp(22px,3vw,36px);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.policy .ib{width:56px;height:56px;border-radius:50%;background:var(--c-ciano-scuro);color:#fff;display:grid;place-items:center}
+.policy p{color:var(--c-grigio);margin-top:8px}
+@media (max-width:900px){.sol-grid{grid-template-columns:1fr}.sol-visual{max-width:460px;width:100%;margin:0 auto}}
+@media (max-width:560px){.fgrid,.policy{grid-template-columns:1fr}}
+
+/* come funziona */
+.how{padding:var(--sezione) 0}
+.how-head{text-align:center;max-width:720px;margin:0 auto clamp(36px,5vw,64px)}
+.how-head .lead{margin:18px auto 0}
+.steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.step{text-align:center;padding:0 10px}
+.step-n{width:96px;height:96px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;font:900 2.6rem var(--f-titoli);color:#fff}
+.step:nth-child(1) .step-n{background:var(--c-magenta)}
+.step:nth-child(2) .step-n{background:var(--c-ciano-logo);color:var(--c-ink)}
+.step:nth-child(3) .step-n{background:var(--c-ink)}
+.step p{color:var(--c-grigio);margin-top:10px}
+@media (max-width:760px){.steps{grid-template-columns:1fr;gap:40px}}
+
+/* per chi */
+.who{padding:0 0 var(--sezione)}
+.who-head{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);align-items:end;margin-bottom:clamp(32px,4vw,56px)}
+.wcards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.wcard{border-radius:var(--r-card);overflow:hidden;background:#fff;box-shadow:var(--ombra)}
+.wtop{padding:24px 26px;display:flex;gap:14px;align-items:center}
+.wtop .ico{width:30px;height:30px}
+.w1 .wtop{background:var(--c-magenta);color:#fff}
+.w2 .wtop{background:var(--c-ciano-logo);color:var(--c-ink)}
+.w3 .wtop{background:var(--c-ink);color:#fff}
+.wcard ul{list-style:none;margin:0;padding:22px 26px 28px;display:grid;gap:12px}
+.wcard li{display:grid;grid-template-columns:22px 1fr;gap:10px;color:var(--c-grigio)}
+.wcard li .ico{width:20px;height:20px;margin-top:2px;color:var(--c-magenta)}
+@media (max-width:900px){.who-head{grid-template-columns:1fr}.wcards{grid-template-columns:1fr}}
+
+/* risparmio */
+.save{padding:var(--sezione) 0;background:var(--c-rosa)}
+.save-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px)}
+.save h2{margin-bottom:18px}
+.vs{display:grid;gap:14px;margin-top:28px}
+.vs div{background:#fff;border-radius:var(--r-card-s);padding:20px 22px}
+.vs p{color:var(--c-grigio);margin-top:6px}
+.calc{background:#fff;border-radius:var(--r-card);padding:clamp(22px,3vw,38px);box-shadow:var(--ombra);align-self:start}
+.calc h3{margin-bottom:18px}
+.field{display:grid;gap:6px;margin-bottom:18px}
+.field label{font-weight:700}
+.field small{color:var(--c-grigio);font-size:.86rem}
+.field input,.field select,.field textarea{font:inherit;color:var(--c-ink);background:var(--c-pagina);border:2px solid var(--c-rosa-forte);border-radius:16px;padding:12px 16px;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--c-magenta);outline:none}
+.calc-out{background:var(--c-azzurro);border-radius:16px;padding:16px 18px;font:800 1.02rem var(--f-titoli);color:var(--c-ciano-scuro)}
+.calc-note{font-size:.86rem;color:var(--c-grigio);margin-top:14px}
+@media (max-width:900px){.save-grid{grid-template-columns:1fr}}
+
+/* video + faq */
+.video{padding:var(--sezione) 0 0}
+.video-box{background:var(--c-ciano-logo);border-radius:var(--r-card);padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center}
+.video-box p{margin-top:6px;color:var(--c-ink)}
+.play{width:84px;height:84px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--c-magenta)}
+.play .ico{width:34px;height:34px}
+@media (max-width:760px){.video-box{grid-template-columns:1fr}}
+.faq{padding:var(--sezione) 0}
+.faq-head{text-align:center;margin-bottom:clamp(28px,4vw,48px)}
+.faq-list{max-width:860px;margin:0 auto;display:grid;gap:12px}
+.faq details{background:#fff;border-radius:var(--r-card-s);box-shadow:0 1px 0 var(--c-rosa-forte),0 10px 24px -20px rgba(27,34,51,.4)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px;padding:20px 22px;font:800 1.1rem var(--f-titoli)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .pm{width:34px;height:34px;border-radius:50%;background:var(--c-rosa);color:var(--c-magenta);display:grid;place-items:center;flex:none;transition:transform .4s var(--m-pop)}
+.faq summary .pm .ico{width:18px;height:18px}
+.faq details[open] summary .pm{transform:rotate(45deg);background:var(--c-magenta);color:#fff}
+.faq details p{padding:0 22px 22px;color:var(--c-grigio)}
+
+/* chiusura + contatti */
+.contact{background:var(--c-ink);color:#fff;padding:var(--sezione) 0;border-radius:48px 48px 0 0}
+.closing{text-align:center;max-width:880px;margin:0 auto clamp(56px,7vw,96px)}
+.closing h2{font-size:clamp(2.1rem,1.3rem + 3vw,3.9rem)}
+.closing h2 .m{color:var(--c-rosa-forte)}
+.closing h2 .c{color:var(--c-azzurro-chiaro)}
+.closing p{color:#D4D8E4;margin:22px auto 0;font-size:var(--t-lead);max-width:60ch}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px)}
+.contact h3.big{font-size:clamp(1.7rem,1.2rem + 1.6vw,2.6rem);font-weight:900;line-height:1.1;margin-bottom:18px}
+.contact p{color:#D4D8E4}
+.contact .kicker{background:var(--c-magenta);color:#fff}
+.checks{list-style:none;padding:0;margin:24px 0;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;color:#D4D8E4}
+.checks .ico{color:var(--c-ciano-logo)}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.chips div{background:rgba(255,255,255,.07);border-radius:var(--r-card-s);padding:14px 16px}
+.chips b{display:block;font:800 .85rem var(--f-titoli);color:var(--c-rosa-forte);margin-bottom:2px}
+.chips a,.chips span{color:#fff}
+.form{background:#fff;color:var(--c-ink);border-radius:var(--r-card);padding:clamp(22px,3vw,36px);align-self:start}
+.form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form .consent{display:flex;gap:10px;align-items:flex-start;font-size:.92rem;color:var(--c-grigio);margin:4px 0 20px}
+.form .consent input{width:20px;height:20px;margin-top:2px;accent-color:var(--c-magenta)}
+.form .consent a{color:var(--c-ciano)}
+@media (max-width:900px){.contact-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.form .row,.chips{grid-template-columns:1fr}}
+
+/* footer */
+.footer{background:var(--c-ink);color:#D4D8E4;padding:0 0 36px;font-size:.95rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--gap);border-top:1px solid rgba(255,255,255,.12);padding-top:44px}
+.footer .logo-chip{display:inline-block;background:#fff;border-radius:22px;padding:8px 14px}
+.footer h2{font-size:1rem;font-weight:800;color:var(--c-rosa-forte);margin-bottom:12px;letter-spacing:0}
+.footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.footer a{color:#fff}
+.footer p{margin-top:14px;max-width:42ch}
+.legal{margin-top:32px;font-size:.88rem}
+@media (max-width:760px){.footer-grid{grid-template-columns:1fr}}
+.concept-bar{background:#12172A;color:#D4D8E4;font-size:.88rem;padding:14px 16px;text-align:center}
+.concept-bar a{color:var(--c-azzurro-chiaro)}
+
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-heart-hand" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></symbol>
+  <symbol id="i-camoff" viewBox="0 0 24 24"><path d="M14.564 14.558a3 3 0 1 1-4.122-4.121"/><path d="m2 2 20 20"/><path d="M20 20H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 .819-.175"/><path d="M9.695 4.024A2 2 0 0 1 10.004 4h3.993a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v7.344"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+  <symbol id="i-hand" viewBox="0 0 24 24"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"/><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+  <symbol id="i-bell" viewBox="0 0 24 24"><path d="M10.268 21a2 2 0 0 0 3.464 0"/><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"/></symbol>
+  <symbol id="i-phone-dev" viewBox="0 0 24 24"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-landmark" viewBox="0 0 24 24"><line x1="3" x2="21" y1="22" y2="22"/><line x1="6" x2="6" y1="18" y2="11"/><line x1="10" x2="10" y1="18" y2="11"/><line x1="14" x2="14" y1="18" y2="11"/><line x1="18" x2="18" y1="18" y2="11"/><polygon points="12 2 20 7 4 7"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><polygon points="7 4 20 12 7 20 7 4"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-checkc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<header class="site-header" id="top">
+  <div class="nav-wrap">
+    <nav class="nav" id="nav" aria-label="Principale">
+      <a href="#top" class="logo" aria-label="Medicleo, torna all'inizio"><img src="../assets/medicleo-logo-DnmoDSbt.webp" alt="Medicleo" width="300" height="300"></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#problema">Perché a casa</a></li>
+        <li><a href="#soluzione">La soluzione</a></li>
+        <li><a href="#come-funziona">Come funziona</a></li>
+        <li><a href="#per-chi">Per chi</a></li>
+        <li><a href="#risparmio">Il risparmio</a></li>
+        <li><a href="https://medicleo.com/assistenza-domiciliare/">Assistenza a domicilio</a></li>
+        <li><a href="#contatti">Contatti</a></li>
+      </ul>
+      <a href="#contatti" class="btn btn-mag">Richiedi una demo</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links"><svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg>Menu</button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker" data-pop>Monitoraggio e allerta, a casa</span>
+        <h1 class="hero-title"><span class="hl-m">Restare a casa,</span> <span class="hl-c">in sicurezza.</span> <span class="soft">Anche quando si invecchia.</span></h1>
+        <p class="lead" data-pop>Medicleo veglia giorno e notte su anziani e persone fragili con un sensore radar non invasivo: allerte immediate a familiari e operatori, senza telecamere e senza nulla da indossare. Un'alternativa concreta all'ingresso in struttura, quando non è necessario.</p>
+        <div class="ctas" data-pop>
+          <a href="#contatti" class="btn btn-mag">Richiedi una demo <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a href="#problema" class="btn btn-ink">Perché restare a casa</a>
+        </div>
+        <p class="note" data-pop><svg class="ico" aria-hidden="true"><use href="#i-info"/></svg><span>Un ausilio alla cura, non un sostituto dell'assistenza sanitaria continuativa. Restare a casa è una scelta da valutare con la famiglia e i medici.</span></p>
+      </div>
+      <div class="blob-wrap">
+        <div class="blob" aria-hidden="true"></div>
+        <div class="blob-2" aria-hidden="true"></div>
+        <img src="../assets/medicleo-radar-hero-6io_rX3r.webp" alt="Sensore radar Medicleo per il monitoraggio discreto di una persona a riposo" width="1024" height="1024">
+        <span class="sticker s1"><svg class="ico" aria-hidden="true"><use href="#i-camoff"/></svg>Nessuna telecamera</span>
+        <span class="sticker s2"><svg class="ico" aria-hidden="true"><use href="#i-moon"/></svg>Giorno e notte</span>
+        <span class="sticker s3"><svg class="ico" aria-hidden="true"><use href="#i-heart-hand"/></svg>Nulla da indossare</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="band-outer" aria-hidden="true"><div class="band">
+    <div class="band-track"><span>Senza telecamere</span><span>Nulla da indossare</span><span>Allerte a chi può intervenire</span><span>Giorno e notte</span><span>Senza telecamere</span><span>Nulla da indossare</span><span>Allerte a chi può intervenire</span><span>Giorno e notte</span></div>
+  </div></div>
+
+  <section class="values" id="vantaggi" aria-labelledby="h-casa">
+    <div class="wrap">
+      <div class="values-head">
+        <span class="kicker c">Qualità della vita</span>
+        <h2 id="h-casa" data-pop>La casa è più di un luogo</h2>
+        <p class="lead" data-pop>Dove possibile, restare nel proprio ambiente significa preservare ciò che rende ogni giornata familiare. La sicurezza sostiene l'autonomia, non la cancella.</p>
+      </div>
+      <div class="vgrid">
+        <div class="vcard v1" data-card><span class="ico-b"><svg class="ico" aria-hidden="true"><use href="#i-hand"/></svg></span><h3>Autonomia e dignità</h3><p>Continuare a scegliere i propri ritmi, con un supporto discreto che non prende il posto della persona.</p></div>
+        <div class="vcard v2" data-card><span class="ico-b"><svg class="ico" aria-hidden="true"><use href="#i-home"/></svg></span><h3>Abitudini e affetti</h3><p>Restare tra i propri ricordi, vicino ai familiari e alla comunità che si conosce.</p></div>
+        <div class="vcard v3" data-card><span class="ico-b"><svg class="ico" aria-hidden="true"><use href="#i-smile"/></svg></span><h3>Serenità per i familiari</h3><p>Ricevere allerte anche a distanza e organizzare una risposta con chi si prende cura della persona.</p></div>
+        <div class="vcard v4" data-card><span class="ico-b"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg></span><h3>Privacy</h3><p>Nessuna telecamera, nessun audio registrato: la casa resta uno spazio privato.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="ctx" id="problema" aria-labelledby="h-paese">
+    <div class="wrap">
+      <div class="ctx-head">
+        <div><span class="kicker" style="background:#fff">Il contesto</span><h2 id="h-paese" data-pop>Un Paese che invecchia</h2></div>
+        <p class="lead" data-pop>Sempre più persone anziane e famiglie più piccole: portare la vigilanza a domicilio significa rispondere a un bisogno concreto, senza rinunciare alla propria vita.</p>
+      </div>
+      <div class="bento">
+        <article class="b b1" data-card>
+          <p class="big">34,5%</p>
+          <h3>Avrà almeno 65 anni nel 2050</h3>
+          <p>Dal 24,7% del 2025, nello scenario mediano delle previsioni Istat: una popolazione più anziana, con nuovi bisogni di assistenza.</p>
+          <p class="src">Fonte: <a href="https://www.istat.it/comunicato-stampa/previsioni-della-popolazione-residente-delle-famiglie-e-delle-forze-di-lavoro-base-1-1-2025/">Istat, previsioni base 1/1/2025 · 31 agosto 2026</a></p>
+        </article>
+        <article class="b b2" data-card>
+          <p class="big"><small>oltre il</small>7%</p>
+          <h3>Avrà almeno 85 anni nel 2050</h3>
+          <p>Dal 4,1% del 2025. Cresce il bisogno di vicinanza e supporto, anche nelle ore in cui i familiari non possono esserci.</p>
+          <p class="src">Fonte: <a href="https://www.istat.it/comunicato-stampa/previsioni-della-popolazione-residente-delle-famiglie-e-delle-forze-di-lavoro-base-1-1-2025/">Istat, previsioni base 1/1/2025 · 31 agosto 2026</a></p>
+        </article>
+        <article class="b b3" data-card>
+          <p class="big" style="font-size:clamp(2.4rem,1.6rem + 2.4vw,3.6rem)">425.780</p>
+          <h3>Posti letto residenziali complessivi</h3>
+          <p>7,2 ogni 1.000 residenti, non tutti destinati agli anziani. Gli ospiti over 65 sono poco più di 291mila, quasi 239mila non autosufficienti.</p>
+          <p class="src">Fonte: <a href="https://www.istat.it/wp-content/uploads/2026/01/Report-Presidi-2023.pdf">Istat, strutture residenziali al 1° gennaio 2024 · report</a></p>
+        </article>
+        <article class="b b4" data-card>
+          <p class="big" style="font-size:clamp(2.4rem,1.6rem + 2.4vw,3.6rem)">1.015</p>
+          <h3>Anziani in attesa di RSA nelle Marche</h3>
+          <p>Altri 6.635 in attesa nelle Residenze Protette, compresi 1.668 con demenza. Un esempio regionale, non nazionale.</p>
+          <p class="src">Fonte: <a href="https://www.consiglio.marche.it/banche_dati_e_documentazione/atti_di_indirizzo_e_controllo/interrogazioni/">Consiglio regionale Marche, interrogazione n. 84, 15 gennaio 2026</a></p>
+        </article>
+        <article class="b b5" data-card>
+          <p class="big" style="font-size:clamp(2.4rem,1.6rem + 2.4vw,3.6rem)"><small>meno di</small>2 su 100</p>
+          <h3>Anziani in una struttura residenziale</h3>
+          <p>Circa 14,8 milioni di over 65 e poco più di 291mila ospiti: la grande maggioranza vive fuori. È anche a casa che va portata la sicurezza.</p>
+          <p class="src">Elaborazione su dati Istat riferiti a date diverse, un ordine di grandezza. Fonte: <a href="https://www.istat.it/comunicato-stampa/indicatori-demografici-anno-2025/">Istat, Indicatori demografici 2025</a></p>
+        </article>
+        <article class="b b6" data-card>
+          <div>
+            <h3 style="font-size:clamp(1.5rem,1.2rem + 1.2vw,2.2rem);margin:0">Le strutture non bastano, e non sempre servono</h3>
+            <p>Le strutture sono indispensabili per chi ha bisogno di assistenza sanitaria continuativa. Ma i posti e l'accesso ai servizi non sono uniformi sul territorio; le attese e il costo delle rette pesano sulle famiglie. Per chi può vivere a domicilio, una vigilanza continua può affiancare l'assistenza e aiutare a restare a casa più a lungo.</p>
+          </div>
+          <div>
+            <p style="margin:0;color:var(--c-ink);font-weight:700">Retta media RSA in Lombardia, 2025</p>
+            <div class="pills"><span>2.312 €<small>al mese</small></span><span>76 €<small>al giorno</small></span><span>27.747 €<small>all'anno</small></span></div>
+            <p class="src">Dato regionale, non nazionale; importi arrotondati nella fonte, servizi inclusi variabili. Fonte: <a href="https://cislmilano.it/default/download/uploads.up_file.90742e59c51255ee.506167696e612052736120436f6e7175697374652064656c204c61766f726f2032332d362d32362e706466.pdf">CISL Milano, rassegna Conquiste del Lavoro · dati Lombardia 2025</a></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sol" id="soluzione" aria-labelledby="h-sol">
+    <div class="wrap">
+      <div class="sol-grid">
+        <div class="sol-visual" data-pop>
+          <span class="dot-m" aria-hidden="true"></span><span class="dot-c" aria-hidden="true"></span>
+          <img src="../assets/medicleo-radar-hero-6io_rX3r.webp" alt="" width="1024" height="1024" loading="lazy">
+        </div>
+        <div>
+          <span class="kicker c" style="background:#fff">La soluzione</span>
+          <h2 id="h-sol" data-pop>La sicurezza arriva a casa</h2>
+          <p class="lead" data-pop>Quando le condizioni permettono di restare a domicilio, Medicleo affianca familiari e operatori con monitoraggio continuo e allerte. La cura resta alle persone; il radar aiuta a sapere quando intervenire.</p>
+          <div class="fgrid">
+            <div class="fcard" data-card><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-activity"/></svg></span><div><h3>Monitoraggio continuo</h3><p>Frequenza cardiaca e respiratoria, sonno e presenza a letto, senza contatto.</p></div></div>
+            <div class="fcard" data-card><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-bell"/></svg></span><div><h3>Allerte a chi può intervenire</h3><p>Notifiche in caso di caduta e abbandono del letto, giorno e notte.</p></div></div>
+            <div class="fcard" data-card><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-phone-dev"/></svg></span><div><h3>Dati in tempo reale</h3><p>Informazioni consultabili dai familiari e dagli operatori autorizzati.</p></div></div>
+            <div class="fcard" data-card><span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-camoff"/></svg></span><div><h3>Nessuna telecamera</h3><p>Niente immagini o audio registrati e nulla da indossare.</p></div></div>
+          </div>
+          <p style="margin-top:24px"><a class="btn btn-cia" href="https://medicleo.com/assistenza-domiciliare/">Assistenza domiciliare: dati e opportunità <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+        </div>
+      </div>
+      <div class="policy" data-pop>
+        <span class="ib"><svg class="ico" aria-hidden="true"><use href="#i-scale"/></svg></span>
+        <div>
+          <h3>Una direzione sostenuta anche dalle politiche per gli anziani</h3>
+          <p>La Legge 33/2023 e il D.Lgs. 29/2024 promuovono il sostegno alla domiciliarità e alla qualità della vita delle persone anziane. È un quadro di indirizzo, non un riconoscimento specifico di Medicleo né una promessa di contributi.</p>
+          <p class="src">Fonti: <a href="https://www.gazzettaufficiale.it/eli/id/2023/03/30/23G00041/sg">Gazzetta Ufficiale, Legge 33/2023</a> · <a href="https://www.gazzettaufficiale.it/eli/id/2024/03/18/24G00050/sg">Gazzetta Ufficiale, D.Lgs. 29/2024</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="come-funziona" aria-labelledby="h-how">
+    <div class="wrap">
+      <div class="how-head">
+        <span class="kicker">Come funziona</span>
+        <h2 id="h-how" data-pop>Tre passi, nessun contatto</h2>
+        <p class="lead" data-pop>Si definiscono l'ambiente, le persone autorizzate e chi risponde alle allerte. Poi il sensore affianca la vigilanza quotidiana.</p>
+      </div>
+      <ol class="steps">
+        <li class="step" data-card><span class="step-n" aria-hidden="true">1</span><h3>Installazione nella stanza</h3><p>Il sensore radar si installa nella stanza, senza alcun contatto con la persona e senza dispositivi sul letto.</p></li>
+        <li class="step" data-card><span class="step-n" aria-hidden="true">2</span><h3>Rilevazione continua</h3><p>Rileva in modo continuo frequenza cardiaca, frequenza respiratoria, qualità del sonno e movimenti.</p></li>
+        <li class="step" data-card><span class="step-n" aria-hidden="true">3</span><h3>Allerta e dati in tempo reale</h3><p>In caso di caduta o abbandono del letto invia un'allerta agli operatori incaricati o ai familiari, che possono consultare i dati in tempo reale.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="who" id="per-chi" aria-labelledby="h-who">
+    <div class="wrap">
+      <div class="who-head">
+        <div><span class="kicker c">Per chi</span><h2 id="h-who" data-pop>Una rete intorno alla persona</h2></div>
+        <p class="lead" data-pop>Famiglie, enti e servizi possono collaborare per sostenere chi può restare a casa e affiancare chi opera nelle strutture.</p>
+      </div>
+      <div class="wcards">
+        <article class="wcard w1" data-card><div class="wtop"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg><h3>Famiglie</h3></div>
+          <ul><li><svg class="ico" aria-hidden="true"><use href="#i-checkc"/></svg>Un supporto per chi può restare a casa propria</li><li><svg class="ico" aria-hidden="true"><use href="#i-checkc"/></svg>Allerte ai familiari e dati consultabili a distanza</li><li><svg class="ico" aria-hidden="true"><use href="#i-checkc"/></svg>Una scelta da valutare insieme al medico e a chi assiste</li></ul></article>
+        <article class="wcard w2" data-card><div class="wtop"><svg class="ico" aria-hidden="true"><use href="#i-landmark"/></svg><h3>Enti pubblici, Comuni e ASL</h3></div>
+          <ul><li><svg class="ico" aria-hidden="true"><use href="#i-checkc"/></svg>Supporto ai progetti di assistenza domiciliare integrata</li><li><svg class="ico" aria-hidden="true"><use href="#i-checkc"/></svg>Monitoraggio di anziani soli sul territorio</li><li><svg class="ico" aria-hidden="true"><use href="#i-checkc"/></svg>Domiciliarità per chi ne ha le condizioni, per contribuire ad alleggerire la pressione sulle liste d'attesa</li></ul></article>
+        <article class="wcard w3" data-card><div class="wtop"><svg class="ico" aria-hidden="true"><use href="#i-building"/></svg><h3>RSA, cooperative e servizi di assistenza</h3></div>
+          <ul><li><svg class="ico" aria-hidden="true"><use href="#i-checkc"/></svg>Allerte che aiutano a indirizzare l'intervento notturno</li><li><svg class="ico" aria-hidden="true"><use href="#i-checkc"/></svg>Dati in tempo reale a supporto degli operatori</li><li><svg class="ico" aria-hidden="true"><use href="#i-checkc"/></svg>Servizi a domicilio anche per chi attende un posto, se compatibili con i bisogni assistenziali</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="save" id="risparmio" aria-labelledby="h-save">
+    <div class="wrap save-grid">
+      <div>
+        <span class="kicker" style="background:#fff">Il risparmio</span>
+        <h2 id="h-save" data-pop>Una scelta di vita. Anche una scelta economica.</h2>
+        <p class="lead" data-pop>Quando la permanenza a casa è appropriata, il confronto dei costi può aiutare famiglie ed enti a valutare una soluzione sostenibile. Non tutte le situazioni producono un risparmio.</p>
+        <div class="vs">
+          <div data-card><h3>In struttura</h3><p>Retta, servizi inclusi ed eventuali extra. Una risposta necessaria per chi ha bisogni non gestibili a domicilio.</p></div>
+          <div data-card><h3>A casa con Medicleo</h3><p>Assistenza proporzionata ai bisogni, monitoraggio e allerta, abitazione e spese quotidiane. Serve sempre qualcuno in grado di rispondere alle allerte.</p></div>
+        </div>
+      </div>
+      <form class="calc" onsubmit="return false" data-pop>
+        <h3>Confronta i costi della tua situazione</h3>
+        <div class="field"><label for="c-rsa">Retta mensile della struttura (€)</label><input id="c-rsa" type="number" inputmode="decimal" min="0" step="1" value="2312"><small>Valore iniziale: Lombardia 2025, modificabile.</small></div>
+        <div class="field"><label for="c-casa">Costo mensile della soluzione a domicilio (€)</label><input id="c-casa" type="number" inputmode="decimal" min="0" step="1"><small>Inserisci badante/assistenza, Medicleo e gli altri costi a domicilio. Il prezzo di Medicleo non è ancora disponibile: richiedi una proposta prima di includerlo nella stima.</small></div>
+        <p class="calc-out" id="calc-out" aria-live="polite">La stima sarà disponibile dopo aver inserito entrambi i costi.</p>
+        <p class="calc-note">Stima indicativa, i costi reali dipendono dalla situazione e dalla regione. Il confronto assume costi mensili costanti, senza rivalutazioni, contributi o spese straordinarie. Considera tutti i servizi necessari: le due soluzioni non sono equivalenti per ogni bisogno assistenziale.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="video" id="video" aria-labelledby="h-video">
+    <div class="wrap">
+      <div class="video-box" data-pop>
+        <a class="play" href="https://www.youtube.com/@Medi-Cleo" aria-label="Apri il canale YouTube di Medicleo"><svg class="ico" aria-hidden="true"><use href="#i-play"/></svg></a>
+        <div><h2 id="h-video" style="font-size:clamp(1.6rem,1.2rem + 1.4vw,2.4rem)">Guarda Medicleo in azione</h2><p>Il sensore, il monitoraggio e le allerte: una presenza discreta al fianco di chi si prende cura.</p></div>
+        <a class="btn btn-ink" href="https://www.youtube.com/@Medi-Cleo">Medicleo su YouTube</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq" aria-labelledby="h-faq">
+    <div class="wrap">
+      <div class="faq-head"><span class="kicker c">Domande frequenti</span><h2 id="h-faq" data-pop>Hai qualche dubbio?</h2></div>
+      <div class="faq-list">
+        <details><summary>Medicleo può evitare l'ingresso in RSA? <span class="pm"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p>Può essere un'alternativa concreta quando l'ingresso in struttura non è necessario. Le strutture restano indispensabili per chi ha bisogno di assistenza sanitaria continuativa: restare a casa è una scelta da valutare con la famiglia e i medici.</p></details>
+        <details><summary>Serve un dispositivo indossabile? <span class="pm"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p>No. Il sensore radar si installa nella stanza, senza alcun contatto con la persona e senza dispositivi sul letto.</p></details>
+        <details><summary>Il sistema usa telecamere o microfoni? <span class="pm"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p>Nessuna telecamera e nessun audio registrato: niente immagini, la casa resta uno spazio privato.</p></details>
+        <details><summary>Cosa succede in caso di allerta? <span class="pm"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p>In caso di caduta o abbandono del letto il sensore invia un'allerta agli operatori incaricati o ai familiari, che possono consultare i dati in tempo reale. Serve sempre qualcuno in grado di rispondere alle allerte.</p></details>
+        <details><summary>Cosa vede il familiare o l'operatore? <span class="pm"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p>Frequenza cardiaca e respiratoria, sonno e presenza a letto, consultabili in tempo reale dalle persone autorizzate.</p></details>
+        <details><summary>Medicleo sostituisce il personale o la badante? <span class="pm"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p>No. È un ausilio alla cura, non un sostituto dell'assistenza: la cura resta alle persone, il radar aiuta a sapere quando intervenire.</p></details>
+        <details><summary>Quanto si risparmia rispetto a una struttura? <span class="pm"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p>Dipende dalla situazione e dalla regione, e non tutte le situazioni producono un risparmio. Il calcolatore qui sopra offre un confronto indicativo; il prezzo di Medicleo si ottiene richiedendo una proposta.</p></details>
+        <details><summary>È utile anche per enti pubblici e Comuni? <span class="pm"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span></summary><p>Sì: può supportare i progetti di assistenza domiciliare integrata e il monitoraggio di anziani soli sul territorio.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contatti" aria-labelledby="h-contact">
+    <div class="wrap">
+      <div class="closing">
+        <h2 data-pop>Più anni a casa propria, <span class="m">più serenità</span> per chi <span class="c">vi vuole bene.</span></h2>
+        <p data-pop>Una scelta importante merita risposte concrete. Guarda come funziona Medicleo e confronta le tue esigenze con ciò che il monitoraggio può offrire, senza confonderlo con l'assistenza alla persona.</p>
+      </div>
+      <div class="contact-grid">
+        <div>
+          <span class="kicker">Contatti</span>
+          <h3 class="big" id="h-contact">Può essere la soluzione per la tua famiglia o il tuo servizio?</h3>
+          <p>Richiedi una demo per capire come funziona il sensore, quali dati sono consultabili e come arrivano le allerte. Partiamo dalla persona e dall'ambiente in cui vive, non da una soluzione uguale per tutti.</p>
+          <ul class="checks">
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Valutiamo l'ambiente e le esigenze di monitoraggio.</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Chiariamo chi riceve le allerte e chi può intervenire.</li>
+            <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg>Confrontiamo installazione e costi per il tuo caso.</li>
+          </ul>
+          <div class="chips">
+            <div><b>Sede</b><span>Via L. Einaudi 54 – 45100 Rovigo (RO)</span></div>
+            <div><b>Email</b><a href="mailto:info@medicleo.com">info@medicleo.com</a></div>
+            <div><b>Telefono</b><a href="tel:+390425090621">0425 090621</a></div>
+            <div><b>Azienda</b><span>Evolve S.r.l. – P.IVA 04597090234</span></div>
+          </div>
+        </div>
+        <form class="form" action="mailto:info@medicleo.com" method="post" enctype="text/plain">
+          <div class="row">
+            <div class="field"><label for="f-nome">Nome completo *</label><input id="f-nome" name="nome" required autocomplete="name"></div>
+            <div class="field"><label for="f-mail">Email *</label><input id="f-mail" name="email" type="email" required autocomplete="email"></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="f-tel">Telefono <small>(facoltativo)</small></label><input id="f-tel" name="telefono" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="f-arg">Argomento *</label><select id="f-arg" name="argomento" required><option value="">Seleziona</option><option>Richiesta demo</option><option>Famiglia</option><option>Ente pubblico, Comune o ASL</option><option>RSA, cooperativa o servizio di assistenza</option></select></div>
+          </div>
+          <div class="field"><label for="f-msg">Messaggio *</label><textarea id="f-msg" name="messaggio" rows="4" required></textarea></div>
+          <label class="consent"><input type="checkbox" required><span>Acconsento al trattamento dei miei dati secondo la <a href="https://medicleo.com/privacy-policy/">Privacy Policy</a> *</span></label>
+          <button class="btn btn-mag" type="submit">Invia richiesta <svg class="ico" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <span class="logo-chip"><span class="logo" style="--logo-h:52px"><img src="../assets/medicleo-logo-DnmoDSbt.webp" alt="Medicleo" width="300" height="300" loading="lazy"></span></span>
+        <p>Monitoraggio radar non invasivo dei parametri vitali per RSA, strutture sanitarie e famiglie.</p>
+        <p><a href="https://www.youtube.com/@Medi-Cleo">Medicleo su YouTube</a></p>
+      </div>
+      <div><h2>Sezioni</h2><ul><li><a href="#problema">Perché a casa</a></li><li><a href="#soluzione">La soluzione</a></li><li><a href="#per-chi">Per chi</a></li><li><a href="https://medicleo.com/privacy-policy/">Privacy e cookie policy</a></li></ul></div>
+      <div><h2>Contatti</h2><ul><li>Via L. Einaudi 54 – 45100 Rovigo (RO)</li><li><a href="mailto:info@medicleo.com">info@medicleo.com</a></li><li><a href="tel:+390425090621">Tel. 0425 090621</a></li></ul></div>
+    </div>
+    <p class="legal">© 2026 Evolve S.r.l. – P.IVA 04597090234</p>
+  </div>
+</footer>
+<div class="concept-bar">Restyle concept · direzione 3 di 3 · <a href="tokens.css">design system →</a> · <a href="../index.html">tutte le direzioni</a></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script>
+(function () {
+  var nav = document.getElementById('nav'), btn = nav.querySelector('.menu-btn');
+  btn.addEventListener('click', function () { var o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  nav.querySelectorAll('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }); });
+
+  var rsa = document.getElementById('c-rsa'), casa = document.getElementById('c-casa'), out = document.getElementById('calc-out');
+  var eur = { format: function (v) { return Math.round(v).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.'); } }; // migliaia con il punto anche a 4 cifre
+  function calc() {
+    var a = parseFloat(rsa.value), b = parseFloat(casa.value);
+    if (!(a > 0) || !(b > 0)) { out.textContent = 'La stima sarà disponibile dopo aver inserito entrambi i costi.'; return; }
+    var d = a - b;
+    if (d > 0) out.textContent = 'Differenza stimata a favore del domicilio: ' + eur.format(d) + ' € al mese, ' + eur.format(d * 12) + ' € all’anno.';
+    else if (d < 0) out.textContent = 'Con questi valori il domicilio costa ' + eur.format(-d) + ' € in più al mese (' + eur.format(-d * 12) + ' € all’anno).';
+    else out.textContent = 'Con questi valori i costi mensili si equivalgono.';
+  }
+  rsa.addEventListener('input', calc); casa.addEventListener('input', calc);
+
+  if (!window.gsap) return;
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  var mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', function () {
+    // H1: parole che "saltano" su una alla volta
+    document.fonts.ready.then(function () {
+      var split = SplitText.create('.hero-title', { type: 'words' });
+      gsap.from(split.words, { y: 40, scale: 0.85, opacity: 0, duration: 0.7, ease: 'back.out(2)', stagger: 0.06, delay: 0.1 });
+      ScrollTrigger.refresh();
+    });
+    gsap.from('.hero [data-pop]', { y: 24, opacity: 0, duration: 0.7, ease: 'back.out(1.6)', stagger: 0.1, delay: 0.5 });
+    gsap.from('.blob', { scale: 0.6, opacity: 0, duration: 1, ease: 'back.out(1.4)', delay: 0.2 });
+    gsap.from('.blob-wrap img', { y: 40, rotate: -8, opacity: 0, duration: 1, ease: 'back.out(1.4)', delay: 0.45 });
+    gsap.from('.sticker', { scale: 0, opacity: 0, duration: 0.6, ease: 'back.out(2.2)', stagger: 0.15, delay: 0.9 });
+    gsap.to('.blob', { rotate: 360, duration: 60, ease: 'none', repeat: -1 });
+    gsap.to('.blob-2', { y: 16, x: -8, duration: 3.2, ease: 'sine.inOut', repeat: -1, yoyo: true });
+    gsap.to('.sticker', { y: -8, duration: 2.4, ease: 'sine.inOut', repeat: -1, yoyo: true, stagger: { each: 0.6, repeat: -1, yoyo: true } });
+    gsap.to('.band-track', { xPercent: -50, duration: 28, ease: 'none', repeat: -1 });
+
+    gsap.utils.toArray('main [data-pop]').forEach(function (el) {
+      if (el.closest('.hero')) return;
+      gsap.from(el, { y: 30, opacity: 0, duration: 0.7, ease: 'back.out(1.6)', scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+    });
+    ScrollTrigger.batch('[data-card]', { start: 'top 90%', once: true,
+      onEnter: function (els) {
+        els = els.filter(function (e) { return !e.dataset.done; }); els.forEach(function (e) { e.dataset.done = 1; });
+        gsap.fromTo(els, { y: 50, scale: 0.92, rotate: function (i) { return i % 2 ? 2 : -2; }, opacity: 0 },
+          { y: 0, scale: 1, rotate: 0, opacity: 1, duration: 0.8, ease: 'back.out(1.5)', stagger: 0.09, overwrite: 'auto' });
+      } });
+    gsap.utils.toArray('.step-n').forEach(function (n) {
+      gsap.from(n, { scale: 0, rotate: -90, duration: 0.8, ease: 'back.out(2)', scrollTrigger: { trigger: n, start: 'top 88%', once: true } });
+    });
+
+  });
+})();
+</script>
+</body>
+</html>

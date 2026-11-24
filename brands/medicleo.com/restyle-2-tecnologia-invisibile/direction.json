@@ -1,0 +1,51 @@
+{
+  "n": 2,
+  "slug": "tecnologia-invisibile",
+  "name": "Tecnologia invisibile",
+  "concept": "Il radar diventa il linguaggio visivo: anelli che pulsano piano dal sensore, etichette tecniche in monospazio, dati veri che si contano davanti agli occhi con la loro fonte. Parla a operatori e decisori che vogliono capire come funziona e su quali numeri si basa la scelta, senza perdere il tono rassicurante: nessun valore clinico simulato, solo ciò che il sensore rileva.",
+  "palette": [
+    {"name": "Notte", "hex": "#0A1B2A", "role": "hero e sezioni dati scure"},
+    {"name": "Notte 2", "hex": "#10263A", "role": "card su fondo scuro"},
+    {"name": "Segnale", "hex": "#00AEF0", "role": "ciano del logo: CTA su notte con testo Notte 6.91:1, anelli radar"},
+    {"name": "Segnale chiaro", "hex": "#7FD8FF", "role": "accenti testuali su notte (10.95:1)"},
+    {"name": "Allerta", "hex": "#EE0E65", "role": "magenta del logo, solo indicatore puntiforme 'allerta'"},
+    {"name": "Carta", "hex": "#F4F8FA", "role": "sfondo sezioni chiare"},
+    {"name": "Ink", "hex": "#0D2131", "role": "testo su chiaro (15.37:1)"},
+    {"name": "Primario", "hex": "#00558B", "role": "CTA e numeri su chiaro (bianco 7.86:1)"}
+  ],
+  "fonts": [
+    {"family": "Sora", "role": "titoli, testo, numeri grandi", "source": "Google Fonts (OFL)"},
+    {"family": "IBM Plex Mono", "role": "etichette tecniche, fonti, valori del calcolatore", "source": "Google Fonts (OFL)"}
+  ],
+  "motion": [
+    "impulsi radar: anelli SVG che si espandono e svaniscono dal sensore (scale + opacity, ciclo continuo)",
+    "H1 rivelato lettera per lettera come una scansione (SplitText chars)",
+    "etichette dei parametri rilevati con indicatore che lampeggia piano",
+    "nastro orizzontale continuo: senza telecamere · nulla da indossare · giorno e notte",
+    "contatori sui numeri reali del contesto (34,5%, 7%, 425.780, 1.015, 2.312 €, 76 €, 27.747 €) e barre che crescono con scaleX",
+    "griglia di 100 punti con i 2 evidenziati che pulsano (meno di 2 anziani su 100 in struttura)",
+    "sezione 'Tre passi' pinnata per uno schermo con barra di avanzamento in scrub (solo desktop)",
+    "prefers-reduced-motion: nessuna animazione; senza JS numeri e testi già finali"
+  ],
+  "components": [
+    "header scuro con logo originale su chip bianco, senza nome duplicato",
+    "hero con palco radar: sensore, anelli e quattro etichette dei parametri rilevati",
+    "tile dati con contatore, mini grafico a barre 2025→2050 e fonte in monospazio",
+    "infografica 100 punti e riga rette Lombardia",
+    "spec card numerate 01-04, box politiche con fonti",
+    "timeline a tre passi con progress bar",
+    "calcolatore dei costi su card scura, FAQ a card, contatti con form"
+  ],
+  "fixes": [
+    "il nome non è più ripetuto: nel header solo il logo originale su chip bianco",
+    "il ciano del logo (#00AEF0) entra nel sito, ma solo dove è leggibile: come fondo CTA con testo scuro (6.91:1), mai come testo su bianco (2.53:1)",
+    "CTA principale: testo #0A1B2A su #00AEF0 6.91:1",
+    "numeri del contesto resi leggibili come dati (grafico 2025→2050) con fonte accanto, non in fondo",
+    "focus visibile su tutti i controlli"
+  ],
+  "references": [
+    {"label": "Vayyar Care, sensori senza telecamera per l'assistenza", "url": "https://vayyar.com/care/"},
+    {"label": "GSAP Showcase", "url": "https://gsap.com/showcase/"},
+    {"label": "Cascaid Health su Awwwards", "url": "https://www.awwwards.com/sites/cascaid-health"}
+  ]
+}

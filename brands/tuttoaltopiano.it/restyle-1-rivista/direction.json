@@ -1,0 +1,52 @@
+{
+  "n": 1,
+  "slug": "rivista",
+  "name": "Rivista d'Altopiano",
+  "concept": "La homepage diventa il numero del giorno di una rivista di montagna: copertina con titolo grande, sommario, rubriche e servizi fotografici con didascalie in corsivo. È pensata per chi pianifica una gita e vuole leggere prima di partire. Funziona perché TUTTOALTOPIANO è una guida che si aggiorna ogni giorno, e il formato rivista lo dice senza bisogno di spiegarlo.",
+  "palette": [
+    {"name": "Carta", "hex": "#F4F1E8", "role": "fondo pagina"},
+    {"name": "Carta scura", "hex": "#EAE5D6", "role": "fondo del bollettino meteo"},
+    {"name": "Inchiostro", "hex": "#141D16", "role": "testo principale e fondo della rubrica Nando"},
+    {"name": "Muschio", "hex": "#586156", "role": "testo secondario"},
+    {"name": "Verde bosco", "hex": "#1F4D32", "role": "CTA primaria, link, corsivi del titolo"},
+    {"name": "Ocra", "hex": "#CD8643", "role": "CTA su fondo scuro, con testo inchiostro"},
+    {"name": "Ocra scura", "hex": "#8A4F1A", "role": "occhielli e numerali su carta"}
+  ],
+  "fonts": [
+    {"family": "Newsreader", "role": "titoli, didascalie grandi in corsivo, quote", "source": "Google Fonts (OFL)"},
+    {"family": "Inter Tight", "role": "testo, interfaccia, occhielli", "source": "Google Fonts (OFL)"}
+  ],
+  "motion": [
+    "SplitText: i titoli salgono riga per riga dentro una maschera",
+    "Reveal a maschera delle foto (sipario dal basso, solo transform) con leggero zoom-out",
+    "Parallax interno alle foto in scrub",
+    "Banda di parole in corsivo che scorre in orizzontale con lo scroll",
+    "Quote dei comuni che contano fino al valore reale (1.001, 1.090, 992, 935 m)",
+    "Micro-interazioni: frecce che scivolano sulle CTA, sottolineature che si disegnano su nav e titoli"
+  ],
+  "components": [
+    "testata con riga di servizio (data, guida indipendente) e nav",
+    "copertina: H1 a tutta larghezza, foto grande con didascalia, sommario 'In questo numero'",
+    "rubriche a tre colonne separate da filetti",
+    "long read sui Sette Comuni con capolettera e schede con quota in grande",
+    "lista numerata 'Tre idee per la giornata'",
+    "servizi fotografici alternati con didascalie grandi in corsivo",
+    "bollettino meteo in riquadro",
+    "rubrica 'La posta di Nando' su fondo scuro con le domande come citazioni",
+    "tabelle editoriali per sentieri e appuntamenti",
+    "griglia itinerari con filetti"
+  ],
+  "fixes": [
+    "CTA ocra: testo inchiostro #141D16 su ocra #CD8643, contrasto 2.88 → 5.82",
+    "CTA primaria verde bosco con testo carta: 8.58:1",
+    "Occhielli ocra su carta scuriti a #8A4F1A: 5.79:1",
+    "Nessun badge 'Edit with Lovable'",
+    "Un solo H1, focus visibile, skip link, menu mobile con aria-expanded"
+  ],
+  "references": [
+    {"label": "AFAR, rivista di viaggio: impaginazione editoriale guidata dalle foto", "url": "https://www.afar.com/"},
+    {"label": "Condé Nast Traveler: titoli serif grandi e didascalie", "url": "https://www.cntraveler.com/"},
+    {"label": "Patagonia Stories: racconti outdoor con foto a tutta larghezza", "url": "https://www.patagonia.com/stories/"},
+    {"label": "High Mountains (Awwwards, nominee): le Alpi italiane raccontate per immagini", "url": "https://www.awwwards.com/sites/high-mountains"}
+  ]
+}

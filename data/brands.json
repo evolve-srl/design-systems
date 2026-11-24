@@ -1,0 +1,77 @@
+{
+  "privacymasters.it": {
+    "name": "PrivacyMasters",
+    "sector": "Cybersecurity, privacy e conformità (GDPR, NIS2, DORA, AI Act), investigazioni, sicurezza fisica",
+    "summary": "Sistema chiaro e coerente: verde brillante più petrolio scuro, titoli Poppins molto grandi e pulsanti a pillola. Il limite principale è l'accessibilità del verde e un logo che non regge le dimensioni piccole.",
+    "strengths": [
+      "Colori definiti come token con un ruolo (principale, testo, superfici, bordi): base già pronta per un design system",
+      "Gerarchia dei titoli forte e riconoscibile (H1 Poppins 72px, H2 48px)",
+      "Componenti coerenti tra loro: CTA a pillola, card con raggio 18px e bordo sottile, badge maiuscoli"
+    ],
+    "issues": [
+      {"sev": "alto", "title": "Le CTA verdi non sono leggibili per tutti", "detail": "Il testo bianco su verde #00C483 ha contrasto 2.28:1. La norma WCAG AA chiede almeno 4.5:1. Riguarda tutte le CTA principali e i numeri verdi su bianco.", "evidence": "misurato sui colori computati"},
+      {"sev": "alto", "title": "Il logo non funziona alle dimensioni piccole", "detail": "Il logo è un PNG 531×595 mostrato a 32×36px: la scritta \"SECURITY EXPERTS\" incorporata diventa illeggibile. Il suo verde (~#109040) è diverso dal verde del sito (#00C483).", "evidence": "pixel campionati dal file del logo (±16)"},
+      {"sev": "medio", "title": "Badge e numeri in verde su fondo chiaro", "detail": "Badge in maiuscolo 12px e statistiche usano lo stesso verde #00C483 su bianco o su verde chiarissimo: stesso problema di contrasto delle CTA.", "evidence": "badge e testi estratti dalla homepage"}
+    ]
+  },
+  "bevolve.it": {
+    "name": "Evolve",
+    "sector": "System integrator di Rovigo: software, AI, cybersecurity, reti e ingegneria per imprese e PA",
+    "summary": "Impianto molto pulito e neutro (solo Inter, grigi puri), con il blu navy riservato a CTA e parole chiave. È ordinato, ma ha poca personalità: il colore di brand si vede appena e il logo è molto fragile.",
+    "strengths": [
+      "Una sola famiglia tipografica (Inter) usata con una scala ordinata (12–60px)",
+      "Token semantici già presenti (primary, surface, muted, accent)",
+      "Contrasti del testo tutti a norma (testo #555555 su bianco 7.46:1)"
+    ],
+    "issues": [
+      {"sev": "alto", "title": "Logo troppo sottile", "detail": "Il wordmark EVOLVE (PNG 318×82, mostrato a 140×36px) ha tratti di circa 1px: perde leggibilità su schermi piccoli e su fondi colorati.", "evidence": "file del logo e lockup nell'header"},
+      {"sev": "medio", "title": "Il colore di brand quasi non si vede", "detail": "Il blu #11338A copre l'1,9% del testo; gli sfondi sono per oltre il 99% bianco e grigio. Il sito risulta poco riconoscibile.", "evidence": "colori pesati per area e per caratteri"},
+      {"sev": "basso", "title": "Favicon e logo parlano lingue diverse", "detail": "Il favicon è un quadrato blu con tre barre; il logo è un wordmark nero sottile. Non condividono né forma né colore.", "evidence": "favicon e logo scaricati dal sito"}
+    ]
+  },
+  "tuttoaltopiano.it": {
+    "name": "TuttoAltopiano",
+    "sector": "Guida indipendente all'Altopiano dei Sette Comuni (Asiago): sentieri, malghe, Grande Guerra, neve, con l'assistente Nando",
+    "summary": "È l'identità più caratterizzata dei cinque: serif Fraunces, verde bosco, ocra e colore carta, con foto vere del territorio. Il problema principale è il contrasto della CTA ocra; c'è anche un residuo di Lovable visibile in produzione.",
+    "strengths": [
+      "Personalità chiara: Fraunces per i titoli e Inter Tight per il testo, palette naturale",
+      "Fotografia reale e di qualità come elemento portante",
+      "Tema scuro già definito nei token"
+    ],
+    "issues": [
+      {"sev": "alto", "title": "CTA ocra poco leggibile", "detail": "Il testo chiaro #FEFCF4 su ocra #CD8643 ha contrasto 2.88:1, sotto la soglia AA di 4.5:1.", "evidence": "misurato sui colori computati"},
+      {"sev": "medio", "title": "Badge \"Edit with Lovable\" in produzione", "detail": "In basso a destra compare il badge dell'editor con cui è stato costruito il sito: va rimosso dalla build pubblica.", "evidence": "screenshot della homepage"},
+      {"sev": "basso", "title": "Nessun file del logo", "detail": "Il logo esiste solo come SVG inline nell'header (montagna più wordmark in Fraunces): manca un file da scaricare o usare altrove.", "evidence": "nessun file logo tra le risorse caricate"}
+    ]
+  },
+  "oblivio.legal": {
+    "name": "Oblivio",
+    "sector": "Diritto all'oblio: rimozione da Google e social di informazioni errate, superate o lesive",
+    "summary": "Sito ordinato e rassicurante, con blu istituzionale, CTA rettangolari e un brand kit già pubblicato. Le incoerenze sono di colore: due blu diversi tra logo e interfaccia, e elementi flottanti fuori palette.",
+    "strengths": [
+      "Brand kit già pubblicato su /brand (logo, OG image, favicon)",
+      "CTA a contrasto corretto (testo su #0068CB 5.33:1) e tema scuro definito",
+      "Tono visivo sobrio, adatto a un servizio legale delicato"
+    ],
+    "issues": [
+      {"sev": "medio", "title": "Due blu diversi", "detail": "Il logo usa un blu ~#1D4ED8 (campionato dal file ~#1040D0), le CTA #0068CB: affiancati si nota la differenza.", "evidence": "colori computati e pixel del logo"},
+      {"sev": "medio", "title": "Elementi flottanti fuori palette", "detail": "Il pulsante \"Ti richiamiamo\" è verde menta #62D0A4, colore che non compare altrove; con il pulsante chat sono due elementi fissi in concorrenza tra loro.", "evidence": "screenshot della homepage"},
+      {"sev": "basso", "title": "Badge \"Caso risolto\" poco leggibile", "detail": "Nell'esempio dell'hero il badge verde chiaro su verde chiarissimo è visibilmente poco leggibile (non misurato).", "evidence": "osservato sullo screenshot"}
+    ]
+  },
+  "medicleo.com": {
+    "name": "Medicleo",
+    "sector": "Sensore radar non invasivo per la sicurezza di anziani e persone fragili a casa",
+    "summary": "Interfaccia blu petrolio coerente e accessibile, Plus Jakarta Sans molto marcato, molti dati con fonti. Il punto debole è il marchio: il logo magenta e ciano non ha nulla in comune con i colori del sito, e il nome compare due volte.",
+    "strengths": [
+      "Palette blu petrolio coerente con contrasti ampiamente a norma (CTA 7.6:1)",
+      "Una sola famiglia tipografica (Plus Jakarta Sans) con titoli 800 molto riconoscibili",
+      "Contenuti ricchi e supportati da fonti"
+    ],
+    "issues": [
+      {"sev": "alto", "title": "Logo e sito non si parlano", "detail": "Il logo è magenta (~#E00060) e ciano (~#00A0F0); questi colori non compaiono in nessun punto dell'interfaccia.", "evidence": "pixel campionati dal file del logo (±16) e colori computati"},
+      {"sev": "alto", "title": "Nome ripetuto due volte nell'header", "detail": "Il logo contiene la scritta \"MediCleo\" e accanto c'è il testo \"Medicleo\": due grafie diverse una accanto all'altra.", "evidence": "lockup dell'header"},
+      {"sev": "basso", "title": "Logo raster piccolo", "detail": "Il logo è un WebP 300×300 mostrato a 44px: la scritta interna è al limite della leggibilità.", "evidence": "file del logo"}
+    ]
+  }
+}

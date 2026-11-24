@@ -1,0 +1,88 @@
+/* Evolve — Restyle 1 "Swiss Engineering": design tokens */
+:root {
+  /* Colori — superfici: carta bianca e un grigio caldo appena accennato */
+  --c-paper: #FFFFFF;
+  --c-paper-2: #F4F4F1;
+
+  /* Colori — testo: nero quasi puro e grigio leggibile (6.69:1 su bianco) */
+  --c-ink: #0A0A0A;
+  --c-muted: #5C5C5C;
+
+  /* Colori — blu elettrico di direzione (derivato dal navy #11338A), usato a campiture piene */
+  --c-blue: #1640D9;          /* bianco su blu 7.58:1 */
+  --c-blue-ink: #FFFFFF;      /* testo su blu */
+  --c-blue-soft: #DCE3FF;     /* testo secondario su blu 5.95:1 */
+  --c-navy: #11338A;          /* navy storico del brand, per hover/pressed */
+
+  /* Colori — linee di griglia e divisori */
+  --c-line: rgba(10, 10, 10, 0.12);
+  --c-line-strong: #0A0A0A;
+  --c-line-on-blue: rgba(255, 255, 255, 0.28);
+
+  /* Colori — footer scuro */
+  --c-footer: #0A0A0A;
+  --c-footer-muted: #B8B8B8;   /* 9.9:1 su footer */
+  --c-footer-line: #2A2A2A;
+  --c-footer-bar: #000000;
+
+  /* Tipografia — famiglie: Inter Tight per tutto il testo, JetBrains Mono per numerazione e dati */
+  --f-sans: "Inter Tight", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Tipografia — scala fluida (min 390px, max 1440px) */
+  --t-mega: clamp(2.75rem, 1.2rem + 7.2vw, 8.5rem);
+  --t-xxl: clamp(2.25rem, 1.3rem + 4.2vw, 5.5rem);
+  --t-xl: clamp(1.75rem, 1.2rem + 2.2vw, 3.25rem);
+  --t-l: clamp(1.25rem, 1.05rem + 0.9vw, 1.875rem);
+  --t-m: 1.125rem;
+  --t-body: 1rem;
+  --t-s: 0.875rem;
+  --t-xs: 0.75rem;
+
+  /* Tipografia — pesi, interlinea e tracking */
+  --w-regular: 400;
+  --w-medium: 500;
+  --w-semibold: 600;
+  --lh-tight: 0.92;
+  --lh-snug: 1.1;
+  --lh-body: 1.55;
+  --ls-display: -0.045em;
+  --ls-title: -0.03em;
+  --ls-mono: 0.04em;
+
+  /* Spaziatura — base 8px */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-5: 3rem;
+  --s-6: 4rem;
+  --s-7: 6rem;
+  --s-8: 9rem;
+
+  /* Layout — griglia a 12 colonne (4 su mobile), gutter e larghezza massima */
+  --g-cols: 12;
+  --g-gutter: 16px;
+  --g-margin: 16px;
+  --g-max: 1440px;
+
+  /* Forme — angoli vivi: la direzione rinuncia alla pillola */
+  --r-0: 0;
+  --r-1: 2px;
+
+  /* Movimento — curve e durate */
+  --e-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --e-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --d-fast: 180ms;
+  --d-base: 420ms;
+
+  /* Focus — anello visibile ad alto contrasto */
+  --focus: 0 0 0 3px #FFFFFF, 0 0 0 5px #1640D9;
+}
+
+@media (min-width: 768px) {
+  :root { --g-margin: 32px; --g-gutter: 24px; }
+}
+@media (min-width: 1200px) {
+  :root { --g-margin: 40px; }
+}

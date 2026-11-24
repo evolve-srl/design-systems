@@ -1,0 +1,56 @@
+{
+  "n": 3,
+  "slug": "stagioni",
+  "name": "Le stagioni dell'Altopiano",
+  "concept": "Scorrendo la pagina si attraversano estate, autunno e inverno: il colore di fondo cambia, i contenuti sono raggruppati per stagione e Nando è in primo piano già nell'hero, come una chat. È pensata per famiglie e visitatori occasionali che chiedono 'cosa facciamo adesso?'. Funziona perché sull'Altopiano tutto dipende dalla stagione (malghe d'estate, foliage e storia in autunno, fondo e mercatini d'inverno) e Nando è la risposta più diretta.",
+  "palette": [
+    {"name": "Carta", "hex": "#F7F3E8", "role": "fondo hero e sezioni neutre"},
+    {"name": "Inchiostro", "hex": "#141D16", "role": "testo principale"},
+    {"name": "Verde bosco", "hex": "#1F4D32", "role": "CTA scura, domande a Nando, blocco Nando finale"},
+    {"name": "Ocra", "hex": "#CD8643", "role": "CTA principale 'Chiedi a Nando', sempre con testo inchiostro"},
+    {"name": "Giallo sole", "hex": "#F2B544", "role": "badge quota e 'consigli di oggi'"},
+    {"name": "Prato (estate)", "hex": "#E4EDCC", "role": "fondo estate, con inchiostro #1F3B24"},
+    {"name": "Foliage (autunno)", "hex": "#F4DDBD", "role": "fondo autunno, con inchiostro #5A2410"},
+    {"name": "Neve (inverno)", "hex": "#DDE8F2", "role": "fondo inverno, con inchiostro #13283A"}
+  ],
+  "fonts": [
+    {"family": "Bricolage Grotesque", "role": "titoli e nomi delle stagioni, tono simpatico", "source": "Google Fonts (OFL)"},
+    {"family": "Figtree", "role": "testo e interfaccia", "source": "Google Fonts (OFL)"}
+  ],
+  "motion": [
+    "Il colore della pagina cambia per stagione: tre strati fissi che sfumano in opacità (ScrollTrigger)",
+    "Nando 'scrive' nell'hero: puntini di attesa, messaggio parola per parola, domande che spuntano con rimbalzo",
+    "H1 a parole che rimbalzano (SplitText) e sottolineatura ocra disegnata a mano",
+    "Nomi delle stagioni lettera per lettera con rotazioni casuali",
+    "Decorazioni stagionali in loop: sole che gira, foglie che ondeggiano, fiocchi che scendono (solo transform)",
+    "Barra delle stagioni sticky che evidenzia la stagione in vista",
+    "Quote dei comuni che contano, schede che si inclinano al passaggio del mouse"
+  ],
+  "components": [
+    "header a pillola flottante",
+    "hero con foto arrotondata e chat di Nando in primo piano (domande reali come risposte rapide)",
+    "selettore stagione nell'hero e barra stagioni sticky",
+    "schede rapide con icone",
+    "schede dei comuni con badge quota",
+    "sezione Estate: foto malghe, sentieri con badge di difficoltà a colori",
+    "sezione Autunno: tre idee di oggi, foto Grande Guerra, meteo attuale, itinerario autunnale",
+    "sezione Inverno: foto neve, appuntamenti a biglietto, weekend sulla neve, rimando a primavera",
+    "nuvolette 'Chiedilo a Nando' contestuali in ogni stagione",
+    "itinerari colorati per stagione",
+    "blocco finale Chiedi a Nando con chat"
+  ],
+  "fixes": [
+    "CTA ocra: testo inchiostro #141D16 su ocra #CD8643, contrasto 2.88 → 5.82",
+    "CTA verde bosco con testo bianco: 9.70:1",
+    "Ogni stagione ha il suo inchiostro: 10.1:1 (estate), 9.4:1 (autunno), 12.1:1 (inverno)",
+    "Badge difficoltà su bianco tutti sopra 5.4:1",
+    "Nessun badge 'Edit with Lovable'",
+    "Senza JS o con riduzione del movimento le sezioni mostrano comunque il loro colore di stagione"
+  ],
+  "references": [
+    {"label": "MySwitzerland: destinazione montana organizzata per stagione", "url": "https://www.myswitzerland.com/en-ch/"},
+    {"label": "Awwwards, transizione di colore allo scroll (Käthe Kollwitz Memorial)", "url": "https://www.awwwards.com/inspiration/scroll-triggered-color-transition-kathe-kollwitz-memorial"},
+    {"label": "GSAP Showcase: pattern di ScrollTrigger e SplitText", "url": "https://gsap.com/showcase/"},
+    {"label": "Godly: raccolta di siti con tipografia e micro-interazioni giocose", "url": "https://godly.website/"}
+  ]
+}

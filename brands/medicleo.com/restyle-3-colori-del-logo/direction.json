@@ -1,0 +1,53 @@
+{
+  "n": 3,
+  "slug": "colori-del-logo",
+  "name": "I colori del logo",
+  "concept": "Il sito finalmente parla con i colori del marchio: il magenta e il ciano del logo, scuriti quanto basta per essere leggibili, diventano CTA, card piene e adesivi. Forme tonde come il lettering del logo, tono amichevole e deciso: per famiglie che cercano una presenza vicina, non un prodotto medicale freddo.",
+  "palette": [
+    {"name": "Magenta", "hex": "#C8004F", "role": "CTA primaria e accenti testuali (bianco su Magenta 5.88:1)"},
+    {"name": "Magenta logo", "hex": "#EE0E65", "role": "forme e sottolineature decorative, mai testo piccolo"},
+    {"name": "Magenta scuro", "hex": "#8E0039", "role": "card piene (bianco 9.51:1)"},
+    {"name": "Rosa", "hex": "#FFE8F0", "role": "superfici tenui, sezioni"},
+    {"name": "Ciano logo", "hex": "#00AEF0", "role": "blob, evidenziatore, card con testo Ink (6.28:1)"},
+    {"name": "Ciano", "hex": "#00648C", "role": "link e CTA secondaria (6.56:1 su bianco)"},
+    {"name": "Ciano scuro", "hex": "#005A7E", "role": "card piene (bianco 7.60:1)"},
+    {"name": "Azzurro", "hex": "#E0F4FC", "role": "superfici tenui, sezioni"},
+    {"name": "Ink", "hex": "#1B2233", "role": "testo e sezione contatti (15.87:1)"},
+    {"name": "Grigio", "hex": "#4A5068", "role": "testo secondario (7.96:1 su bianco)"}
+  ],
+  "fonts": [
+    {"family": "Nunito", "role": "titoli 800-900, numeri, bottoni", "source": "Google Fonts (OFL)"},
+    {"family": "Nunito Sans", "role": "testo, form", "source": "Google Fonts (OFL)"}
+  ],
+  "motion": [
+    "H1 con parole che saltano su una alla volta (SplitText words, back.out)",
+    "blob ciano che ruota lentamente dietro il sensore, cerchio magenta che fluttua",
+    "adesivi 'nessuna telecamera · giorno e notte · nulla da indossare' che entrano con un pop e ondeggiano",
+    "fascia magenta inclinata con testo che scorre in orizzontale",
+    "card colorate che entrano con scala, leggera rotazione e rimbalzo (ScrollTrigger.batch)",
+    "numeri dei tre passi che ruotano in posizione",
+    "micro-interazione sulle CTA (scala con rimbalzo) e sulle card (sollevamento con rotazione di 1 grado)",
+    "prefers-reduced-motion: nessuna animazione; senza JS tutto visibile"
+  ],
+  "components": [
+    "header a pillola flottante con logo originale e CTA magenta",
+    "hero con titolo evidenziato (sottolineatura magenta, evidenziatore ciano) e blob con sensore",
+    "fascia scorrevole dei benefici",
+    "quattro card colorate 'la casa è più di un luogo'",
+    "bento dei dati del contesto con card piene magenta, ciano e ink, rette in pillole",
+    "feature card con icone in tondi colorati, timeline a tre cerchi, card 'per chi' con testata colorata",
+    "calcolatore dei costi, FAQ a pillole con più/meno, contatti su ink"
+  ],
+  "fixes": [
+    "i colori del logo (magenta e ciano) finalmente usati nel sito, in versioni accessibili: il magenta originale #EE0E65 su bianco fa 4.30:1 e il ciano #00AEF0 2.53:1, quindi il testo usa #C8004F (5.88:1 come fondo CTA) e #00648C (6.56:1)",
+    "CTA principale: bianco su #C8004F 5.88:1",
+    "il nome non è più ripetuto: nel header solo il logo originale, che contiene già 'MediCleo'",
+    "testo secondario #4A5068 a 7.96:1 su bianco"
+  ],
+  "references": [
+    {"label": "Alan, assicurazione salute con palette piena e card colorate", "url": "https://alan.com/"},
+    {"label": "Headspace, salute con forme tonde e tono amichevole", "url": "https://www.headspace.com/"},
+    {"label": "Joyful Health di Paper Tiger, sanità colorata animata con GSAP", "url": "https://www.papertiger.com/projects/joyful-health"},
+    {"label": "Godly (ora recent.design), galleria di web design", "url": "https://godly.website/"}
+  ]
+}

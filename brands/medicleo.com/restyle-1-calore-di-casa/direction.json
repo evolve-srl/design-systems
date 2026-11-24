@@ -1,0 +1,51 @@
+{
+  "n": 1,
+  "slug": "calore-di-casa",
+  "name": "Calore di casa",
+  "concept": "La casa e le persone al centro, non la tecnologia. Toni carta e sabbia, titoli in un serif umanista e grandi frasi che si accendono piano: parla alle famiglie con la calma di una lettera, e lascia al radar il ruolo discreto che ha davvero. La finestra ad arco è il motivo che richiama la stanza di casa.",
+  "palette": [
+    {"name": "Latte", "hex": "#FBF6EE", "role": "sfondo pagina"},
+    {"name": "Sabbia", "hex": "#F3E9DA", "role": "superfici, card, sezioni alternate"},
+    {"name": "Notte calda", "hex": "#1E2B33", "role": "testo principale e sezioni scure (13.47:1 su Latte)"},
+    {"name": "Legno", "hex": "#5A4A3F", "role": "testo secondario (7.85:1 su Latte)"},
+    {"name": "Terracotta", "hex": "#9C3D1C", "role": "CTA primaria, accento dei titoli (bianco su Terracotta 6.78:1)"},
+    {"name": "Albicocca", "hex": "#E8A87C", "role": "luce calda decorativa, mai testo su chiaro"},
+    {"name": "Salvia", "hex": "#4F6B58", "role": "occhielli e icone (5.46:1 su Latte)"}
+  ],
+  "fonts": [
+    {"family": "Fraunces", "role": "titoli, citazioni grandi, numeri", "source": "Google Fonts (OFL)"},
+    {"family": "Figtree", "role": "testo, interfaccia, form", "source": "Google Fonts (OFL)"}
+  ],
+  "motion": [
+    "H1 che si compone parola per parola con SplitText a maschera, lento (1.4s, stagger 0.07)",
+    "citazioni grandi che si accendono parola per parola (da opacità 0.15 a 1) quando entrano nello schermo",
+    "luce calda dietro la finestra ad arco che respira (opacità e scala, ciclo di 4s)",
+    "sezioni e card che salgono morbide con ScrollTrigger.batch",
+    "linee tra i tre passi che si disegnano con scaleX",
+    "parallax leggero sulla foto del sensore",
+    "prefers-reduced-motion: nessuna animazione; senza JS tutto visibile"
+  ],
+  "components": [
+    "header con logo originale ritagliato sull'area utile, senza nome duplicato",
+    "hero a due colonne con finestra ad arco e nota 'nessuna telecamera · nulla da indossare · giorno e notte'",
+    "disclaimer 'un ausilio, non un sostituto' in evidenza sotto le CTA",
+    "citazioni grandi in serif come separatori di capitolo",
+    "dati del contesto in righe editoriali con fonte linkata sotto ogni numero",
+    "sezione notturna per la soluzione, sensore su disco sabbia",
+    "tre passi numerati, card 'per chi', calcolatore dei costi funzionante",
+    "FAQ con details nativi (risposte ricavate solo dai testi esistenti)",
+    "contatti su fondo scuro con form e dati aziendali"
+  ],
+  "fixes": [
+    "il nome non è più ripetuto: nel header c'è solo il logo originale (che contiene già 'MediCleo'), senza la scritta 'Medicleo' accanto",
+    "CTA primaria: bianco su Terracotta 6.78:1 (attuale bianco su #00558B 7.86:1, mantenuto il livello AA/AAA)",
+    "testo secondario a 7.85:1 invece del grigio #4C5D6A su #ECF5F8 (6.16:1)",
+    "il disclaimer sanitario non è più testo piccolo sopra la foto: sta in un riquadro leggibile",
+    "le fonti diventano link brevi sotto ogni numero, non righe ripetute due volte"
+  ],
+  "references": [
+    {"label": "Birdie, home care: tono caldo e centrato sulle persone", "url": "https://www.birdie.care/"},
+    {"label": "Nobi, tecnologia per anziani 'supported, not watched'", "url": "https://www.nobi.life/"},
+    {"label": "Awwwards, categoria Health", "url": "https://www.awwwards.com/websites/health/"}
+  ]
+}

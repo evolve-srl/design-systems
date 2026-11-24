@@ -1,0 +1,100 @@
+{
+  "n": 3,
+  "slug": "percorso-guidato",
+  "name": "Percorso guidato",
+  "concept": "Rassicurante ed empatica: si parte dalla domanda che la persona ha in testa e la si accompagna un passo alla volta. Il processo in tre passi è una sezione che si ferma per uno schermo e mostra cosa succede a ogni passo; subito dopo ci sono le domande frequenti. Toni morbidi, angoli arrotondati, linguaggio umano: per chi arriva preoccupato e ha bisogno di capire prima di decidere.",
+  "palette": [
+    {
+      "name": "Sabbia",
+      "hex": "#F7F5F0",
+      "role": "sfondo pagina"
+    },
+    {
+      "name": "Bianco",
+      "hex": "#FFFFFF",
+      "role": "card e pannelli"
+    },
+    {
+      "name": "Nebbia",
+      "hex": "#EEF3FA",
+      "role": "sezioni alternate, footer"
+    },
+    {
+      "name": "Cielo",
+      "hex": "#DCE7FB",
+      "role": "chip, icone, passo attivo (tinta dello scudo)"
+    },
+    {
+      "name": "Inchiostro",
+      "hex": "#14213D",
+      "role": "testo principale (14.7:1)"
+    },
+    {
+      "name": "Blu Oblivio",
+      "hex": "#1D4ED8",
+      "role": "CTA, numeri dei passi, link"
+    },
+    {
+      "name": "Grigio caldo",
+      "hex": "#4A5568",
+      "role": "testo secondario (6.91:1)"
+    }
+  ],
+  "fonts": [
+    {
+      "family": "Figtree",
+      "role": "titoli e testo",
+      "source": "Google Fonts (OFL)"
+    },
+    {
+      "family": "Lora",
+      "role": "corsivo per la domanda iniziale e le voci delle persone",
+      "source": "Google Fonts (OFL)"
+    }
+  ],
+  "motion": [
+    "H1 che entra per parola (SplitText words) e i tre passi del riquadro hero che arrivano uno alla volta",
+    "Sezione 'Come funziona' pinnata per uno schermo su desktop: barra di avanzamento verticale (scaleY), passo attivo evidenziato e pannello illustrativo che cambia (autoAlpha + y)",
+    "Su mobile nessun pin: passi e pannelli in colonna con reveal morbido",
+    "Card servizi e testimonianze in ingresso a cascata (ScrollTrigger.batch)",
+    "Icona + che ruota a × nelle FAQ, CTA che si solleva di 1px"
+  ],
+  "components": [
+    "header con telefono in palette e CTA",
+    "hero con domanda in corsivo, H1 'Riprendi il controllo della tua identità digitale.' e chip di rassicurazione",
+    "riquadro 'Il tuo percorso, in tre passi' (nascosto sotto 560px)",
+    "garanzie in 4 card con icone",
+    "percorso pinnato con pannelli: chat/form, avvocati + informatici, caso d'esempio",
+    "FAQ in evidenza con details/summary nativi e contatto diretto",
+    "4 card servizi",
+    "3 testimonianze in corsivo con iniziali",
+    "riquadro tutele con numeri e normative",
+    "CTA finale su pannello blu"
+  ],
+  "fixes": [
+    "Due blu diversi (logo #1D4ED8, CTA #0068CB) → un solo blu, #1D4ED8 del brand kit, per logo, CTA e link: testo bianco sulla CTA 5.47 → 6.70:1",
+    "Badge 'Caso risolto' (circa 1.1:1) → inchiostro #14213D su cielo #DCE7FB, 12.83:1",
+    "Pulsante flottante verde menta 'Ti richiamiamo' (#62D0A4, fuori palette) eliminato: il telefono è un link in palette nell'header/menu e nella chiusura",
+    "Scudo del logo visualizzato a circa 27px (PNG originale a 56px, senza modifiche): nell'header attuale è di circa 18px, sotto il minimo di 24px indicato dal brand kit",
+    "Le risposte delle FAQ sono composte solo con frasi e dati già presenti nella homepage attuale",
+    "Tempi di risposta incoerenti nel sito attuale (stat '<24h' e 'entro 48 ore'): si usa solo 'entro 48 ore', da confermare col cliente"
+  ],
+  "references": [
+    {
+      "label": "Unobravo: processo in passi numerati, tono empatico, FAQ come gestione dei dubbi",
+      "url": "https://www.unobravo.com/"
+    },
+    {
+      "label": "Serenis: servizio delicato raccontato con toni morbidi",
+      "url": "https://www.serenis.it/"
+    },
+    {
+      "label": "Incogni: rimozione dati spiegata in passi, rassicurazioni lungo la pagina",
+      "url": "https://incogni.com/"
+    },
+    {
+      "label": "GSAP Showcase: sezioni pinnate con ScrollTrigger",
+      "url": "https://gsap.com/showcase/"
+    }
+  ]
+}

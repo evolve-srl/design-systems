@@ -1,0 +1,48 @@
+/* TUTTOALTOPIANO · Restyle 2 "Carta dei sentieri" · design tokens */
+:root {
+  /* Colori: carta topografica, inchiostro, curve di livello, bosco, segnavia rosso-bianco-rosso */
+  --c-paper: #EFE8D6;        /* fondo carta */
+  --c-paper-2: #E6DCC3;      /* riquadri, cartiglio, legenda */
+  --c-ink: #1E1A14;          /* testo principale (14.2:1 su carta) */
+  --c-muted: #5E574A;        /* testo secondario (5.9:1 su carta) */
+  --c-earth: #7A5230;        /* etichette e quote in testo (5.6:1 su carta) */
+  --c-contour: #9A6B3F;      /* curve di livello: solo grafica, mai testo */
+  --c-forest: #1F4D32;       /* bosco: fondi scuri e simboli */
+  --c-forest-text: #EFE8D6;  /* testo su bosco (7.9:1) */
+  --c-forest-muted: #C9BFA6; /* testo secondario su bosco (5.3:1) */
+  --c-red: #B3261E;          /* segnavia: CTA primaria (bianco su rosso 6.5:1), tracciati */
+  --c-white: #FFFFFF;        /* banda bianca del segnavia */
+  --c-night: #1E1A14;        /* footer */
+  --c-night-muted: #B8AE97;  /* testo secondario su footer (7.9:1) */
+
+  /* Tipografia: Archivo (asse di larghezza: condensato per i titoli), IBM Plex Mono per dati e quote */
+  --f-display: "Archivo", "Arial Narrow", system-ui, sans-serif;
+  --f-text: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --wdth-display: 68%;       /* font-stretch dei titoli */
+  --fs-h1: clamp(2.9rem, 6.6vw, 6.4rem);
+  --fs-h2: clamp(2.2rem, 4.6vw, 4.2rem);
+  --fs-h3: clamp(1.3rem, 1.8vw, 1.6rem);
+  --fs-body: 1.0625rem;
+  --fs-mono: 0.8125rem;
+  --fs-label: 0.72rem;
+  --lh-body: 1.6;
+  --tracking-mono: 0.08em;
+
+  /* Spaziatura e griglia */
+  --wrap: 1320px;
+  --gutter: clamp(16px, 3vw, 40px);
+  --gap: clamp(16px, 2vw, 28px);
+  --section: clamp(72px, 9vw, 136px);
+
+  /* Forme: tratti da carta, bordi netti, cornici doppie */
+  --radius: 2px;
+  --line: 1px solid var(--c-ink);
+  --line-soft: 1px solid rgba(30, 26, 20, 0.2);
+  --dash: 6 6;               /* tratteggio dei sentieri */
+
+  /* Movimento */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 160ms;
+  --dur: 380ms;
+}

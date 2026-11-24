@@ -1,0 +1,54 @@
+{
+  "n": 2,
+  "slug": "mappa-topografica",
+  "name": "Carta dei sentieri",
+  "concept": "La homepage si legge come una carta topografica: curve di livello, cartiglio con il titolo, quote in carattere mono, segnavia rosso-bianco-rosso e un tracciato che si disegna. È per chi va a camminare e vuole capire in fretta quote, difficoltà e tempi. Funziona perché sentieri e quote sono il cuore pratico della guida, e il linguaggio delle carte escursionistiche è già familiare a chi frequenta l'Altopiano.",
+  "palette": [
+    {"name": "Carta", "hex": "#EFE8D6", "role": "fondo pagina"},
+    {"name": "Carta scura", "hex": "#E6DCC3", "role": "riquadri, profilo altimetrico, sezione del giorno"},
+    {"name": "Inchiostro", "hex": "#1E1A14", "role": "testo, cornici, footer"},
+    {"name": "Terra", "hex": "#7A5230", "role": "etichette e quote in testo"},
+    {"name": "Curve di livello", "hex": "#9A6B3F", "role": "solo grafica (curve, tratteggi)"},
+    {"name": "Bosco", "hex": "#1F4D32", "role": "fondo rubrica Nando e stazione meteo, simboli"},
+    {"name": "Segnavia rosso", "hex": "#B3261E", "role": "CTA primaria con testo bianco, tracciati, marcatori"}
+  ],
+  "fonts": [
+    {"family": "Archivo", "role": "titoli condensati in maiuscolo (asse wdth 68%) e testo", "source": "Google Fonts (OFL)"},
+    {"family": "IBM Plex Mono", "role": "quote, etichette, dati meteo, nav", "source": "Google Fonts (OFL)"}
+  ],
+  "motion": [
+    "Curve di livello che si disegnano all'apertura (stagger casuale) e scorrono in parallax",
+    "Titolo del cartiglio che sale lettera per lettera dentro la maschera di riga (SplitText)",
+    "Tracciato rosso tratteggiato che si traccia tra le quote, con i punti che compaiono uno a uno",
+    "Profilo altimetrico disegnato all'ingresso in viewport",
+    "Foglio di percorso: il tratteggio rosso avanza con lo scroll (scrub, scaleY)",
+    "Quote che contano fino al valore reale, barre del calendario che si allungano (scaleX)",
+    "Hover a ombra netta 'stampata' su CTA e schede"
+  ],
+  "components": [
+    "header con nav in mono e CTA rossa",
+    "hero carta: curve di livello SVG, cornice con riferimenti di griglia, cartiglio con H1, schema delle quote non in scala",
+    "legenda con simboli per le tre schede rapide",
+    "profilo altimetrico SVG con le quote reali dei centri",
+    "foglio di percorso dei sentieri con segnavia, difficoltà a tacche e tempo",
+    "waypoint numerati per le tre idee del giorno",
+    "tavole fotografiche incorniciate",
+    "stazione meteo a strumenti",
+    "blocco Nando su verde bosco con le domande come schede",
+    "calendario a barre per gli appuntamenti (dicembre-giugno)",
+    "schede itinerario con indicatore dei giorni"
+  ],
+  "fixes": [
+    "CTA primaria: bianco su rosso segnavia #B3261E 6.54:1 (era testo chiaro su ocra 2.88)",
+    "CTA su verde bosco: verde #1F4D32 su carta #EFE8D6 7.93:1",
+    "Le curve di livello #9A6B3F (3.78:1) sono usate solo come grafica, mai per testo; le etichette usano Terra #7A5230 (5.58:1)",
+    "Nessun badge 'Edit with Lovable'",
+    "Schema delle quote dichiarato 'non in scala' per non spacciare un disegno per una mappa vera"
+  ],
+  "references": [
+    {"label": "swisstopo, curve di livello: il linguaggio grafico delle carte svizzere", "url": "https://www.swisstopo.admin.ch/en/contour-lines"},
+    {"label": "map.geo.admin.ch: carta escursionistica interattiva", "url": "https://map.geo.admin.ch/"},
+    {"label": "San Rita, portfolio a tema topografico con GSAP (Abduzeedo)", "url": "https://abduzeedo.com/node/89189"},
+    {"label": "Mammut Local Adventure (Awwwards Site of the Day)", "url": "https://www.awwwards.com/sites/mammut-local-adventure"}
+  ]
+}

@@ -1,0 +1,50 @@
+/* Privacy Masters · Restyle 2 "Istituzionale" — design tokens */
+:root {
+  /* Carta e inchiostro: fondo caldo da documento ufficiale, ink del brand */
+  --c-paper: #F6F5F0;       /* sfondo pagina */
+  --c-sheet: #FFFFFF;       /* riquadri, piastra del logo */
+  --c-ink: #0A2B33;         /* testo principale · 13.68:1 su paper */
+  --c-muted: #4D5E66;       /* testo secondario · 6.19:1 su paper */
+  --c-rule: #CDD3D0;        /* filetti della griglia */
+  --c-rule-strong: #0A2B33; /* filetti di apertura sezione */
+
+  /* Verde istituzionale: versione scura del verde brand, leggibile come testo e come fondo */
+  --c-green: #006B4A;       /* CTA, link, numeri · 6.01:1 su paper, bianco su verde 6.56:1 (prima 2.28:1) */
+  --c-green-hover: #00573D; /* hover CTA · bianco 8.64:1 */
+  --c-signal: #00C483;      /* verde brand originale, solo decorativo (punti, filetti) o su fondo ink (6.56:1) */
+  --c-on-green: #FFFFFF;
+
+  /* Fasce scure */
+  --c-band: #0A2B33;        /* sezione CTA finale */
+  --c-on-band: #FFFFFF;     /* 14.93:1 */
+  --c-on-band-muted: #9FB4B9; /* 6.90:1 */
+
+  /* Tipografia: serif editoriale + sans istituzionale (Google Fonts, OFL) */
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Public Sans", system-ui, sans-serif;
+  --fs-hero: clamp(3rem, 8.4vw, 7.6rem);
+  --fs-statement: clamp(2rem, 4.6vw, 4.2rem);
+  --fs-h2: clamp(2.1rem, 4.2vw, 3.6rem);
+  --fs-h3: 1.35rem;
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --fs-kicker: 0.78rem;
+  --lh-display: 0.98;
+  --lh-body: 1.62;
+
+  /* Griglia svizzera a 12 colonne */
+  --container: 1320px;
+  --gutter: clamp(16px, 4vw, 48px);
+  --col-gap: clamp(16px, 2vw, 32px);
+  --space-section: clamp(5rem, 11vw, 9.5rem);
+
+  /* Forme: angoli quasi vivi, niente pillole */
+  --radius: 2px;
+
+  /* Movimento: lento e misurato */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 400ms;
+
+  /* Focus */
+  --focus-ring: 0 0 0 2px var(--c-paper), 0 0 0 4px var(--c-green);
+}

@@ -1,0 +1,46 @@
+/* TUTTOALTOPIANO · Restyle 1 "Rivista d'Altopiano" · design tokens */
+:root {
+  /* Colori: carta da rivista, inchiostro, verde bosco del brand, ocra scurito per il testo */
+  --c-paper: #F4F1E8;        /* fondo pagina */
+  --c-paper-2: #EAE5D6;      /* fondo riquadri e bollettino */
+  --c-ink: #141D16;          /* testo principale (15.3:1 su carta) */
+  --c-muted: #586156;        /* testo secondario (5.7:1 su carta) */
+  --c-forest: #1F4D32;       /* CTA primaria, link (testo carta su bosco 8.6:1) */
+  --c-ochre: #CD8643;        /* ocra del brand: solo come fondo con testo ink (5.8:1) */
+  --c-ochre-text: #8A4F1A;   /* ocra scurito per occhielli e numeri su carta (5.8:1) */
+  --c-rule: rgba(20, 29, 22, 0.18); /* filetti tipografici */
+  --c-night: #141D16;        /* fondo della rubrica Nando */
+  --c-night-text: #F4F1E8;   /* testo su notte (15.3:1) */
+  --c-night-muted: #B9B5A6;  /* testo secondario su notte (8.4:1) */
+
+  /* Tipografia: Newsreader per titoli e didascalie, Inter Tight per testo e interfaccia */
+  --f-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-text: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --fs-cover: clamp(2.75rem, 7.4vw, 7.25rem); /* H1 di copertina */
+  --fs-h2: clamp(2.1rem, 4.4vw, 4rem);
+  --fs-h3: clamp(1.35rem, 2vw, 1.75rem);
+  --fs-caption: clamp(1.4rem, 2.6vw, 2.4rem); /* didascalie grandi in corsivo */
+  --fs-lede: clamp(1.1rem, 1.4vw, 1.3rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --fs-kicker: 0.75rem;
+  --lh-tight: 1.02;
+  --lh-body: 1.6;
+  --tracking-kicker: 0.16em;
+
+  /* Spaziatura e griglia: 12 colonne, gutter 16px su mobile */
+  --wrap: 1320px;
+  --gutter: clamp(16px, 3vw, 40px);
+  --gap: clamp(16px, 2vw, 28px);
+  --section: clamp(72px, 10vw, 148px);
+
+  /* Forme: angoli vivi da stampa, filetti al posto delle ombre */
+  --radius: 0px;
+  --radius-btn: 999px;
+  --rule-w: 1px;
+
+  /* Movimento: easing editoriali, lenti in uscita */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur: 420ms;
+}

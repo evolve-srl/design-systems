@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Evolve S.r.l. Rovigo — System Integrator, software e AI · Restyle 3 Partner del territorio</title>
+<meta name="description" content="Evolve S.r.l., System Integrator con sede a Rovigo (Via L. Einaudi 54): software & AI, cybersecurity, reti e ingegneria per imprese e PA.">
+<meta name="theme-color" content="#F6F1E8">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--c-cream);color:var(--c-ink);font-family:var(--f-sans);font-size:var(--t-body);line-height:var(--lh-body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg,video{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+:focus-visible{outline:none;box-shadow:var(--focus);border-radius:6px}
+.skip{position:absolute;left:-9999px;top:0;background:var(--c-navy);color:#fff;padding:12px 16px;z-index:100}
+.skip:focus{left:16px;top:16px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.serif{font-family:var(--f-serif)}
+.label{display:inline-flex;align-items:center;gap:8px;font-size:var(--t-xs);font-weight:var(--w-semibold);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--c-muted)}
+.label svg{width:16px;height:16px;color:var(--c-terra)}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(246,241,232,.92);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color var(--d-base)}
+.site-header.scrolled{border-bottom-color:var(--c-line)}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:16px}
+.brand img{width:168px;height:auto}
+.nav{display:none;align-items:center;gap:4px}
+.nav a{text-decoration:none;font-size:var(--t-s);font-weight:var(--w-medium);color:var(--c-ink);padding:10px 14px;border-radius:var(--r-pill);transition:background var(--d-fast)}
+.nav a:hover{background:var(--c-sand)}
+@media (min-width:1060px){.nav{display:flex}.menu-btn{display:none!important}}
+.btn{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:var(--w-medium);font-size:var(--t-body);padding:15px 24px;border-radius:var(--r-pill);border:1.5px solid transparent;line-height:1.1;transition:background var(--d-fast),color var(--d-fast),transform var(--d-base) var(--e-out)}
+.btn svg{width:18px;height:18px;transition:transform var(--d-base) var(--e-out)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-navy{background:var(--c-navy);color:var(--c-on-navy)}
+.btn-navy:hover{background:var(--c-navy-deep)}
+.btn-outline{border-color:var(--c-ink);color:var(--c-ink)}
+.btn-outline:hover{background:var(--c-ink);color:var(--c-cream)}
+.btn-cream{background:var(--c-cream);color:var(--c-navy)}
+.btn-cream:hover{background:#fff}
+.btn-outline-cream{border-color:var(--c-on-navy);color:var(--c-on-navy)}
+.btn-outline-cream:hover{background:var(--c-on-navy);color:var(--c-navy)}
+.nav .btn{margin-left:8px;padding:11px 18px;color:var(--c-on-navy)}
+.nav .btn:hover{background:var(--c-navy-deep)}
+.menu-btn{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--c-ink);background:transparent;color:var(--c-ink);border-radius:var(--r-pill);padding:9px 16px;font:inherit;font-size:var(--t-s);font-weight:var(--w-medium);cursor:pointer}
+.menu-btn svg{width:18px;height:18px}
+.mobile-nav{position:fixed;inset:76px 0 0 0;background:var(--c-cream);z-index:49;padding:var(--s-3) var(--gutter);display:none;flex-direction:column;overflow:auto}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:var(--f-serif);font-size:2rem;text-decoration:none;padding:10px 0;border-bottom:1px solid var(--c-line)}
+.mobile-nav .btn{font-family:var(--f-sans);font-size:1rem;justify-content:center;margin-top:var(--s-4);border-bottom:0}
+
+/* hero */
+.hero{padding:var(--s-4) 0 var(--s-5)}
+.hero-grid{display:grid;gap:var(--s-5);align-items:center}
+@media (min-width:980px){.hero-grid{grid-template-columns:1.15fr 0.85fr;gap:var(--s-6)}.hero{padding:var(--s-6) 0 var(--s-6)}}
+.chip{display:inline-flex;align-items:center;gap:8px;background:var(--c-paper);border:1px solid var(--c-line);border-radius:var(--r-pill);padding:8px 14px 8px 10px;font-size:var(--t-s);font-weight:var(--w-medium)}
+.chip svg{width:18px;height:18px;color:var(--c-terra)}
+.hero h1{font-family:var(--f-serif);font-weight:var(--w-regular);font-size:var(--t-hero);line-height:var(--lh-tight);letter-spacing:var(--ls-title);margin:var(--s-3) 0;font-variation-settings:"opsz" 120}
+.hero h1 em{font-style:italic;color:var(--c-navy)}
+.hero .claim{font-size:var(--t-l);font-weight:var(--w-medium)}
+.hero .lede{color:var(--c-muted);margin-top:var(--s-2);max-width:54ch;font-size:1.0625rem}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:var(--s-4)}
+.promises{display:flex;flex-wrap:wrap;gap:12px 28px;margin-top:var(--s-4);padding-top:var(--s-3);border-top:1px solid var(--c-line);list-style:none;padding-left:0}
+.promises li{display:flex;align-items:center;gap:10px;font-size:var(--t-s);font-weight:var(--w-medium)}
+.promises svg{width:20px;height:20px;color:var(--c-navy)}
+.visual{position:relative}
+.frame{position:relative;border-radius:var(--r-l);overflow:hidden;background:var(--c-sky);aspect-ratio:4/5;box-shadow:var(--sh-card)}
+@media (max-width:979px){.frame{aspect-ratio:4/3}}
+.frame video{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;transform:scale(1.35)}
+.frame .stamp{position:absolute;left:20px;top:20px;right:20px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.frame .stamp img{width:150px;height:auto}
+.note{position:absolute;left:-24px;bottom:28px;max-width:280px;background:var(--c-paper);border-radius:var(--r-m);padding:18px 20px;box-shadow:var(--sh-card);border:1px solid var(--c-line)}
+.note p{font-family:var(--f-serif);font-size:1.25rem;line-height:1.25}
+.note span{display:block;margin-top:8px;font-size:var(--t-s);color:var(--c-muted)}
+@media (max-width:979px){.note{position:relative;left:auto;bottom:auto;margin:-48px 16px 0;max-width:none}}
+
+/* marquee */
+.marquee{overflow:hidden;background:var(--c-navy);color:var(--c-on-navy);padding:18px 0;white-space:nowrap}
+.marquee.light{background:transparent;color:var(--c-ink);border-block:1px solid var(--c-line)}
+.track{display:flex;width:max-content}
+.group{display:flex;align-items:center;gap:36px;padding-right:36px;font-family:var(--f-serif);font-size:var(--t-marquee);line-height:1.1;font-variation-settings:"opsz" 144}
+.group i{font-style:italic;color:var(--c-on-navy-muted)}
+.marquee.light .group i{color:var(--c-terra)}
+.group svg{width:22px;height:22px;flex:none;color:var(--c-terra)}
+
+/* sezioni */
+.section{padding:var(--s-6) 0}
+@media (min-width:980px){.section{padding:var(--s-7) 0}}
+.sec-head{display:grid;gap:var(--s-2);margin-bottom:var(--s-5);max-width:760px}
+.sec-head h2{font-family:var(--f-serif);font-weight:var(--w-regular);font-size:var(--t-xxl);line-height:1.06;letter-spacing:var(--ls-title)}
+.sec-head h2 em{font-style:italic;color:var(--c-terra)}
+.sec-head p{color:var(--c-muted);font-size:var(--t-l)}
+
+/* chi siamo */
+.about{display:grid;gap:var(--s-5)}
+@media (min-width:980px){.about{grid-template-columns:240px 1fr;gap:var(--s-6)}}
+.quote{font-family:var(--f-serif);font-size:var(--t-quote);line-height:1.22;letter-spacing:-0.01em;font-weight:var(--w-regular)}
+.quote em{font-style:italic;color:var(--c-navy)}
+.about-more{color:var(--c-muted);margin-top:var(--s-4);max-width:62ch;font-size:1.0625rem}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:var(--s-5)}
+.stat{background:var(--c-paper);border:1px solid var(--c-line);border-radius:var(--r-m);padding:var(--s-3) var(--s-2)}
+@media (min-width:768px){.stat{padding:var(--s-3)}}
+.stat .n{font-family:var(--f-serif);font-size:clamp(2.5rem,1.6rem + 3vw,4.25rem);line-height:1;color:var(--c-navy)}
+.stat .n small{font-size:.45em;margin-left:2px}
+.stat p{margin-top:8px;color:var(--c-muted);font-size:var(--t-s);line-height:1.4}
+
+/* bento servizi */
+.bento{display:grid;gap:14px}
+@media (min-width:760px){.bento{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1080px){.bento{grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(220px,auto)}}
+.tile{position:relative;border-radius:var(--r-l);padding:var(--s-4);background:var(--c-paper);border:1px solid var(--c-line);display:flex;flex-direction:column;gap:12px;transition:transform var(--d-base) var(--e-out),box-shadow var(--d-base)}
+.tile:hover{transform:translateY(-4px);box-shadow:var(--sh-card)}
+.tile .ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--c-cream);border:1px solid var(--c-line)}
+.tile .ico svg{width:26px;height:26px;color:var(--c-navy)}
+.tile h3{font-family:var(--f-serif);font-weight:var(--w-medium);font-size:var(--t-xl);line-height:1.1;letter-spacing:var(--ls-title);margin-top:auto}
+.tile p{color:var(--c-muted)}
+.tile.navy{background:var(--c-navy);color:var(--c-on-navy);border-color:transparent}
+.tile.navy p{color:var(--c-on-navy-muted)}
+.tile.navy .ico{background:rgba(246,241,232,.1);border-color:var(--c-line-on-navy)}
+.tile.navy .ico svg{color:var(--c-on-navy)}
+.tile.sand{background:var(--c-sand);border-color:transparent}
+.tile.sky{background:var(--c-sky);border-color:transparent}
+.tile ul{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.tile li{font-size:var(--t-xs);font-weight:var(--w-semibold);letter-spacing:.02em;padding:5px 10px;border-radius:var(--r-pill);background:rgba(27,26,23,.06)}
+.tile.navy li{background:rgba(246,241,232,.12)}
+@media (min-width:1080px){
+  .t-sw{grid-column:span 2;grid-row:span 2}
+  .t-cy{grid-column:span 2}
+  .t-quote{grid-column:span 3}
+}
+.t-sw h3{font-size:var(--t-xxl)}
+.t-quote{justify-content:center}
+.t-quote p{font-family:var(--f-serif);color:var(--c-ink);font-size:var(--t-xl);line-height:1.2}
+.t-quote p em{font-style:italic;color:var(--c-terra)}
+.t-link{text-decoration:none;justify-content:space-between;background:var(--c-ink);color:var(--c-cream);border-color:transparent}
+.t-link h3{color:var(--c-cream)}
+.t-link .arrow{width:52px;height:52px;border-radius:50%;background:var(--c-cream);color:var(--c-ink);display:grid;place-items:center;transition:transform var(--d-base) var(--e-out)}
+.t-link .arrow svg{width:22px;height:22px}
+.t-link:hover .arrow{transform:rotate(-45deg)}
+
+/* metodo */
+.steps{display:grid;gap:14px;position:relative;list-style:none;padding:0;margin:0}
+@media (min-width:980px){.steps{grid-template-columns:repeat(4,1fr)}}
+.step{background:var(--c-paper);border:1px solid var(--c-line);border-radius:var(--r-m);padding:var(--s-4) var(--s-3)}
+.step .k{font-family:var(--f-serif);font-style:italic;font-size:2.75rem;line-height:1;color:var(--c-terra)}
+.step h3{font-family:var(--f-serif);font-weight:var(--w-medium);font-size:clamp(1.375rem,1.1rem + .8vw,1.75rem);white-space:nowrap;margin:var(--s-3) 0 8px;letter-spacing:var(--ls-title)}
+.step p{color:var(--c-muted)}
+.trail{height:3px;border-radius:3px;background:var(--c-sand);margin-bottom:var(--s-4);overflow:hidden}
+.trail span{display:block;height:100%;background:var(--c-navy);transform-origin:left}
+
+/* portfolio bento */
+.folio{display:grid;gap:14px}
+@media (min-width:760px){.folio{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1080px){.folio{grid-template-columns:repeat(4,1fr)}.f-wide{grid-column:span 2}}
+.card{position:relative;display:flex;flex-direction:column;gap:10px;padding:var(--s-4) var(--s-3);border-radius:var(--r-l);background:var(--c-paper);border:1px solid var(--c-line);text-decoration:none;min-height:240px;transition:transform var(--d-base) var(--e-out),box-shadow var(--d-base)}
+.card:hover,.card:focus-visible{transform:translateY(-4px);box-shadow:var(--sh-card)}
+.card .tag{font-size:var(--t-xs);font-weight:var(--w-semibold);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--c-terra)}
+.card h3{font-family:var(--f-serif);font-weight:var(--w-medium);font-size:var(--t-xl);letter-spacing:var(--ls-title);line-height:1.1}
+.card p{color:var(--c-muted);flex:1}
+.card .dom{display:flex;align-items:center;justify-content:space-between;font-size:var(--t-s);font-weight:var(--w-semibold);color:var(--c-navy);padding-top:12px;border-top:1px solid var(--c-line)}
+.card .dom svg{width:20px;height:20px;transition:transform var(--d-base) var(--e-out)}
+.card:hover .dom svg{transform:translate(3px,-3px)}
+.card.sky{background:var(--c-sky);border-color:transparent}
+.card.sky .tag,.card.sand .tag{color:var(--c-terra-deep)}
+.card.navy{background:var(--c-navy);color:var(--c-on-navy);border-color:transparent}
+.card.navy p{color:var(--c-on-navy-muted)}
+.card.navy .tag{color:var(--c-terra-light)}
+.card.navy .dom{color:var(--c-on-navy);border-top-color:var(--c-line-on-navy)}
+.card.sand{background:var(--c-sand);border-color:transparent}
+.card.sand p{color:var(--c-muted-deep)}
+.folio-note{border-radius:var(--r-l);border:1.5px dashed rgba(27,26,23,.25);padding:var(--s-4) var(--s-3);display:flex;align-items:center}
+.folio-note p{font-family:var(--f-serif);font-size:var(--t-l);line-height:1.4}
+.folio-note a{color:var(--c-navy);text-underline-offset:3px}
+
+/* CTA */
+.cta{background:var(--c-navy);color:var(--c-on-navy);border-radius:var(--r-l);padding:var(--s-5) var(--s-3);display:grid;gap:var(--s-5);overflow:hidden;position:relative}
+@media (min-width:980px){.cta{grid-template-columns:1.3fr 0.7fr;padding:var(--s-6);align-items:end}}
+.cta h2{font-family:var(--f-serif);font-weight:var(--w-regular);font-size:var(--t-xxl);line-height:1.06;letter-spacing:var(--ls-title)}
+.cta h2 em{font-style:italic;color:var(--c-on-navy-muted)}
+.cta .lead{margin-top:var(--s-3);color:var(--c-on-navy-muted);font-size:var(--t-l);max-width:44ch}
+.where{background:rgba(246,241,232,.08);border:1px solid var(--c-line-on-navy);border-radius:var(--r-m);padding:var(--s-3);display:grid;gap:14px}
+.where h3{font-size:var(--t-xs);font-weight:var(--w-semibold);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--c-on-navy-muted)}
+.where a,.where p{display:flex;gap:12px;align-items:flex-start;text-decoration:none;font-size:1.0625rem}
+.where a:hover{text-decoration:underline;text-underline-offset:3px}
+.where svg{width:20px;height:20px;flex:none;margin-top:3px;color:var(--c-terra-light)}
+
+/* footer */
+.site-footer{background:var(--c-sand);margin-top:var(--s-6);padding:var(--s-6) 0 0}
+.f-grid{display:grid;gap:var(--s-4)}
+@media (min-width:860px){.f-grid{grid-template-columns:2fr 1fr 1fr}}
+.f-brand img{width:190px;height:auto}
+.f-brand p{color:var(--c-muted-deep);margin-top:var(--s-3);max-width:44ch}
+.f-col h2{font-size:var(--t-xs);font-weight:var(--w-semibold);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--c-muted-deep);margin-bottom:var(--s-2)}
+.f-col ul{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.f-col a{text-decoration:none}
+.f-col a:hover{text-decoration:underline;text-underline-offset:3px}
+.legal{margin-top:var(--s-5);border-top:1px solid var(--c-line);padding:var(--s-3) 0;color:var(--c-muted-deep);font-size:var(--t-s);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+.restyle-bar{background:var(--c-ink);color:var(--c-bar-text);font-size:var(--t-xs);padding:12px var(--gutter);text-align:center;letter-spacing:.02em}
+.restyle-bar a{color:#fff}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Vai al contenuto</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Evolve, torna all'inizio"><img src="../assets/logo-evolve-CMceMwJq.png" width="318" height="82" alt="Evolve - System Integrator"></a>
+    <nav class="nav" aria-label="Principale">
+      <a href="#servizi">Servizi</a>
+      <a href="#chi-siamo">Chi siamo</a>
+      <a href="#prodotti">Portfolio</a>
+      <a href="https://bevolve.it/blog">Blog</a>
+      <a href="https://bevolve.it/support">Supporto</a>
+      <a href="#contatti">Contatti</a>
+      <a class="btn btn-navy" href="#contatti">Richiedi consulenza</a>
+    </nav>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav">Menu
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+  <a href="#servizi">Servizi</a>
+  <a href="#chi-siamo">Chi siamo</a>
+  <a href="#prodotti">Portfolio</a>
+  <a href="https://bevolve.it/blog">Blog</a>
+  <a href="https://bevolve.it/support">Supporto</a>
+  <a href="#contatti">Contatti</a>
+  <a class="btn btn-navy" href="#contatti">Richiedi consulenza</a>
+</nav>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="chip hero-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Il vostro partner per l'innovazione, a Rovigo</span>
+        <h1 class="hero-title">System integrator a Rovigo: software, AI, cybersecurity e reti per <em>imprese e PA</em></h1>
+        <p class="claim hero-in">Trasformiamo la tecnologia in vantaggio competitivo.</p>
+        <p class="lede hero-in">EVOLVE è un system integrator italiano. Uniamo software, AI, cybersecurity, reti e ingegneria in soluzioni integrate che fanno crescere il vostro business.</p>
+        <div class="ctas hero-in">
+          <a class="btn btn-navy" href="#contatti">Richiedi consulenza
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a class="btn btn-outline" href="#servizi">I nostri servizi</a>
+        </div>
+        <ul class="promises hero-in">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Un solo interlocutore responsabile</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Risposta entro 24 ore</li>
+        </ul>
+      </div>
+      <div class="visual">
+        <div class="frame">
+          <video autoplay muted loop playsinline preload="metadata" poster="../assets/hero-home.jpg" aria-hidden="true">
+            <source src="https://bevolve.it/videos/hero-home.mp4" type="video/mp4">
+          </video>
+          <div class="stamp"><span class="label">Via Luigi Einaudi 54</span></div>
+        </div>
+        <div class="note">
+          <p>Imprese e Pubblica Amministrazione, in Veneto e nel resto d'Italia.</p>
+          <span>Dall'analisi iniziale alla manutenzione nel tempo.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track">
+      <div class="group"><span>Software &amp; AI</span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><i>Cybersecurity</i><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><span>Reti &amp; Infrastrutture</span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><i>Ingegneria</i><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg></div>
+      <div class="group"><span>Software &amp; AI</span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><i>Cybersecurity</i><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><span>Reti &amp; Infrastrutture</span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><i>Ingegneria</i><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg></div>
+    </div>
+  </div>
+
+  <section class="section" id="chi-siamo" aria-labelledby="t-about">
+    <div class="wrap about">
+      <div><h2 class="label" id="t-about">Cosa fa Evolve</h2></div>
+      <div>
+        <p class="quote scrub-words">Siamo a Rovigo, in Via Luigi Einaudi 54. Lavoriamo con <em>imprese e Pubblica Amministrazione</em> in Veneto e nel resto d'Italia, e seguiamo ogni progetto dall'analisi iniziale alla manutenzione nel tempo, con <em>un solo interlocutore responsabile</em>.</p>
+        <p class="about-more reveal">Le attività si dividono in quattro aree gestite da un unico team. Oltre ai progetti su commessa, Evolve sviluppa e gestisce prodotti propri.</p>
+        <div class="stats">
+          <div class="stat"><p class="n"><span class="counter" data-to="4">4</span></p><p>aree, un unico team</p></div>
+          <div class="stat"><p class="n"><span class="counter" data-to="7">7</span></p><p>prodotti propri</p></div>
+          <div class="stat"><p class="n"><span class="counter" data-to="24">24</span><small>h</small></p><p>per una proposta concreta</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="servizi" aria-labelledby="t-serv" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Cosa facciamo</span>
+        <h2 id="t-serv" class="words">Ingegneria <em>a 360°</em></h2>
+      </div>
+      <div class="bento">
+        <article class="tile navy t-sw">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg></span>
+          <h3>Software &amp; AI</h3>
+          <p>Sviluppiamo applicazioni su misura, soluzioni basate su LLM e RAG e agent workflow per automatizzare i processi.</p>
+          <ul><li>Applicazioni custom</li><li>LLM</li><li>RAG</li><li>Agent workflow</li></ul>
+        </article>
+        <article class="tile sand t-cy">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span>
+          <h3>Cybersecurity</h3>
+          <p>SOC, penetration testing, conformità GDPR e NIS2 e architetture Zero Trust per proteggere il vostro business.</p>
+        </article>
+        <article class="tile">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></span>
+          <h3>Reti &amp; Infrastrutture</h3>
+          <p>Reti aziendali, SD-WAN, data center e soluzioni IoT.</p>
+        </article>
+        <article class="tile sky">
+          <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>
+          <h3>Ingegneria</h3>
+          <p>Impianti BT/MT, smart city, building management system ed efficienza energetica.</p>
+        </article>
+        <div class="tile t-quote"><p>Quattro pratiche, <em>un unico team integrato.</em> Dalle infrastrutture al codice, dall'hardware all'AI.</p></div>
+        <a class="tile t-link" href="https://bevolve.it/services"><span class="arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span><h3>Scopri tutti i servizi</h3></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee light" aria-hidden="true">
+    <div class="track rev">
+      <div class="group"><span>Ascoltiamo</span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><i>Co-progettiamo</i><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><span>Realizziamo</span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><i>Evolviamo</i><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg></div>
+      <div class="group"><span>Ascoltiamo</span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><i>Co-progettiamo</i><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><span>Realizziamo</span><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg><i>Evolviamo</i><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="6"/></svg></div>
+    </div>
+  </div>
+
+  <section class="section" id="metodo" aria-labelledby="t-met">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Innovation journey</span>
+        <h2 id="t-met" class="words">Un percorso <em>in 4 fasi</em></h2>
+        <p class="reveal">Dalla prima call alla manutenzione continuativa: un metodo collaudato per portare ogni progetto al successo.</p>
+      </div>
+      <div class="trail" aria-hidden="true"><span></span></div>
+      <ol class="steps">
+        <li class="step"><span class="k" aria-hidden="true">01</span><h3>Ascoltiamo</h3><p>Comprendiamo il vostro business, gli obiettivi e i vincoli operativi.</p></li>
+        <li class="step"><span class="k" aria-hidden="true">02</span><h3>Co-progettiamo</h3><p>Definiamo insieme la soluzione su misura, tecnicamente solida e sostenibile.</p></li>
+        <li class="step"><span class="k" aria-hidden="true">03</span><h3>Realizziamo</h3><p>Implementiamo end-to-end con team senior, milestone chiare e qualità certificata.</p></li>
+        <li class="step"><span class="k" aria-hidden="true">04</span><h3>Evolviamo</h3><p>Vi affianchiamo nel tempo con manutenzione, evoluzioni e supporto continuo.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="prodotti" aria-labelledby="t-prod" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="label">Prodotti propri</span>
+        <h2 id="t-prod" class="words">Li sviluppiamo e li gestiamo <em>noi</em></h2>
+        <p class="reveal">Oltre ai progetti su commessa, sette prodotti nati in casa Evolve.</p>
+      </div>
+      <div class="folio">
+        <a class="card sky f-wide" href="https://roadanalyzer.com" target="_blank" rel="noopener"><span class="tag">Strade · AI</span><h3>RoadAnalyzer</h3><p>Piattaforma AI per il monitoraggio della rete stradale: rileva da video buche, crepe, cartelli, segnaletica e vegetazione.</p><span class="dom">roadanalyzer.com<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="card" href="https://bandifacile.it" target="_blank" rel="noopener"><span class="tag">Per le imprese</span><h3>BandiFacile</h3><p>Bandi e finanziamenti a fondo perduto per imprese, PMI e startup, nazionali, regionali ed europei.</p><span class="dom">bandifacile.it<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="card" href="https://bandienti.it" target="_blank" rel="noopener"><span class="tag">Per Comuni ed enti</span><h3>BandiEnti</h3><p>Bandi europei, ministeriali e regionali per enti locali, con verifica di idoneità e gestione delle candidature.</p><span class="dom">bandienti.it<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="card sand" href="https://equestria.info" target="_blank" rel="noopener"><span class="tag">Centri ippici</span><h3>Equestria</h3><p>Gestionale per centri ippici e maneggi: lezioni, cavalli, allievi, pensioni e fatturazione elettronica.</p><span class="dom">equestria.info<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="card sand" href="https://equitwin.com" target="_blank" rel="noopener"><span class="tag">Benessere del cavallo</span><h3>EquiTwin</h3><p>Monitoraggio continuo della salute del cavallo nel box con video e sensori non invasivi, a supporto del veterinario.</p><span class="dom">equitwin.com<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="card navy f-wide" href="https://sisp.cloud" target="_blank" rel="noopener"><span class="tag">Per Comuni, Prefetture e Forze dell'Ordine</span><h3>SISP</h3><p>Sistema Integrato di Sorveglianza Partecipata: collega le telecamere private esistenti in una rete al servizio del territorio, nel rispetto del GDPR.</p><span class="dom">sisp.cloud<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <a class="card f-wide" href="https://evolve.expert" target="_blank" rel="noopener"><span class="tag">Industria</span><h3>evolve.expert</h3><p>Assistenza remota con occhiali smart industriali e AI on-premise per manutenzione, gestione della conoscenza e formazione.</p><span class="dom">evolve.expert<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></span></a>
+        <div class="folio-note f-wide"><p>Per capire quale soluzione fa al caso vostro potete consultare i <a href="https://bevolve.it/services">servizi</a>, vedere i progetti nel <a href="https://bevolve.it/portfolio">portfolio</a> o scriverci dalla pagina <a href="https://bevolve.it/contact">contatti</a>.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contatti" aria-labelledby="t-cta">
+    <div class="wrap">
+      <div class="cta">
+        <div>
+          <span class="label" style="color:var(--c-on-navy-muted)">Contatti</span>
+          <h2 id="t-cta" class="words" style="margin-top:var(--s-2)">Pronti a far <em>evolvere</em> il vostro business?</h2>
+          <p class="lead reveal">Raccontateci la vostra sfida. Vi rispondiamo entro 24 ore con una proposta concreta.</p>
+          <div class="ctas">
+            <a class="btn btn-cream" href="https://bevolve.it/contact">Contattaci
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            <a class="btn btn-outline-cream" href="https://bevolve.it/portfolio">Vedi portfolio</a>
+          </div>
+        </div>
+        <div class="where reveal">
+          <h3>Dove siamo</h3>
+          <p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>Via Luigi Einaudi 54<br>45100 Rovigo (RO) · Italia</p>
+          <a href="tel:+390425090621"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>0425 090621</a>
+          <a href="mailto:info@bevolve.it"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>info@bevolve.it</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <img src="../assets/logo-evolve-CMceMwJq.png" width="318" height="82" alt="Evolve - System Integrator">
+        <p>System Integrator italiano. Trasformiamo la tecnologia in vantaggio competitivo con soluzioni integrate di software, AI, cybersecurity, reti e ingegneria.</p>
+      </div>
+      <div class="f-col"><h2>Azienda</h2><ul>
+        <li><a href="https://bevolve.it/about">Chi siamo</a></li><li><a href="https://bevolve.it/services">Servizi</a></li><li><a href="https://bevolve.it/portfolio">Portfolio</a></li><li><a href="https://bevolve.it/blog">Blog</a></li><li><a href="https://bevolve.it/support">Supporto</a></li><li><a href="https://bevolve.it/sla">SLA</a></li><li><a href="https://bevolve.it/contact">Contatti</a></li></ul></div>
+      <div class="f-col"><h2>Servizi</h2><ul>
+        <li><a href="https://bevolve.it/services">Software &amp; AI</a></li><li><a href="https://bevolve.it/services">Cybersecurity</a></li><li><a href="https://bevolve.it/services">Reti &amp; Infrastrutture</a></li><li><a href="https://bevolve.it/services">Ingegneria</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>Evolve S.r.l. · P.IVA/C.F. 04597090234 · REA RO-426960 · Cap. soc. € 10.000,00 i.v. · Sede legale: Via Luigi Einaudi 54, 45100 Rovigo (RO), Italia</span>
+      <span>© 2026 Evolve S.r.l. — Tutti i diritti riservati. · <a href="https://bevolve.it/privacy">Privacy Policy</a> · <a href="https://bevolve.it/cookie">Cookie Policy</a></span>
+    </div>
+  </div>
+  <div class="restyle-bar">Restyle concept · direzione 3 di 3 · <a href="tokens.css">design system →</a> · <a href="../index.html">tutte le direzioni</a></div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script>
+(function(){
+  const btn = document.querySelector('.menu-btn'), panel = document.getElementById('mobile-nav');
+  const close = () => { btn.setAttribute('aria-expanded','false'); panel.classList.remove('open'); document.body.style.overflow=''; };
+  btn.addEventListener('click', () => {
+    if (btn.getAttribute('aria-expanded') === 'true') return close();
+    btn.setAttribute('aria-expanded','true'); panel.classList.add('open'); document.body.style.overflow='hidden';
+  });
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  const header = document.querySelector('.site-header');
+  addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 8), { passive: true });
+})();
+
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const video = document.querySelector('.frame video');
+  if (reduce && video) { video.removeAttribute('autoplay'); video.pause(); }
+  if (!window.gsap || reduce) return;
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  const ease = 'power3.out';
+
+  // hero: la foto-video entra da una leggera scala, il biglietto "sale"
+  gsap.from('.frame', { opacity: 0, scale: 0.94, duration: 1.2, ease });
+  gsap.from('.note', { opacity: 0, y: 30, duration: 1, delay: 0.6, ease });
+  gsap.from('.hero-in', { opacity: 0, y: 16, duration: 0.8, stagger: 0.08, delay: 0.25, ease });
+
+  document.fonts.ready.then(() => {
+    // titolo hero: parola per parola
+    SplitText.create('.hero-title', { type: 'words', autoSplit: true, onSplit(self) {
+      return gsap.from(self.words, { opacity: 0, yPercent: 40, rotate: 2, duration: 0.9, stagger: 0.045, ease });
+    }});
+    // titoli di sezione
+    gsap.utils.toArray('.words').forEach(el => SplitText.create(el, { type: 'words', autoSplit: true, onSplit(self) {
+      return gsap.from(self.words, { opacity: 0, yPercent: 50, duration: 0.8, stagger: 0.06, ease,
+        scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
+    }}));
+    // "chi siamo": le parole si accendono mentre si legge
+    SplitText.create('.scrub-words', { type: 'words', autoSplit: true, onSplit(self) {
+      return gsap.fromTo(self.words, { opacity: 0.3 }, { opacity: 1, stagger: 0.05, ease: 'none',
+        scrollTrigger: { trigger: '.scrub-words', start: 'top 80%', end: 'bottom 45%', scrub: true } });
+    }});
+    ScrollTrigger.refresh();
+  });
+
+  // marquee: scorrono sempre e accelerano con la velocità dello scroll, poi tornano calmi
+  const loops = gsap.utils.toArray('.track').map(t => t.classList.contains('rev')
+    ? gsap.fromTo(t, { xPercent: -50 }, { xPercent: 0, duration: 38, ease: 'none', repeat: -1 })
+    : gsap.to(t, { xPercent: -50, duration: 38, ease: 'none', repeat: -1 }));
+  ScrollTrigger.create({ onUpdate(self) {
+    const v = gsap.utils.clamp(0, 4, Math.abs(self.getVelocity()) / 400);
+    loops.forEach(l => gsap.to(l, { timeScale: 1 + v, duration: 0.3, overwrite: true,
+      onComplete: () => gsap.to(l, { timeScale: 1, duration: 0.8 }) }));
+  }});
+
+  gsap.utils.toArray('.reveal').forEach(el => gsap.from(el, { opacity: 0, y: 24, duration: 0.8, ease,
+    scrollTrigger: { trigger: el, start: 'top 88%', once: true } }));
+
+  // contatori: solo numeri reali (4 aree, 7 prodotti, 24 ore)
+  gsap.utils.toArray('.counter').forEach(el => {
+    const o = { v: 0 };
+    gsap.to(o, { v: +el.dataset.to, duration: 1.4, ease: 'power2.out',
+      scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+      onUpdate: () => { el.textContent = Math.round(o.v); } });
+  });
+
+  // bento: le tessere arrivano a cascata
+  ['.bento .tile', '.folio > *', '.steps .step'].forEach(sel => {
+    gsap.from(sel, { opacity: 0, y: 40, duration: 0.9, stagger: 0.08, ease,
+      scrollTrigger: { trigger: document.querySelector(sel).parentElement, start: 'top 82%', once: true } });
+  });
+
+  // metodo: il filo si riempie con lo scroll
+  gsap.fromTo('.trail span', { scaleX: 0 }, { scaleX: 1, ease: 'none',
+    scrollTrigger: { trigger: '.steps', start: 'top 85%', end: 'bottom 55%', scrub: 0.5 } });
+})();
+</script>
+</body>
+</html>

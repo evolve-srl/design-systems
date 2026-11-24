@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oblivio — Riprendi il controllo della tua identità digitale</title>
+<meta name="description" content="Avvocati e informatici per la rimozione di contenuti dannosi da Google e dai social. Diritto all'oblio, tutela reputazionale e valutazione gratuita.">
+<link rel="icon" type="image/png" href="../assets/oblivio-favicon-512-v4CpWfuc.png">
+<link rel="apple-touch-icon" href="../assets/oblivio-apple-touch-CfKYkDLm.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<script>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var d = document.documentElement; d.classList.add('anim');
+    setTimeout(function () { if (!window.__animReady) d.classList.remove('anim'); }, 3000);
+  })();
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:100px}
+body{margin:0;background:var(--c-paper);color:var(--c-ink);font:400 var(--fs-body)/var(--lh-body) var(--f-sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,p,figure,blockquote{margin:0}
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.ic{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.label{font:500 var(--fs-label)/1.4 var(--f-sans);letter-spacing:var(--tracking-label);text-transform:uppercase}
+.skip{position:absolute;left:16px;top:-60px;background:var(--c-ink);color:var(--c-paper);padding:10px 14px;z-index:100}
+.skip:focus{top:12px}
+:focus-visible{outline:none;box-shadow:var(--focus)}
+.anim [data-hero]{visibility:hidden}
+
+/* utility bar */
+.util{background:var(--c-night);color:var(--c-on-night-muted);font-size:.8rem}
+.util .wrap{display:flex;justify-content:space-between;gap:16px;height:36px;align-items:center}
+.util a{color:var(--c-on-night);text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.util a:hover{text-decoration:underline}
+.util .ic{width:14px;height:14px}
+.util-r{display:flex;gap:24px}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:var(--c-paper);border-bottom:var(--hair)}
+.hdr .wrap{display:flex;align-items:center;gap:28px;height:76px}
+.brand{display:flex;align-items:center;gap:2px;text-decoration:none;font:500 1.6rem/1 var(--f-serif);letter-spacing:-.01em;color:var(--c-ink)}
+.brand img{width:56px;height:56px;margin-left:-14px}
+.brand .io{color:var(--c-brand)}
+.nav{display:flex;gap:26px;margin-left:auto}
+.nav a{text-decoration:none;font-size:.92rem;color:var(--c-ink-2);padding-block:6px;border-bottom:1px solid transparent}
+.nav a:hover{border-bottom-color:var(--c-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:0 24px;border-radius:var(--r-cta);font:500 .98rem/1 var(--f-sans);letter-spacing:.01em;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.btn .ic{transition:transform .5s var(--ease)}
+.btn:hover .ic{transform:translateX(3px)}
+.btn-primary{background:var(--c-brand);color:var(--c-on-brand)}
+.btn-primary:hover{background:var(--c-brand-hover)}
+.btn-line{border-color:var(--c-ink);color:var(--c-ink)}
+.btn-line:hover{background:var(--c-ink);color:var(--c-paper)}
+.btn-sm{min-height:42px;padding:0 18px;font-size:.92rem}
+.menu-btn{display:none;margin-left:auto;width:44px;height:44px;border:1px solid var(--c-ink);border-radius:var(--r-cta);background:transparent;color:var(--c-ink);align-items:center;justify-content:center;cursor:pointer}
+.menu-btn .ic{width:22px;height:22px}
+.menu-btn .i-close{display:none}
+.menu-btn[aria-expanded="true"] .i-open{display:none}
+.menu-btn[aria-expanded="true"] .i-close{display:block}
+.mnav{position:fixed;inset:112px 0 0 0;background:var(--c-paper);z-index:49;padding:8px 16px 40px;overflow:auto}
+.mnav a{display:block;padding:16px 0;border-bottom:var(--hair);text-decoration:none;font:400 1.5rem/1.2 var(--f-serif)}
+.mnav .btn{display:flex;margin-top:24px;font:500 1rem/1 var(--f-sans);border-bottom:0}
+@media (max-width:1100px){.nav{display:none}.hdr-cta{margin-left:auto}}
+@media (max-width:760px){.hdr-cta{display:none}.menu-btn{display:inline-flex}.util-r .hide-sm{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(48px,7vw,104px) clamp(72px,8vw,120px)}
+.runhead{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;color:var(--c-muted);padding-bottom:16px;border-bottom:1px solid var(--c-ink);margin-bottom:clamp(40px,6vw,72px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(40px,6vw,96px);align-items:start}
+h1{font:400 var(--fs-display)/var(--lh-display) var(--f-serif);letter-spacing:-.02em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--c-brand)}
+.lead{margin-top:32px;font-size:var(--fs-lead);color:var(--c-ink-2);max-width:44ch}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px}
+.assure{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;gap:8px 28px;color:var(--c-muted);font-size:var(--fs-small)}
+.assure li{display:flex;align-items:center;gap:8px}
+
+/* fascicolo */
+.file{position:relative;background:var(--c-paper-2);border-radius:var(--r-panel);padding:32px 28px 28px;margin-bottom:40px;border-top:3px double var(--c-ink)}
+.file-head{display:flex;justify-content:space-between;gap:12px;color:var(--c-muted);padding-bottom:14px;border-bottom:var(--hair)}
+.file .file-t{font:400 1.6rem/1.2 var(--f-serif);margin-top:20px}
+.file .url{display:block;margin-top:6px;font-size:.9rem;color:var(--c-ink-2);text-decoration:line-through;text-decoration-thickness:1.5px;word-break:break-word}
+.file table{width:100%;border-collapse:collapse;margin-top:24px;font-size:.95rem}
+.file th{font:500 var(--fs-label)/1.4 var(--f-sans);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--c-muted);text-align:left;padding:0 0 8px;border-bottom:1px solid var(--c-ink)}
+.file th:last-child,.file td:last-child{text-align:right}
+.file td{padding:13px 0;border-bottom:var(--hair)}
+.file td.ok{font-family:var(--f-serif);font-style:italic;color:var(--c-brand);font-size:1.08rem}
+.file td.run{font-family:var(--f-serif);font-style:italic;color:var(--c-ink-2);font-size:1.08rem}
+.file .note{margin-top:16px;font-size:.8rem;color:var(--c-muted);max-width:calc(100% - 150px)}
+.seal{position:absolute;right:20px;bottom:-58px;width:124px;height:124px;transform:rotate(-8deg)}
+.seal svg{width:100%;height:100%;display:block;overflow:visible}
+
+/* garanzie */
+.guar{border-block:1px solid var(--c-ink)}
+.guar ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.guar li{padding:22px 20px;border-left:var(--hair);display:flex;gap:12px;align-items:baseline}
+.guar li:first-child{border-left:0;padding-left:0}
+.guar .rn{font:italic 400 1.15rem/1 var(--f-serif);color:var(--c-brand);min-width:2ch}
+
+/* sezioni a paragrafo */
+.para{padding-block:var(--space-section)}
+.para-grid{display:grid;grid-template-columns:var(--margin-col) var(--text-col);gap:24px clamp(24px,4vw,72px)}
+.para-num{position:relative}
+.para-num .n{display:block;font:400 clamp(3.5rem,2rem + 4vw,6.5rem)/.9 var(--f-serif);color:var(--c-ink)}
+.para-num .label{display:block;margin-top:14px;color:var(--c-muted)}
+.para-num{position:sticky;top:132px;align-self:start}
+.rule{height:1px;background:var(--c-ink);transform-origin:left center;margin-bottom:40px}
+h2{font:400 var(--fs-h2)/1.08 var(--f-serif);letter-spacing:-.015em;text-wrap:balance;max-width:22ch}
+.sub{margin-top:18px;font-size:var(--fs-lead);color:var(--c-muted);max-width:52ch}
+
+/* articoli (passi) */
+.arts{list-style:none;padding:0;margin:56px 0 0}
+.art{display:grid;grid-template-columns:120px minmax(0,1fr);gap:8px 32px;padding:28px 0;border-top:var(--hair)}
+.art:last-child{border-bottom:var(--hair)}
+.art .label{color:var(--c-brand);padding-top:.5em}
+.art h3{font:400 var(--fs-h3)/1.2 var(--f-serif)}
+.art p{grid-column:2;color:var(--c-ink-2);max-width:56ch}
+
+/* servizi */
+.svc{display:grid;grid-template-columns:1fr 1fr;margin-top:56px;border-top:1px solid var(--c-ink)}
+.svc article{padding:32px 32px 36px 0;border-bottom:var(--hair)}
+.svc article:nth-child(even){padding:32px 0 36px 32px;border-left:var(--hair)}
+.svc .letter{font:italic 400 1.2rem/1 var(--f-serif);color:var(--c-brand)}
+.svc h3{font:400 var(--fs-h3)/1.2 var(--f-serif);margin:14px 0 10px}
+.svc p{color:var(--c-ink-2)}
+.svc a{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-size:.92rem;font-weight:500;color:var(--c-ink);text-decoration:none;border-bottom:1px solid var(--c-ink);padding-bottom:2px}
+.svc a:hover{color:var(--c-brand);border-color:var(--c-brand)}
+.more{display:inline-flex;align-items:center;gap:8px;margin-top:36px;font-weight:500;color:var(--c-brand)}
+
+/* notte: quadro normativo */
+.night{background:var(--c-night);color:var(--c-on-night)}
+.night .para-num .n{color:var(--c-on-night)}
+.night .para-num .label,.night .sub{color:var(--c-on-night-muted)}
+.night .rule{background:var(--c-on-night-muted)}
+.laws{width:100%;border-collapse:collapse;margin-top:48px}
+.laws caption{text-align:left}
+.laws th,.laws td{padding:20px 0;border-bottom:1px solid rgba(169,177,194,.3);text-align:left;vertical-align:baseline}
+.laws thead th{font:500 var(--fs-label)/1.4 var(--f-sans);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--c-on-night-muted);border-bottom:1px solid var(--c-on-night-muted);padding-top:0}
+.laws tbody th{font:400 1.5rem/1.2 var(--f-serif);width:45%}
+.laws td{color:var(--c-on-night-muted)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:64px;gap:24px}
+.facts div{border-top:1px solid var(--c-on-night-muted);padding-top:20px}
+.facts b{display:block;font:400 clamp(2.2rem,1.6rem + 1.6vw,3.3rem)/1 var(--f-serif);white-space:nowrap;color:var(--c-on-night)}
+.facts span{display:block;margin-top:10px;color:var(--c-on-night-muted);font-size:var(--fs-small)}
+.night .tr{margin-top:40px;font-size:var(--fs-small);color:var(--c-on-night-muted)}
+.night .tr a{color:var(--c-night-accent)}
+
+/* testimonianze */
+.q-main{font:italic 400 var(--fs-quote)/1.25 var(--f-serif);max-width:30ch;margin-top:48px;text-wrap:pretty}
+.q-main::before{content:"«";color:var(--c-brand)}
+.q-main::after{content:"»";color:var(--c-brand)}
+.cite{display:block;margin-top:24px;font-size:var(--fs-small);color:var(--c-muted)}
+.cite b{color:var(--c-ink);font-weight:600;margin-right:8px}
+.q-more{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:64px;padding-top:32px;border-top:var(--hair)}
+.q-more p{font:400 1.25rem/1.45 var(--f-serif);color:var(--c-ink-2)}
+
+/* chiusura */
+.close{padding-bottom:var(--space-section)}
+.cert{border:1px solid var(--c-ink);outline:1px solid var(--c-ink);outline-offset:6px;padding:clamp(32px,6vw,80px);background:var(--c-paper-2);text-align:center;margin-inline:6px}
+.cert .label{color:var(--c-muted)}
+.cert h2{margin:20px auto 0;max-width:18ch}
+.cert .sub{margin-inline:auto}
+.cert .ctas{justify-content:center}
+.cert .contacts{list-style:none;padding:0;margin:28px 0 0;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;font-size:var(--fs-small)}
+.cert .contacts a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;color:var(--c-ink-2)}
+.cert .contacts a:hover{color:var(--c-brand)}
+
+/* footer */
+.ftr{background:var(--c-paper-2);border-top:1px solid var(--c-ink);padding-block:64px 32px;font-size:.92rem}
+.ftr-grid{display:grid;grid-template-columns:minmax(0,4fr) repeat(3,minmax(0,2fr));gap:40px}
+.ftr p{color:var(--c-muted);max-width:36ch;margin-top:14px}
+.ftr h3{margin:0 0 14px;font:500 var(--fs-label)/1.4 var(--f-sans);letter-spacing:var(--tracking-label);text-transform:uppercase;color:var(--c-ink)}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ftr ul a{text-decoration:none;color:var(--c-ink-2)}
+.ftr ul a:hover{text-decoration:underline}
+.ftr .addr li{display:flex;gap:8px;align-items:flex-start;color:var(--c-ink-2)}
+.ftr .addr .ic{width:15px;height:15px;margin-top:4px;color:var(--c-muted)}
+.legal{margin-top:48px;padding-top:20px;border-top:var(--hair);color:var(--c-muted);font-size:.78rem;display:grid;gap:6px}
+.legal p{max-width:none;margin:0}
+.concept{background:var(--c-night);color:var(--c-on-night-muted);font-size:.78rem;padding:12px 0}
+.concept .wrap{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between}
+.concept a{color:var(--c-on-night)}
+
+@media (max-width:980px){
+  .hero-grid{grid-template-columns:1fr}
+  .file{margin-top:40px}
+  .seal{right:8px;bottom:-50px;width:108px;height:108px}
+  .guar ol{grid-template-columns:1fr 1fr}
+  .guar li:nth-child(3){border-left:0;padding-left:0}
+  .guar li:nth-child(n+3){border-top:var(--hair)}
+  .para-grid{grid-template-columns:1fr}
+  .para-num{position:static;display:flex;align-items:baseline;gap:16px}
+  .para-num .label{margin-top:0}
+  .svc{grid-template-columns:1fr}
+  .svc article,.svc article:nth-child(even){padding:28px 0;border-left:0}
+  .q-more{grid-template-columns:1fr;gap:32px}
+  .ftr-grid{grid-template-columns:1fr 1fr}
+  .ftr-grid>div:first-child{grid-column:1/-1}
+}
+@media (max-width:560px){
+  .guar ol{grid-template-columns:1fr}
+  .guar li,.guar li:nth-child(3){border-left:0;padding:16px 0}
+  .guar li:nth-child(n+2){border-top:var(--hair)}
+  .art{grid-template-columns:1fr}
+  .art p{grid-column:1}
+  .art .label{padding-top:0}
+  .facts{grid-template-columns:1fr}
+  .laws tbody th{font-size:1.25rem;width:auto}
+  .ctas .btn{width:100%}
+  .file{padding:28px 18px 20px}
+  .ftr-grid{grid-template-columns:1fr}
+  .util .wrap{font-size:.75rem}
+}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{transition:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+</svg>
+<a class="skip" href="#main">Vai al contenuto</a>
+
+<div class="util">
+  <div class="wrap">
+    <span class="hide-xs"><svg class="ic" aria-hidden="true" style="vertical-align:-2px;margin-right:6px"><use href="#i-lock"/></svg>Dati cifrati e riservati</span>
+    <div class="util-r">
+      <a href="tel:+390425090621"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>0425 090621</a>
+      <a class="hide-sm" href="https://oblivio.legal/login"><svg class="ic" aria-hidden="true"><use href="#i-user"/></svg>Area cliente</a>
+    </div>
+  </div>
+</div>
+<header class="hdr" id="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Oblivio, torna all'inizio">
+      <img src="../assets/oblivio-logo-Ud0gr9mv.png" alt="Logo Oblivio" width="56" height="56">
+      <span aria-hidden="true">Obliv<span class="io">io</span></span>
+    </a>
+    <nav class="nav" aria-label="Principale">
+      <a href="https://oblivio.legal/servizi">Servizi</a>
+      <a href="https://oblivio.legal/pacchetti">Pacchetti</a>
+      <a href="https://oblivio.legal/diritto-oblio">Diritto all'oblio</a>
+      <a href="https://oblivio.legal/casi">Casi di successo</a>
+      <a href="https://oblivio.legal/chi-siamo">Chi siamo</a>
+      <a href="https://oblivio.legal/contatti">Contatti</a>
+    </nav>
+    <div class="hdr-cta"><a class="btn btn-primary btn-sm" href="https://oblivio.legal/valutazione">Valutazione gratuita</a></div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Apri il menu">
+      <svg class="ic i-open" aria-hidden="true"><use href="#i-menu"/></svg><svg class="ic i-close" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menu mobile" hidden>
+    <a href="https://oblivio.legal/servizi">Servizi</a>
+    <a href="https://oblivio.legal/pacchetti">Pacchetti</a>
+    <a href="https://oblivio.legal/diritto-oblio">Diritto all'oblio</a>
+    <a href="https://oblivio.legal/casi">Casi di successo</a>
+    <a href="https://oblivio.legal/chi-siamo">Chi siamo</a>
+    <a href="https://oblivio.legal/contatti">Contatti</a>
+    <a href="https://oblivio.legal/login">Area cliente</a>
+    <a class="btn btn-primary" href="https://oblivio.legal/valutazione">Valutazione gratuita</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap">
+      <div class="runhead label" data-hero data-fade><span>Diritto all'oblio · Deindicizzazione · Diffide · Azioni legali</span><span>Avvocati + informatici, un'unica squadra</span></div>
+      <div class="hero-grid">
+        <div>
+          <h1 data-hero data-h1>Sei stato scagionato, ma <em>Google ancora ti accusa?</em></h1>
+          <p class="lead" data-hero data-fade>Aiutiamo persone come te a rimuovere da Google e dai social informazioni errate, superate o ingiustamente lesive. Diritto all'oblio, deindicizzazione, diffide e azioni legali — tutto gestito da un team specializzato.</p>
+          <div class="ctas" data-hero data-fade>
+            <a class="btn btn-primary" href="https://oblivio.legal/valutazione">Valutazione gratuita <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-line" href="https://oblivio.legal/pacchetti">Vedi i pacchetti</a>
+          </div>
+          <ul class="assure" data-hero data-fade>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>Prima analisi gratuita e senza impegno</li>
+            <li><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>Risposta entro 48h</li>
+          </ul>
+        </div>
+        <figure class="file" data-hero data-file aria-labelledby="file-t">
+          <div class="seal" data-seal aria-hidden="true">
+            <svg viewBox="0 0 160 160">
+              <defs><path id="sealpath" d="M80,80 m-62,0 a62,62 0 1,1 124,0 a62,62 0 1,1 -124,0"/></defs>
+              <circle cx="80" cy="80" r="76" fill="none" stroke="#1D4ED8" stroke-width="1.5"/>
+              <circle cx="80" cy="80" r="48" fill="none" stroke="#1D4ED8" stroke-width="1"/>
+              <g data-seal-ring><text font-family="Inter, sans-serif" font-size="10.5" font-weight="500" letter-spacing="2.4" fill="#1D4ED8"><textPath href="#sealpath" textLength="384" lengthAdjust="spacing">OBLIVIO · AVVOCATI E INFORMATICI · RISERVATO ·</textPath></text></g>
+              <text x="80" y="77" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="19" fill="#1D4ED8">Caso</text>
+              <text x="80" y="97" text-anchor="middle" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="19" fill="#1D4ED8">risolto</text>
+            </svg>
+          </div>
+          <div class="file-head label"><span>Esempio illustrativo</span><span>3 mesi fa</span></div>
+          <p class="file-t" id="file-t">Articolo originale</p>
+          <span class="url">cronaca.example.it/notizia-archiviata-2019</span>
+          <table>
+            <thead><tr><th scope="col">Atto</th><th scope="col">Esito</th></tr></thead>
+            <tbody>
+              <tr><td>Deindicizzazione Google</td><td class="ok">Completata</td></tr>
+              <tr><td>Rimozione articolo originale</td><td class="ok">Completata</td></tr>
+              <tr><td>Monitoraggio attivo</td><td class="run">In corso</td></tr>
+            </tbody>
+          </table>
+          <figcaption class="note">Caso risolto. Esempio illustrativo basato su casi reali anonimizzati.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="guar" aria-label="Garanzie">
+    <div class="wrap">
+      <ol>
+        <li data-fadeup><span class="rn">I.</span>Avvocati iscritti all'Albo</li>
+        <li data-fadeup><span class="rn">II.</span>Conformità GDPR</li>
+        <li data-fadeup><span class="rn">III.</span>Dati cifrati e riservati</li>
+        <li data-fadeup><span class="rn">IV.</span>Team multidisciplinare</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="para" id="metodo" aria-labelledby="h1-metodo">
+    <div class="wrap para-grid">
+      <div class="para-num" data-fadeup><span class="n">§ 1</span><span class="label">Come funziona</span></div>
+      <div>
+        <div class="rule" data-rule></div>
+        <h2 id="h1-metodo" data-lines>Tre passi semplici per riprendere il controllo</h2>
+        <p class="sub" data-fadeup>Un percorso chiaro, trasparente e seguito da professionisti specializzati.</p>
+        <ol class="arts">
+          <li class="art" data-fadeup><span class="label">Art. 1</span><h3>Raccontaci il tuo caso</h3><p>Apri la chat o compila il form di valutazione gratuita. Bastano pochi minuti per descrivere il problema.</p></li>
+          <li class="art" data-fadeup><span class="label">Art. 2</span><h3>Analisi e strategia</h3><p>Avvocati e informatici analizzano il caso, valutano la fattibilità e ti propongono una strategia chiara.</p></li>
+          <li class="art" data-fadeup><span class="label">Art. 3</span><h3>Rimozione e tutela</h3><p>Procediamo con deindicizzazione, diffide e azioni legali. Tu segui ogni passo dalla tua area cliente.</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="para" id="servizi" aria-labelledby="h2-serv" style="padding-top:0">
+    <div class="wrap para-grid">
+      <div class="para-num" data-fadeup><span class="n">§ 2</span><span class="label">Cosa facciamo</span></div>
+      <div>
+        <div class="rule" data-rule></div>
+        <h2 id="h2-serv" data-lines>Servizi pensati per ogni tipo di problema</h2>
+        <p class="sub" data-fadeup>Dalla singola URL su Google a casi complessi di diffamazione, abbiamo la competenza giusta.</p>
+        <div class="svc">
+          <article data-fadeup><span class="letter">a)</span><h3>Rimozione da Google</h3><p>Deindicizzazione di URL su Google e altri motori di ricerca tramite procedure GDPR e moduli ufficiali.</p><a href="https://oblivio.legal/rimozione-google">Approfondisci <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+          <article data-fadeup><span class="letter">b)</span><h3>Rimozione da social</h3><p>Eliminazione di post, profili clone, foto e contenuti diffamatori da Facebook, Instagram, X, TikTok, LinkedIn.</p><a href="https://oblivio.legal/rimozione-social">Approfondisci <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+          <article data-fadeup><span class="letter">c)</span><h3>Diffide e azioni legali</h3><p>Diffide formali a editori e piattaforme. Azioni civili e penali in caso di diffamazione persistente.</p><a href="https://oblivio.legal/diffamazione-online">Approfondisci <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+          <article data-fadeup><span class="letter">d)</span><h3>Monitoraggio reputazione</h3><p>Servizio continuativo di monitoraggio per intercettare nuovi contenuti dannosi appena pubblicati.</p><a href="https://oblivio.legal/servizi">Approfondisci <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+        </div>
+        <a class="more" href="https://oblivio.legal/servizi">Vedi tutti i servizi <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="para night" aria-labelledby="h3-norme">
+    <div class="wrap para-grid">
+      <div class="para-num" data-fadeup><span class="n">§ 3</span><span class="label">Quadro normativo</span></div>
+      <div>
+        <div class="rule" data-rule></div>
+        <h2 id="h3-norme" data-lines>Operiamo nel pieno rispetto delle normative europee e italiane</h2>
+        <table class="laws" data-fadeup>
+          <thead><tr><th scope="col">Norma</th><th scope="col">Riferimento</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">GDPR</th><td>Reg. UE 2016/679</td></tr>
+            <tr><th scope="row">DSA</th><td>Reg. UE 2022/2065</td></tr>
+            <tr><th scope="row">Codice Rosso</th><td>L. 69/2019 — tutela vittime</td></tr>
+            <tr><th scope="row">Garante Privacy</th><td>Procedure ufficiali</td></tr>
+          </tbody>
+        </table>
+        <div class="facts">
+          <div data-fadeup><b>100%</b><span>Riservatezza garantita</span></div>
+          <div data-fadeup><b>GDPR</b><span>Approccio conforme</span></div>
+          <div data-fadeup><b>Avv. + Tech</b><span>Team multidisciplinare</span></div>
+        </div>
+        <p class="tr" data-fadeup>Maggiori dettagli nella pagina <a href="https://oblivio.legal/trasparenza">Trasparenza</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="para" aria-labelledby="h4-test">
+    <div class="wrap para-grid">
+      <div class="para-num" data-fadeup><span class="n">§ 4</span><span class="label">Testimonianze</span></div>
+      <div>
+        <div class="rule" data-rule></div>
+        <h2 id="h4-test" data-lines>Persone reali, risultati concreti</h2>
+        <p class="sub" data-fadeup>Ogni caso viene trattato con la massima riservatezza. Le testimonianze sono anonimizzate.</p>
+        <figure data-fadeup>
+          <blockquote><p class="q-main">Dopo l'archiviazione del procedimento, il mio nome continuava ad apparire nei primi risultati di Google. In tre mesi tutto è stato rimosso.</p></blockquote>
+          <figcaption class="cite"><b>M.R.</b>Imprenditore, Lombardia</figcaption>
+        </figure>
+        <div class="q-more">
+          <figure data-fadeup><blockquote><p>«Un articolo di cronaca raccontava una versione errata dei fatti. Il team ha gestito sia la rettifica che la deindicizzazione.»</p></blockquote><figcaption class="cite"><b>L.B.</b>Professionista, Toscana</figcaption></figure>
+          <figure data-fadeup><blockquote><p>«Pensavo non si potesse fare nulla. Mi hanno spiegato passo passo cosa era possibile e i risultati sono arrivati.»</p></blockquote><figcaption class="cite"><b>G.S.</b>Privato cittadino, Lazio</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close" aria-labelledby="h-close">
+    <div class="wrap">
+      <div class="cert" data-fadeup>
+        <span class="label">Valutazione gratuita · riservata · senza impegno</span>
+        <h2 id="h-close">Inizia oggi a difendere la tua reputazione</h2>
+        <p class="sub">Una valutazione gratuita, riservata e senza impegno. Ti rispondiamo entro 48 ore.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="https://oblivio.legal/valutazione">Valutazione gratuita <svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn-line" href="https://oblivio.legal/contatti">Contattaci</a>
+        </div>
+        <ul class="contacts">
+          <li><a href="tel:+390425090621"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg>Tel. 0425 090621</a></li>
+          <li><a href="mailto:info@bevolve.it"><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg>info@bevolve.it</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Oblivio, torna all'inizio"><img src="../assets/oblivio-logo-Ud0gr9mv.png" alt="Logo Oblivio" width="56" height="56"><span aria-hidden="true">Obliv<span class="io">io</span></span></a>
+        <p>Riprendi il controllo della tua identità digitale. Avvocati e informatici uniti per la tutela della tua reputazione online.</p>
+        <p>Servizio erogato da <strong>Evolve S.r.l.</strong></p>
+      </div>
+      <div><h3>Servizi</h3><ul>
+        <li><a href="https://oblivio.legal/rimozione-google">Rimozione da Google</a></li>
+        <li><a href="https://oblivio.legal/rimozione-social">Rimozione da social</a></li>
+        <li><a href="https://oblivio.legal/diffamazione-online">Diffamazione online</a></li>
+        <li><a href="https://oblivio.legal/diritto-oblio">Diritto all'oblio</a></li>
+        <li><a href="https://oblivio.legal/pacchetti">Pacchetti</a></li></ul></div>
+      <div><h3>Risorse</h3><ul>
+        <li><a href="https://oblivio.legal/faq">FAQ</a></li>
+        <li><a href="https://oblivio.legal/casi">Casi di successo</a></li>
+        <li><a href="https://oblivio.legal/guida">Guida PDF gratis</a></li>
+        <li><a href="https://oblivio.legal/blog">Blog</a></li>
+        <li><a href="https://oblivio.legal/trasparenza">Trasparenza</a></li>
+        <li><a href="https://oblivio.legal/brand">Brand kit</a></li></ul></div>
+      <div><h3>Azienda &amp; legale</h3><ul>
+        <li><a href="https://oblivio.legal/chi-siamo">Chi siamo</a></li>
+        <li><a href="https://oblivio.legal/contatti">Contatti</a></li>
+        <li><a href="https://oblivio.legal/privacy">Privacy Policy</a></li>
+        <li><a href="https://oblivio.legal/cookie">Cookie Policy</a></li>
+        <li><a href="https://oblivio.legal/termini">Termini di servizio</a></li></ul>
+        <ul class="addr" style="margin-top:20px">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-mail"/></svg><a href="mailto:info@bevolve.it">info@bevolve.it</a></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg><a href="tel:+390425090621">Tel. 0425 090621</a></li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg>Via L. Einaudi, 54 — 45100 Rovigo (RO)</li>
+        </ul></div>
+    </div>
+    <div class="legal">
+      <p>Evolve S.r.l. — Sede legale: Via L. Einaudi, 54 — 45100 Rovigo (RO) · P.IVA 04597090234 · Capitale sociale € 10.000 i.v. · Tel. 0425 090621 · info@bevolve.it</p>
+      <p>© 2026 Oblivio — Evolve S.r.l. Tutti i diritti riservati. Sito conforme GDPR — Reg. UE 2016/679. Le informazioni qui presenti non costituiscono consulenza legale.</p>
+    </div>
+  </div>
+</footer>
+<div class="concept"><div class="wrap"><span>Restyle concept · direzione 2 di 3 · Studio legale</span><span><a href="tokens.css">design system →</a> · <a href="../index.html">tutte le direzioni</a></span></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js"></script>
+<script>
+(function () {
+  var btn = document.querySelector('.menu-btn'), panel = document.getElementById('mnav');
+  function setMenu(open) { if (open) panel.style.top = Math.round(document.querySelector('.hdr').getBoundingClientRect().bottom) + 'px'; btn.setAttribute('aria-expanded', String(open)); btn.setAttribute('aria-label', open ? 'Chiudi il menu' : 'Apri il menu'); panel.hidden = !open; document.body.style.overflow = open ? 'hidden' : ''; }
+  btn.addEventListener('click', function () { setMenu(btn.getAttribute('aria-expanded') !== 'true'); });
+  panel.addEventListener('click', function (e) { if (e.target.closest('a')) setMenu(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !panel.hidden) { setMenu(false); btn.focus(); } });
+
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce || !window.gsap || !window.ScrollTrigger || !window.SplitText) { document.documentElement.classList.remove('anim'); return; }
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  function init() {
+    window.__animReady = true;
+    gsap.set('[data-hero]', { visibility: 'visible' });
+    var ease = 'sine.out';
+    // Hero: righe che affiorano lente, come inchiostro sulla carta
+    SplitText.create('[data-h1]', { type: 'lines', autoSplit: true, onSplit: function (self) {
+      return gsap.from(self.lines, { opacity: 0, y: 10, duration: 1.4, stagger: 0.22, ease: ease });
+    } });
+    gsap.timeline({ defaults: { ease: ease } })
+      .from('.runhead', { opacity: 0, duration: 1.2 }, 0)
+      .from('.hero [data-fade]:not(.runhead)', { opacity: 0, y: 10, duration: 1.3, stagger: 0.15 }, 0.5)
+      .from('[data-file]', { opacity: 0, y: 14, duration: 1.4 }, 0.3)
+      .from('[data-seal]', { opacity: 0, scale: 1.25, rotation: -30, duration: 1.1, ease: 'power2.out' }, 1.1);
+    // Timbro: rotazione lentissima legata allo scroll
+    gsap.to('[data-seal-ring]', { rotation: 50, svgOrigin: '80 80', ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.5 } });
+
+    // Filetti che si tracciano, titoli per righe, blocchi in dissolvenza lenta
+    gsap.utils.toArray('[data-rule]').forEach(function (el) {
+      gsap.from(el, { scaleX: 0, duration: 1.6, ease: 'power2.inOut', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
+    });
+    gsap.utils.toArray('[data-lines]').forEach(function (el) {
+      SplitText.create(el, { type: 'lines', autoSplit: true, onSplit: function (self) {
+        return gsap.from(self.lines, { opacity: 0, y: 12, duration: 1.3, stagger: 0.18, ease: ease, scrollTrigger: { trigger: el, start: 'top 86%', once: true } });
+      } });
+    });
+    gsap.utils.toArray('[data-fadeup]').forEach(function (el) {
+      gsap.from(el, { opacity: 0, y: 14, duration: 1.3, ease: ease, scrollTrigger: { trigger: el, start: 'top 90%', once: true } });
+    });
+  }
+  document.fonts.ready.then(init);
+})();
+</script>
+</body>
+</html>

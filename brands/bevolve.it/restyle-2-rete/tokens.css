@@ -1,0 +1,76 @@
+/* Evolve — Restyle 2 "La rete": design tokens */
+:root {
+  /* Colori — fondi notturni derivati dal navy del brand */
+  --c-night: #050A18;        /* fondo pagina */
+  --c-night-2: #0A1430;      /* fasce alternate */
+  --c-surface: #0E1A3D;      /* card e nodi */
+  --c-navy: #11338A;         /* navy storico del brand: superfici attive */
+
+  /* Colori — testo su scuro */
+  --c-text: #EAF0FF;         /* 17.3:1 su night */
+  --c-muted: #A9B6D6;        /* 9.7:1 su night, 8.4:1 su surface */
+  --c-dim: #8B95A8;          /* solo etichette mono, 6.55:1 su night */
+
+  /* Colori — segnale: il blu elettrico delle connessioni e delle CTA */
+  --c-signal: #6E9BFF;       /* testo night su signal 7.33:1 */
+  --c-signal-ink: #050A18;
+  --c-signal-hover: #8FB2FF;  /* testo night su hover 9.4:1 */
+
+  /* Colori — linee di rete e bordi */
+  --c-wire: rgba(110, 155, 255, 0.55);
+  --c-wire-dim: rgba(110, 155, 255, 0.22);
+  --c-border: rgba(169, 182, 214, 0.18);
+
+  /* Tipografia — famiglie: Space Grotesk per titoli e testo, IBM Plex Mono per dati e nodi */
+  --f-sans: "Space Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  /* Tipografia — scala */
+  --t-hero: clamp(2.125rem, 1.3rem + 2.6vw, 3.75rem);
+  --t-xxl: clamp(2rem, 1.3rem + 3vw, 4rem);
+  --t-xl: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  --t-l: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  --t-body: 1rem;
+  --t-s: 0.875rem;
+  --t-xs: 0.75rem;
+
+  /* Tipografia — pesi, interlinea, tracking */
+  --w-regular: 400;
+  --w-medium: 500;
+  --w-bold: 600;
+  --lh-tight: 1.02;
+  --lh-snug: 1.2;
+  --lh-body: 1.6;
+  --ls-title: -0.035em;
+  --ls-mono: 0.08em;
+
+  /* Spaziatura — base 8px */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-5: 3rem;
+  --s-6: 4.5rem;
+  --s-7: 7rem;
+
+  /* Layout */
+  --max: 1280px;
+  --gutter: 16px;
+
+  /* Forme — angoli tecnici, CTA a capsula stretta */
+  --r-s: 6px;
+  --r-m: 14px;
+  --r-pill: 999px;
+
+  /* Ombre — elevazione neutra, il segnale si esprime con il bordo, non con aloni */
+  --lift: 0 12px 32px -16px rgba(0, 0, 0, 0.7);
+
+  /* Movimento */
+  --e-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --d-fast: 160ms;
+  --d-base: 380ms;
+
+  /* Focus */
+  --focus: 0 0 0 2px #050A18, 0 0 0 4px #6E9BFF;
+}
+@media (min-width: 768px) { :root { --gutter: 32px; } }
