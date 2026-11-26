@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { Link, resolveRoute, useRoutePath } from "@/router";
 import { getSiteBySlug } from "@/data/sites";
-import { HomePage } from "@/pages/HomePage";
 import { LiveSitePreviewPage } from "@/pages/LiveSitePreviewPage";
 
 export function App() {
@@ -11,10 +10,6 @@ export function App() {
   useEffect(() => {
     window.scrollTo({ top: 0 });
   }, [path]);
-
-  if (route.kind === "home") {
-    return <HomePage />;
-  }
 
   if (route.kind === "not-found") {
     return <NotFound path={path} />;
@@ -39,13 +34,13 @@ function NotFound({ path }: { path: string }) {
         Nothing lives at <span className="font-mono text-2xl">{path}</span>
       </h1>
       <p className="max-w-md text-sm text-muted-foreground">
-        Pick one of the five websites from the overview to open it.
+        Open PrivacyMasters to access the five websites.
       </p>
       <Link
         to="/"
         className="mt-2 inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
       >
-        Back to sites
+        Open PrivacyMasters
       </Link>
     </div>
   );

@@ -1,7 +1,7 @@
 /**
  * Tiny hash-based router.
  *
- * Routes live in the URL hash (`#/site/medicleo`) so the built app also works
+ * Routes live in the URL hash (`#/preview/medicleo`) so the built app also works
  * when opened straight from the file system or served from any static host
  * without rewrite rules.
  *
@@ -48,8 +48,6 @@ export function useRoutePath(): string {
 }
 
 export type ResolvedRoute =
-  | { kind: "home" }
-  | { kind: "dossier"; slug: string }
   | { kind: "preview"; slug: string }
   | { kind: "not-found"; path: string };
 
@@ -57,16 +55,13 @@ export function resolveRoute(path: string): ResolvedRoute {
   const segments = path.split("/").filter(Boolean);
 
   if (segments.length === 0) {
-    return { kind: "home" };
+    return { kind: "preview", slug: "privacymasters" };
   }
 
   const [section, slug] = segments;
 
-  if (section === "site" && slug) {
-    return { kind: "dossier", slug };
-  }
-
-  if (section === "preview" && slug) {
+  // Older dossier links open the corresponding site.
+  if ((section === "preview" || section === "site") && slug) {
     return { kind: "preview", slug };
   }
 
