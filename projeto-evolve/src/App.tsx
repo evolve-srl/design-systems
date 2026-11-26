@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { Link, resolveRoute, useRoutePath } from "@/router";
 import { getSiteBySlug } from "@/data/sites";
 import { HomePage } from "@/pages/HomePage";
-import { SiteDossierPage } from "@/pages/SiteDossierPage";
 import { LiveSitePreviewPage } from "@/pages/LiveSitePreviewPage";
 
 export function App() {
@@ -27,11 +26,7 @@ export function App() {
     return <NotFound path={path} />;
   }
 
-  return route.kind === "dossier" ? (
-    <SiteDossierPage site={site} />
-  ) : (
-    <LiveSitePreviewPage site={site} />
-  );
+  return <LiveSitePreviewPage site={site} />;
 }
 
 function NotFound({ path }: { path: string }) {
@@ -44,14 +39,13 @@ function NotFound({ path }: { path: string }) {
         Nothing lives at <span className="font-mono text-2xl">{path}</span>
       </h1>
       <p className="max-w-md text-sm text-muted-foreground">
-        Pick one of the five websites from the overview to open its Phase 1 dossier or its live
-        restyled prototype.
+        Pick one of the five websites from the overview to open it.
       </p>
       <Link
         to="/"
         className="mt-2 inline-flex items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
       >
-        Back to 5-Site Overview
+        Back to sites
       </Link>
     </div>
   );
