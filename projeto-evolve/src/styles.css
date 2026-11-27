@@ -209,3 +209,9 @@
     display: none !important;
   }
 }
+
+/* Keep section titles visible below the sticky site navigation. */
+main[id$="-main"],
+main[id$="-main"] [id] {
+  scroll-margin-top: 6rem;
+}

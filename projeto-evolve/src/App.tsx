@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, resolveRoute, useRoutePath } from "@/router";
+import { Link, pathFromHash, resolveRoute, useRoutePath } from "@/router";
 import { getSiteBySlug } from "@/data/sites";
 import { LiveSitePreviewPage } from "@/pages/LiveSitePreviewPage";
 
@@ -8,7 +8,14 @@ export function App() {
   const route = resolveRoute(path);
 
   useEffect(() => {
-    window.scrollTo({ top: 0 });
+    const { hash } = window.location;
+    const anchor = hash && !pathFromHash(hash) ? document.getElementById(hash.slice(1)) : null;
+
+    if (anchor) {
+      anchor.scrollIntoView();
+    } else {
+      window.scrollTo({ top: 0 });
+    }
   }, [path]);
 
   if (route.kind === "not-found") {

@@ -7,7 +7,7 @@
  *
  * Hashes that do not start with `/` (for example `#mc-contatti`) are in-page
  * anchor jumps inside a live site: the browser scrolls natively and the router
- * keeps the current route untouched.
+ * resolves the site from the anchor prefix, including on refresh and back/forward.
  */
 import { useEffect, useState, type AnchorHTMLAttributes, type ReactNode } from "react";
 
@@ -28,18 +28,28 @@ export function pathFromHash(hash: string): string | undefined {
   return raw.startsWith("/") ? raw : undefined;
 }
 
-function initialPath(): string {
-  return pathFromHash(window.location.hash) ?? "/";
+const siteByAnchorPrefix: Record<string, string> = {
+  pm: "privacymasters",
+  ev: "bevolve",
+  ta: "tuttoaltopiano",
+  ob: "oblivio",
+  mc: "medicleo",
+};
+
+export function sitePathFromHash(hash: string): string {
+  const route = pathFromHash(hash);
+  if (route) return route;
+
+  const prefix = /^#([a-z]+)-/.exec(hash)?.[1];
+  const slug = prefix && siteByAnchorPrefix[prefix];
+  return slug ? `/preview/${slug}` : "/";
 }
 
 export function useRoutePath(): string {
-  const [path, setPath] = useState<string>(initialPath);
+  const [path, setPath] = useState(() => sitePathFromHash(window.location.hash));
 
   useEffect(() => {
-    const onHashChange = () => {
-      const next = pathFromHash(window.location.hash);
-      if (next) setPath(next);
-    };
+    const onHashChange = () => setPath(sitePathFromHash(window.location.hash));
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);

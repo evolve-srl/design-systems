@@ -52,14 +52,17 @@ const FAQS = [
 export function MedicleoSite() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cookieSignal, setCookieSignal] = useState(0);
-  const [submitted, setSubmitted] = useState(false);
+  const [emailOpened, setEmailOpened] = useState(false);
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
 
   function handleDemoSubmit(e: FormEvent) {
     e.preventDefault();
     if (!name.trim() || !contact.trim()) return;
-    setSubmitted(true);
+    const subject = encodeURIComponent("Richiesta demo Medicleo");
+    const body = encodeURIComponent(`Buongiorno, vorrei richiedere una demo.\n\nNome / Ente: ${name.trim()}\nRecapito: ${contact.trim()}`);
+    window.location.href = `mailto:info@medicleo.com?subject=${subject}&body=${body}`;
+    setEmailOpened(true);
   }
 
   return (
@@ -328,63 +331,60 @@ export function MedicleoSite() {
               </ul>
               <div className="mt-6 font-mono text-xs space-y-1" style={{ color: "rgba(238,247,250,0.78)" }}>
                 <p>Via L. Einaudi 54 – 45100 Rovigo (RO) · Evolve S.r.l. P.IVA 04597090234</p>
-                <p>info@medicleo.com · Tel. 0425 090621</p>
+                <p>
+                  <a className="underline" href="mailto:info@medicleo.com">info@medicleo.com</a>
+                  {" · "}
+                  <a className="underline" href="tel:+390425090621">Tel. 0425 090621</a>
+                </p>
               </div>
             </div>
 
             <div className="rounded-xl p-6 lg:col-span-6" style={{ backgroundColor: "#FFFFFF", color: "#0D2131" }}>
-              {submitted ? (
-                <div className="py-6">
-                  <p className="font-mono text-xs uppercase" style={{ color: "#007373" }}>
-                    Richiesta demo registrata (anteprima locale)
-                  </p>
-                  <h3 className="mt-2 font-editorial text-2xl font-medium">
-                    Grazie {name}, ti contatteremo al più presto.
-                  </h3>
-                  <p className="mt-2 text-sm" style={{ color: "#4C5D6A" }}>
-                    Per assistenza immediata chiama il 0425 090621 o scrivi a info@medicleo.com.
-                  </p>
+              <form onSubmit={handleDemoSubmit} className="space-y-4">
+                <h3 className="font-editorial text-2xl font-medium">Richiedi una demo</h3>
+                <div>
+                  <label htmlFor="mc-name" className="block text-xs font-semibold">
+                    Nome e cognome / Ente
+                  </label>
+                  <input
+                    id="mc-name"
+                    required
+                    pattern={".*\\S.*"}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="Es. Maria Rossi"
+                    className="mt-1 w-full rounded border px-3 py-2 text-sm"
+                    style={{ borderColor: "#D7E4E9" }}
+                  />
                 </div>
-              ) : (
-                <form onSubmit={handleDemoSubmit} className="space-y-4">
-                  <h3 className="font-editorial text-2xl font-medium">Richiedi una demo</h3>
-                  <div>
-                    <label htmlFor="mc-name" className="block text-xs font-semibold">
-                      Nome e cognome / Ente
-                    </label>
-                    <input
-                      id="mc-name"
-                      required
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                      placeholder="Es. Maria Rossi"
-                      className="mt-1 w-full rounded border px-3 py-2 text-sm"
-                      style={{ borderColor: "#D7E4E9" }}
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="mc-contact" className="block text-xs font-semibold">
-                      Email o telefono
-                    </label>
-                    <input
-                      id="mc-contact"
-                      required
-                      value={contact}
-                      onChange={(e) => setContact(e.target.value)}
-                      placeholder="Es. maria@esempio.it o 333 0000000"
-                      className="mt-1 w-full rounded border px-3 py-2 text-sm"
-                      style={{ borderColor: "#D7E4E9" }}
-                    />
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full rounded px-4 py-2.5 text-sm font-semibold"
-                    style={{ backgroundColor: "#DF0E5D", color: "#FFFFFF" }}
-                  >
-                    Invia richiesta demo
-                  </button>
-                </form>
-              )}
+                <div>
+                  <label htmlFor="mc-contact" className="block text-xs font-semibold">
+                    Email o telefono
+                  </label>
+                  <input
+                    id="mc-contact"
+                    required
+                    pattern={".*\\S.*"}
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
+                    placeholder="Es. maria@esempio.it o 333 0000000"
+                    className="mt-1 w-full rounded border px-3 py-2 text-sm"
+                    style={{ borderColor: "#D7E4E9" }}
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full rounded px-4 py-2.5 text-sm font-semibold"
+                  style={{ backgroundColor: "#DF0E5D", color: "#FFFFFF" }}
+                >
+                  Apri email per richiedere una demo
+                </button>
+                {emailOpened && (
+                  <p role="status" className="text-sm">
+                    Invia la bozza dalla tua app di posta. Se non si apre, scrivi a info@medicleo.com.
+                  </p>
+                )}
+              </form>
             </div>
           </div>
         </section>
