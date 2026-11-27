@@ -30,8 +30,7 @@ Check-up gratuito  [link → /check-up]
 ---
 <!-- section -->
 Difesa integrata 360°  [span]
-# Protezione totale. Zero compromessi.
-Cybersecurity, privacy, investigazione e sicurezza fisica. Un unico team operativo — avvocati, ethical hacker, investigatori e ingegneri — per difendere aziende e persone in conformità a GDPR, NIS2, DORA e AI Act.
+# Cybersecurity, privacy, investigazione e sicurezza fisica. Un unico team operativo — avvocati, ethical hacker, investigatori e ingegneri — per difendere aziende e persone in conformità a GDPR, NIS2, DORA e AI Act.
 Richiedi check-up gratuito  [link → /check-up]
 Parla con un esperto  [link → /contatti]
 AREE INTEGRATE

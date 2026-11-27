@@ -1,0 +1,14 @@
+[data-scroll-reveal][data-reveal-ready="true"] {
+  opacity: 0;
+  transform: translateY(var(--reveal-distance));
+  filter: blur(var(--reveal-blur));
+  transition:
+    opacity var(--reveal-duration) ease var(--reveal-delay),
+    transform var(--reveal-duration) cubic-bezier(.22,1,.36,1) var(--reveal-delay),
+    filter var(--reveal-duration) ease var(--reveal-delay);
+}
+[data-scroll-reveal][data-reveal-visible="true"] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
