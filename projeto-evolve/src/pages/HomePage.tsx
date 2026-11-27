@@ -1,6 +1,9 @@
 import { Link, useDocumentTitle } from "@/router";
 import { MonitorPlay } from "lucide-react";
+import { motion } from "motion/react";
 import { ALL_SITES } from "@/data/sites";
+
+const MotionLink = motion.create(Link);
 
 export function HomePage() {
   useDocumentTitle("Evolve S.r.l. — Sites");
@@ -8,14 +11,29 @@ export function HomePage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
-        <h1 className="font-editorial text-4xl font-medium tracking-tight">Evolve S.r.l.</h1>
-        <div className="mt-8 divide-y divide-border rounded-md border border-border bg-card">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="font-editorial text-4xl font-medium tracking-tight"
+        >
+          Evolve S.r.l.
+        </motion.h1>
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1, delayChildren: 0.3 } } }}
+          className="mt-8 flex flex-col gap-3"
+        >
           {ALL_SITES.map((site) => (
-            <Link
+            <MotionLink
               key={site.slug}
               to="/preview/$slug"
               params={{ slug: site.slug }}
-              className="flex items-center justify-between gap-4 p-5 transition-colors hover:bg-secondary"
+              variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0 } }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center justify-between gap-4 rounded-md border border-border bg-card p-5 transition-colors hover:bg-secondary"
             >
               <div className="flex items-center gap-3">
                 <span
@@ -32,9 +50,9 @@ export function HomePage() {
                 <MonitorPlay className="h-3.5 w-3.5" />
                 Abrir site
               </span>
-            </Link>
+            </MotionLink>
           ))}
-        </div>
+        </motion.div>
       </main>
     </div>
   );
